@@ -44,7 +44,7 @@ class Home extends Component {
 					</ui5-card>
 
 					<ui5-card
-						heading="1,4 M"
+						heading="1.4 M $"
 						subtitle="Q3 revenue"
 						class="ui5card">
 					</ui5-card>
