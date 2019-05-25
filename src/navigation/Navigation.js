@@ -7,9 +7,11 @@ class Navigation extends Component {
 	}
 
 	componentDidMount() {
-		this.nav.current.addEventListener("itemSelect", this.onTabSelected.bind(this));
-		const tabToSelect = [...this.nav.current.children].filter(tab => tab.getAttribute("data-key") === this.props.history.location.pathname);
-		tabToSelect[0].selected = true;
+		const tabContainer = this.nav.current;
+		const tabs = [...tabContainer.children];
+		tabContainer.addEventListener("itemSelect", this.onTabSelected.bind(this));
+		const tabToSelect = tabs.filter(tab => tab.getAttribute("data-key") === this.props.history.location.pathname);
+		(tabToSelect[0] || tabs[0]).selected = true;
 	}
 
 	onTabSelected(event){
