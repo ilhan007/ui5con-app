@@ -1,14 +1,26 @@
+html, body, .root {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
 .content {
+	text-align: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.section {
+	padding: 1rem 0;
+}
+
+.section, .searchBar {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.content, .searchBar {
-	padding: 1rem
-}
-
-.ui5card {
+.ui5card, .ui5input, .ui5datepicker {
 	min-width: 300px;
 	max-width: 30%;
 	margin: 0.25rem;
