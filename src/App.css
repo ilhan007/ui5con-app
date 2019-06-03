@@ -4,6 +4,10 @@ html, body, .root {
 	margin: 0;
 }
 
+.full-width {
+	width: 100%;
+}
+
 .content {
 	text-align: center;
 	padding-left: 1rem;

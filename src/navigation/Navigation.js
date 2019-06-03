@@ -3,14 +3,26 @@ import React, { Component } from "react";
 class Navigation extends Component {
 	constructor (props) {
 		super(props);
+
 		this.nav = React.createRef();
+		this._onTabSelected = this.onTabSelected.bind(this);
 	}
 
 	componentDidMount() {
 		const tabContainer = this.nav.current;
+
+		tabContainer.removeEventListener("itemSelect", this._onTabSelected);
+		tabContainer.addEventListener("itemSelect", this._onTabSelected);
+
 		const tabs = [...tabContainer.children];
-		tabContainer.addEventListener("itemSelect", this.onTabSelected.bind(this));
-		const tabToSelect = tabs.filter(tab => tab.getAttribute("data-key") === this.props.history.location.pathname);
+		
+		if (!tabs.length) {
+			return;
+		}
+		
+		const urlPath = this.props.history.location.pathname
+		const tabToSelect = tabs.filter(tab => tab.getAttribute("data-key") === urlPath);
+
 		(tabToSelect[0] || tabs[0]).selected = true;
 	}
 
