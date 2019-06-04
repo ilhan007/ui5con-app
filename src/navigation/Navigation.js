@@ -14,13 +14,13 @@ class Navigation extends Component {
 				{
 					key: "hm",
 					name: "Home",
-					path: "/home",
+					path: "/home/stats",
 					selected: true,
 				},
 				{
 					key: "prd",
 					name: "Products",
-					path: "/products",
+					path: "/home/products",
 					selected: false,
 				}
 			]

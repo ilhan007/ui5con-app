@@ -2,6 +2,20 @@ import React, { Component } from "react";
 
 class Home extends Component {
 
+	constructor (props) {
+		super(props);
+		this.card = React.createRef();
+		this._navToDetail = this.navToDetail.bind(this);
+	}
+
+	componentDidMount() {
+		this.card.current.addEventListener("headerPress", this._navToDetail);
+	}
+
+	navToDetail() {
+		this.props.history.push("/detail");
+	}
+
 	render(){
 		return(
 			<div className="content">
@@ -22,6 +36,7 @@ class Home extends Component {
 				<ui5-title>Overview</ui5-title>
 				<section className="section">
 					<ui5-card
+						ref={this.card}
 						heading="9,894"
 						subtitle="members online"
 						class="ui5card">
