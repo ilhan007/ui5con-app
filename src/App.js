@@ -11,18 +11,13 @@ import Products from "./products/Products";
 function App() {
   return (
 	<div className="App">
-		<ui5-shellbar
-			primary-title="Dashboard"
-			show-notifications
-			notification-count="12"
-			profile={profile}>
-		</ui5-shellbar>
+		<ui5-shellbar primary-title="Dashboard" show-notifications notification-count="12" profile={profile}></ui5-shellbar>
 
 		<Route path='/' component={Navigation}/>
 
 		<Switch>
 			<Route path='/home' component={Home}/>
-			<Route exact path='/products' component={Products}/>
+			<Route path='/products' component={Products}/>
 			<Redirect from="/" to="home" />
 		</Switch>
 	</div>

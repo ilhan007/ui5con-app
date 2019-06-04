@@ -35,6 +35,7 @@ html, body, .root {
 	color: #0a6ed1;
 	cursor: pointer;
 }
+
 .ui5inputIcon:hover{
 	background: rgba(224,224,224,0.5)
 }

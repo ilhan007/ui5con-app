@@ -4,40 +4,68 @@ class Navigation extends Component {
 	constructor (props) {
 		super(props);
 
-		this.nav = React.createRef();
-		this._onTabSelected = this.onTabSelected.bind(this);
+		this._onTabSelected = this.onTabSelected.bind(this)
+
+		this.state = {
+			tabs: [
+				{
+					key: "hm",
+					name: "Home",
+					path: "/home",
+					selected: true,
+				},
+				{
+					key: "prd",
+					name: "Products",
+					path: "/products",
+					selected: false,
+				}
+			]
+		}
 	}
 
-	componentDidMount() {
-		const tabContainer = this.nav.current;
-
-		tabContainer.removeEventListener("itemSelect", this._onTabSelected);
-		tabContainer.addEventListener("itemSelect", this._onTabSelected);
-
-		const tabs = [...tabContainer.children];
-		
-		if (!tabs.length) {
-			return;
-		}
-		
-		const urlPath = this.props.history.location.pathname
-		const tabToSelect = tabs.filter(tab => tab.getAttribute("data-key") === urlPath);
-
-		(tabToSelect[0] || tabs[0]).selected = true;
+	componentWillMount() {
+		this.updateTabSelectionState();
 	}
 
 	onTabSelected(event){
-		const selectedItem = event.detail.item;
-		this.props.history.push(selectedItem.getAttribute("data-key"));
+		this.props.history.push(event.detail.item.getAttribute("data-key"));
+	}
+
+	updateTabSelectionState() {
+		const urlPath = this.props.history.location.pathname;
+
+		this.state.tabs = [...this.state.tabs.map((tab) => {
+			return Object.assign({}, tab, {selected: urlPath === tab.path})
+		})];
 	}
 
 	render() {
 		return(
-			<ui5-tabcontainer ref={this.nav} collapsed fixed show-overflow>
-				<ui5-tab data-key="/home" text="Home">
-				</ui5-tab>
-				<ui5-tab data-key="/products" text="Products">
-				</ui5-tab>
+			<NavigationBar tabs={this.state.tabs} onTabSelected={this._onTabSelected}/>
+		);
+	}
+}
+
+const NavigationTab = ({tab}) => {
+	return (<ui5-tab text={tab.name} selected={tab.selected ? "true" : undefined} data-key={tab.path}></ui5-tab>);
+}
+
+class NavigationBar extends Component {
+
+	constructor (props) {
+		super(props);
+		this.navBar = React.createRef();
+	}
+
+	componentDidMount() {
+		this.navBar.current.addEventListener("itemSelect", this.props.onTabSelected);
+	}
+
+	render() {
+		return (
+			<ui5-tabcontainer ref={this.navBar} collapsed fixed show-overflow>
+				{this.props.tabs.map((tab) => <NavigationTab key={tab.key} tab={tab}/>)}
 			</ui5-tabcontainer>
 		);
 	}
