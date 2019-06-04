@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import "@ui5/webcomponents/dist/TabContainer";
+import "@ui5/webcomponents/dist/Tab";
+
 class Navigation extends Component {
 	constructor (props) {
 		super(props);
@@ -24,20 +27,14 @@ class Navigation extends Component {
 		}
 	}
 
-	componentWillMount() {
-		this.updateTabSelectionState();
+	static getDerivedStateFromProps(props, state) {
+		const urlPath = props.history.location.pathname;
+		const tabs = state.tabs.map(tab => Object.assign({}, tab, {selected: urlPath === tab.path}));
+		return {tabs: tabs};
 	}
 
 	onTabSelected(event){
 		this.props.history.push(event.detail.item.getAttribute("data-key"));
-	}
-
-	updateTabSelectionState() {
-		const urlPath = this.props.history.location.pathname;
-
-		this.state.tabs = [...this.state.tabs.map((tab) => {
-			return Object.assign({}, tab, {selected: urlPath === tab.path})
-		})];
 	}
 
 	render() {
@@ -45,10 +42,6 @@ class Navigation extends Component {
 			<NavigationBar tabs={this.state.tabs} onTabSelected={this._onTabSelected}/>
 		);
 	}
-}
-
-const NavigationTab = ({tab}) => {
-	return (<ui5-tab text={tab.name} selected={tab.selected ? "true" : undefined} data-key={tab.path}></ui5-tab>);
 }
 
 class NavigationBar extends Component {
@@ -69,6 +62,10 @@ class NavigationBar extends Component {
 			</ui5-tabcontainer>
 		);
 	}
+}
+
+const NavigationTab = ({tab}) => {
+	return (<ui5-tab text={tab.name} selected={tab.selected ? "true" : undefined} data-key={tab.path}></ui5-tab>);
 }
 
 export default Navigation;

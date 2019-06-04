@@ -1,15 +1,5 @@
 import React, { Component } from "react";
 
-import "@ui5/webcomponents/dist/Title";
-import "@ui5/webcomponents/dist/Card";
-import "@ui5/webcomponents/dist/List";
-import "@ui5/webcomponents/dist/StandardListItem";
-import "@ui5/webcomponents/dist/TabContainer";
-import "@ui5/webcomponents/dist/Tab";
-import "@ui5/webcomponents/dist/Input";
-import "@ui5/webcomponents/dist/DatePicker";
-import "@ui5/webcomponents/dist/Timeline";
-
 class Home extends Component {
 
 	render(){

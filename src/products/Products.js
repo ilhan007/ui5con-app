@@ -1,21 +1,43 @@
 import React, { Component } from "react";
-import "@ui5/webcomponents/dist/List";
-import "@ui5/webcomponents/dist/StandardListItem";
+
+const API_URL = '//5cf6a60946583900149cba98.mockapi.io/prod';
 
 class Products extends Component {
+
+	constructor (props) {
+		super(props);
+
+		this.state = {products: []};
+	}
+
+	async componentDidMount() {
+		const products = await this.fetchProducts();
+		this.setState({products});
+	}
+
+	async fetchProducts() {
+		return (await fetch(`${API_URL}/products`)).json();
+	}
 
 	render(){
 		return(
 			<section className="section">
-				<ui5-list id="myList" class="full-width">
-					<ui5-li icon="sap-icon://nutrition-activity" description="Tropical plant with an edible fruit">Pineapple</ui5-li>
-					<ui5-li icon="sap-icon://nutrition-activity" description="Occurs between red and yellow">Orange</ui5-li>
-					<ui5-li icon="sap-icon://nutrition-activity" description="The yellow lengthy fruit">Banana</ui5-li>
-					<ui5-li icon="sap-icon://nutrition-activity" description="The tropical stone fruit">Mango</ui5-li>
-				</ui5-list>
+				<ProductList products={this.state.products}/>
 			</section>
 		);
 	}
+}
+
+const ProductList = ({products}) => {
+	return(
+		<ui5-list class="full-width">
+			{products.map((product) => <Product key={product.createdAt} product={product}/>)}
+		</ui5-list>
+	);
+}
+
+const Product = ({product}) => {
+	return <ui5-li image={product.avatar} description={product.createdAt}>{product.name}</ui5-li>;
 }
 
 export default Products;
