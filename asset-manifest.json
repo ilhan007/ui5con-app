@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ui5con-app/static/css/main.10e9899b.chunk.css",
-    "main.js": "/ui5con-app/static/js/main.52513b55.chunk.js",
-    "main.js.map": "/ui5con-app/static/js/main.52513b55.chunk.js.map",
+    "main.css": "/ui5con-app/static/css/main.73143efc.chunk.css",
+    "main.js": "/ui5con-app/static/js/main.aad316be.chunk.js",
+    "main.js.map": "/ui5con-app/static/js/main.aad316be.chunk.js.map",
     "runtime~main.js": "/ui5con-app/static/js/runtime~main.9177625a.js",
     "runtime~main.js.map": "/ui5con-app/static/js/runtime~main.9177625a.js.map",
-    "static/js/2.f01df657.chunk.js": "/ui5con-app/static/js/2.f01df657.chunk.js",
-    "static/js/2.f01df657.chunk.js.map": "/ui5con-app/static/js/2.f01df657.chunk.js.map",
+    "static/js/2.d92ea997.chunk.js": "/ui5con-app/static/js/2.d92ea997.chunk.js",
+    "static/js/2.d92ea997.chunk.js.map": "/ui5con-app/static/js/2.d92ea997.chunk.js.map",
     "index.html": "/ui5con-app/index.html",
-    "precache-manifest.e234655252d3157bb2dc2ca8f4a3b433.js": "/ui5con-app/precache-manifest.e234655252d3157bb2dc2ca8f4a3b433.js",
+    "precache-manifest.f23b2cfcde96833a5b7df7c3901956a9.js": "/ui5con-app/precache-manifest.f23b2cfcde96833a5b7df7c3901956a9.js",
     "service-worker.js": "/ui5con-app/service-worker.js",
-    "static/css/main.10e9899b.chunk.css.map": "/ui5con-app/static/css/main.10e9899b.chunk.css.map",
+    "static/css/main.73143efc.chunk.css.map": "/ui5con-app/static/css/main.73143efc.chunk.css.map",
     "static/media/logo.png": "/ui5con-app/static/media/logo.60a8874b.png",
     "static/media/profile.png": "/ui5con-app/static/media/profile.c5319308.png"
   }
