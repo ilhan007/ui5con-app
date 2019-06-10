@@ -7,6 +7,7 @@ html, body, .root {
 .App {
 	background: #fafafa;
 }
+
 .App.hcb {
 	background: #000;
 }
@@ -20,13 +21,10 @@ html, body, .root {
 }
 
 .section {
-	padding: 1rem 0;
-}
-
-.section {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	padding: 1rem 0;
 }
 
 .ui5card {
@@ -38,10 +36,35 @@ html, body, .root {
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+.ui5card-small {
+	width: 15rem;
+	min-width: 15rem;
+}
+
+.ui5card-large {
+	max-width: 33%;
+}
+
 .card-content {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+}
+
+.card--action-content {
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card--action-icon {
+	margin: 0 0.5rem;
+}
+
+.ui5icon-size,
+.ui5label-size {
+	font-size: 1.5rem;
 }
 
 .ui5inputIcon {
@@ -58,6 +81,10 @@ html, body, .root {
 	font-size: 2.5rem;
 	--sapUiContentNonInteractiveIconColor: #1a9898;
 }
+
+
+
+
 /* Profile */
 .profile-header {
 	display: flex;
@@ -84,4 +111,12 @@ html, body, .root {
 	justify-content: center;
 	align-items: center;
 	justify-content: space-around;	
+}
+
+/* Semantic colors */
+.normal {
+	color: #0a6ed1;
+}
+.critical {
+	color: #e9730c;
 }

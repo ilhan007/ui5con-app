@@ -1,0 +1,89 @@
+{
+	"featured": [
+		{
+			"heading": "Inventory",
+			"status": "3 of 22",
+			"subtitle": "28 Jun 2019",
+			"items": [
+				{
+					"title": "Soap Bars",
+					"description": "1579340",
+					"icon": "sap-icon://product"
+				},
+				{
+					"title": "Lettuce",
+					"description": "1579441",
+					"icon": "sap-icon://product"
+				},
+				{
+					"title": "Broccoli",
+					"description": "1579542",
+					"icon": "sap-icon://product"
+				}
+			]
+		},
+		{
+			"heading": "Security",
+			"status": "3 of 3",
+			"subtitle": "Cameras",
+			"items": [
+				{
+					"title": "Parking A",
+					"description": "#36",
+					"icon": "sap-icon://video"
+				},
+				{
+					"title": "Deli Department 1",
+					"description": "#41",
+					"icon": "sap-icon://video"
+				},
+				{
+					"title": "Warehouse B",
+					"description": "#75",
+					"icon": "sap-icon://video"
+				}
+			]
+		}
+	],
+	"actions": [
+		{
+			"title": "Fridge #37",
+			"subtitle": "Temperature too low"
+		},
+		{
+			"heading": "Room A",
+			"subtitle": "Temperature high"
+		},
+		{
+			"heading": "Entrance Lamp",
+			"subtitle": "Maintenance Overdue"
+		}
+	],
+	"actions2": [
+		{
+			"title": "Smart Store 1",
+			"subtitle": "today",
+			"status": "3 of 6",
+			"cells": [
+				{
+					"product": "Soap Bars",
+					"location": "Aisle 23, Section 21",
+					"price": "5.49 USD",
+					"status": "Re-stock"
+				},
+				{
+					"product": "Lettuce",
+					"location": "Aisle 23, Section 23",
+					"price": "6.79 USD",
+					"status": "Re-stock"
+				},
+				{
+					"product": "Broccoli",
+					"location": "Aisle 21, Section 5",
+					"price": "2.99 USD",
+					"status": "Deteriorating"
+				}
+			]
+		}
+	]
+}

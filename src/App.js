@@ -16,6 +16,7 @@ import "@ui5/webcomponents/dist/Tab";
 import "@ui5/webcomponents/dist/TabContainer";
 import "@ui5/webcomponents/dist/Timeline";
 import "@ui5/webcomponents/dist/Title";
+import "@ui5/webcomponents/dist/Table";
 import { setTheme } from "@ui5/webcomponents-base/Theming";
 
 import Navigation from "./navigation/Navigation";
