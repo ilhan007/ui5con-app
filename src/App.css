@@ -1,48 +1,38 @@
-html, body, .root {
+html, body, .root, .App {
 	height: 100%;
 	padding: 0;
 	margin: 0;
 }
 
-.App {
-	background: #fafafa;
-}
-
-.App.hcb {
-	background: #000;
-}
-
-.full-width {
-	width: 100%;
-}
-
-.content {
+.app-content {
 	padding: 2rem;
 }
 
 .section {
+	padding: 1rem 0;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	padding: 1rem 0;
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
 }
 
 .ui5card {
-	min-width: 350px;
-	max-width: 20%;
-	margin-right: 2rem;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.ui5card-small {
-	width: 15rem;
-	min-width: 15rem;
+	min-width: 18rem;
+	max-width: 20rem;
+	margin: 0.5rem 1rem 1rem 0;
+	box-shadow: 0 5px 25px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .ui5card-large {
-	max-width: 33%;
+	min-width: 30rem;
+	max-width: 60%;
+	flex: 1 1;
 }
 
 .card-content {
@@ -51,15 +41,8 @@ html, body, .root {
 	flex-wrap: wrap;
 }
 
-.card--action-content {
-	height: 5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.card--action-icon {
-	margin: 0 0.5rem;
+.card-content-child {
+	flex: 1 1;
 }
 
 .ui5icon-size,
@@ -67,35 +50,37 @@ html, body, .root {
 	font-size: 1.5rem;
 }
 
-.ui5inputIcon {
-	background: #fafafa;
-	color: #0a6ed1;
-	cursor: pointer;
-}
-
-.ui5inputIcon:hover{
-	background: rgba(224,224,224,0.5)
-}
-
 .ui5list-item {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	--sapUiContentNonInteractiveIconColor: #1a9898;
 }
 
-
-
-
-/* Profile */
-.profile-header {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 1rem;
+/* Action require alerts */
+.alerts {
+	/* display: flex;
+	width: 40rem;
+	flex-wrap: wrap; */
+}
+.ui5card-alert {
+	min-width: 12rem;
+	width: 12rem;
 }
 
+.ui5card-alert-content {
+	height: 8rem;
+}
+
+.ui5card-alert-icon {
+	margin: 0 0.5rem;
+}
+
+/* Profile Area */
+.profile-header {
+	flex-direction: column;
+	padding: 1rem;
+}
 .profile-content {
-	min-width: 15rem;
+	min-width: 17rem;
 	padding: 0 0.25rem;
 }
 .profile-img {
@@ -103,14 +88,8 @@ html, body, .root {
 	height: 6rem;
 	border-radius: 50%;
 }
-
 .profile-hcb {
-	display: flex;
 	width: 100%;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	justify-content: space-around;	
 }
 
 /* Semantic colors */
@@ -119,4 +98,17 @@ html, body, .root {
 }
 .critical {
 	color: #e9730c;
+}
+.error {
+	color: #b00;
+}
+
+/* High Contrast Black */
+.hcb {
+	background: #000;
+}
+.hcb .normal,
+.hcb .critical,
+.hcb .error {
+	color: #fff;
 }
