@@ -50,13 +50,12 @@ class Home extends Component {
 				</section>
 
 				{/* Today */}
-				<ui5-title>Today</ui5-title>
+				<ui5-title>Today at a glance</ui5-title>
 				<section className="section row">
 
 					<ui5-card
 						heading="Upcoming Activities"
 						subtitle="28 Jun 2019"
-						status="(3)"
 						class="ui5card">
 						<ui5-timeline>
 							<ui5-timeline-item title-text="Weekly Sync - Managers and Tech support" subtitle-text="10:00 - 10:30" icon="sap-icon://calendar">
@@ -72,7 +71,6 @@ class Home extends Component {
 					<ui5-card
 						heading="Energy Efficiency"
 						subtitle="Smart Store A"
-						status="(4)"
 						class="ui5card">
 							<ui5-list separators="Inner">
 								<ui5-li icon="sap-icon://fridge" description="Fridges are On" class="ui5list-item">Fridges</ui5-li>
@@ -174,7 +172,7 @@ class Home extends Component {
 										<ui5-label>2.99 USD</ui5-label>
 								</ui5-table-cell>
 								<ui5-table-cell>
-									<ui5-label class="critical">Expires</ui5-label>
+									<ui5-label class="error">Expires</ui5-label>
 								</ui5-table-cell>
 							</ui5-table-row>
 						</ui5-table>
@@ -188,7 +186,7 @@ class Home extends Component {
 							class="ui5card ui5card-alert">
 								<div className="ui5card-alert-content centered"> 
 									<ui5-icon src="sap-icon://fridge" class="ui5icon-size ui5card-alert-icon"></ui5-icon>
-									<ui5-label class="ui5label-size normal">-9 &#8451;</ui5-label>
+									<ui5-label class="ui5label-size error">-9 &#8451;</ui5-label>
 								</div>
 						</ui5-card>
 
@@ -208,7 +206,7 @@ class Home extends Component {
 							class="ui5card ui5card-alert">
 								<div className="ui5card-alert-content centered"> 
 									<ui5-icon src="sap-icon://lightbulb" class="ui5icon-size ui5card-alert-icon"></ui5-icon>
-									<ui5-label class="ui5label-size critical">5 days</ui5-label>
+									<ui5-label class="ui5label-size error">5 days</ui5-label>
 								</div>
 						</ui5-card>
 					</div>

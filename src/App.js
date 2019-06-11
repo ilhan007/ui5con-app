@@ -6,6 +6,7 @@ import logo from "./img/logo.png";
 
 import { setTheme } from "@ui5/webcomponents-base/Theming";
 import "@ui5/webcomponents/dist/Card";
+import "@ui5/webcomponents/dist/DatePicker";
 import "@ui5/webcomponents/dist/Icon";
 import "@ui5/webcomponents/dist/Input";
 import "@ui5/webcomponents/dist/Label";

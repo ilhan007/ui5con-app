@@ -1,7 +1,7 @@
 html, body, .root, .App {
-	height: 100%;
 	padding: 0;
 	margin: 0;
+	background: var(--sapBackgroundColor);
 }
 
 .app-content {
@@ -26,7 +26,6 @@ html, body, .root, .App {
 	min-width: 18rem;
 	max-width: 20rem;
 	margin: 0.5rem 1rem 1rem 0;
-	box-shadow: 0 5px 25px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .ui5card-large {
@@ -47,7 +46,7 @@ html, body, .root, .App {
 
 .ui5icon-size,
 .ui5label-size {
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 
 .ui5list-item {
@@ -79,36 +78,28 @@ html, body, .root, .App {
 	flex-direction: column;
 	padding: 1rem;
 }
+
 .profile-content {
 	min-width: 17rem;
 	padding: 0 0.25rem;
 }
+
 .profile-img {
 	width: 6rem;
 	height: 6rem;
 	border-radius: 50%;
 }
+
 .profile-hcb {
 	width: 100%;
 }
 
 /* Semantic colors */
-.normal {
-	color: #0a6ed1;
-}
-.critical {
-	color: #e9730c;
-}
 .error {
 	color: #b00;
 }
 
 /* High Contrast Black */
-.hcb {
-	background: #000;
-}
-.hcb .normal,
-.hcb .critical,
 .hcb .error {
 	color: #fff;
 }
