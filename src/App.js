@@ -19,6 +19,9 @@ import "@ui5/webcomponents/dist/TabContainer";
 import "@ui5/webcomponents/dist/Timeline";
 import "@ui5/webcomponents/dist/Title";
 import "@ui5/webcomponents/dist/Table";
+import "@ui5/webcomponents/dist/TableColumn";
+import "@ui5/webcomponents/dist/TableRow";
+import "@ui5/webcomponents/dist/TableCell";
 
 import Home from "./home/Home";
 import Detail from './detail/Detail';
