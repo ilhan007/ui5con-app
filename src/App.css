@@ -56,9 +56,9 @@ html, body, .root, .App {
 
 /* Action require alerts */
 .alerts {
-	/* display: flex;
+	display: flex;
 	width: 40rem;
-	flex-wrap: wrap; */
+	flex-wrap: wrap;
 }
 .ui5card-alert {
 	min-width: 12rem;

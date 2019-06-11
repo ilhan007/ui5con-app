@@ -1,21 +1,24 @@
 {
 	"featured": [
 		{
+			"key": "f1",
 			"heading": "Inventory",
 			"status": "3 of 22",
-			"subtitle": "28 Jun 2019",
 			"items": [
 				{
+					"key": "1",
 					"title": "Soap Bars",
 					"description": "1579340",
 					"icon": "sap-icon://product"
 				},
 				{
+					"key": "2",
 					"title": "Lettuce",
 					"description": "1579441",
 					"icon": "sap-icon://product"
 				},
 				{
+					"key": "3",
 					"title": "Broccoli",
 					"description": "1579542",
 					"icon": "sap-icon://product"
@@ -23,67 +26,181 @@
 			]
 		},
 		{
+			"key": "f2",
 			"heading": "Security",
 			"status": "3 of 3",
 			"subtitle": "Cameras",
 			"items": [
 				{
+					"key": "4",
 					"title": "Parking A",
 					"description": "#36",
-					"icon": "sap-icon://video"
+					"icon": "sap-icon://web-cam"
 				},
 				{
+					"key": "5",
 					"title": "Deli Department 1",
 					"description": "#41",
-					"icon": "sap-icon://video"
+					"icon": "sap-icon://web-cam"
 				},
 				{
+					"key": "6",
 					"title": "Warehouse B",
 					"description": "#75",
-					"icon": "sap-icon://video"
+					"icon": "sap-icon://hide"
 				}
 			]
+		}
+	],
+	"activities": [
+		{
+			"key": "1",
+			"title": "Weekly Sync - Managers and Tech support",
+			"subtitle": "10:00 - 10:30",
+			"location": "MR WDF18 C3(GLASSBOX)",
+			"icon": "sap-icon://calendar"
+		},
+		{
+			"key": "2",
+			"title": "Video Converence Call - Tech Update",
+			"subtitle": "14:30 - 15:30",
+			"location": "St. Leon Rot, NYC",
+			"icon": "sap-icon://calendar"
+		},
+		{
+			"key": "3",
+			"title": "Call 'Project Nimbus' (Skype Meeting)",
+			"subtitle": "15:00 - 16:30",
+			"location": "",
+			"icon": "sap-icon://phone"
+		}
+	],
+
+	"energystats": [
+		{
+			"key": "1",
+			"title": "Fridges",
+			"description": "Fridges are on",
+			"icon": "sap-icon://fridge"
+		},
+		{
+			"key": "2",
+			"title": "Lights",
+			"description": "Lights are on",
+			"icon": "sap-icon://lightbulb"
+		},
+		{
+			"key": "3",
+			"title": "Air condition",
+			"description": "All are on",
+			"icon": "sap-icon://heating-cooling"
+		},
+		{
+			"key": "4",
+			"title": "Ovens",
+			"description": "Ovens are on",
+			"icon": "sap-icon://washing-machine"
+		}
+	],
+	"storesa": [
+		{
+			"key": "s1",
+			"title": "Smart Store 1",
+			"description": "New York City"
+		},
+		{
+			"key": "s2",
+			"title": "Smart Store 2",
+			"description": "Washington"
+		},
+		{
+			"key": "s3",
+			"title": "Smart Store 3",
+			"description": "Boston"
+		}
+	],
+	"storesb": [
+		{
+			"key": "s4",
+			"title": "Smart Store 4",
+			"description": "Dallas"
+		},
+		{
+			"key": "s5",
+			"title": "Smart Store 5",
+			"description": "Los Angeles"
+		},
+		{
+			"key": "s6",
+			"title": "Smart Store 6",
+			"description": "Chicago"
 		}
 	],
 	"actions": [
 		{
-			"title": "Fridge #37",
-			"subtitle": "Temperature too low"
-		},
-		{
-			"heading": "Room A",
-			"subtitle": "Temperature high"
-		},
-		{
-			"heading": "Entrance Lamp",
-			"subtitle": "Maintenance Overdue"
-		}
-	],
-	"actions2": [
-		{
+			"key": "3",
+			"type": "table",
 			"title": "Smart Store 1",
 			"subtitle": "today",
 			"status": "3 of 6",
-			"cells": [
+			"columns": [
+				{"key": "4", "name": "Product"},
+				{"key": "5", "name": "Location"},
+				{"key": "6", "name": "Price"},
+				{"key": "7", "name": "Status"}
+			],
+			"rows": [
 				{
-					"product": "Soap Bars",
-					"location": "Aisle 23, Section 21",
-					"price": "5.49 USD",
-					"status": "Re-stock"
+					"key": "7",
+					"cells": [
+						{"key": "8", "text": "Soap Bars"},
+						{"key": "9", "text": "Aisle 23, Section 21"},
+						{"key": "10", "text": "5.49 USD"}, 
+						{"key": "11", "text": "Re-stock", "error": "error"}
+					]
 				},
 				{
-					"product": "Lettuce",
-					"location": "Aisle 23, Section 23",
-					"price": "6.79 USD",
-					"status": "Re-stock"
+					"key": "8",
+					"cells": [
+						{"key": "12", "text": "Lettuce"},
+						{"key": "13", "text": "Aisle 23, Section 23"},
+						{"key": "14", "text": "6.79 USD"},
+						{"key": "15", "text": "Re-stock", "error": "error"}
+					]
 				},
 				{
-					"product": "Broccoli",
-					"location": "Aisle 21, Section 5",
-					"price": "2.99 USD",
-					"status": "Deteriorating"
+					"key": "9",
+					"cells": [
+						{"key": "16", "text": "Broccoli"},
+						{"key": "17", "text": "Aisle 21, Section 5"},
+						{"key": "18", "text": "2.99 USD"},
+						{"key": "19", "text": "Deteriorating", "error": "error"}
+					]
 				}
 			]
+		}
+	],
+	"alerts": [
+		{
+			"key": "20",
+			"heading": "Fridge #37",
+			"subtitle": "Temperature too low",
+			"icon": "sap-icon://fridge",
+			"text": "-9 \u2103"
+		},
+		{
+			"key": "21",
+			"heading": "Room A",
+			"subtitle": "Temperature high",
+			"icon": "sap-icon://temperature",
+			"text": "28 \u2103"
+		},
+		{
+			"key": "22",
+			"heading": "Entrance Lamp",
+			"subtitle": "Maintenance Overdue",
+			"icon": "sap-icon://lightbulb",
+			"text": "5 days"
 		}
 	]
 }
