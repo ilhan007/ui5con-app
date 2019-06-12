@@ -35,19 +35,25 @@
 					"key": "4",
 					"title": "Parking A",
 					"description": "#36",
-					"icon": "sap-icon://web-cam"
+					"icon": "sap-icon://web-cam",
+					"info": "Recording",
+					"infoState": "Success"
 				},
 				{
 					"key": "5",
 					"title": "Deli Department 1",
 					"description": "#41",
-					"icon": "sap-icon://web-cam"
+					"icon": "sap-icon://web-cam",
+					"info": "Recording",
+					"infoState": "Success"
 				},
 				{
 					"key": "6",
 					"title": "Warehouse B",
 					"description": "#75",
-					"icon": "sap-icon://hide"
+					"icon": "sap-icon://hide",
+					"info": "Off",
+					"infoState": "Error"
 				}
 			]
 		}
@@ -81,25 +87,29 @@
 			"key": "1",
 			"title": "Fridges",
 			"description": "Fridges are on",
-			"icon": "sap-icon://fridge"
+			"icon": "sap-icon://fridge",
+			"info": "13,548 Watts"
 		},
 		{
 			"key": "2",
 			"title": "Lights",
 			"description": "Lights are on",
-			"icon": "sap-icon://lightbulb"
+			"icon": "sap-icon://lightbulb",
+			"info": "3,896 Watts"
 		},
 		{
 			"key": "3",
 			"title": "Air condition",
 			"description": "All are on",
-			"icon": "sap-icon://heating-cooling"
+			"icon": "sap-icon://heating-cooling",
+			"info": "2,752 Watts"
 		},
 		{
 			"key": "4",
 			"title": "Ovens",
 			"description": "Ovens are on",
-			"icon": "sap-icon://washing-machine"
+			"icon": "sap-icon://washing-machine",
+			"info": "2,317 Watts"
 		}
 	],
 	"storesa": [

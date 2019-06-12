@@ -86,7 +86,7 @@ class AppBar extends Component {
 
 					<ui5-list separators="None">
 						<ui5-li-custom type="Inactive">
-							<div className="profile-hcb centered">
+							<div className="profile-hcb-switch centered">
 								<ui5-li icon="sap-icon://palette" type="Inactive">High Contrast Black</ui5-li>
 								<ui5-switch ref={this.themeSwitch}></ui5-switch>
 							</div>

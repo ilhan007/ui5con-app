@@ -45,9 +45,12 @@ class Home extends Component {
 									<ui5-list separators="Inner">
 										{
 											dataObj.items.map(item =>
-												<ui5-li key={item.key}
+												<ui5-li
+													key={item.key}
 													icon={item.icon}
 													description={item.description}
+													info={item.description}
+													info-state={item.infoState}
 													class="ui5list-item">{item.title}</ui5-li>
 											)
 										}
@@ -67,7 +70,8 @@ class Home extends Component {
 						class="ui5card">
 						<ui5-timeline>
 							{data.activities.map(item =>
-								<ui5-timeline-item key={item.key}
+								<ui5-timeline-item
+									key={item.key}
 									icon={item.icon}
 									title-text={item.title}
 									subtitle-text={item.subtitle}
@@ -104,12 +108,12 @@ class Home extends Component {
 							<div className="card-content">
 								<ui5-list separators="Inner" class="card-content-child">
 								{data.storesa.map(store =>
-									<ui5-li image={managerImg} description={store.description}>{store.title}</ui5-li>
+									<ui5-li key={store.key} image={managerImg} description={store.description}>{store.title}</ui5-li>
 								)}
 								</ui5-list>
 								<ui5-list separators="Inner" class="card-content-child">
 								{data.storesb.map(store =>
-									<ui5-li image={managerImg} description={store.description}>{store.title}</ui5-li>
+									<ui5-li  key={store.key} image={managerImg} description={store.description}>{store.title}</ui5-li>
 								)}
 								</ui5-list>
 							</div>
@@ -150,20 +154,18 @@ class Home extends Component {
 					)}
 
 					{/* Alerts */}
-					<div className="alerts">
-						{data.alerts.map(alert => {
-							return <ui5-card
-								key={alert.key} 
-								heading={alert.heading}
-								subtitle={alert.subtitle}
-								class="ui5card ui5card-alert">
-									<div className="ui5card-alert-content centered"> 
-										<ui5-icon src={alert.icon} class="ui5icon-size ui5card-alert-icon"></ui5-icon>
-										<ui5-label class="ui5label-size error">{alert.text}</ui5-label>
-									</div>
-							</ui5-card>
-						})}
-					</div>
+					{data.alerts.map(alert => {
+						return <ui5-card
+							key={alert.key} 
+							heading={alert.heading}
+							subtitle={alert.subtitle}
+							class="ui5card ui5card-alert">
+								<div className="ui5card-alert-content"> 
+									<ui5-icon src={alert.icon} class="ui5icon-size ui5card-alert-icon"></ui5-icon>
+									<ui5-label class="ui5label-size error">{alert.text}</ui5-label>
+								</div>
+						</ui5-card>
+					})}
 				</section>
 			</div>
 		);
