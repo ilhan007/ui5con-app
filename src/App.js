@@ -59,19 +59,7 @@ class AppBar extends Component {
 	}
 
 	onThemeSwitchPressed(event) {
-		const checked = event.target.checked;
-		const appContainerDOMElement = this.getAppContainerDOM();
-
-		if (checked) {
-			appContainerDOMElement.classList.add("hcb");
-		} else {
-			appContainerDOMElement.classList.remove("hcb");
-		}
-		setTheme(checked ? "sap_belize_hcb" : "sap_fiori_3");
-	}
-
-	getAppContainerDOM() {
-		return document.querySelector(".app-content");
+		setTheme(event.target.checked ? "sap_belize_hcb" : "sap_fiori_3");
 	}
 
 	render() {

@@ -96,10 +96,5 @@ html, body, .root, .App {
 
 /* Semantic colors */
 .error {
-	color: #b00;
-}
-
-/* High Contrast Black */
-.hcb .error {
-	color: #fff;
+	color: var(--sapNegativeColor, #bb0000);
 }
