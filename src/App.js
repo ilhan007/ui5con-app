@@ -23,6 +23,12 @@ import "@ui5/webcomponents/dist/Table";
 import "@ui5/webcomponents/dist/TableColumn";
 import "@ui5/webcomponents/dist/TableRow";
 import "@ui5/webcomponents/dist/TableCell";
+import "@ui5/webcomponents/dist/Badge";
+import "@ui5/webcomponents/dist/Dialog";
+import "@ui5/webcomponents/dist/Select";
+import "@ui5/webcomponents/dist/DatePicker";
+import "@ui5/webcomponents/dist/TextArea";
+import "@ui5/webcomponents/dist/ToggleButton";
 
 import Home from "./home/Home";
 import Detail from './detail/Detail';
@@ -77,7 +83,7 @@ class AppBar extends Component {
 
 				<ui5-popover id="profile-popover" hide-header placement-type="Bottom" horizontal-align="Right">
 					<div className="profile-header centered">
-						<img src={profile} className="profile-img"/>
+						<img src={profile} alt="" className="profile-img"/>
 						<ui5-title level="3">Darius Cummings</ui5-title>
 						<ui5-label>Store Manager</ui5-label>
 					</div>

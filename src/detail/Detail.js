@@ -1,90 +1,217 @@
-import React from 'react';
+import React, { Component } from "react";
+import FilterBar from "../filterbar/FilterBar.js";
+import Header from "../header/Header.js";
 import "./Detail.css";
+import products from "../data/products.json";
 
+const getBadgeType = type => {
+	switch (type) {
+		case "In-Stock":
+			return "8";
+		case "Deterioating":
+			return "2";
+		case "Re-Stock":
+			return "1";
+		default:
+			return "0";
+	}
+}
 
-const Detail = () => {
-	return (
-		<div className="detail-page">
-			<header className="detail-page-header">
+class Detail extends Component {
+	state = {
+		products: [...products],
+		filteredProducts: [...products],
+		filterType: "all",
+	};
 
-				<div class="detail-page-header-bar">
-					<ui5-title>Inventory</ui5-title>
-					<ui5-button type="Transparent" icon="sap-icon://action" class="action-button"></ui5-button>
-				</div>
+	filterPerishableProducts(items) {
+		return items.filter(product => product.perishable);
+	}
 
-				<ui5-tabcontainer fixed collapsed class="detail-page-header-menu">
-					<ui5-tab text="All Items (9, 231)"></ui5-tab>
-					<ui5-tab text="Non-Perishable (4)"></ui5-tab>
-					<ui5-tab text="Perishable (4)"></ui5-tab>
-					<ui5-tab text="Alerts (3)"></ui5-tab>
-				</ui5-tabcontainer>
-			</header>
+	filterNoPerishableProducts(items) {
+		return items.filter(product => !product.perishable);
+	}
 
-			<main className="detail-page-content">
-				<div className="details-page-filter-bar">
-					<ui5-title level="H3">My Title</ui5-title>
+	filterAlertProducts(items) {
+		return items.filter(product => (product.status === "Deterioating" || product.status === "Re-Stock"));
+	}
 
-					<div className="details-page-filter-bar-actions">
-						<ui5-button type="Transparent">Delete</ui5-button>
-						<ui5-button icon="sap-icon://sort-descending" type="Transparent"></ui5-button>
-						<ui5-button icon="sap-icon://sort-ascending" type="Transparent"></ui5-button>
-						<ui5-button icon="sap-icon://excel-attachment" type="Transparent"></ui5-button>
-					</div>
-				</div>
-				<ui5-table class="items-table">
-					<ui5-table-column slot="columns">
-						<ui5-checkbox class="table-column-header-content" slot="header" text="Product"></ui5-checkbox>
-					</ui5-table-column>
+	filterItems(filterType, items) {
+		let filteredProducts = [];
 
-					<ui5-table-column slot="columns">
-						<ui5-label class="table-column-header-content" slot="header">Price</ui5-label>
-					</ui5-table-column>
+		switch (filterType) {
+			case "all":
+				filteredProducts = items;
+				break;
+			case "noPerishable":
+				filteredProducts = this.filterNoPerishableProducts(items);
+				break;
+			case "perishable":
+				filteredProducts = this.filterPerishableProducts(items);
+				break;
+			case "alerts":
+				filteredProducts = this.filterAlertProducts(items);
+				break;
+			default:
+				filteredProducts = items;
+				break;
+		}
 
-					<ui5-table-column slot="columns">
-						<ui5-label class="table-column-header-content" slot="header">Shelf Stock</ui5-label>
-					</ui5-table-column>
+		return filteredProducts;
+	}
 
-					<ui5-table-column slot="columns">
-						<ui5-label class="table-column-header-content" slot="header">Location</ui5-label>
-					</ui5-table-column>
+	updateAfterFilter(filterType) {
+		const products = this.filterItems(filterType, this.state.products);
 
-					<ui5-table-column slot="columns">
-						<ui5-label class="table-column-header-content" slot="header">Image</ui5-label>
-					</ui5-table-column>
+		this.setState({
+			...this.state,
+			filteredProducts: products,
+			filterType: filterType,
+		});
+	}
 
-					<ui5-table-column slot="columns">
-						<ui5-label class="table-column-header-content" slot="header">Status</ui5-label>
-					</ui5-table-column>
+	createProduct(entry) {
+		const newItems = [...this.state.products, { key: (this.state.products.length + 1), ...entry }];
 
+		this.setState({
+			...this.state,
+			products: newItems,
+			filteredProducts: this.filterItems(this.state.filterType, newItems),
+		});
+	}
 
-					{/* Rows ...  */}
+	filterVisibleItemsByText(text) {
+		const filteredByType = this.filterItems(this.state.filterType, this.state.products);
+		const items = filteredByType.filter(item => item.name.toLowerCase().startsWith(text));
 
-					<ui5-table-row slot="rows">
-						<ui5-table-cell>
-							<b><ui5-checkbox class="table-cell-content" text="Broccoli"></ui5-checkbox></b>
-						</ui5-table-cell>
-						<ui5-table-cell>
-							<span class="table-cell-content">2.99 USD</span>
-						</ui5-table-cell>
-						<ui5-table-cell>
-							<span class="table-cell-content">27 Each</span>
-						</ui5-table-cell>
-						<ui5-table-cell>
-							<span class="table-cell-content">Aisle 3, Section 5</span>
-						</ui5-table-cell>
-						<ui5-table-cell>
-							<span class="table-cell-content">
-								<img className="image-cell" src="https://www.myfarm.bg/wp-content/uploads/2013/10/brokoli-e1382302960606.jpg" />
-							</span>
-						</ui5-table-cell>
-						<ui5-table-cell>
-							<span class="table-cell-content">Deterioating</span>
-						</ui5-table-cell>
-					</ui5-table-row>
-				</ui5-table>
-			</main>
-		</div>
-	);
+		this.setState({
+			...this.state,
+			filteredProducts: items,
+		});
+	}
+
+	filter(value) {
+		this.filterVisibleItemsByText(value);
+	}
+
+	get statusCriteriaMapping() {
+		return {
+			"In-Stock": 0,
+			"Re-Stock": 1,
+			"Deterioating": 2,
+		}
+	}
+
+	sortAsc() {
+		const sortedItems = this.state.filteredProducts.sort((a, b) => {
+			if (this.statusCriteriaMapping[a.status] > this.statusCriteriaMapping[b.status]) {
+				return 1;
+			} else if (this.statusCriteriaMapping[a.status] < this.statusCriteriaMapping[b.status]) {
+				return -1;
+			}
+
+			return 0;
+		});
+
+		this.setState({
+			...this.state,
+			filteredProducts: sortedItems,
+		});
+	}
+
+	sortDesc() {
+		const sortedItems = this.state.filteredProducts.sort((a, b) => {
+			if (this.statusCriteriaMapping[a.status] > this.statusCriteriaMapping[b.status]) {
+				return -1;
+			} else if (this.statusCriteriaMapping[a.status] < this.statusCriteriaMapping[b.status]) {
+				return 1;
+			}
+
+			return 0;
+		});
+
+		this.setState({
+			...this.state,
+			filteredProducts: sortedItems,
+		});
+	}
+
+	render() {
+		return (
+			<div className="detail-page">
+				<Header
+					products={this.state.products}
+					nonPerishableCount={this.filterNoPerishableProducts(this.state.products).length}
+					perishableCount={this.filterPerishableProducts(this.state.products).length}
+					alertCount={this.filterAlertProducts(this.state.products).length}
+					updateStateAfterFilter={this.updateAfterFilter.bind(this)}
+				/>
+				<main className="detail-page-content">
+
+					<FilterBar
+						createProduct={this.createProduct.bind(this)}
+						filter={this.filter.bind(this)}
+						sortAsc={this.sortAsc.bind(this)}
+						sortDesc={this.sortDesc.bind(this)}
+					/>
+
+					<ui5-table class="items-table" no-data-text="No Items available for search criteria" show-no-data>
+						<ui5-table-column slot="columns">
+							<ui5-label class="table-column-header-content" slot="header">Product</ui5-label>
+						</ui5-table-column>
+
+						<ui5-table-column slot="columns">
+							<ui5-label class="table-column-header-content" slot="header">Price</ui5-label>
+						</ui5-table-column>
+
+						<ui5-table-column slot="columns">
+							<ui5-label class="table-column-header-content" slot="header">Location</ui5-label>
+						</ui5-table-column>
+
+						<ui5-table-column slot="columns">
+							<ui5-label class="table-column-header-content" slot="header">Order date</ui5-label>
+						</ui5-table-column>
+
+						<ui5-table-column slot="columns">
+							<ui5-label class="table-column-header-content" slot="header">Image</ui5-label>
+						</ui5-table-column>
+
+						<ui5-table-column slot="columns">
+							<ui5-label class="table-column-header-content" slot="header">Status</ui5-label>
+						</ui5-table-column>
+
+						{
+							this.state.filteredProducts.map((item) =>
+								<ui5-table-row slot="rows" key={item.key}>
+									<ui5-table-cell>
+										<ui5-label class="table-cell-content"><b>{item.name}</b></ui5-label>
+									</ui5-table-cell>
+									<ui5-table-cell>
+										<span className="table-cell-content">{item.price}</span>
+									</ui5-table-cell>
+									<ui5-table-cell>
+										<span className="table-cell-content">{item.location}</span>
+									</ui5-table-cell>
+									<ui5-table-cell>
+										<span className="table-cell-content">{item.orderDate}</span>
+									</ui5-table-cell>
+									<ui5-table-cell>
+										<span className="table-cell-content">
+											<img alt="" className="image-cell" src={process.env.PUBLIC_URL + item.img} />
+										</span>
+									</ui5-table-cell>
+									<ui5-table-cell>
+										<span className="table-cell-content">
+											<ui5-badge color-scheme={getBadgeType(item.status)}>{item.status}</ui5-badge>
+										</span>
+									</ui5-table-cell>
+								</ui5-table-row>)
+						}
+					</ui5-table>
+				</main>
+			</div>
+		)
+	}
 }
 
 export default Detail;
