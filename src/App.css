@@ -47,11 +47,11 @@ html, body, .root, .App {
 
 .ui5icon-size,
 .ui5label-size {
-	font-size: 2rem;
+	font-size: 1.75rem;
 }
 
 .ui5list-item {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	--sapUiContentNonInteractiveIconColor: #1a9898;
 }
 

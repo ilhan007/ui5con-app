@@ -31,7 +31,7 @@ class Home extends Component {
 			<div className="app-content">
 
 				{/* Featured */}
-				<ui5-title>Featured</ui5-title>
+				<ui5-title level="H3">Featured</ui5-title>
 				<section className="section">
 					{
 						data.featured.map((dataObj, index) => 
@@ -61,7 +61,7 @@ class Home extends Component {
 				</section>
 
 				{/* Today */}
-				<ui5-title>Today at a glance</ui5-title>
+				<ui5-title level="H3">Today at a glance</ui5-title>
 				<section className="section">
 
 					<ui5-card
@@ -121,7 +121,7 @@ class Home extends Component {
 				</section>
 
 				{/* Actions Required */}
-				<ui5-title>Action Required</ui5-title>
+				<ui5-title level="H3">Action Required</ui5-title>
 				<section className="section">
 
 					{data.actions.map(action =>
