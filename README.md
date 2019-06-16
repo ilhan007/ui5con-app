@@ -55,4 +55,8 @@ The Smart Store app enables a store manager to control his/her multiple stores. 
 ### Details page
 
 ## Resources
-[List of available UI5 Web Components](https://sap.github.io/ui5-webcomponents/playground)	
+[Smart Store app](https://ilhan007.github.io/ui5con-app)
+
+[Sources of Smart Store App](https://github.com/ilhan007/ui5con-app)
+
+[List of all available UI5 Web Components](https://sap.github.io/ui5-webcomponents/playground)	
