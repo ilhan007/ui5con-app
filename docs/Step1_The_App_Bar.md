@@ -55,3 +55,5 @@ Let`s create this beautifull application bar!
 		);
 	}
 	```
+
+### [Step #2 - The Home Component](./Step2_The_Home_Component.md)

@@ -156,3 +156,5 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	```
 
 	Now, you can press the header of the "Inventory" card and navigate to the ```Detail``` component.
+
+### [Step #4 - The Profile Area](./Step4_The_Profile_Area.md)
