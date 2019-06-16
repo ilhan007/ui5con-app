@@ -2,7 +2,7 @@
 
 In this step we will make use of ```ui5-card``` as main building block for our home view. We will create the "Featured" section. As you can see below, it consists of two "cards" - "Inventory" and "Security". Each of them has a header and content section with a list of important information.
 
-![Alt text](./step2.png?raw=true "Cards")
+![Alt text](./step2.png?raw=true "Home")
 
 1. Create ```home``` folder under ```src```.
 
@@ -121,3 +121,5 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	```
 
 8. The layouting and ordering of the cards is responsibility of the app developer. Replace the content of ```src/App.css``` with the content of [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/App.css). Nothing magical here as well, we just make use of ```display:flex``` for the layouting and setting some ```min-width``` to the ```ui5-card```.
+
+9. You can copy the rest of the sections in the ```Home``` component from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/home/Home.js), but don`t forget to copy all the UI5 components from the (https://github.com/ilhan007/ui5con-app/blob/master/src/App.js) as some of them are used in these cards.

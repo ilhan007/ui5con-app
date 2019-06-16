@@ -1,0 +1,217 @@
+# Profile Area
+
+What is an admin UI without a profile area? We will create one for our smart store manager and let him change the application theming with one click!
+
+![Alt text](./step4.png?raw=true "Profile Area")
+
+1. We will enhance our app bar for the purpose and make it a separate component. 
+- Create ```appbar``` folder under ```src```
+- Create ```AppBar.js``` in ```src/appbar```
+- Create the ```Appbar``` component
+
+	```js
+	// AppBar.js
+	import React, { Component } from "react";
+	import profile from "../img/profile.png";
+	import logo from "../img/logo.png";
+
+	class AppBar extends Component {	
+
+		constructor (props) {
+			super(props);
+		}
+
+		render() {
+			return (
+				<div className="app-bar">
+					<ui5-shellbar
+						ref={this.appBar}
+						primary-title="Smart Store Manager"
+						show-notifications
+						show-product-switch
+						show-co-pilot
+						profile={profile}
+						logo={logo}>
+					</ui5-shellbar>
+				</div>
+			);
+		}
+	}
+
+	export default AppBar;
+	```
+
+2. Don`t forget to update the ```App.js```
+
+	```js
+	// App.js
+	import AppBar from './appbar/AppBar';
+
+	function App() => {
+		return (
+			<div className="App">
+				<AppBar />
+
+				<Switch>
+					<Route path='/home' component={Home}/>
+					<Route path='/detail' component={Detail}/>
+					<Redirect from="/" to="/home" />
+				</Switch>
+			</div>
+		);
+	}
+	```
+
+3. Now, let`s add the profile popover. We will use the ```ui5-popover``` that will open, when the ```ui5-shellbar``` ```profilePress``` event is being fired, e.g. when someone clicks on the profile image.
+
+- Add ref to the ```ui5-shellbar```
+- Bind for the ```profilePress``` event in the ```componentDidMount```
+- Add the ```import "@ui5/webcomponents/dist/Popover";``` and ```import "@ui5/webcomponents/dist/Label";``` imports among the other in ```src/App.js```
+- Open the ```ui5-popover``` in the listener ```onProfilePressed```
+
+	```js
+	// AppBar.js
+	class AppBar extends Component {	
+
+		constructor (props) {
+			super(props);
+		}
+
+		constructor (props) {
+			super(props);
+			this.appBar = React.createRef();
+		}
+
+		// Bind for the ui5-shellbar profilePress event
+		componentDidMount() {
+			this.appBar.current.addEventListener("profilePress", this.onProfilePressed);
+		}
+
+		// Open the ui5-popover
+		onProfilePressed(event) {
+			window["profile-popover"].openBy(event.detail.targetRef);
+		}
+	```
+
+	```html
+		render() {
+			return (
+				<div className="app-bar">
+					<ui5-shellbar
+						ref={this.appBar}
+						primary-title="Smart Store Manager"
+						show-notifications
+						show-product-switch
+						show-co-pilot
+						profile={profile}
+						logo={logo}>
+					</ui5-shellbar>
+
+					<ui5-popover
+					id="profile-popover"
+					hide-header
+					placement-type="Bottom"
+					horizontal-align="Right">
+						<div className="profile-header centered">
+							<img src={profile} alt="" className="profile-img"/>
+							<ui5-title level="3">Darius Cummings</ui5-title>
+							<ui5-label>Store Manager</ui5-label>
+						</div>
+
+						<div className="profile-content">
+							<ui5-list separators="None">
+								<ui5-li icon="sap-icon://settings">Settings</ui5-li>
+								<ui5-li icon="sap-icon://sys-help">Help</ui5-li>
+								<ui5-li icon="sap-icon://log">Sign out</ui5-li>
+							</ui5-list>
+						</div>
+					</ui5-popover>
+				</div>
+			);
+		}
+	}
+	```
+
+	Now, you should be able to open the profile area by clicking the profile image!
+
+4. Add the theme switch. By default the UI5 WebComponents come with Fiori 3 (known as SAP Quartz), but High Contrast theme is also supported. To switch to another theme, you can use the framework method ```setTheme```  from ```@ui5/webcomponents-base/Theming```.
+We will use the ```ui5-switch``` component to switch between Fiori 3 and High Contrast Black.
+
+- Add the ```import "@ui5/webcomponents/dist/Switch";``` import in ```src/App.js```
+- Add the ```import { setTheme } from "@ui5/webcomponents-base/Theming"```; in ```src/appbar/AppBar.js```
+- Bind for the ```ui5-switch``` change event
+- Switch the theme in the event listener ```onThemeSwitchPressed```
+
+	```js
+	// AppBar.js
+	import { setTheme } from "@ui5/webcomponents-base/Theming";
+
+	class AppBar extends Component {	
+
+		constructor (props) {
+			super(props);
+			this.appBar = React.createRef();
+			this.themeSwitch = React.createRef();
+		}
+
+		// Bind for the change event of the ui5-switch
+		componentDidMount() {
+			this.appBar.current.addEventListener("profilePress", this.onProfilePressed);
+			this.themeSwitch.current.addEventListener("change", this.onThemeSwitchPressed.bind(this));
+		}
+
+		onProfilePressed(event) {
+			window["profile-popover"].openBy(event.detail.targetRef);
+		}
+
+		// Use the setTheme method to switch to HCB theme
+		onThemeSwitchPressed(event) {
+			setTheme(event.target.checked ? "sap_belize_hcb" : "sap_fiori_3");
+		}
+	```
+
+
+	```html
+		render() {
+			return (
+				<div className="app-bar">
+					<ui5-shellbar
+						ref={this.appBar}
+						primary-title="Smart Store Manager"
+						show-notifications
+						show-product-switch
+						show-co-pilot
+						profile={profile}
+						logo={logo}>
+					</ui5-shellbar>
+
+					<ui5-popover
+					id="profile-popover"
+					hide-header
+					placement-type="Bottom"
+					horizontal-align="Right">
+						<div className="profile-header centered">
+							<img src={profile} alt="" className="profile-img"/>
+							<ui5-title level="3">Darius Cummings</ui5-title>
+							<ui5-label>Store Manager</ui5-label>
+						</div>
+
+						<div className="profile-content">
+							<ui5-list separators="None">
+								<ui5-li-custom type="Inactive">
+									<div className="profile-hcb-switch centered">
+										<ui5-li icon="sap-icon://palette" type="Inactive">High Contrast Black</ui5-li>
+										<ui5-switch ref={this.themeSwitch}></ui5-switch>
+									</div>
+								</ui5-li-custom> 
+								<ui5-li icon="sap-icon://settings">Settings</ui5-li>
+								<ui5-li icon="sap-icon://sys-help">Help</ui5-li>
+								<ui5-li icon="sap-icon://log">Sign out</ui5-li>
+							</ui5-list>
+						</div>
+					</ui5-popover>
+				</div>
+			);
+		}
+	}
+	```
