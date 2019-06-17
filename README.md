@@ -19,7 +19,6 @@ The Smart Store app enables a store manager to control his/her multiple stores. 
 	```sh
 	npm init react-app smart-store-app
 	cd smart-store-app
-	npm install
 	```
 
 2. Install the UI5 Web Components.

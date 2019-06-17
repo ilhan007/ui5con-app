@@ -31,6 +31,7 @@ In this step we will create an empty Detail component and set up a routing and n
 	```js
 	npm install react-router-dom
 	```
+	Note: if the app shows an error after installing the above, you have to restart the dev server.
 
 5. Import the ```HashRouter``` from ```react-router-dom``` and wrap the root component in ```index.js``` file as below:
 
