@@ -23,11 +23,11 @@ class FilterBar extends Component {
 		});
 	}
 
-	handleCreate() {
+	openDialog() {
 		this.dialog.current.open();
 	}
 
-	createProduct() {
+	submitNewProduct() {
 		const newEntry = {
 			name: this.nameInput.current.value,
 			price: this.priceInput.current.value,
@@ -55,7 +55,7 @@ class FilterBar extends Component {
 					<ui5-input class="details-page-searchfield" placeholder="Search" ref={this.searchInput}>
 						<ui5-icon slot="icon" src="sap-icon://search"></ui5-icon>
 					</ui5-input>
-					<ui5-button onClick={this.handleCreate.bind(this)} type="Transparent" title="Create Product">Create</ui5-button>
+					<ui5-button onClick={this.openDialog.bind(this)} type="Transparent" title="Create Product">Create</ui5-button>
 					<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sap-icon://sort-descending" type="Transparent" title="Sort By Status"></ui5-button>
 					<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sap-icon://sort-ascending" type="Transparent" title="Sort By Status"></ui5-button>
 					<ui5-button icon="sap-icon://excel-attachment" type="Transparent"></ui5-button>
@@ -105,7 +105,7 @@ class FilterBar extends Component {
 					</div>
 
 					<div slot="footer" className="dialog-footer">
-						<ui5-button type="Emphasized" onClick={this.createProduct.bind(this)}>OK</ui5-button>
+						<ui5-button type="Emphasized" onClick={this.submitNewProduct.bind(this)}>OK</ui5-button>
 						<ui5-button onClick={this.closeDialog.bind(this)}>Cancel</ui5-button>
 					</div>
 				</ui5-dialog>

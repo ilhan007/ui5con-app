@@ -4,6 +4,18 @@ import Header from "../header/Header.js";
 import "./Detail.css";
 import products from "../data/products.json";
 
+import "@ui5/webcomponents/dist/Title";
+import "@ui5/webcomponents/dist/Table";
+import "@ui5/webcomponents/dist/TableColumn";
+import "@ui5/webcomponents/dist/TableRow";
+import "@ui5/webcomponents/dist/TableCell";
+import "@ui5/webcomponents/dist/Badge";
+import "@ui5/webcomponents/dist/Dialog";
+import "@ui5/webcomponents/dist/Popover";
+import "@ui5/webcomponents/dist/Select";
+import "@ui5/webcomponents/dist/DatePicker";
+import "@ui5/webcomponents/dist/TextArea";
+
 const getBadgeType = type => {
 	switch (type) {
 		case "In-Stock":
@@ -60,7 +72,7 @@ class Detail extends Component {
 		return filteredProducts;
 	}
 
-	updateAfterFilter(filterType) {
+	applyFilter(filterType) {
 		const products = this.filterItems(filterType, this.state.products);
 
 		this.setState({
@@ -144,7 +156,7 @@ class Detail extends Component {
 					nonPerishableCount={this.filterNoPerishableProducts(this.state.products).length}
 					perishableCount={this.filterPerishableProducts(this.state.products).length}
 					alertCount={this.filterAlertProducts(this.state.products).length}
-					updateStateAfterFilter={this.updateAfterFilter.bind(this)}
+					tabPress={this.applyFilter.bind(this)}
 				/>
 				<main className="detail-page-content">
 

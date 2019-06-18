@@ -12,9 +12,8 @@ class Header extends Component {
 		this.tabContainer.current.addEventListener("itemSelect", event => {
 			const filterType = event.detail.item.getAttribute("data-filter-type");
 
-			this.props.updateStateAfterFilter(filterType);
+			this.props.tabPress(filterType);
 		});
-
 	}
 
 	render() {
