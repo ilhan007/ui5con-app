@@ -54,10 +54,14 @@ The Smart Store app enables a store manager to control his/her multiple stores. 
 ### [Step #2 - The Home Component](./docs/Step2_The_Home_Component.md)
 ### [Step #3 - The Routing](./docs/Step3_The_Routing.md)
 ### [Step #4 - The Profile Area](./docs/Step4_The_Profile_Area.md)
+### [Step #5 - Detail Page](./docs/Step5_Details.md)
+### [Step #6 - Detail Page Header](./docs/Step6_Detail_Header.md)
+### [Step #7 - Detail Page Filter Bar](./docs/Step7_Detail_FilterBar.md)
+### [Step #8 - Detail Page Create Item Dialog](./docs/Step8_Detail_add_new_item.md)
 
 ## Resources
 [Smart Store app](https://ilhan007.github.io/ui5con-app)
 
 [Sources of Smart Store App](https://github.com/ilhan007/ui5con-app)
 
-[List of all available UI5 Web Components](https://sap.github.io/ui5-webcomponents/playground)	
+[List of all available UI5 Web Components](https://sap.github.io/ui5-webcomponents/playground)
