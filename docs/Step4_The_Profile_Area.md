@@ -216,4 +216,4 @@ We will use the ```ui5-switch``` component to switch between Fiori 3 and High Co
 	}
 	```
 
-[Step #5 - Detail Page](./docs/Step5_Details.md)
+[Step #5 - Detail Page](./Step5_Details.md)
