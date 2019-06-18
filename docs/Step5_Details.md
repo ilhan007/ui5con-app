@@ -291,6 +291,6 @@ and call this method when binding the `color-scheme` of the badge in last cell o
 
 In the end of this step, you should be able to see the following:
 
-![Step 5 finished](./images/step5.png?raw=true "Step 5 Result")
+![Step 5 finished](./images/Step5.png?raw=true "Step 5 Result")
 
 ### [Step #6 - Detail Header](./Step6_Detail_Header.md)
