@@ -170,7 +170,7 @@ We now pass all the correct data to the `Header`. We should now implement what i
 
 Lets first bind the properties to the `tab`s `additional-text` property
 
-\* you can read properties passed to a component by calling `this.props.lpropName` e.g. in our case `this.props.products.length` will return length of the array passed to `this.props.products`;
+\* you can read properties passed to a component by calling `this.props.propName` e.g. in our case `this.props.products.length` will return length of the array passed to `this.props.products`;
 
 ```html
 <ui5-tabcontainer fixed collapsed>
