@@ -7,7 +7,7 @@ In this step we will create an empty Detail component and set up a routing and n
 
 2. Create ```Detail.js``` file under ```src/detail/```.
 
-3. Create the ```Deatail``` component, that will return just  the words "Hellow World" for now.
+3. Create the ```Detail``` component, that will return just  the words "Hello World" for now.
 
 	```js 
 	// Detail.js
