@@ -3,11 +3,11 @@
 In this step we will create an empty Detail component and set up a routing and navigation between the Home and Detail component.
 
 
-1. Create ```detail``` folder under ```src```.
+1. Create `detail` folder under `src/`.
 
-2. Create ```Detail.js``` file under ```src/detail/```.
+2. Create `Detail.js` file under `src/detail/`.
 
-3. Create the ```Detail``` component, that will return just  the words "Hello World" for now.
+3. Create the `Detail` component, that will return just  the words "Hello World" for now.
 
 	```js 
 	// Detail.js
@@ -59,6 +59,7 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	import "@ui5/webcomponents/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/Title";
+	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
 	import "@ui5/webcomponents/dist/CustomListItem";
 	import "@ui5/webcomponents/dist/StandardListItem";
@@ -88,10 +89,10 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	}
 	```
 
-7. Now, let`s navigate to the ```Detail``` component by clicking the header of our "Inventory" card.  And, this would require changes in the `Home` component. 
+7. Now, let`s navigate to the `Detail` component by clicking the header of our "Inventory" card.  And, this would require changes in the `Home` component. 
 
-- Bind for the ui5-card ```headerPress``` event in ```componentDidMount``` 
-- Change the hash in the listener ```navToDetail```.
+- Bind for the ui5-card `headerPress` event in `componentDidMount`
+- Change the hash in the listener `navToDetail`.
 
 	```js 
 	// Home.js
@@ -129,7 +130,7 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	export default Home;
 	```
 
-- Add "ref" to the ui5-card ```ref={ref => this.featuredCardsRefs[index] = ref}``` in order to add an event listener.
+- Add "ref" to the ui5-card `ref={ref => this.featuredCardsRefs[index] = ref}` to get the DOM ref in order to add an event listener.
 
 	```html
 	return(
@@ -163,6 +164,6 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	);
 	```
 
-	Now, you can press the header of the "Inventory" card and navigate to the ```Detail``` component.
+	Now, you can press the header of the "Inventory" card and navigate to the `Detail` component.
 
 ### [Step #4 - The Profile Area](./Step4_The_Profile_Area.md)
