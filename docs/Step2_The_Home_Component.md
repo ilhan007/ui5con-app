@@ -11,7 +11,7 @@ In this step we will make use of ```ui5-card``` as main building block for our h
 3. Copy the ```data.json``` file in ```src/home/```
 from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/home/). The file has some mockup data, that we will need to fill into the cards.
 
-4. Import the ```ui5-card``` (and other components) in ```src/App.js``` to have all UI5 WebComponents imported at one place (it could be imported in ```src/home/Home.js```).
+4. Import the `ui5-card` (and other components) in `src/App.js` to have all UI5 WebComponents imported at one place (it could be imported in `src/home/Home.js`).
 
 	```js 
 	// App.js
@@ -26,7 +26,7 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	```
 
 5. Let`s start with the "Featured" section.
-Create the ```Home``` component in ```src/home/Home.js```. Note that we import the ```data.json``` and set its content to the component state, so we can later use it.
+Create the `Home` component in `src/home/Home.js`. Note that we import the `data.json` and set its content to the component state, so we can later use it.
 
 	```js
 	// Home.js
