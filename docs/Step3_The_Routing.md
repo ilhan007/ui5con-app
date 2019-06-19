@@ -27,13 +27,13 @@ In this step we will create an empty Detail component and set up a routing and n
 
 	export default Detail;
 	```
-4. Install the ```react-router-dom```.
+4. Install the `react-router-dom`.
 	```js
-	npm install react-router-dom
+	npm install react-router-dom --save
 	```
 	Note: if the app shows an error after installing the above, you have to restart the dev server.
 
-5. Import the ```HashRouter``` from ```react-router-dom``` and wrap the root component in ```index.js``` file as below:
+5. Import the `HashRouter` from `react-router-dom` and wrap the root component in `index.js` file as below:
 
 	```js 
 	// index.js
@@ -44,8 +44,8 @@ In this step we will create an empty Detail component and set up a routing and n
 
 
 
-6. Import the ```Switch```, ```Route```, ```Redirect``` from ```react-router-dom``` in ```src/App.js```  and import the ```Detail``` component.
-Then, use the ```Switch``` to set up the paths and which component to be displayed respectively. After you add the code below, you should get the ```Home``` component on ```/#/home``` path and the ```Detail``` component on ```/#/detail``` path.
+6. Import the `Switch`, `Route`, `Redirect` from `react-router-dom` in `src/App.js`  and import the `Detail` component.
+Then, use the `Switch` to set up the paths and which component to be displayed respectively. After you add the code below, you should get the `Home` component on `/#/home` path and the `Detail` component on `/#/detail` path.
 
 
 	```js 
@@ -89,7 +89,7 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	}
 	```
 
-7. Now, let`s navigate to the `Detail` component by clicking the header of our "Inventory" card.  And, this would require changes in the `Home` component. 
+7. Now, let's navigate to the `Detail` component by clicking the header of our "Inventory" card.  And, this would require changes in the `Home` component. 
 
 - Bind for the ui5-card `headerPress` event in `componentDidMount`
 - Change the hash in the listener `navToDetail`.
