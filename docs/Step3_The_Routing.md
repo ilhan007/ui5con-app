@@ -56,6 +56,13 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	import profile from "./img/profile.png";
 	import logo from "./img/logo.png";
 
+	import "@ui5/webcomponents/dist/ShellBar";
+	import "@ui5/webcomponents/dist/Card";
+	import "@ui5/webcomponents/dist/Title";
+	import "@ui5/webcomponents/dist/List";
+	import "@ui5/webcomponents/dist/CustomListItem";
+	import "@ui5/webcomponents/dist/StandardListItem";
+
 	import Home from "./home/Home";
 	import Detail from './detail/Detail';
 
