@@ -88,7 +88,7 @@ Then, use the ```Switch``` to set up the paths and which component to be display
 	}
 	```
 
-7. Now, let`s navigate to the ```Detail``` component by clicking the header of our "Inventory" card.  And, this would require changes in the ```Home``` component. 
+7. Now, let`s navigate to the ```Detail``` component by clicking the header of our "Inventory" card.  And, this would require changes in the `Home` component. 
 
 - Bind for the ui5-card ```headerPress``` event in ```componentDidMount``` 
 - Change the hash in the listener ```navToDetail```.
