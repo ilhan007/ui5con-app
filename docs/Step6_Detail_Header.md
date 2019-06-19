@@ -79,7 +79,7 @@ render() {
 	)
 }
 ```
-Lets add some styles to the `Details.css` in order to have a better placement for the components:
+Lets add some styles to the `Detail.css` in order to have a better placement for the components:
 
 ```css
 .detail-page-header-bar {
