@@ -1,6 +1,6 @@
 # Detail Page Header
 
-It is not time to add a Header component for our Detail Page.
+It is now time to add a Header component for our Detail Page.
 The Header component should look like the following:
 
 ![Details Header](./images/details-header.png?raw=true "Details Header")
