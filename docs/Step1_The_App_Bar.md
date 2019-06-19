@@ -8,7 +8,7 @@ Let`s create this beautifull application bar!
 	- src/serviceWorker.js
 	- src/logo.svg
 
-2. Remove the usage of those from the ```src/App.js```
+2. Remove the usage of those from the ```src/index.js```
 
 	```js 
 	import './index.css';

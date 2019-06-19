@@ -7,6 +7,7 @@ To take the most of the tutorial, a basic knowledge with [React](https://reactjs
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/) (**version 8.10 or later**)
+- npm (**version 6 or later**)
 
 ## Short story
 
