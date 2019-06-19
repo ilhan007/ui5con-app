@@ -5,15 +5,15 @@ What is an admin UI without a profile area? We will create one for our smart sto
 ![Alt text](./step4.png?raw=true "Profile Area")
 
 1. We will enhance our app bar for the purpose and make it a separate component. 
-- Create ```appbar``` folder under ```src```
-- Create ```AppBar.js``` in ```src/appbar```
-- Create the ```Appbar``` component
+- Create `appbar` folder under `src`
+- Create `AppBar.js` in `src/appbar`
+- Create the `Appbar` component
 
 	```js
 	// AppBar.js
 	import React, { Component } from "react";
-	import profile from "../img/profile.png";
-	import logo from "../img/logo.png";
+	import profile from "../img/profile.png"; // moved from App.js
+	import logo from "../img/logo.png"; // moved from App.js
 
 	class AppBar extends Component {	
 
@@ -41,11 +41,21 @@ What is an admin UI without a profile area? We will create one for our smart sto
 	export default AppBar;
 	```
 
-2. Don`t forget to update the ```App.js```
+2. Don`t forget to update the `App.js`
 
 	```js
 	// App.js
-	import AppBar from './appbar/AppBar';
+	import "@ui5/webcomponents/dist/ShellBar";
+	import "@ui5/webcomponents/dist/Card";
+	import "@ui5/webcomponents/dist/Title";
+	import "@ui5/webcomponents/dist/Label";
+	import "@ui5/webcomponents/dist/List";
+	import "@ui5/webcomponents/dist/CustomListItem";
+	import "@ui5/webcomponents/dist/StandardListItem";
+	
+
+	import Home from "./home/Home";
+	import AppBar from './appbar/AppBar'; // use the newly created AppBar component
 
 	function App() => {
 		return (
@@ -62,12 +72,12 @@ What is an admin UI without a profile area? We will create one for our smart sto
 	}
 	```
 
-3. Now, let`s add the profile popover. We will use the ```ui5-popover``` that will open, when the ```ui5-shellbar``` ```profilePress``` event is being fired, e.g. when someone clicks on the profile image.
+3. Now, let's add the profile popover. We will use the `ui5-popover` that will open, when the `ui5-shellbar` `profilePress` event is being fired, e.g. when someone clicks on the profile image.
 
-- Add ref to the ```ui5-shellbar```
-- Bind for the ```profilePress``` event in the ```componentDidMount```
-- Add the ```import "@ui5/webcomponents/dist/Popover";``` and ```import "@ui5/webcomponents/dist/Label";``` imports among the other in ```src/App.js```
-- Open the ```ui5-popover``` in the listener ```onProfilePressed```
+- Add ref to the `ui5-shellbar`
+- Bind for the `profilePress` event in the ```componentDidMount```
+- Add the `import "@ui5/webcomponents/dist/Popover";` and `import "@ui5/webcomponents/dist/Label";` imports among the other in `src/App.js`
+- Open the `ui5-popover` in the listener `onProfilePressed`
 
 	```js
 	// AppBar.js
@@ -130,13 +140,13 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 	Now, you should be able to open the profile area by clicking the profile image!
 
-4. Add the theme switch. By default the UI5 WebComponents come with Fiori 3 (known as SAP Quartz), but High Contrast theme is also supported. To switch to another theme, you can use the framework method ```setTheme```  from ```@ui5/webcomponents-base/Theming```.
-We will use the ```ui5-switch``` component to switch between Fiori 3 and High Contrast Black.
+4. Add the theme switch. By default the UI5 WebComponents come with Fiori 3 (known as SAP Quartz), but High Contrast theme is also supported. To switch to another theme, you can use the framework method `setTheme`  from `@ui5/webcomponents-base/Theming`.
+We will use the `ui5-switch` component to switch between Fiori 3 and High Contrast Black.
 
-- Add the ```import "@ui5/webcomponents/dist/Switch";``` import in ```src/App.js```
-- Add the ```import { setTheme } from "@ui5/webcomponents-base/Theming"```; in ```src/appbar/AppBar.js```
-- Bind for the ```ui5-switch``` change event
-- Switch the theme in the event listener ```onThemeSwitchPressed```
+- Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`
+- Add the `import { setTheme } from "@ui5/webcomponents-base/Theming"`; in `src/appbar/AppBar.js`
+- Bind for the `ui5-switch` `change` event
+- Switch the theme in the event listener `onThemeSwitchPressed`
 
 	```js
 	// AppBar.js
