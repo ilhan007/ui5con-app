@@ -75,10 +75,6 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 		constructor (props) {
 			super(props);
-		}
-
-		constructor (props) {
-			super(props);
 			this.appBar = React.createRef();
 		}
 
@@ -129,7 +125,7 @@ What is an admin UI without a profile area? We will create one for our smart sto
 				</div>
 			);
 		}
-	}
+	} // end of AppBar
 	```
 
 	Now, you should be able to open the profile area by clicking the profile image!
