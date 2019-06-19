@@ -100,6 +100,9 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	import "@ui5/webcomponents/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/Title";
+	import "@ui5/webcomponents/dist/List";
+	import "@ui5/webcomponents/dist/CustomListItem";
+	import "@ui5/webcomponents/dist/StandardListItem";
 	import Home from "./home/Home";
 
 	function App() {
