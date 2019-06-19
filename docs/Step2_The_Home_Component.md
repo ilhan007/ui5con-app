@@ -125,6 +125,6 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 
 8. The layouting and ordering of the cards is responsibility of the app developer. Replace the content of ```src/App.css``` with the content of [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/App.css). Nothing magical here as well, we just make use of ```display:flex``` for the layouting and setting some ```min-width``` to the ```ui5-card```.
 
-9. You can copy the rest of the sections in the ```Home``` component from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/home/Home.js), but don`t forget to copy all the UI5 components imports from the [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/App.js) as some of them are used in these cards
+9. You can copy the rest of the sections in the ```Home``` component from [Sources of Smart Store Home.js](https://github.com/ilhan007/ui5con-app/blob/master/src/home/Home.js), but don`t forget to copy all the UI5 components imports from the [Sources of Smart Store App.js](https://github.com/ilhan007/ui5con-app/blob/master/src/App.js) as some of them are used in these cards
 
 ### [Step #3 - The Routing](./Step3_The_Routing.md)
