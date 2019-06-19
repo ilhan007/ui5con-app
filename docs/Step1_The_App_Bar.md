@@ -16,7 +16,8 @@ Let`s create this beautifull application bar!
 	serviceWorker.unregister();
 	```
 
-3. We will use the ```ui5-shellbar``` for an app bar, so let`s import it in the ```src/App.js```. The component has several convinient attributes, that we are going to use:
+3. We will use the `ui5-shellbar` for an app bar, so let's import it in the `src/App.js`. The component has several convinient attributes, that we are going to use.
+Note: we are replacing the the `ui5-button` from the previous step with the `ui5-shellbar`.
 
 	```js 
 	import "@ui5/webcomponents/dist/ShellBar";
@@ -33,9 +34,9 @@ Let`s create this beautifull application bar!
 	}
 	```
 
-4. Create "img" folder under "src" and copy the ```logo.png``` and ```profile.png``` files from ```src/images``` from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/tree/master/src/img)
+4. Create "img" folder under "src" and copy the `logo.png` and `profile.png` files from `src/images` from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/tree/master/src/img) (look for a "download" button, when you click on one of the images),
 
-5. Then, import those images and set them to the ```logo``` and ```profile``` attributes.
+5. Then, import those images and set them to the `logo` and `profile` attributes of the `ui5-shellbar`.
 
 	```js 
 	import profile from "./img/profile.png";
