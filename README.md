@@ -6,8 +6,8 @@ Note: no previous experience with [UI5 Web Components](https://github.com/SAP/ui
 To take the most of the tutorial, a basic knowledge with [React](https://reactjs.org/) is desirable.
 
 ## Prerequisites
-- [Node.js](https://nodejs.org/) (**version 8.10 or later**)
-- npm (**version 6 or later**)
+- [Node.js](https://nodejs.org/) - **version 8.10 or later** (check the version with `node -v`)
+- npm - **version 6 or later** (check the version with `npm -v`)
 
 ## Short story
 
@@ -36,7 +36,7 @@ The Smart Store app enables a store manager to control his/her multiple stores. 
 	import "@ui5/webcomponents/dist/Button"; // loads ui5-button
 	```
  
-	Then, you can add the ```ui5-button``` in ```src/App.js``` and that`s it! You should see the ```ui5-button``` rendered on the screen.
+	Then, you can add the ```ui5-button``` in ```src/App.js``` and that`s it! 
 
 	```js
 	function App() {
@@ -45,7 +45,7 @@ The Smart Store app enables a store manager to control his/her multiple stores. 
 		);
 	}
 	```
-4. Launch the app.
+4. Launch the app and you should see the `ui5-button` rendered on the screen.
 	```sh
 	npm start
 	```
