@@ -1,16 +1,21 @@
-# Details Page Overview
+# 
 
-Lets now have a look in the Details page.
+
+
+
+Page Overview
+
+Lets now have a look in the Detail page.
 We will try to build a page following some guidelines mentioned in [List Report Floorplan](https://experience.sap.com/fiori-design-web/list-report-floorplan-sap-fiori-element/).
 
-![Details Header](./images/details.png?raw=true "Details Header")
+![Details Header](./images/details.png?raw=true "Detail Header")
 
-As React is recommending to split your components for an easier maintainability, we will create 2 more components - `Header` and `FilterBar` which represent 2 of the main building blocks of the Details page.
+As React is recommending to split your components for an easier maintainability, we will create 2 more components - `Header` and `FilterBar` which represent 2 of the main building blocks of the Detail page.
 
-![Details Header](./images/details-splitted.png?raw=true "Details Header")
+![Details Header](./images/details-splitted.png?raw=true "Detail Header")
 
 
-We will be working with a data set called `product.json` place inside a `data` directory next to the `details` directory for our main component.
+We will be working with a data set called `product.json` place inside a `data` directory next to the `detail` directory for our main component.
 
 `product.json`
 
@@ -106,7 +111,7 @@ The `Details` page will have a global state which holds the following informatio
 - `filteredProducts`: currently visibile items in the table (this will be change a lot based on the user interactions)
 - `filterType`: the type of the filter that is currently applied to the page
 
-Lets now define a state to our component and add a file for styling it (Details.css).
+Lets now define a state to our component and add a file for styling it (Detail.css).
 
 ```js
 import React, { Component } from "react";
@@ -138,7 +143,7 @@ class Detail extends Component {
 export default Detail;
 ```
 
-Lets now render something on the screen. As we mentioned above, we will have 2 components `Header` and `FilterBar` separated in from the `Details`.
+Lets now render something on the screen. As we mentioned above, we will have 2 components `Header` and `FilterBar` separated in from the `Detail`.
 
 Add the following render method to the Detail class.
 
