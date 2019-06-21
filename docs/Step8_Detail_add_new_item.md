@@ -60,7 +60,7 @@ You can place the following markup anywhere in your Filter Bar's renderer (excep
 </ui5-dialog>
 ```
 
-In order to open this dialog, you need to just call the method `.open` on the DOM element `ui5-dialog`. We will do this in the `onClick` handler of the Create `ui5-button`
+In order to open this dialog, you need to just call the method `.open` on the DOM element `ui5-dialog`. We will do this in the `onClick` handler of the Create `ui5-button`.
 
 ```html
 <ui5-button onClick={this.openDialog.bind(this)} type="Transparent" title="Create Product">Create</ui5-button>
@@ -71,7 +71,7 @@ openDialog() {
 }
 ```
 
-When OK `ui5-button` is clicked we should create a new item, when the `Cancel` button is clicked we should close the `ui5-dialog`. Closing the `ui5-dialog` is the same as opening it - you just call a single method called `close`. More about the Dialog's API could be seen [here](https://sap.github.io/ui5-webcomponents/playground/components/Dialog/).
+When the OK `ui5-button` is clicked, we should create a new item, when the `Cancel` button is clicked, we should close the `ui5-dialog`. Closing the `ui5-dialog` is the same as opening it - you just call a single method called `close`. You can read more about the Dialog's API [here](https://sap.github.io/ui5-webcomponents/playground/components/Dialog/).
 
 ```js
 closeDialog() {
@@ -79,7 +79,7 @@ closeDialog() {
 }
 ```
 
-As we have defined `ref`s for all of the components inside the `ui5-dialog` we can read all of their current values. Therefore we will create a method called `submitNewProduct` which geathers the information from the fields and calls the `createProduct` passed as a property to the `FilterBar` from the `Detail` component. `createProduct` will modify the state based on the collected information from the input fields.
+As we have defined `ref`s for all of the components inside the `ui5-dialog` we can read all of their current values. Therefore, we will create a method called `submitNewProduct` which gathers the information from the fields and calls the `createProduct` passed as a property to the `FilterBar` from the `Detail` component. `createProduct` will modify the state based on the collected information from the input fields.
 
 Lets first pass the property to the `FilterBar` component
 
@@ -90,7 +90,7 @@ Lets first pass the property to the `FilterBar` component
 />
 ```
 
-In the `createProduct` we will receive an object containing all the information for the new item to be added to product list.
+In the `createProduct` we will receive an object containing all the information for the new item to be added to our product list.
 
 ```js
 createProduct(entry) {
