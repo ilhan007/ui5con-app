@@ -5,7 +5,7 @@
 
 Page Overview
 
-Lets now have a look in the Detail page.
+Lets now have a look at the Detail page.
 We will try to build a page following some guidelines mentioned in [List Report Floorplan](https://experience.sap.com/fiori-design-web/list-report-floorplan-sap-fiori-element/).
 
 ![Details Header](./images/details.png?raw=true "Detail Header")
@@ -15,7 +15,7 @@ As React is recommending to split your components for an easier maintainability,
 ![Details Header](./images/details-splitted.png?raw=true "Detail Header")
 
 
-We will be working with a data set called `product.json` place inside a `data` directory next to the `detail` directory for our main component.
+We will be working with a data set called `product.json`, placed inside a `data` directory next to the `detail` directory for our main component.
 
 `product.json`
 
@@ -108,7 +108,7 @@ In order to have all resources available, copy [these files](https://github.com/
 
 The `Details` page will have a global state which holds the following information:
 -  `products`: - all of the items listed in `data.json` (we will query this set and set the result to the `filteredProducts` )
-- `filteredProducts`: currently visibile items in the table (this will be change a lot based on the user interactions)
+- `filteredProducts`: currently visibile items in the table (this will be changed a lot based on the user interactions)
 - `filterType`: the type of the filter that is currently applied to the page
 
 Lets now define a state to our component and add a file for styling it (Detail.css).
@@ -143,7 +143,7 @@ class Detail extends Component {
 export default Detail;
 ```
 
-Lets now render something on the screen. As we mentioned above, we will have 2 components `Header` and `FilterBar` separated in from the `Detail`.
+Lets now render something on the screen. As we mentioned above, we will have 2 components `Header` and `FilterBar`, separated from the `Detail`.
 
 Add the following render method to the Detail class.
 
@@ -267,7 +267,7 @@ We now can see the table displayed in our page. We need to add some styling for 
 
 Last thing we should do for this page is to style a bit the badge of the status column. We can define a method `getBadgeType` which returns a value to be set to the `color-scheme` property of the badge.
 
-An example of implementation (place it above the class definition):
+Here is an example of the implementation (place it above the class definition):
 
 ```js
 const getBadgeType = type => {
@@ -284,7 +284,7 @@ const getBadgeType = type => {
 }
 ```
 
-and call this method when binding the `color-scheme` of the badge in last cell of the row:
+and call this method when binding the `color-scheme` of the badge in the last cell of the row:
 
 ```html
 <ui5-badge color-scheme={getBadgeType(item.status)}>
