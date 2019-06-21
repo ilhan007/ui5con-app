@@ -27,7 +27,7 @@ class Header extends Component {
 export default Header;
 ```
 
-To place this component inside the `Detail` component, add a <Header /> tag to Detail's `jsx` (render function).
+To place this component inside the `Detail` component, add a <Header /> tag to the Detail's `jsx` (render function).
 
 e.g.
 
@@ -42,8 +42,8 @@ render() {
 			...
 ```
 
-You now should be able to see the hello world heading above the table.
-We will now add the real building blocks of the Header component.
+You should now be able to see the hello world heading above the table.
+Next we will add the real building blocks of the Header component.
 
 It contains:
 - a section that wraps a `ui5-title` and a `ui5-button`
@@ -98,7 +98,7 @@ Lets add some styles to the `Detail.css` in order to have a better placement for
 ![Details Header Styled](./images/header-before-events.png?raw=true "Details Header Styled")
 
 We should now fire some events when a tab is clicked in order to make our Detail page filter the table.
-Furthermore we should pass some properties and visualize them in the tab container such as products, non perishable products count, etc.
+Furthermore, we should pass some properties such as products, non perishable products count, etc. and visualize them in the tab container. 
 Lets pass the properties to the Header from the Details `jsx` render function.
 
 
@@ -166,9 +166,9 @@ filterItems(filterType, items) {
 }
 ```
 
-We now pass all the correct data to the `Header`. We should now implement what it will display / do based on the passed properties.
+We now pass all the correct data to the `Header`. We should now implement what it will display / do, based on the passed properties.
 
-Lets first bind the properties to the `tab`s `additional-text` property
+Lets first bind the properties to the `tab`s `additional-text` property.
 
 \* you can read properties passed to a component by calling `this.props.propName` e.g. in our case `this.props.products.length` will return length of the array passed to `this.props.products`;
 
@@ -183,11 +183,11 @@ Lets first bind the properties to the `tab`s `additional-text` property
 
 Once we have our properties bound to the tabs, we should add the interaction with them.
 
-We've defined that `tabPress`, that will be fired once the user interacts with a tab. It should pass a parameter to the listener - type of the filter. In order to implement such functionality we need to know which tab is pressed in the `ui5-tabcontainer`'s `itemSelect` event.
+We've defined that `tabPress` will be fired once the user interacts with a tab. It should pass a parameter to the listener - type of the filter. In order to implement such functionality, we need to know which tab is pressed in the `ui5-tabcontainer`'s `itemSelect` event.
 
 First of all we will add a `ref` to our `ui5-tabcontainer`.
 Refs in React serve for taking a reference to a DOM element.
-More about refs you can read [here](https://reactjs.org/docs/refs-and-the-dom.html).
+You can read more about refs here: [here](https://reactjs.org/docs/refs-and-the-dom.html).
 
 Lets start adding a ref to the `ui5-tabcontainer`:
 
@@ -207,7 +207,7 @@ constructor(props) {
 ...
 ```
 
-Once we get this ref, we should add an event listener to it in the `componentDidMount` lifecycle hook (More about React's lifecycle hooks can be read [here](https://reactjs.org/docs/react-component.html))
+Once we get this ref, we should add an event listener to it in the `componentDidMount` lifecycle hook (You can find out more about React's lifecycle hooks here: [here](https://reactjs.org/docs/react-component.html))
 
 ```js
 componentDidMount() {
@@ -219,7 +219,7 @@ componentDidMount() {
 }
 ```
 
-In order to pass the event filter type, we should somehow mark our `ui5-tab`s with information what filter are they gonna do. As this is just a dom - we can add a custom attribute e.g. `data-filter-type` to our tabs.
+In order to pass the event filter type, we should somehow mark our `ui5-tab`s with information what they are filtering on. As this is just a dom, we can add a custom attribute e.g. `data-filter-type` to our tabs.
 
 ```html
 <ui5-tab data-filter-type="all" text="All Items" additional-text={this.props.products.length}></ui5-tab>
@@ -228,7 +228,7 @@ In order to pass the event filter type, we should somehow mark our `ui5-tab`s wi
 <ui5-tab data-filter-type="alerts" text="Alerts" additional-text={this.props.alertCount}></ui5-tab>
 ```
 
-We can now easy identify which tab corresponds to which filter.
+We can now easily identify which tab corresponds to which filter.
 
 Now we go back to the `itemSelect` implementation and change it to:
 
