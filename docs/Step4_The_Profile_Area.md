@@ -4,10 +4,10 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 ![Alt text](./step4.png?raw=true "Profile Area")
 
-1. We will enhance our app bar for the purpose and make it a separate component. 
-- Create `appbar` folder under `src`
-- Create `AppBar.js` in `src/appbar`
-- Create the `Appbar` component
+1. We will enhance our app bar for this purpose and make it a separate component. 
+- Create `appbar` folder under `src`.
+- Create `AppBar.js` in `src/appbar`.
+- Create the `Appbar` component.
 
 	```js
 	// AppBar.js
@@ -72,12 +72,12 @@ What is an admin UI without a profile area? We will create one for our smart sto
 	}
 	```
 
-3. Now, let's add the profile popover. We will use the `ui5-popover` that will open, when the `ui5-shellbar` `profilePress` event is being fired, e.g. when someone clicks on the profile image.
+3. Now, let's add the profile popover. We will use the `ui5-popover` that will open, when the `ui5-shellbar` `profilePress` event is fired, e.g. when someone clicks on the profile image.
 
-- Add ref to the `ui5-shellbar`
-- Bind for the `profilePress` event in the ```componentDidMount```
-- Add the `import "@ui5/webcomponents/dist/Popover";` and `import "@ui5/webcomponents/dist/Label";` imports among the other in `src/App.js`
-- Open the `ui5-popover` in the listener `onProfilePressed`
+- Add ref to the `ui5-shellbar`.
+- Bind for the `profilePress` event in the ```componentDidMount```.
+- Add the `import "@ui5/webcomponents/dist/Popover";` and `import "@ui5/webcomponents/dist/Label";` imports among the other in `src/App.js`.
+- Open the `ui5-popover` in the listener `onProfilePressed`.
 
 	```js
 	// AppBar.js
@@ -140,13 +140,13 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 	Now, you should be able to open the profile area by clicking the profile image!
 
-4. Add the theme switch. By default the UI5 WebComponents come with Fiori 3 (known as SAP Quartz), but High Contrast theme is also supported. To switch to another theme, you can use the framework method `setTheme`  from `@ui5/webcomponents-base/Theming`.
+4. Add the theme switch. By default the UI5 WebComponents come with Fiori 3 (known as SAP Quartz), but a high-contrast theme is also supported. To switch to another theme, you can use the framework method `setTheme`  from `@ui5/webcomponents-base/Theming`.
 We will use the `ui5-switch` component to switch between Fiori 3 and High Contrast Black.
 
-- Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`
-- Add the `import { setTheme } from "@ui5/webcomponents-base/Theming"`; in `src/appbar/AppBar.js`
-- Bind for the `ui5-switch` `change` event
-- Switch the theme in the event listener `onThemeSwitchPressed`
+- Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`.
+- Add the `import { setTheme } from "@ui5/webcomponents-base/Theming"`; in `src/appbar/AppBar.js`.
+- Bind for the `ui5-switch` `change` event.
+- Switch the theme in the event listener `onThemeSwitchPressed`.
 
 	```js
 	// AppBar.js
