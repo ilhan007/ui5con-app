@@ -7,7 +7,7 @@ In this step we will create an empty Detail component and set up a routing and n
 
 2. Create `Detail.js` file under `src/detail/`.
 
-3. Create the `Detail` component, that will return just  the words "Hello World" for now.
+3. Create the `Detail` component, that will return just the words "Hello World" for now.
 
 	```js 
 	// Detail.js
@@ -45,7 +45,7 @@ In this step we will create an empty Detail component and set up a routing and n
 
 
 6. Import the `Switch`, `Route`, `Redirect` from `react-router-dom` in `src/App.js`  and import the `Detail` component.
-Then, use the `Switch` to set up the paths and which component to be displayed respectively. After you add the code below, you should get the `Home` component on `/#/home` path and the `Detail` component on `/#/detail` path.
+Then, use the `Switch` to set up the paths and which component to be displayed respectively. After you add the code below, you should get the `Home` component on the `/#/home` path and the `Detail` component on the `/#/detail` path.
 
 
 	```js 
@@ -89,7 +89,7 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 	}
 	```
 
-7. Now, let's navigate to the `Detail` component by clicking the header of our "Inventory" card.  And, this would require changes in the `Home` component. 
+7. Now, let's navigate to the `Detail` component by clicking the header of our "Inventory" card.  This would require changes in the `Home` component. 
 
 - Bind for the ui5-card `headerPress` event in `componentDidMount`
 - Change the hash in the listener `navToDetail`.
