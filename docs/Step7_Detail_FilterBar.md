@@ -1,8 +1,8 @@
 # Detail Page Filter Bar
 
 One more step is left to complete our application.
-Most of SAP applications have different options for filtering.
-We will now implement a simple filter bar for ordering and adding fields to our table
+Most of SAP's applications have different options for filtering.
+We will now implement a simple filter bar for ordering and adding fields to our table.
 
 Lets add a new component called FilterBar as we already did in the last step.
 
@@ -23,7 +23,7 @@ Once we boostrap it - add it to the `Detail Page`
 
 ![Details Filter Bar](./images/filterbar.png?raw=true "Details Filter Bar")
 
-Our filter bar displayes:
+Our filter bar displays:
  - `ui5-title` Products
  - `ui5-input` with a `ui5-icon` inside so we can compose a search field
  - `ui5-button` Create which opens a `ui5-dialog` for creating an item
@@ -55,7 +55,7 @@ render() {
 }
 ```
 
-We will again add a few styles in order to pretify our layouting.
+We will again add a few styles in order to prettify our layouting.
 
 ```css
 .details-page-filter-bar {
@@ -87,15 +87,15 @@ We will again add a few styles in order to pretify our layouting.
 ```
 
 Once we get the layouting and styles done, lets move to interaction.
-We will implement 4 main actions for our component
+We will implement 4 main actions for our component:
 - filtering by search criteria
-- orderging descending by status
+- ordering descending by status
 - ordering ascending by status
 - creating an item (we will do this in the next step)
 
-As we did in the last step - we should first implement these actions in the `Detail` component and propagate them as properties to the `FilterBar` component.
+As we did in the last step, we should first implement these actions in the `Detail` component and propagate them as properties to the `FilterBar` component.
 
-Lets pass the following in the `Detail`'s `jsx`
+Lets pass the following in the `Detail`'s `jsx`:
 
 ```html
 <FilterBar
