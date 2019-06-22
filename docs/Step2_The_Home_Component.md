@@ -81,7 +81,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 						key={item.key}
 						icon={item.icon}
 						description={item.description}
-						info={item.description}
+						info={item.info}
 						info-state={item.infoState}
 						class="ui5list-item">{item.title}</ui5-li>
 					)}

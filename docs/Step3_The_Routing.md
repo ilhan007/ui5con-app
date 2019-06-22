@@ -152,7 +152,7 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 						key={item.key}
 						icon={item.icon}
 						description={item.description}
-						info={item.description}
+						info={item.info}
 						info-state={item.infoState}
 						class="ui5list-item">{item.title}</ui5-li>
 					)}
