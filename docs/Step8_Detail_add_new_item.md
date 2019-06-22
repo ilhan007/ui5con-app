@@ -8,6 +8,7 @@ Last action we will implement is adding a new item to our list of items.
 We will enhance our `FilterBar` component to show a dialog inside.
 
 You can place the following markup anywhere in your Filter Bar's renderer (except top level).
+Note: Don't forget to add the following `import "@ui5/webcomponents/dist/Option";` in `src/App.js` as it is used as an item of the `ui5-select`.
 
 ```html
 <ui5-dialog header-text="Add a new product" ref={this.dialog}>
@@ -42,9 +43,9 @@ You can place the following markup anywhere in your Filter Bar's renderer (excep
 			<ui5-label>Status:</ui5-label>
 
 			<ui5-select ref={this.statusInput}>
-				<ui5-li>In-Stock</ui5-li>
-				<ui5-li>Re-Stock</ui5-li>
-				<ui5-li>Deterioating</ui5-li>
+				<ui5-option>In-Stock</ui5-option>
+				<ui5-option>Re-Stock</ui5-option>
+				<ui5-option>Deterioating</ui5-option>
 			</ui5-select>
 		</div>
 		<div className="dialog-section horizontal-flex">
@@ -54,7 +55,7 @@ You can place the following markup anywhere in your Filter Bar's renderer (excep
 	</div>
 
 	<div slot="footer" className="dialog-footer">
-		<ui5-button type="Emphasized" onClick={this.createProduct.bind(this)}>OK</ui5-button>
+		<ui5-button design="Emphasized" onClick={this.createProduct.bind(this)}>OK</ui5-button>
 		<ui5-button onClick={this.closeDialog.bind(this)}>Cancel</ui5-button>
 	</div>
 </ui5-dialog>
@@ -63,7 +64,7 @@ You can place the following markup anywhere in your Filter Bar's renderer (excep
 In order to open this dialog, you need to just call the method `.open` on the DOM element `ui5-dialog`. We will do this in the `onClick` handler of the Create `ui5-button`.
 
 ```html
-<ui5-button onClick={this.openDialog.bind(this)} type="Transparent" title="Create Product">Create</ui5-button>
+<ui5-button onClick={this.openDialog.bind(this)} design="Transparent" title="Create Product">Create</ui5-button>
 ```
 ```js
 openDialog() {

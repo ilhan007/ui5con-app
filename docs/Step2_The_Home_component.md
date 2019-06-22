@@ -4,14 +4,14 @@ In this step we will make use of ```ui5-card``` as main building block for our h
 
 ![Alt text](./step2.png?raw=true "Home")
 
-1. Create ```home``` folder under ```src```.
+1. Create `home` folder under `src`.
 
-2. Create ```Home.js``` file under ```src/home/```.
+2. Create `Home.js` file under `src/home/`.
 
-3. Copy the ```data.json``` file in ```src/home/```
+3. Copy the `data.json` file in `src/home/`
 from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/home/). The file has some mockup data, that we will need to fill into the cards.
 
-4. Import the ```ui5-card``` (and other components) in ```src/App.js``` to have all UI5 WebComponents imported at one place (it could be imported in ```src/home/Home.js```).
+4. Import the `ui5-card` (and other components) in `src/App.js` to have all UI5 WebComponents imported at one place.
 
 	```js 
 	// App.js
@@ -20,13 +20,14 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	import "@ui5/webcomponents/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/Title";
+	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
 	import "@ui5/webcomponents/dist/CustomListItem";
 	import "@ui5/webcomponents/dist/StandardListItem";
 	```
 
-5. Let`s start with the "Featured" section.
-Create the ```Home``` component in ```src/home/Home.js```. Note that we import the ```data.json``` and set its content to the component state, so we can later use it.
+5. Let's start with the "Featured" section.
+Create the `Home` component in `src/home/Home.js`. Note that we import the `data.json` and set its content to the component state, so we can later use it.
 
 	```js
 	// Home.js
@@ -57,8 +58,8 @@ Create the ```Home``` component in ```src/home/Home.js```. Note that we import t
 	export default Home;
 	```
 
-6. Now, let`s add the ```ui5-card```. We will also use ```ui5-list``` (List) and ```ui5-li``` (StandardListItem) for the ```ui5-card``` content. 
-You can get familiar with the API of those components yourself - [Card API](https://sap.github.io/ui5-webcomponents/playground/components/Card/) and [List API](https://sap.github.io/ui5-webcomponents/playground/components/List/). What is going below?
+6. Now, let's add the `ui5-card`. We will also use `ui5-list` (List) and `ui5-li` (StandardListItem) for the `ui5-card` content. 
+You can get familiar with the API of those components - [Card API](https://sap.github.io/ui5-webcomponents/playground/components/Card/) and [List API](https://sap.github.io/ui5-webcomponents/playground/components/List/). What is going below?
 We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "status") and the JSX syntax to map the data and the cards will render nicely.
 
 	```html
@@ -92,7 +93,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	);
 	```
 
-7. Import the ```Home``` component into the ```src/App.js``` (note that we added an outer DIV element as React component always should return a single element). You should be able to see the cards with data inside.  OK, the cards are currently expanded to full width and the layout does not look like the picture in the begining - we will handle it in the following step.
+7. Import the `Home` component into the `src/App.js` (note that we added an outer DIV element as React component always should return a single element). You should be able to see the cards with data inside.  OK, the cards are currently expanded to full width and the layout does not look like the picture in the begining - we will handle it in the following step.
 	```js 
 	// App.js
 	import profile from "./img/profile.png";
@@ -100,6 +101,10 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	import "@ui5/webcomponents/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/Title";
+	import "@ui5/webcomponents/dist/Label";
+	import "@ui5/webcomponents/dist/List";
+	import "@ui5/webcomponents/dist/CustomListItem";
+	import "@ui5/webcomponents/dist/StandardListItem";
 	import Home from "./home/Home";
 
 	function App() {
@@ -120,8 +125,8 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	}
 	```
 
-8. The layouting and ordering of the cards is responsibility of the app developer. Replace the content of ```src/App.css``` with the content of [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/App.css). Nothing magical here as well, we just make use of ```display:flex``` for the layouting and setting some ```min-width``` to the ```ui5-card```.
+8. The layouting and ordering of the cards is responsibility of the app developer. Replace the content of `src/App.css` with the content of [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/App.css). Nothing magical, we make use of `display:flex` for the layouting and setting some `min-width` to the `ui5-card`.
 
-9. You can copy the rest of the sections in the ```Home``` component from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/home/Home.js), but don`t forget to copy all the UI5 components imports from the [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master/src/App.js) as some of them are used in these cards
+9. You can copy the rest of the sections in the `Home` component from [Sources of Smart Store (Home.js)](https://github.com/ilhan007/ui5con-app/blob/master/src/home/Home.js), but don`t forget to copy all the UI5 components imports from the [Sources of Smart Store (App.js)](https://github.com/ilhan007/ui5con-app/blob/master/src/App.js) as some of them are used in these cards.
 
 ### [Step #3 - The Routing](./Step3_The_Routing.md)

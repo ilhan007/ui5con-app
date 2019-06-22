@@ -55,10 +55,10 @@ class FilterBar extends Component {
 					<ui5-input class="details-page-searchfield" placeholder="Search" ref={this.searchInput}>
 						<ui5-icon slot="icon" src="sap-icon://search"></ui5-icon>
 					</ui5-input>
-					<ui5-button onClick={this.openDialog.bind(this)} type="Transparent" title="Create Product">Create</ui5-button>
-					<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sap-icon://sort-descending" type="Transparent" title="Sort By Status"></ui5-button>
-					<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sap-icon://sort-ascending" type="Transparent" title="Sort By Status"></ui5-button>
-					<ui5-button icon="sap-icon://excel-attachment" type="Transparent"></ui5-button>
+					<ui5-button onClick={this.openDialog.bind(this)} design="Transparent" title="Create Product">Create</ui5-button>
+					<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sap-icon://sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
+					<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sap-icon://sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
+					<ui5-button icon="sap-icon://excel-attachment" design="Transparent"></ui5-button>
 				</div>
 
 				<ui5-dialog header-text="Add a new product" ref={this.dialog}>
@@ -93,9 +93,9 @@ class FilterBar extends Component {
 							<ui5-label>Status:</ui5-label>
 
 							<ui5-select ref={this.statusInput}>
-								<ui5-li>In-Stock</ui5-li>
-								<ui5-li>Re-Stock</ui5-li>
-								<ui5-li>Deterioating</ui5-li>
+							<ui5-option>In-Stock</ui5-option>
+							<ui5-option>Re-Stock</ui5-option>
+							<ui5-option>Deterioating</ui5-option>
 							</ui5-select>
 						</div>
 						<div className="dialog-section horizontal-flex">
@@ -105,7 +105,7 @@ class FilterBar extends Component {
 					</div>
 
 					<div slot="footer" className="dialog-footer">
-						<ui5-button type="Emphasized" onClick={this.submitNewProduct.bind(this)}>OK</ui5-button>
+						<ui5-button design="Emphasized" onClick={this.submitNewProduct.bind(this)}>OK</ui5-button>
 						<ui5-button onClick={this.closeDialog.bind(this)}>Cancel</ui5-button>
 					</div>
 				</ui5-dialog>

@@ -143,10 +143,11 @@ What is an admin UI without a profile area? We will create one for our smart sto
 4. Add the theme switch. By default the UI5 WebComponents come with Fiori 3 (known as SAP Quartz), but a high-contrast theme is also supported. To switch to another theme, you can use the framework method `setTheme`  from `@ui5/webcomponents-base/Theming`.
 We will use the `ui5-switch` component to switch between Fiori 3 and High Contrast Black.
 
-- Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`.
-- Add the `import { setTheme } from "@ui5/webcomponents-base/Theming"`; in `src/appbar/AppBar.js`.
-- Bind for the `ui5-switch` `change` event.
-- Switch the theme in the event listener `onThemeSwitchPressed`.
+- Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`
+- Add the `import "@ui5/webcomponents/dist/ThemePropertiesProvider"`; to enable dynamic theme switching
+- Add the `import { setTheme } from "@ui5/webcomponents-base/Theming"`; in `src/appbar/AppBar.js`
+- Bind for the `ui5-switch` `change` event
+- Switch the theme in the event listener `onThemeSwitchPressed`
 
 	```js
 	// AppBar.js

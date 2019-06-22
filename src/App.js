@@ -15,6 +15,7 @@ import "@ui5/webcomponents/dist/Switch";
 import "@ui5/webcomponents/dist/Tab";
 import "@ui5/webcomponents/dist/TabContainer";
 import "@ui5/webcomponents/dist/Timeline";
+import "@ui5/webcomponents/dist/Option";
 
 import Home from "./home/Home";
 import Detail from './detail/Detail';

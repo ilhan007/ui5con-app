@@ -21,7 +21,7 @@ class Header extends Component {
 			<header className="detail-page-header">
 				<div className="detail-page-header-bar">
 					<ui5-title>Inventory</ui5-title>
-					<ui5-button type="Transparent" icon="sap-icon://action" class="action-button"></ui5-button>
+					<ui5-button design="Transparent" icon="sap-icon://action" class="action-button"></ui5-button>
 				</div>
 
 				<ui5-tabcontainer fixed collapsed class="detail-page-header-menu" ref={this.tabContainer}>

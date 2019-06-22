@@ -1,6 +1,6 @@
 # Home component
 
-In this step we will use the ```ui5-card``` as the main building block for our home view. We will create the "Featured" section. As you can see below, it consists of two "cards" - "Inventory" and "Security". Each of them has a header and content section with a list of important information.
+In this step we will make use of ```ui5-card``` as main building block for our home view. We will create the "Featured" section. As you can see below, it consists of two "cards" - "Inventory" and "Security". Each of them has a header and content section with a list of important information.
 
 ![Alt text](./step2.png?raw=true "Home")
 
@@ -58,9 +58,9 @@ Create the `Home` component in `src/home/Home.js`. Note that we import the `data
 	export default Home;
 	```
 
-6. Now, let's add the `ui5-card`. We will also use `ui5-list` (List) and `ui5-li` (StandardListItem) for the `ui5-card`'s content. 
-You can get familiar with the API of those components - [Card API](https://sap.github.io/ui5-webcomponents/playground/components/Card/) and [List API](https://sap.github.io/ui5-webcomponents/playground/components/List/). What is going on below?
-We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "status") and the JSX syntax to map the data and so the cards will render nicely.
+6. Now, let's add the `ui5-card`. We will also use `ui5-list` (List) and `ui5-li` (StandardListItem) for the `ui5-card` content. 
+You can get familiar with the API of those components - [Card API](https://sap.github.io/ui5-webcomponents/playground/components/Card/) and [List API](https://sap.github.io/ui5-webcomponents/playground/components/List/). What is going below?
+We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "status") and the JSX syntax to map the data and the cards will render nicely.
 
 	```html
 	return(
@@ -93,7 +93,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	);
 	```
 
-7. Import the `Home` component into the `src/App.js` (note that we added an outer DIV element as React components should always return a single element). You should be able to see the cards with data inside.  OK, the cards are currently expanded to full width and the layout does not look like the picture in the begining. We will handle it in the following step.
+7. Import the `Home` component into the `src/App.js` (note that we added an outer DIV element as React component always should return a single element). You should be able to see the cards with data inside.  OK, the cards are currently expanded to full width and the layout does not look like the picture in the begining - we will handle it in the following step.
 	```js 
 	// App.js
 	import profile from "./img/profile.png";

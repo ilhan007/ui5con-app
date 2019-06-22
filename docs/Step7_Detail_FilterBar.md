@@ -45,10 +45,10 @@ render() {
 					<ui5-icon slot="icon" src="sap-icon://search"></ui5-icon>
 				</ui5-input>
 
-				<ui5-button type="Transparent" title="Create Product">Create</ui5-button>
-				<ui5-button icon="sap-icon://sort-descending" type="Transparent" title="Sort By Status"></ui5-button>
-				<ui5-button icon="sap-icon://sort-ascending" type="Transparent" title="Sort By Status"></ui5-button>
-				<ui5-button icon="sap-icon://excel-attachment" type="Transparent"></ui5-button>
+				<ui5-button design="Transparent" title="Create Product">Create</ui5-button>
+				<ui5-button icon="sap-icon://sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
+				<ui5-button icon="sap-icon://sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
+				<ui5-button icon="sap-icon://excel-attachment" design="Transparent"></ui5-button>
 			</div>
 		</div>
 	)
@@ -204,10 +204,10 @@ render() {
 			<ui5-input class="details-page-searchfield" placeholder="Search" ref={this.searchInput} value={this.inputValue}>
 				<ui5-icon slot="icon" src="sap-icon://search"></ui5-icon>
 			</ui5-input>
-			<ui5-button type="Transparent" title="Create Product">Create</ui5-button>
-			<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sap-icon://sort-descending" type="Transparent" title="Sort By Status"></ui5-button>
-			<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sap-icon://sort-ascending" type="Transparent" title="Sort By Status"></ui5-button>
-			<ui5-button icon="sap-icon://excel-attachment" type="Transparent"></ui5-button>
+			<ui5-button design="Transparent" title="Create Product">Create</ui5-button>
+			<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sap-icon://sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
+			<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sap-icon://sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
+			<ui5-button icon="sap-icon://excel-attachment" design="Transparent"></ui5-button>
 		</div>
 		</div>
 	)

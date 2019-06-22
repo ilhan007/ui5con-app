@@ -169,32 +169,32 @@ class Detail extends Component {
 
 					<ui5-table class="items-table" no-data-text="No Items available for search criteria" show-no-data>
 						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content" slot="header">Product</ui5-label>
+							<ui5-label class="table-column-header-content">Product</ui5-label>
 						</ui5-table-column>
 
 						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content" slot="header">Price</ui5-label>
+							<ui5-label class="table-column-header-content">Price</ui5-label>
 						</ui5-table-column>
 
 						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content" slot="header">Location</ui5-label>
+							<ui5-label class="table-column-header-content">Location</ui5-label>
 						</ui5-table-column>
 
 						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content" slot="header">Order date</ui5-label>
+							<ui5-label class="table-column-header-content">Order date</ui5-label>
 						</ui5-table-column>
 
 						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content" slot="header">Image</ui5-label>
+							<ui5-label class="table-column-header-content">Image</ui5-label>
 						</ui5-table-column>
 
 						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content" slot="header">Status</ui5-label>
+							<ui5-label class="table-column-header-content">Status</ui5-label>
 						</ui5-table-column>
 
 						{
 							this.state.filteredProducts.map((item) =>
-								<ui5-table-row slot="rows" key={item.key}>
+								<ui5-table-row key={item.key}>
 									<ui5-table-cell>
 										<ui5-label class="table-cell-content"><b>{item.name}</b></ui5-label>
 									</ui5-table-cell>

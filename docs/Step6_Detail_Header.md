@@ -58,7 +58,7 @@ render() {
 				<ui5-title>Inventory</ui5-title>
 
 				<ui5-button 
-					type="Transparent"
+					design="Transparent"
 					icon="sap-icon://action"
 					class="action-button">
 				</ui5-button>

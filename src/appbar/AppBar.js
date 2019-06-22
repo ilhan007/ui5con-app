@@ -3,6 +3,7 @@ import profile from "../img/profile.png";
 import logo from "../img/logo.png";
 
 import { setTheme } from "@ui5/webcomponents-base/Theming";
+import "@ui5/webcomponents/dist/ThemePropertiesProvider";
 
 class AppBar extends Component {	
 

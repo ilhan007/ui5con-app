@@ -41,6 +41,7 @@ class Home extends Component {
 								heading={dataObj.heading}
 								subtitle={dataObj.subtitle}
 								status={dataObj.status}
+								header-interactive
 								class="ui5card">
 									<ui5-list separators="Inner">
 										{
@@ -49,7 +50,7 @@ class Home extends Component {
 													key={item.key}
 													icon={item.icon}
 													description={item.description}
-													info={item.description}
+													info={item.info}
 													info-state={item.infoState}
 													class="ui5list-item">{item.title}</ui5-li>
 											)
@@ -92,6 +93,7 @@ class Home extends Component {
 										key={item.key}
 										icon={item.icon}
 										description={item.description}
+										info={item.info}
 										class="ui5list-item">
 											{item.title}
 										</ui5-li>
@@ -130,7 +132,7 @@ class Home extends Component {
 								{
 									action.columns.map(column => 
 										<ui5-table-column key={column.key} slot="columns">
-											<div slot="header">
+											<div>
 												<ui5-label>{column.name}</ui5-label>
 											</div>
 										</ui5-table-column>
@@ -138,7 +140,7 @@ class Home extends Component {
 								}
 								{
 									action.rows.map(dataObj => 
-										<ui5-table-row key={dataObj.key} slot="rows">
+										<ui5-table-row key={dataObj.key}>
 											{
 												dataObj.cells.map(cell =>
 													<ui5-table-cell key={cell.key}>
