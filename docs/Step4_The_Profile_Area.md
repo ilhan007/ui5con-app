@@ -72,12 +72,12 @@ What is an admin UI without a profile area? We will create one for our smart sto
 	}
 	```
 
-3. Now, let's add the profile popover. We will use the `ui5-popover` that will open, when the `ui5-shellbar` `profilePress` event is fired, e.g. when someone clicks on the profile image.
+3. Now, let's add the profile popover. We will use the `ui5-popover` that will open, when the `ui5-shellbar` `profileClick` event is fired, e.g. when someone clicks on the profile image.
 
 - Add ref to the `ui5-shellbar`.
-- Bind for the `profilePress` event in the ```componentDidMount```.
+- Bind for the `profileClick` event in the ```componentDidMount```.
 - Add the `import "@ui5/webcomponents/dist/Popover";` and `import "@ui5/webcomponents/dist/Label";` imports among the other in `src/App.js`.
-- Open the `ui5-popover` in the listener `onProfilePressed`.
+- Open the `ui5-popover` in the listener `onProfileClicked`.
 
 	```js
 	// AppBar.js
@@ -88,13 +88,13 @@ What is an admin UI without a profile area? We will create one for our smart sto
 			this.appBar = React.createRef();
 		}
 
-		// Bind for the ui5-shellbar profilePress event
+		// Bind for the ui5-shellbar profileClick event
 		componentDidMount() {
-			this.appBar.current.addEventListener("profilePress", this.onProfilePressed);
+			this.appBar.current.addEventListener("profileClick", this.onProfileClicked);
 		}
 
 		// Open the ui5-popover
-		onProfilePressed(event) {
+		onProfileClicked(event) {
 			window["profile-popover"].openBy(event.detail.targetRef);
 		}
 	```
@@ -163,11 +163,11 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 
 		// Bind for the change event of the ui5-switch
 		componentDidMount() {
-			this.appBar.current.addEventListener("profilePress", this.onProfilePressed);
+			this.appBar.current.addEventListener("profileClick", this.onProfileClicked);
 			this.themeSwitch.current.addEventListener("change", this.onThemeSwitchPressed.bind(this));
 		}
 
-		onProfilePressed(event) {
+		onProfileClicked(event) {
 			window["profile-popover"].openBy(event.detail.targetRef);
 		}
 
