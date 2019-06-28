@@ -15,7 +15,7 @@ As React is recommending to split your components for an easier maintainability,
 ![Details Header](./images/details-splitted.png?raw=true "Detail Header")
 
 
-We will be working with a data set called `product.json`, placed inside a `data` directory next to the `detail` directory for our main component.
+We will be working with a data set called `product.json`, placed inside a `data` directory next below the `src` directory for our main component.
 
 `product.json`
 
@@ -111,7 +111,7 @@ The `Details` page will have a global state which holds the following informatio
 - `filteredProducts`: currently visibile items in the table (this will be changed a lot based on the user interactions)
 - `filterType`: the type of the filter that is currently applied to the page
 
-Lets now define a state to our component and add a file for styling it (Detail.css).
+Lets now define a state to our component and add a file for styling it (Detail.js).
 
 ```js
 import React, { Component } from "react";
