@@ -91,7 +91,7 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 
 7. Now, let's navigate to the `Detail` component by clicking the header of our "Inventory" card.  This would require changes in the `Home` component. 
 
-- Bind for the ui5-card `headerPress` event in `componentDidMount`
+- Bind for the ui5-card `headerClick` event in `componentDidMount`
 - Change the hash in the listener `navToDetail`.
 
 	```js 
@@ -109,12 +109,12 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 		this.state = {data};
 	}
 
-	// Bind for the "headerPress" event of the ui5-card
+	// Bind for the "headerClick" event of the ui5-card
 	componentDidMount() {
 		const inventoryCardRef = this.featuredCardsRefs[0];
 
 		if (inventoryCardRef) {
-			inventoryCardRef.addEventListener("headerPress", this._navToDetail);
+			inventoryCardRef.addEventListener("headerClick", this._navToDetail);
 		}
 	}
 
@@ -164,6 +164,6 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 	);
 	```
 
-	Now, you can press the header of the "Inventory" card and navigate to the `Detail` component.
+	Now, you can click the header of the "Inventory" card and navigate to the `Detail` component.
 
 ### [Step #4 - The Profile Area](./Step4_The_Profile_Area.md)

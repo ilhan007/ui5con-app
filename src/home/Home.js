@@ -16,7 +16,7 @@ class Home extends Component {
 		const inventoryCardRef = this.featuredCardsRefs[0];
 
 		if (inventoryCardRef) {
-			inventoryCardRef.addEventListener("headerPress", this._navToDetail);
+			inventoryCardRef.addEventListener("headerClick", this._navToDetail);
 		}
 	}
 

@@ -14,11 +14,11 @@ class AppBar extends Component {
 	}
 
 	componentDidMount() {
-		this.appBar.current.addEventListener("profilePress", this.onProfilePressed);
+		this.appBar.current.addEventListener("profileClick", this.onProfileClicked);
 		this.themeSwitch.current.addEventListener("change", this.onThemeSwitchPressed.bind(this));
 	}
 
-	onProfilePressed(event) {
+	onProfileClicked(event) {
 		window["profile-popover"].openBy(event.detail.targetRef);
 	}
 
