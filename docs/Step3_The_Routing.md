@@ -14,10 +14,6 @@ In this step we will create an empty Detail component and set up a routing and n
 	import React, { Component } from "react";
 
 	class Detail extends Component {
-		constructor(props) {
-			super(props);
-		}
-
 		render() {
 			return (
 				<div className="detail-page">Hello World</div>
