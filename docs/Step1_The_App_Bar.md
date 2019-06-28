@@ -34,7 +34,7 @@ Note: We are replacing the `ui5-button` from the previous step with the `ui5-she
 	}
 	```
 
-4. Create "img" folder under "src" and copy the `logo.png` and `profile.png` files from `src/images` from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/tree/master/src/img) (look for a "download" button, when you click on one of the images).
+4. Create "img" folder under "src" and copy the `logo.png` and `profile.png` files from `src/img` from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/tree/master/src/img) (look for a "download" button, when you click on one of the images).
 
 5. Then, import those images and set them to the `logo` and `profile` attributes of the `ui5-shellbar`.
 
