@@ -145,7 +145,9 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 				heading={dataObj.heading}
 				subtitle={dataObj.subtitle}
 				status={dataObj.status}
-				class="ui5card">
+				class="ui5card"
+				header-interactive
+			>
 					<ui5-list separators="Inner">
 					{dataObj.items.map(item =>
 					<ui5-li
