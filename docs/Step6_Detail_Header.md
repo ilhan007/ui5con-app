@@ -29,6 +29,13 @@ export default Header;
 
 To place this component inside the `Detail` component, add a <Header /> tag to the Detail's `jsx` (render function).
 
+Don't forget to import the Header either in the Detail.js:
+```js
+import Header from '../header/Header';
+```
+
+
+
 e.g.
 
 ```html
