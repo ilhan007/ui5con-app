@@ -15,7 +15,7 @@ As React is recommending to split your components for an easier maintainability,
 ![Details Header](./images/details-splitted.png?raw=true "Detail Header")
 
 
-We will be working with a data set called `product.json`, placed inside a `data` directory next below the `src` directory for our main component.
+We will be working with a data set called `product.json`, placed inside a `src/data/` directory. (Create `data` directory in `src`).
 
 `product.json`
 
