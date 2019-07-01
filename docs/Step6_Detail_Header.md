@@ -47,7 +47,7 @@ Next we will add the real building blocks of the Header component.
 
 import Tab and TabContainer inside App.js
 ```js
-import "@ui5/webcomponents/dist/Tab Tab and";
+import "@ui5/webcomponents/dist/Tab";
 import "@ui5/webcomponents/dist/TabContainer";
 ```
 
