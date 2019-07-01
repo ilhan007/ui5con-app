@@ -52,7 +52,13 @@ render() {
 You should now be able to see the hello world heading above the table.
 Next we will add the real building blocks of the Header component.
 
-It contains:
+import Tab and TabContainer inside App.js
+```js
+import "@ui5/webcomponents/dist/Tab";
+import "@ui5/webcomponents/dist/TabContainer";
+```
+
+It contains
 - a section that wraps a `ui5-title` and a `ui5-button`
 - another section that represents a `ui5-tabcontainer` with 4 `ui5-tab`s inside
 
