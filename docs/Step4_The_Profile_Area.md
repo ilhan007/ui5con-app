@@ -144,14 +144,14 @@ What is an admin UI without a profile area? We will create one for our smart sto
 We will use the `ui5-switch` component to switch between Fiori 3 and High Contrast Black.
 
 - Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`
-- Add the `import "@ui5/webcomponents/dist/json-imports/Themes.js` to enable dynamic theme switching
-- Add the `import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js` in `src/appbar/AppBar.js`
+- Add the `import "@ui5/webcomponents/dist/ThemePropertiesProvider"` to enable dynamic theme switching
+- Add the `import { setTheme } from "@ui5/webcomponents-base/src/Theming"` in `src/appbar/AppBar.js`
 - Bind for the `ui5-switch` `change` event
 - Switch the theme in the event listener `onThemeSwitchPressed`
 
 	```js
 	// AppBar.js
-	import { setTheme } from "@ui5/webcomponents-base/Theming";
+	import { setTheme } from "@ui5/webcomponents-base/src/Theming";
 
 	class AppBar extends Component {	
 
