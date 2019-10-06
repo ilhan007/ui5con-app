@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import profile from "../img/profile.png";
 import logo from "../img/logo.png";
 
-import { setTheme } from "@ui5/webcomponents-base/Theming";
-import "@ui5/webcomponents/dist/ThemePropertiesProvider";
+import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
+import "@ui5/webcomponents/dist/json-imports/Themes.js";
 
 class AppBar extends Component {	
 
