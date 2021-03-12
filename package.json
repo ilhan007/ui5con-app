@@ -4,7 +4,10 @@
   "private": true,
   "homepage": "http://ilhan007.github.io/ui5con-app",
   "dependencies": {
-    "@ui5/webcomponents": "1.0.0-rc.2",
+    "@ui5/webcomponents": "1.0.0-rc.12",
+    "@ui5/webcomponents-base": "0.30.0",
+    "@ui5/webcomponents-fiori": "1.0.0-rc.12",
+    "@ui5/webcomponents-icons": "1.0.0-rc.12",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",

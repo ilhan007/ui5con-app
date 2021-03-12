@@ -4,17 +4,21 @@ import Header from "../header/Header.js";
 import "./Detail.css";
 import products from "../data/products.json";
 
-import "@ui5/webcomponents/dist/Title";
-import "@ui5/webcomponents/dist/Table";
-import "@ui5/webcomponents/dist/TableColumn";
-import "@ui5/webcomponents/dist/TableRow";
-import "@ui5/webcomponents/dist/TableCell";
-import "@ui5/webcomponents/dist/Badge";
-import "@ui5/webcomponents/dist/Dialog";
-import "@ui5/webcomponents/dist/Popover";
-import "@ui5/webcomponents/dist/Select";
 import "@ui5/webcomponents/dist/DatePicker";
-import "@ui5/webcomponents/dist/TextArea";
+import "@ui5/webcomponents/dist/Input";
+import "@ui5/webcomponents/dist/Tab";
+import "@ui5/webcomponents/dist/TabSeparator";
+import "@ui5/webcomponents/dist/TabContainer";
+import "@ui5/webcomponents/dist/Title.js";
+import "@ui5/webcomponents/dist/Table.js";
+import "@ui5/webcomponents/dist/TableColumn.js";
+import "@ui5/webcomponents/dist/TableRow.js";
+import "@ui5/webcomponents/dist/TableCell.js";
+import "@ui5/webcomponents/dist/Badge.js";
+import "@ui5/webcomponents/dist/Dialog.js";
+import "@ui5/webcomponents/dist/Popover.js";
+import "@ui5/webcomponents/dist/Select.js";
+import "@ui5/webcomponents/dist/TextArea.js";
 
 const getBadgeType = type => {
 	switch (type) {
@@ -30,11 +34,19 @@ const getBadgeType = type => {
 }
 
 class Detail extends Component {
-	state = {
-		products: [...products],
-		filteredProducts: [...products],
-		filterType: "all",
-	};
+	constructor (props) {
+		super(props);
+		
+		this.state = {
+			products: [...products],
+			filteredProducts: [...products],
+			filterType: "all",
+		};
+	}
+
+	navBack() {
+		this.props.history.push("/home");
+	}
 
 	filterPerishableProducts(items) {
 		return items.filter(product => product.perishable);
@@ -157,69 +169,84 @@ class Detail extends Component {
 					perishableCount={this.filterPerishableProducts(this.state.products).length}
 					alertCount={this.filterAlertProducts(this.state.products).length}
 					tabPress={this.applyFilter.bind(this)}
+					navBack={this.navBack.bind(this)}
 				/>
 				<main className="detail-page-content">
 
-					<FilterBar
-						createProduct={this.createProduct.bind(this)}
-						filter={this.filter.bind(this)}
-						sortAsc={this.sortAsc.bind(this)}
-						sortDesc={this.sortDesc.bind(this)}
-					/>
+					{/* <ui5-flexible-column-layout id="fcl2" layout="TwoColumnsMidExpanded">
+						<div slot="startColumn">
+							<div className="details-page-filter-bar">
+								<ui5-title>Stores</ui5-title>
+							</div>
+							<ui5-list mode="SingleSelect">
+								<ui5-li>Smart Store 1</ui5-li>
+								<ui5-li>Smart Store 2</ui5-li>
+								<ui5-li>Smart Store 3</ui5-li>
+							</ui5-list>
+						</div>
 
-					<ui5-table class="items-table" no-data-text="No Items available for search criteria" show-no-data>
-						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content">Product</ui5-label>
-						</ui5-table-column>
+						<div slot="midColumn"> */}
+							<FilterBar
+								createProduct={this.createProduct.bind(this)}
+								filter={this.filter.bind(this)}
+								sortAsc={this.sortAsc.bind(this)}
+								sortDesc={this.sortDesc.bind(this)}
+							/>
 
-						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content">Price</ui5-label>
-						</ui5-table-column>
+							<ui5-table class="table" no-data-text="No Items available for search criteria" show-no-data>
+								<ui5-table-column slot="columns">
+									<ui5-label class="table-column-header-content middle">Product</ui5-label>
+								</ui5-table-column>
 
-						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content">Location</ui5-label>
-						</ui5-table-column>
+								<ui5-table-column slot="columns">
+									<ui5-label class="table-column-header-content middle">Name</ui5-label>
+								</ui5-table-column>
 
-						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content">Order date</ui5-label>
-						</ui5-table-column>
+								<ui5-table-column slot="columns">
+									<ui5-label class="table-column-header-content middle">Price</ui5-label>
+								</ui5-table-column>
 
-						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content">Image</ui5-label>
-						</ui5-table-column>
+								<ui5-table-column slot="columns" min-width="800" popin-text="Location" demand-popin>
+									<ui5-label class="table-column-header-content middle">Location</ui5-label>
+								</ui5-table-column>
 
-						<ui5-table-column slot="columns">
-							<ui5-label class="table-column-header-content">Status</ui5-label>
-						</ui5-table-column>
+								<ui5-table-column slot="columns" min-width="800" popin-text="Order date" demand-popin>
+									<ui5-label class="table-column-header-content middle">Order date</ui5-label>
+								</ui5-table-column>
 
-						{
-							this.state.filteredProducts.map((item) =>
-								<ui5-table-row key={item.key}>
-									<ui5-table-cell>
-										<ui5-label class="table-cell-content"><b>{item.name}</b></ui5-label>
-									</ui5-table-cell>
-									<ui5-table-cell>
-										<span className="table-cell-content">{item.price}</span>
-									</ui5-table-cell>
-									<ui5-table-cell>
-										<span className="table-cell-content">{item.location}</span>
-									</ui5-table-cell>
-									<ui5-table-cell>
-										<span className="table-cell-content">{item.orderDate}</span>
-									</ui5-table-cell>
-									<ui5-table-cell>
-										<span className="table-cell-content">
-											<img alt="" className="image-cell" src={process.env.PUBLIC_URL + item.img} />
-										</span>
-									</ui5-table-cell>
-									<ui5-table-cell>
-										<span className="table-cell-content">
-											<ui5-badge color-scheme={getBadgeType(item.status)}>{item.status}</ui5-badge>
-										</span>
-									</ui5-table-cell>
-								</ui5-table-row>)
-						}
-					</ui5-table>
+								<ui5-table-column slot="columns">
+									<ui5-label class="table-column-header-content middle">Status</ui5-label>
+								</ui5-table-column>
+								{
+									this.state.filteredProducts.map((item) =>
+										<ui5-table-row key={item.key}>
+											<ui5-table-cell>
+												<span className="table-cell-content middle">
+													<img alt="" className="table-image-cell" src={process.env.PUBLIC_URL + item.img} />
+												</span>
+											</ui5-table-cell>
+											<ui5-table-cell>
+												<ui5-label class="table-cell-content middle"><b>{item.name}</b></ui5-label>
+											</ui5-table-cell>
+											<ui5-table-cell>
+												<span className="table-cell-content middle">{item.price}</span>
+											</ui5-table-cell>
+											<ui5-table-cell>
+												<span className="table-cell-content middle">{item.location}</span>
+											</ui5-table-cell>
+											<ui5-table-cell>
+												<span className="table-cell-content middle">{item.orderDate}</span>
+											</ui5-table-cell>
+											<ui5-table-cell>
+												<span className="table-cell-content middle">
+													<ui5-badge class="table-cell-content-badge" color-scheme={getBadgeType(item.status)}>{item.status}</ui5-badge>
+												</span>
+											</ui5-table-cell>
+										</ui5-table-row>)
+								}
+							</ui5-table>
+						{/* </div>
+					</ui5-flexible-column-layout> */}
 				</main>
 			</div>
 		)

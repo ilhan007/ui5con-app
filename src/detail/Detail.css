@@ -5,37 +5,48 @@
 	padding: 3rem;
 }
 
-.table-column-header-content,
-.table-cell-content {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-}
-
-.image-cell {
-	height: 3rem;
-	width: 3rem;
-}
-
-.items-table {
-	border: 1px solid var(--sapUiListTableGroupHeaderBorderColor, #d9d9d9);
-	margin-top: 0.5rem;
-}
 
 /* Detail Header */
 
 .detail-page-header-bar {
 	height: 6rem;
-	padding: 1rem 3rem;
+	padding: 1rem 2rem;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	box-sizing: border-box;
-	background: var(--sapUiGroupContentBackground, #ffffff);
+	background: var(--sapGroup_ContentBackground, #ffffff);
+}
+
+@media screen and (min-width: 1440px) {
+	.detail-page-header-bar {
+		padding: 1rem 2.5rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.detail-page-header-bar {
+		padding: 1rem 2rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.detail-page-header-bar {
+		padding: 1rem 1rem;
+	}
+}
+
+.detail-page-header-bar-start {
+	display: flex;
+	align-items: center;
+}
+
+.detail-page-header-title {
+	padding: 0 1rem;
 }
 
 .detail-page-header-menu {
-	border: 1px solid var(--sapUiListTableGroupHeaderBorderColor, #d9d9d9);
+	border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9);
 }
 
 /* Detail Page Filter Bar */
@@ -43,11 +54,12 @@
 .details-page-filter-bar {
 	flex-wrap: wrap;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 }
 
 .detail-page-header-menu {
-	border: 1px solid var(--sapUiListTableGroupHeaderBorderColor, #d9d9d9);
+	border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9);
 }
 
 .details-page-filter-bar-actions {
@@ -67,9 +79,42 @@
 	width: auto;
 }
 
+/* Detail Table */
+.table {
+	margin-top: 0.5rem;
+}
+
+.table-column-header-content,
+.table-cell-content {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+}
+
+.table-cell-content {
+	padding: 0.5rem;
+}
+
+.table-cell-content-badge {
+	height: 1.5rem;
+}
+
+.table-image-cell {
+	height: 2.75rem;
+	width: 2.75rem;
+}
+
+.middle {
+	height: 100%;
+	vertical-align: middle;
+	line-height: 3;
+}
+
 /* Detail Page Dialog */
 
 .dialog-footer {
+	width: 100%;
 	padding: 0.25rem;
 	display: flex;
 	justify-content: flex-end;

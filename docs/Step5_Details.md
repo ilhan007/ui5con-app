@@ -252,7 +252,7 @@ We now can see the table displayed in our page. We need to add some styling for 
 	align-items: center;
 }
 
-.image-cell {
+.table-image-cell {
 	height: 3rem;
 	width: 3rem;
 }

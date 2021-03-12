@@ -3,25 +3,26 @@
 		{
 			"key": "f1",
 			"heading": "Inventory",
-			"status": "3 of 22",
+			"subtitle": "Smart Store Dep B321",
+			"status": "3 of 8",
 			"items": [
 				{
 					"key": "1",
 					"title": "Soap Bars",
 					"description": "1579340",
-					"icon": "sap-icon://product"
+					"icon": "product"
 				},
 				{
 					"key": "2",
 					"title": "Lettuce",
 					"description": "1579441",
-					"icon": "sap-icon://product"
+					"icon": "product"
 				},
 				{
 					"key": "3",
 					"title": "Broccoli",
 					"description": "1579542",
-					"icon": "sap-icon://product"
+					"icon": "product"
 				}
 			]
 		},
@@ -35,7 +36,7 @@
 					"key": "4",
 					"title": "Parking A",
 					"description": "#36",
-					"icon": "sap-icon://web-cam",
+					"icon": "web-cam",
 					"info": "Recording",
 					"infoState": "Success"
 				},
@@ -43,7 +44,7 @@
 					"key": "5",
 					"title": "Deli Department 1",
 					"description": "#41",
-					"icon": "sap-icon://web-cam",
+					"icon": "web-cam",
 					"info": "Recording",
 					"infoState": "Success"
 				},
@@ -51,7 +52,7 @@
 					"key": "6",
 					"title": "Warehouse B",
 					"description": "#75",
-					"icon": "sap-icon://hide",
+					"icon": "hide",
 					"info": "Off",
 					"infoState": "Error"
 				}
@@ -61,24 +62,24 @@
 	"activities": [
 		{
 			"key": "1",
-			"title": "Weekly Sync - Managers and Tech support",
-			"subtitle": "10:00 - 10:30",
-			"location": "MR WDF18 C3(GLASSBOX)",
-			"icon": "sap-icon://calendar"
+			"title": "SAP Bulgaria DKOM 2021 Session",
+			"subtitle": "UI5 WEB COMPONENTS 10:00 - 10:30",
+			"location": "Home",
+			"icon": "calendar"
 		},
 		{
 			"key": "2",
 			"title": "Video Converence Call - Tech Update",
 			"subtitle": "14:30 - 15:30",
 			"location": "St. Leon Rot, NYC",
-			"icon": "sap-icon://calendar"
+			"icon": "calendar"
 		},
 		{
 			"key": "3",
 			"title": "Call 'Project Nimbus' (Skype Meeting)",
 			"subtitle": "15:00 - 16:30",
 			"location": "",
-			"icon": "sap-icon://phone"
+			"icon": "phone"
 		}
 	],
 
@@ -87,62 +88,68 @@
 			"key": "1",
 			"title": "Fridges",
 			"description": "Fridges are on",
-			"icon": "sap-icon://fridge",
-			"info": "13,548 Watts"
+			"icon": "fridge",
+			"info": "13,548 Watts",
+			"infoState": "Warning"
 		},
 		{
 			"key": "2",
 			"title": "Lights",
 			"description": "Lights are on",
-			"icon": "sap-icon://lightbulb",
-			"info": "3,896 Watts"
+			"icon": "lightbulb",
+			"info": "3,896 Watts",
+			"infoState": "Warning"
 		},
 		{
 			"key": "3",
 			"title": "Air condition",
 			"description": "All are on",
-			"icon": "sap-icon://heating-cooling",
-			"info": "2,752 Watts"
+			"icon": "heating-cooling",
+			"info": "2,752 Watts",
+			"infoState": "Warning"
 		},
 		{
 			"key": "4",
 			"title": "Ovens",
 			"description": "Ovens are on",
-			"icon": "sap-icon://washing-machine",
-			"info": "2,317 Watts"
+			"icon": "washing-machine",
+			"info": "2,317 Watts",
+			"infoState": "Warning"
 		}
 	],
 	"storesa": [
 		{
-			"key": "s1",
-			"title": "Smart Store 1",
+			"key": 0,
+			"title": "Smart Store Dep A302",
 			"description": "New York City"
+			
 		},
 		{
-			"key": "s2",
-			"title": "Smart Store 2",
-			"description": "Washington"
+			"key": 1,
+			"title": "Smart Store Dep B321",
+			"description": "Washington",
+			"selected": true
 		},
 		{
-			"key": "s3",
-			"title": "Smart Store 3",
+			"key": 2,
+			"title": "Smart Store Dep C062",
 			"description": "Boston"
 		}
 	],
 	"storesb": [
 		{
-			"key": "s4",
-			"title": "Smart Store 4",
+			"key": 3,
+			"title": "Smart Store Dep D602",
 			"description": "Dallas"
 		},
 		{
-			"key": "s5",
-			"title": "Smart Store 5",
+			"key": 4,
+			"title": "Smart Store Dep E307",
 			"description": "Los Angeles"
 		},
 		{
-			"key": "s6",
-			"title": "Smart Store 6",
+			"key": 5,
+			"title": "Smart Store Dep F902",
 			"description": "Chicago"
 		}
 	],
@@ -150,7 +157,7 @@
 		{
 			"key": "3",
 			"type": "table",
-			"title": "Smart Store 1",
+			"title": "Smart Store Dep 1302",
 			"subtitle": "today",
 			"status": "3 of 6",
 			"columns": [
@@ -195,21 +202,21 @@
 			"key": "20",
 			"heading": "Fridge #37",
 			"subtitle": "Temperature too low",
-			"icon": "sap-icon://fridge",
+			"icon": "fridge",
 			"text": "-9 \u2103"
 		},
 		{
 			"key": "21",
 			"heading": "Room A",
 			"subtitle": "Temperature high",
-			"icon": "sap-icon://temperature",
+			"icon": "temperature",
 			"text": "28 \u2103"
 		},
 		{
 			"key": "22",
 			"heading": "Entrance Lamp",
 			"subtitle": "Maintenance Overdue",
-			"icon": "sap-icon://lightbulb",
+			"icon": "lightbulb",
 			"text": "5 days"
 		}
 	]

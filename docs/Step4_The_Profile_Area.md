@@ -144,8 +144,8 @@ What is an admin UI without a profile area? We will create one for our smart sto
 We will use the `ui5-switch` component to switch between Fiori 3 and High Contrast Black.
 
 - Add the `import "@ui5/webcomponents/dist/Switch";` import in `src/App.js`
-- Add the `import "@ui5/webcomponents/dist/ThemePropertiesProvider"` to enable dynamic theme switching
-- Add the `import { setTheme } from "@ui5/webcomponents-base/src/Theming"` in `src/appbar/AppBar.js`
+- Add the `import "@ui5/webcomponents-fiori/dist/Assets.js";` to enable dynamic theme switching
+- Add the `import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js"` in `src/appbar/AppBar.js`
 - Bind for the `ui5-switch` `change` event
 - Switch the theme in the event listener `onThemeSwitchPressed`
 
@@ -186,10 +186,12 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 						ref={this.appBar}
 						primary-title="Smart Store Manager"
 						show-notifications
+						notification-count="3"
 						show-product-switch
 						show-co-pilot
-						profile={profile}
-						logo={logo}>
+					>
+						<img className="app-bar-logo" src={logo} slot="logo"/>
+						<ui5-avatar slot="profile" image={profile}></ui5-avatar>
 					</ui5-shellbar>
 
 					<ui5-popover

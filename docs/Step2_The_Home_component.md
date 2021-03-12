@@ -17,7 +17,7 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	// App.js
 	import profile from "./img/profile.png";
 	import logo from "./img/logo.png";
-	import "@ui5/webcomponents/dist/ShellBar";
+	import "@ui5/webcomponents-fiori/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/Title";
 	import "@ui5/webcomponents/dist/Label";
@@ -72,7 +72,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 			<ui5-card
 				key={dataObj.key}
 				heading={dataObj.heading}
-				subtitle={dataObj.subtitle}
+				subheading={dataObj.subtitle}
 				status={dataObj.status}
 				class="ui5card">
 					<ui5-list separators="Inner">
@@ -98,7 +98,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	// App.js
 	import profile from "./img/profile.png";
 	import logo from "./img/logo.png";
-	import "@ui5/webcomponents/dist/ShellBar";
+	import "@ui5/webcomponents-fiori/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/Title";
 	import "@ui5/webcomponents/dist/Label";
@@ -113,10 +113,11 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 				<ui5-shellbar
 					primary-title="Smart Store Manager"
 					show-notifications
+					notification-count="3"
 					show-product-switch
-					show-co-pilot
-					profile={profile}
-					logo={logo}>
+					show-co-pilot>
+						<img className="app-bar-logo" src={logo} slot="logo"/>
+						<ui5-avatar slot="profile" image={profile}></ui5-avatar>
 				</ui5-shellbar>
 
 				<Home />
