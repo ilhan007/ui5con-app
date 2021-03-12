@@ -1,0 +1,142 @@
+:host {
+    display: block;
+}
+
+.container {
+    background: var(--sapObjectHeader_Background);
+    font-family: var(--sapFontFamily);
+    font-size: var(--sapFontSmallSize);
+    font-weight: normal;
+    color: var(--sapTextColor);
+    overflow: hidden;
+}
+
+.container:focus {
+    outline: 0.0625rem dotted var(--sapContent_FocusColor);
+}
+
+.pages-viewport {
+    padding: 1rem 0;
+    transition: transform 1s;
+}
+
+.pages-viewport.shifted {
+    transform: translate(-100%, 0);
+}
+
+.pages {
+    display: flex;
+}
+
+.page {
+    padding: 0 1.5rem;
+}
+
+.main-page {
+    display: flex;
+}
+
+.main-page .image {
+    width: 3rem;
+    margin: 0 1rem 0 0;
+}
+
+.main-page .content {
+    width: calc(100% - 3rem);
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-page .content.no-image{
+    width: 100%;
+}
+
+.main-page .content .important-area {
+    margin: 0 1rem 0 0;
+}
+
+.main-page .content .important-area .heading {
+    width: 100%;
+    font-size: var(--sapFontLargeSize);
+    color: var(--ui5-mdk-object-header-heading-color);
+}
+
+.main-page .content .important-area .subheading {
+    width: 100%;
+    font-size: var(--sapFontSize);
+    color: var(--ui5-mdk-object-header-subheading-color);
+}
+
+.main-page .content .important-area .bodyText {
+    margin: 0 0 0.25rem 0;
+}
+
+.main-page .content .description-area {
+    margin: 0 1rem 0 0;
+    max-width: 50%;
+}
+
+.main-page .content .status-area {
+    font-size: var(--sapFontSize);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.main-page .content .status-area .status {
+    margin: 0 0 0.25rem 0;
+    white-space: nowrap;
+}
+
+.main-page .content .status-area .statusDescription {
+    white-space: nowrap;
+}
+
+::slotted(ui5-icon) {
+    color: var(--sapTextColor);
+}
+
+.main-page .content .important-area .tags {
+    width: 100%;
+    margin: 0.75rem 0 1rem 0; /* top is 0.75 because tags have 0.25 top margin too */
+}
+
+.main-page .content .important-area .tags .tag {
+    display: inline-block;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    margin: 0.25rem 0.25rem 0 0;
+}
+
+.desc-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dots-line {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0.5rem 0;
+}
+
+.dots-line .dots {
+    display: flex;
+}
+
+.dots-line .dots .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.dots-line .dots .dot.dot-first {
+    margin: 0 0.5rem 0 0;
+}
+
+.dots-line .dots .dot.dot-passive {
+    background: var(--sapContent_NonInteractiveIconColor);
+}
+
+.dots-line .dots .dot.dot-active {
+	background-color: var(--sapSelectedColor);}

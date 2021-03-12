@@ -6,7 +6,8 @@
 	"img": "/img/broccolli.png",
 	"status": "Deterioating",
 	"orderDate": "10/7/2019",
-	"perishable": true
+	"perishable": true,
+	"vegs": true
 },
 {
 	"key": 2,
@@ -46,7 +47,8 @@
 	"img": "/img/lettuce.png",
 	"status": "Re-Stock",
 	"orderDate": "10/7/2019",
-	"perishable": true
+	"perishable": true,
+	"vegs": true
 },
 {
 	"key": 6,

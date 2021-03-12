@@ -20,6 +20,18 @@ import "@ui5/webcomponents/dist/Popover.js";
 import "@ui5/webcomponents/dist/Select.js";
 import "@ui5/webcomponents/dist/TextArea.js";
 
+import "@ui5/webcomponents-icons/dist/alert.js";
+import "@ui5/webcomponents-icons/dist/nutrition-activity.js";
+import "@ui5/webcomponents-icons/dist/accept.js";
+import "@ui5/webcomponents-icons/dist/decline.js";
+import "@ui5/webcomponents-icons/dist/nav-back.js";
+import "@ui5/webcomponents-icons/dist/globe.js";
+import "@ui5/webcomponents-icons/dist/sort-descending.js";
+import "@ui5/webcomponents-icons/dist/sort-ascending.js";
+import "@ui5/webcomponents-icons/dist/excel-attachment.js";
+import "@ui5/webcomponents-icons/dist/e-care.js";
+import "@ui5/webcomponents-icons/dist/retail-store.js";
+
 const getBadgeType = type => {
 	switch (type) {
 		case "In-Stock":
@@ -60,6 +72,10 @@ class Detail extends Component {
 		return items.filter(product => (product.status === "Deterioating" || product.status === "Re-Stock"));
 	}
 
+	filterVegsProducts(items) {
+		return items.filter(product => (product.vegs));
+	}
+
 	filterItems(filterType, items) {
 		let filteredProducts = [];
 
@@ -75,6 +91,9 @@ class Detail extends Component {
 				break;
 			case "alerts":
 				filteredProducts = this.filterAlertProducts(items);
+				break;
+			case "vegs":
+				filteredProducts = this.filterVegsProducts(items);
 				break;
 			default:
 				filteredProducts = items;
@@ -168,24 +187,11 @@ class Detail extends Component {
 					nonPerishableCount={this.filterNoPerishableProducts(this.state.products).length}
 					perishableCount={this.filterPerishableProducts(this.state.products).length}
 					alertCount={this.filterAlertProducts(this.state.products).length}
+					vegsCount={this.filterVegsProducts(this.state.products).length}
 					tabPress={this.applyFilter.bind(this)}
 					navBack={this.navBack.bind(this)}
 				/>
 				<main className="detail-page-content">
-
-					{/* <ui5-flexible-column-layout id="fcl2" layout="TwoColumnsMidExpanded">
-						<div slot="startColumn">
-							<div className="details-page-filter-bar">
-								<ui5-title>Stores</ui5-title>
-							</div>
-							<ui5-list mode="SingleSelect">
-								<ui5-li>Smart Store 1</ui5-li>
-								<ui5-li>Smart Store 2</ui5-li>
-								<ui5-li>Smart Store 3</ui5-li>
-							</ui5-list>
-						</div>
-
-						<div slot="midColumn"> */}
 							<FilterBar
 								createProduct={this.createProduct.bind(this)}
 								filter={this.filter.bind(this)}
@@ -245,8 +251,6 @@ class Detail extends Component {
 										</ui5-table-row>)
 								}
 							</ui5-table>
-						{/* </div>
-					</ui5-flexible-column-layout> */}
 				</main>
 			</div>
 		)

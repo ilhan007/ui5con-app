@@ -3,6 +3,7 @@ import profile from "../img/profile.png";
 import logo from "../img/logo.png";
 
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
+import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
 import "@ui5/webcomponents-fiori/dist/Assets.js";
 
 class AppBar extends Component {	
@@ -10,26 +11,49 @@ class AppBar extends Component {
 	constructor (props) {
 		super(props);
 		this.appBar = React.createRef();
-		this.themeSwitch = React.createRef();
+		this.themeSelect = React.createRef();
+		this.themeSettingItem = React.createRef();
 		this.languageSelect = React.createRef();
+		this.langSettingsItem = React.createRef();
 	}
 
 	componentDidMount() {
 		this.appBar.current.addEventListener("profile-click", this.onProfileClicked);
 		this.appBar.current.addEventListener("notifications-click", this.onNotificationsClicked);
-		this.themeSwitch.current.addEventListener("change", this.onThemeSwitchPressed.bind(this));
+		this.languageSelect.current.addEventListener("selection-change", this.onLangChange.bind(this));
+		this.themeSelect.current.addEventListener("selection-change", this.onThemeChange.bind(this));
+		this.langSettingsItem.current.addEventListener("item-click", this.onLangSettings.bind(this));
+		this.themeSettingItem.current.addEventListener("item-click", this.onThemeSettings.bind(this));
 	}
 
 	onProfileClicked(event) {
+		event.preventDefault();
 		window["profile-popover"].openBy(event.detail.targetRef);
 	}
 
 	onNotificationsClicked(event) {
+		event.preventDefault();
 		window["notifications-popover"].openBy(event.detail.targetRef);
 	}
 
-	onThemeSwitchPressed(event) {
-		setTheme(event.target.checked ? "sap_fiori_3_dark" : "sap_fiori_3");
+	onThemeChange(event) {
+		const selectedTheme = event.detail.selectedItems[0].getAttribute("data-theme");
+		setTheme(selectedTheme);
+	}
+
+	onLangSettings(event) {
+		event.preventDefault();
+		window["lang-settings-popover"].openBy(event.detail.targetRef);
+	}
+
+	onThemeSettings(event) {
+		event.preventDefault();
+		window["theme-settings-popover"].openBy(event.detail.targetRef);
+	}
+
+	onLangChange(event) {
+		const selectedLang = event.detail.selectedItems[0].getAttribute("data-lang");
+		setLanguage(selectedLang);
 	}
 
 	render() {
@@ -44,6 +68,12 @@ class AppBar extends Component {
 					show-co-pilot>
 						<img className="app-bar-logo" src={logo} slot="logo" alt=""/>
 						<ui5-avatar slot="profile" image={profile}></ui5-avatar>
+
+						<ui5-shellbar-item icon="globe" text="Language" ref={this.langSettingsItem}>
+						</ui5-shellbar-item>
+
+						<ui5-shellbar-item icon="palette" text="Theme" ref={this.themeSettingItem}>
+						</ui5-shellbar-item>
 				</ui5-shellbar>
 
 				<ui5-popover id="profile-popover" hide-header placement-type="Bottom" horizontal-align="Right">
@@ -52,31 +82,23 @@ class AppBar extends Component {
 						<ui5-title level="3">Darius Cummings</ui5-title>
 						<ui5-label>Store Manager</ui5-label>
 					</div>
-
 					<div className="profile-content">
 
-					<ui5-list separators="None">
-						<div className="profile-hcb-switch centered">
-							<div className="profile-hcb-switch-title">
-								<ui5-icon name="sap-icon://palette"></ui5-icon>
-								<ui5-label class="profile-hcb-switch-text">Dark Mode</ui5-label>
-							</div>
-							<ui5-switch ref={this.themeSwitch}></ui5-switch>
-						</div>
+						<ui5-list separators="None">
+							{/* <div className="profile-hcb-switch centered">
+								<div className="profile-hcb-switch-title">
+									<ui5-icon name="palette"></ui5-icon>
+									<ui5-label class="profile-hcb-switch-text">Dark Mode</ui5-label>
+								</div>
+								<ui5-switch ref={this.themeSwitch}></ui5-switch>
+							</div> */}
 
-						<ui5-select ref={this.languageSelect}>
-							<ui5-option>DE</ui5-option>
-							<ui5-option>BG</ui5-option>
-							<ui5-option>EN</ui5-option>
-						</ui5-select>
-
-						<ui5-li icon="sap-icon://settings">Settings</ui5-li>
-						<ui5-li icon="sap-icon://sys-help">Help</ui5-li>
-						<ui5-li icon="sap-icon://log">Sign out</ui5-li>
-					</ui5-list>
+							<ui5-li icon="settings">Settings</ui5-li>
+							<ui5-li icon="sys-help">Help</ui5-li>
+							<ui5-li icon="log">Sign out</ui5-li>
+						</ui5-list>
 					</div>
 				</ui5-popover>
-
 
 				<ui5-popover
 					id="notifications-popover"
@@ -113,6 +135,30 @@ class AppBar extends Component {
 						</ui5-li-notification>
 					</ui5-list>
 				</ui5-popover>
+
+				<ui5-popover id="lang-settings-popover" class="app-bar-lang-popover"
+					horizontal-align="left"
+					placement-type="Bottom">
+					<ui5-list ref={this.languageSelect} mode="SingleSelect">
+						<ui5-li icon="globe" data-lang="bg">Bulgarian</ui5-li>
+						<ui5-li icon="globe" data-lang="zh_CN">Chinese</ui5-li>
+						<ui5-li icon="globe" data-lang="de">German</ui5-li>
+						<ui5-li icon="globe" data-lang="en" selected>English</ui5-li>
+						<ui5-li icon="globe" data-lang="es">Spanish</ui5-li>
+					</ui5-list>
+				</ui5-popover>
+
+				<ui5-popover id="theme-settings-popover" class="app-bar-lang-popover"
+					horizontal-align="left"
+					placement-type="Bottom">
+					<ui5-list ref={this.themeSelect} mode="SingleSelect">
+						<ui5-li icon="palette" selected data-theme="sap_fiori_3">Quartz Light</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">High Contrast Black</ui5-li>
+						<ui5-li icon="palette" data-theme="cocacola">Coca Cola</ui5-li>
+					</ui5-list>
+				</ui5-popover>
+
 			</div>
 		);
 	}

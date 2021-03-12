@@ -29,7 +29,7 @@ Our filter bar displays:
  - `ui5-button` Create which opens a `ui5-dialog` for creating an item
  - `ui5-button` for ascending sorting
  - `ui5-button` for descending sorting
- - `ui5-button` with a `sap-icon://excel-attachment` icon
+ - `ui5-button` with a `excel-attachment` icon
 
 
 Lets quickly represent the mentioned above with an HTML
@@ -42,13 +42,13 @@ render() {
 
 			<div className="details-page-filter-bar-actions">
 				<ui5-input class="details-page-searchfield" placeholder="Search">
-					<ui5-icon slot="icon" src="sap-icon://search"></ui5-icon>
+					<ui5-icon slot="icon" src="search"></ui5-icon>
 				</ui5-input>
 
 				<ui5-button design="Transparent" title="Create Product">Create</ui5-button>
-				<ui5-button icon="sap-icon://sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
-				<ui5-button icon="sap-icon://sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
-				<ui5-button icon="sap-icon://excel-attachment" design="Transparent"></ui5-button>
+				<ui5-button icon="sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
+				<ui5-button icon="sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
+				<ui5-button icon="excel-attachment" design="Transparent"></ui5-button>
 			</div>
 		</div>
 	)
@@ -202,12 +202,12 @@ render() {
 
 		<div className="details-page-filter-bar-actions">
 			<ui5-input class="details-page-searchfield" placeholder="Search" ref={this.searchInput} value={this.inputValue}>
-				<ui5-icon slot="icon" src="sap-icon://search"></ui5-icon>
+				<ui5-icon slot="icon" src="search"></ui5-icon>
 			</ui5-input>
 			<ui5-button design="Transparent" title="Create Product">Create</ui5-button>
-			<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sap-icon://sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
-			<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sap-icon://sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
-			<ui5-button icon="sap-icon://excel-attachment" design="Transparent"></ui5-button>
+			<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
+			<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
+			<ui5-button icon="excel-attachment" design="Transparent"></ui5-button>
 		</div>
 		</div>
 	)

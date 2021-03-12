@@ -1,0 +1,1 @@
+export default ":root{--ui5-mdk-toolbar-height:2.75rem}.sapUiSizeCompact,.ui5-content-density-compact{--ui5-mdk-toolbar-height:2rem}";

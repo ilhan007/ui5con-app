@@ -13,7 +13,11 @@ ui5-card:not(:defined) {
 }
 
 .app-bar-notifications-popover {
-	width: 300px;
+	width: 250px;
+}
+
+.app-bar-lang-popover {
+	width: 200px;
 }
 
 .app-content {

@@ -72,7 +72,7 @@ render() {
 
 				<ui5-button 
 					design="Transparent"
-					icon="sap-icon://action"
+					icon="action"
 					class="action-button">
 				</ui5-button>
 

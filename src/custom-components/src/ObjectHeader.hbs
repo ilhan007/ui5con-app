@@ -1,0 +1,103 @@
+<div
+	class="container"
+	tabindex="0"
+    role="region"
+	@keydown={{_onkeydown}}
+>
+
+	<!-- Pages -->
+	<div class="{{classes.viewport}}">
+		<div class="pages" style="{{styles.pages}}">
+
+			<!-- Main page -->
+			<div
+				class="page main-page"
+				style="{{styles.main}}"
+			>
+				{{#if hasImage}}
+				<!-- Avatar -->
+				<div class="image">
+					<slot name="image"></slot>
+				</div>
+				{{/if}}
+
+				<!-- Main area -->
+				<div class="{{classes.content}}">
+
+					<!-- Heading, subheading, tags, footnote -->
+					<div class="important-area">
+
+						<!-- Heading & subheading -->
+						<div class="heading">
+							<slot name="heading"></slot>
+						</div>
+						<div class="subheading">
+							<slot name="subheading"></slot>
+						</div>
+
+						<!-- Tags list -->
+						<div class="tags">
+							{{#each tags}}
+								<span class="tag">
+								<slot name="{{this._individualSlot}}"></slot>
+							</span>
+							{{/each}}
+						</div>
+
+						<!-- Body text line -->
+						<div class="bodyText">
+							<slot name="bodyText"></slot>
+						</div>
+
+						<!-- Footnote line -->
+						<div class="footnote">
+							<slot name="footnote"></slot>
+						</div>
+					</div>
+
+					{{#unless needsNavigation}}
+					<!-- Description area, shown when enough space -->
+					<div class="description-area">
+						<slot></slot>
+					</div>
+					{{/unless}}
+
+					<!-- Status area -->
+					<div class="status-area">
+						<div class="status">
+							<slot name="status"></slot>
+						</div>
+						<div class="statusDescription">
+							<slot name="statusDescription"></slot>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Description page -->
+			<div
+				class="page desc-page"
+				style="{{styles.desc}}"
+			>
+				{{#if needsNavigation}}
+				<slot></slot>
+				{{/if}}
+			</div>
+
+		</div>
+	</div>
+
+	{{#if needsNavigation}}
+	<!-- Dots navigation -->
+	<div class="dots-line">
+		<div class="dots" @click={{togglePage}}>
+			<div class="{{classes.firstDot}}"></div>
+			<div class="{{classes.secondDot}}"></div>
+		</div>
+	</div>
+	{{/if}}
+
+</div>
+
+

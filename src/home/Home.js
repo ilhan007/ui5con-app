@@ -77,7 +77,16 @@ class Home extends Component {
 				{/* Today */}
 				<ui5-title level="H3">Today at a glance</ui5-title>
 				<section className="section">
-
+					
+					<ui5-card
+						heading="Work Calendar"
+						subheading="Q2, 2021"
+						class="ui5card">
+						<ui5-calendar format-pattern="dd/MM/yyyy">
+							<ui5-date value="March 25, 2021"></ui5-date>
+						</ui5-calendar>
+					</ui5-card>
+				
 					<ui5-card
 						heading="Upcoming Activities"
 						subheading="25 March, 2021"
@@ -116,7 +125,7 @@ class Home extends Component {
 					</ui5-card>
 					
 					<ui5-card
-						avatar="sap-icon://retail-store"
+						avatar="retail-store"
 						heading="Smart Stores"
 						subheading="North America"
 						status="6 of 6"

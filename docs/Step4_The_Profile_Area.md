@@ -126,9 +126,9 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 						<div className="profile-content">
 							<ui5-list separators="None">
-								<ui5-li icon="sap-icon://settings">Settings</ui5-li>
-								<ui5-li icon="sap-icon://sys-help">Help</ui5-li>
-								<ui5-li icon="sap-icon://log">Sign out</ui5-li>
+								<ui5-li icon="settings">Settings</ui5-li>
+								<ui5-li icon="sys-help">Help</ui5-li>
+								<ui5-li icon="log">Sign out</ui5-li>
 							</ui5-list>
 						</div>
 					</ui5-popover>
@@ -209,13 +209,13 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 							<ui5-list separators="None">
 								<ui5-li-custom type="Inactive">
 									<div className="profile-hcb-switch centered">
-										<ui5-li icon="sap-icon://palette" type="Inactive">High Contrast Black</ui5-li>
+										<ui5-li icon="palette" type="Inactive">High Contrast Black</ui5-li>
 										<ui5-switch ref={this.themeSwitch}></ui5-switch>
 									</div>
 								</ui5-li-custom> 
-								<ui5-li icon="sap-icon://settings">Settings</ui5-li>
-								<ui5-li icon="sap-icon://sys-help">Help</ui5-li>
-								<ui5-li icon="sap-icon://log">Sign out</ui5-li>
+								<ui5-li icon="settings">Settings</ui5-li>
+								<ui5-li icon="sys-help">Help</ui5-li>
+								<ui5-li icon="log">Sign out</ui5-li>
 							</ui5-list>
 						</div>
 					</ui5-popover>
