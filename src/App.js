@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
-import "./custom-themes/cocacola/css_variables.css";
+
 
 // UI5 Web Components
 import "@ui5/webcomponents/dist/Avatar";
@@ -18,8 +18,9 @@ import "@ui5/webcomponents-fiori/dist/Timeline";
 import "@ui5/webcomponents-fiori/dist/ShellBar";
 import "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import "@ui5/webcomponents-fiori/dist/NotificationListItem";
+import "@ui5/webcomponents-fiori/dist/Assets.js";
 
-// icons
+// Icons
 import "@ui5/webcomponents-icons/dist/palette.js";
 import "@ui5/webcomponents-icons/dist/settings.js";
 import "@ui5/webcomponents-icons/dist/sys-help.js";
@@ -39,10 +40,12 @@ import "@ui5/webcomponents-icons/dist/temperature.js";
 // Custom UI5 Web Components
 import "./custom-components/dist/ObjectHeader.js";
 		
-
 import Home from "./home/Home";
 import Detail from './detail/Detail';
 import AppBar from './appbar/AppBar';
+
+// Custom Theme Registration
+import "./custom-themes/cocacola/css_variables.css";
 
 const App = () => {
 	return (

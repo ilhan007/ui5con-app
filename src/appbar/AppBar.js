@@ -4,8 +4,6 @@ import logo from "../img/logo.png";
 
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
 import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
-import "@ui5/webcomponents-fiori/dist/Assets.js";
-
 class AppBar extends Component {	
 
 	constructor (props) {
@@ -63,7 +61,7 @@ class AppBar extends Component {
 					ref={this.appBar}
 					primary-title="Smart Store Manager"
 					show-notifications
-					notification-count="3"
+					notification-count="2"
 					show-product-switch
 					show-co-pilot>
 						<img className="app-bar-logo" src={logo} slot="logo" alt=""/>
@@ -85,14 +83,6 @@ class AppBar extends Component {
 					<div className="profile-content">
 
 						<ui5-list separators="None">
-							{/* <div className="profile-hcb-switch centered">
-								<div className="profile-hcb-switch-title">
-									<ui5-icon name="palette"></ui5-icon>
-									<ui5-label class="profile-hcb-switch-text">Dark Mode</ui5-label>
-								</div>
-								<ui5-switch ref={this.themeSwitch}></ui5-switch>
-							</div> */}
-
 							<ui5-li icon="settings">Settings</ui5-li>
 							<ui5-li icon="sys-help">Help</ui5-li>
 							<ui5-li icon="log">Sign out</ui5-li>
@@ -110,29 +100,23 @@ class AppBar extends Component {
 						<ui5-li-notification
 							show-close
 							wrap
-							heading="Fridge #37 - Temperature too low"
+							heading="Temperature Drop"
 							priority="Medium"
 						>
-							<ui5-avatar size="XS" initials="FR" slot="avatar"></ui5-avatar>
+							Fridge #487990
+							<ui5-avatar size="TD" initials="FR" slot="avatar"></ui5-avatar>
 						</ui5-li-notification>
 
 						<ui5-li-notification
-							heading="Smart Store 5 - Temperature too high"
+							heading="Maintenance Overdue"
 							priority="Medium"
 							wrap
 							show-close
 						>
-							<ui5-avatar initials="SS" size="XS" slot="avatar"></ui5-avatar>
+							Fridge #603432
+							<ui5-avatar initials="MO" size="XS" slot="avatar"></ui5-avatar>
 						</ui5-li-notification>
-
-						<ui5-li-notification
-							heading="Smart Store #1 - Entrance Lamp turned off"
-							priority="Medium"
-							show-close
-							wrap
-						>
-							<ui5-avatar initials="SS" size="XS" slot="avatar"></ui5-avatar>
-						</ui5-li-notification>
+						
 					</ui5-list>
 				</ui5-popover>
 
@@ -154,7 +138,7 @@ class AppBar extends Component {
 					<ui5-list ref={this.themeSelect} mode="SingleSelect">
 						<ui5-li icon="palette" selected data-theme="sap_fiori_3">Quartz Light</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>
-						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">High Contrast Black</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">Quartz HCB</ui5-li>
 						<ui5-li icon="palette" data-theme="cocacola">Coca Cola</ui5-li>
 					</ui5-list>
 				</ui5-popover>

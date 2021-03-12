@@ -12,10 +12,6 @@ ui5-card:not(:defined) {
 	display: none;
 }
 
-.app-bar-notifications-popover {
-	width: 250px;
-}
-
 .app-bar-lang-popover {
 	width: 200px;
 }
@@ -45,10 +41,35 @@ ui5-card:not(:defined) {
 	margin: 0.5rem 1rem 1rem 0;
 }
 
-.ui5card-large {
+.ui5card--large {
 	min-width: 30rem;
 	max-width: 60%;
 	flex: 1 1;
+}
+
+.section--mid {
+	flex-wrap: wrap;
+}
+
+.section--upcoming,
+.section--actions-required {
+	display: flex;
+	flex-direction: column;
+}
+
+.section--actions-required-cards,
+.section--upcoming-cards {
+	padding: 1rem 0;
+	display: flex;
+}
+
+.section--actions-required,
+.section--actions-required-cards {
+	flex-wrap: wrap;
+}
+
+.ui5card--staff-content {
+	padding: 2rem;
 }
 
 .card-content {
@@ -73,6 +94,9 @@ ui5-card:not(:defined) {
 .ui5list-item::part(icon) {
 	height: 1.75rem;
 	width: 1.75rem;
+}
+
+.ui5card--security {
 	--sapContent_NonInteractiveIconColor: #1a9898;
 }
 
