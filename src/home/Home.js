@@ -149,7 +149,7 @@ class Home extends Component {
 
 						<ui5-card class="ui5card" heading="Contract Renewal" subheading="Smart Store Dep B321">
 							<div className="ui5card--staff-content">
-								<ui5-avatar-group type="Group" avatar-size="M" id="avatar-group-group">
+								<ui5-avatar-group type="Single" avatar-size="M" id="avatar-group-group">
 									{["IM", "JD"].map(img =>
 										<ui5-avatar key={img} initials={img}></ui5-avatar>
 									)}

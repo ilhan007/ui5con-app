@@ -30,6 +30,7 @@ class Header extends Component {
 							icon="nav-back"
 							class="action-button"
 							onClick={this.navBack.bind(this)}
+							dir="ltr"
 						></ui5-button>
 						<ui5-title class="detail-page-header-title">Inventory</ui5-title>
 					</div>

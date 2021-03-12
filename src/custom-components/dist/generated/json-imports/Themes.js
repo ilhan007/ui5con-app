@@ -2,6 +2,7 @@ import { registerThemePropertiesLoader } from "@ui5/webcomponents-base/dist/asse
 
 const loadThemeProperties = async (themeName) => {
 	switch (themeName) {
+		case "sap_fiori_3": return (await import("../assets/themes/sap_fiori_3/parameters-bundle.css.json")).default;
 		case "sap_fiori_3_dark": return (await import("../assets/themes/sap_fiori_3_dark/parameters-bundle.css.json")).default;
 		case "sap_fiori_3_hcb": return (await import("../assets/themes/sap_fiori_3_hcb/parameters-bundle.css.json")).default;
 		default: throw "unknown theme"
@@ -16,5 +17,5 @@ const loadAndCheck = async (themeName) => {
 	return data;
 }
 
-["sap_fiori_3_dark", "sap_fiori_3_hcb"]
+["sap_fiori_3", "sap_fiori_3_dark", "sap_fiori_3_hcb"]
   .forEach(themeName => registerThemePropertiesLoader("custom-components", themeName, loadAndCheck));

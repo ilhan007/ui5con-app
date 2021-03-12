@@ -4,6 +4,8 @@ import logo from "../img/logo.png";
 
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
 import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
+import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
+
 class AppBar extends Component {	
 
 	constructor (props) {
@@ -13,6 +15,8 @@ class AppBar extends Component {
 		this.themeSettingItem = React.createRef();
 		this.languageSelect = React.createRef();
 		this.langSettingsItem = React.createRef();
+		this.rtlSwitch = React.createRef();
+		this.contentDensitySwitch = React.createRef();
 	}
 
 	componentDidMount() {
@@ -22,6 +26,8 @@ class AppBar extends Component {
 		this.themeSelect.current.addEventListener("selection-change", this.onThemeChange.bind(this));
 		this.langSettingsItem.current.addEventListener("item-click", this.onLangSettings.bind(this));
 		this.themeSettingItem.current.addEventListener("item-click", this.onThemeSettings.bind(this));
+		this.rtlSwitch.current.addEventListener("change", this.onDirChange.bind(this));
+		this.contentDensitySwitch.current.addEventListener("change", this.onContentDensityChange.bind(this));
 	}
 
 	onProfileClicked(event) {
@@ -37,6 +43,19 @@ class AppBar extends Component {
 	onThemeChange(event) {
 		const selectedTheme = event.detail.selectedItems[0].getAttribute("data-theme");
 		setTheme(selectedTheme);
+	}
+
+	onDirChange(event) {
+		document.body.dir = event.target.checked ? "rtl" : "ltr";
+		applyDirection();
+	}
+
+	onContentDensityChange(event) {
+		if (event.target.checked) {
+			document.body.classList.add("ui5-content-density-compact");
+		} else {
+			document.body.classList.remove("ui5-content-density-compact");
+		}
 	}
 
 	onLangSettings(event) {
@@ -81,6 +100,19 @@ class AppBar extends Component {
 						<ui5-label>Store Manager</ui5-label>
 					</div>
 					<div className="profile-content">
+						<div className="profile-rtl-switch centered">
+							<div className="profile-rtl-switch-title">
+								<ui5-label class="profile-rtl-switch-text">RTL</ui5-label>
+							</div>
+							<ui5-switch ref={this.rtlSwitch}></ui5-switch>
+						</div>
+
+						<div className="profile-rtl-switch centered">
+							<div className="profile-rtl-switch-title">
+								<ui5-label class="profile-rtl-switch-text">Compact</ui5-label>
+							</div>
+							<ui5-switch ref={this.contentDensitySwitch}></ui5-switch>
+						</div>
 
 						<ui5-list separators="None">
 							<ui5-li icon="settings">Settings</ui5-li>
@@ -104,7 +136,7 @@ class AppBar extends Component {
 							priority="Medium"
 						>
 							Fridge #487990
-							<ui5-avatar size="TD" initials="FR" slot="avatar"></ui5-avatar>
+							<ui5-avatar background-color="Accent4" initials="TD" slot="avatar"></ui5-avatar>
 						</ui5-li-notification>
 
 						<ui5-li-notification
@@ -114,15 +146,20 @@ class AppBar extends Component {
 							show-close
 						>
 							Fridge #603432
-							<ui5-avatar initials="MO" size="XS" slot="avatar"></ui5-avatar>
+							<ui5-avatar background-color="Accent7" initials="MO" slot="avatar"></ui5-avatar>
 						</ui5-li-notification>
 						
 					</ui5-list>
 				</ui5-popover>
 
-				<ui5-popover id="lang-settings-popover" class="app-bar-lang-popover"
+				<ui5-popover
+					id="lang-settings-popover"
+					class="app-bar-lang-popover"
 					horizontal-align="left"
-					placement-type="Bottom">
+					placement-type="Bottom"
+					horizontal-align="Right"
+					header-text="Language"
+				>
 					<ui5-list ref={this.languageSelect} mode="SingleSelect">
 						<ui5-li icon="globe" data-lang="bg">Bulgarian</ui5-li>
 						<ui5-li icon="globe" data-lang="zh_CN">Chinese</ui5-li>
@@ -132,9 +169,14 @@ class AppBar extends Component {
 					</ui5-list>
 				</ui5-popover>
 
-				<ui5-popover id="theme-settings-popover" class="app-bar-lang-popover"
+				<ui5-popover
+					id="theme-settings-popover"
+					class="app-bar-lang-popover"
 					horizontal-align="left"
-					placement-type="Bottom">
+					placement-type="Bottom"
+					horizontal-align="Right"
+					header-text="Theme"
+				>
 					<ui5-list ref={this.themeSelect} mode="SingleSelect">
 						<ui5-li icon="palette" selected data-theme="sap_fiori_3">Quartz Light</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>

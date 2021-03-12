@@ -208,7 +208,7 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 						<div className="profile-content">
 							<ui5-list separators="None">
 								<ui5-li-custom type="Inactive">
-									<div className="profile-hcb-switch centered">
+									<div className="profile-rtl-switch centered">
 										<ui5-li icon="palette" type="Inactive">High Contrast Black</ui5-li>
 										<ui5-switch ref={this.themeSwitch}></ui5-switch>
 									</div>
