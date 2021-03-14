@@ -4,7 +4,7 @@
 			"key": "f1",
 			"heading": "Inventory",
 			"subtitle": "Smart Store Dep B321",
-			"status": "3 of 8",
+			"status": "3/8",
 			"classes": "ui5card",
 			"items": [
 				{
@@ -30,7 +30,7 @@
 		{
 			"key": "f2",
 			"heading": "Security",
-			"status": "3 of 3",
+			"status": "3/3",
 			"subtitle": "Cameras",
 			"classes": "ui5card ui5card--security",
 			"items": [
@@ -153,7 +153,7 @@
 			"type": "table",
 			"title": "Smart Store Dep 1302",
 			"subtitle": "today",
-			"status": "3 of 6",
+			"status": "3/6",
 			"columns": [
 				{"key": "4", "name": "Product"},
 				{"key": "5", "name": "Location"},

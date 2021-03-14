@@ -155,7 +155,6 @@ class AppBar extends Component {
 				<ui5-popover
 					id="lang-settings-popover"
 					class="app-bar-lang-popover"
-					horizontal-align="left"
 					placement-type="Bottom"
 					horizontal-align="Right"
 					header-text="Language"
@@ -172,7 +171,6 @@ class AppBar extends Component {
 				<ui5-popover
 					id="theme-settings-popover"
 					class="app-bar-lang-popover"
-					horizontal-align="left"
 					placement-type="Bottom"
 					horizontal-align="Right"
 					header-text="Theme"
@@ -181,7 +179,8 @@ class AppBar extends Component {
 						<ui5-li icon="palette" selected data-theme="sap_fiori_3">Quartz Light</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">Quartz HCB</ui5-li>
-						<ui5-li icon="palette" data-theme="cocacola">Coca Cola</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_fiori_3_hcw">Quartz HCW</ui5-li>
+						<ui5-li icon="palette" data-theme="cocacola">Red Fish</ui5-li>
 					</ui5-list>
 				</ui5-popover>
 

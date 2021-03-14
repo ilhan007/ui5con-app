@@ -12,6 +12,12 @@ ui5-card:not(:defined) {
 	display: none;
 }
 
+.app-bar {
+	position: sticky;
+	top: 0;
+	z-index: 2;
+}
+
 .app-bar-lang-popover {
 	width: 200px;
 }
@@ -37,7 +43,7 @@ ui5-card:not(:defined) {
 .ui5card {
 	align-self: flex-start;
 	min-width: 18rem;
-	max-width: 20rem;
+	max-width: 21rem;
 	margin: 0.5rem 1rem 1rem 0;
 }
 

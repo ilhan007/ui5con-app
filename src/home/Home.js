@@ -10,6 +10,7 @@ import managerImg8 from "../img/man_avatar_5.png";
 import managerImg9 from "../img/profile.png";
 import data from "./data.json";
 
+import "custom-library/dist/MyNewComponent.js";
 
 const imgs = [
 	managerImg1, managerImg2, managerImg3,
@@ -174,7 +175,7 @@ class Home extends Component {
 						avatar="retail-store"
 						heading="Smart Stores"
 						subheading="North America"
-						status="6 of 6"
+						status="6/6"
 						class="ui5card ui5card--large">
 							<div className="card-content">
 								<ui5-list separators="Inner" mode="SingleSelect" class="card-content-child">
@@ -190,6 +191,7 @@ class Home extends Component {
 							</div>
 					</ui5-card>
 				</section>
+				{/* <my-new-component></my-new-component> */}
 			</div>
 		);
 	}
