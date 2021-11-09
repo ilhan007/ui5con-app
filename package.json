@@ -4,16 +4,16 @@
   "private": true,
   "homepage": "http://ilhan007.github.io/ui5con-app",
   "dependencies": {
-    "@ui5/webcomponents": "0.0.0-5ffbbd9fe",
-    "@ui5/webcomponents-base": "0.0.0-5ffbbd9fe",
-    "@ui5/webcomponents-fiori": "0.0.0-5ffbbd9fe",
-    "@ui5/webcomponents-icons": "0.0.0-5ffbbd9fe",
-    "@ui5/webcomponents-theme-base": "0.0.0-5ffbbd9fe",
-    "@ui5/webcomponents-tools": "0.0.0-5ffbbd9fe",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "@ui5/webcomponents": "1.0.0-rc.16",
+    "@ui5/webcomponents-base": "1.0.0-rc.16",
+    "@ui5/webcomponents-fiori": "1.0.0-rc.16",
+    "@ui5/webcomponents-icons": "1.0.0-rc.16",
+    "@ui5/webcomponents-theming": "1.0.0-rc.16",
+    "@ui5/webcomponents-tools": "1.0.0-rc.16",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.1",
+    "react-scripts": "4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

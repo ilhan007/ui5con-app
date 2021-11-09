@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // Custom UI5 Web Components
-import "custom-library/dist/ObjectHeader.js";
+// import "custom-library/dist/ObjectHeader.js";
 
 class Header extends Component {
 
@@ -40,7 +40,7 @@ class Header extends Component {
 					<ui5-button design="Transparent" icon="action" class="action-button"></ui5-button>
 				</div>
 
-				<my-object-header>
+				{/* <my-object-header>
 					<ui5-avatar slot="image" initials="I" icon="retail-store"></ui5-avatar>
 					<ui5-title level="H2" slot="heading">Smart Store </ui5-title>
 					<ui5-title level="H5" slot="heading">Dep #B321</ui5-title>
@@ -60,7 +60,7 @@ class Header extends Component {
 						<ui5-title level="H6">Distributor: <ui5-label>Very Best Screens</ui5-label></ui5-title>
 						<ui5-title level="H6">Location:<ui5-label> Chicago, USA, North America</ui5-label></ui5-title>
 					</div>
-				</my-object-header>
+				</my-object-header> */}
 
 				<ui5-tabcontainer fixed collapsed class="detail-page-header-menu" ref={this.tabContainer} show-overflow>
 					<ui5-tab

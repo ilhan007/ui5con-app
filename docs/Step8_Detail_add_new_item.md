@@ -31,7 +31,7 @@ Note: Don't forget to add the following `import "@ui5/webcomponents/dist/Option"
 
 		<div className="dialog-section">
 			<ui5-label>Order date:</ui5-label>
-			<ui5-datepicker ref={this.dateInput}></ui5-datepicker>
+			<ui5-date-picker ref={this.dateInput}></ui5-date-picker>
 		</div>
 
 		<div className="dialog-section">
@@ -68,7 +68,7 @@ In order to open this dialog, you need to just call the method `.open` on the DO
 ```
 ```js
 openDialog() {
-	this.dialog.current.open();
+	this.dialog.current.show();
 }
 ```
 

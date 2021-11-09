@@ -10,7 +10,7 @@ import managerImg8 from "../img/man_avatar_5.png";
 import managerImg9 from "../img/profile.png";
 import data from "./data.json";
 
-import "custom-library/dist/MyNewComponent.js";
+// import "custom-library/dist/MyNewComponent.js";
 
 const imgs = [
 	managerImg1, managerImg2, managerImg3,
@@ -22,22 +22,22 @@ class Home extends Component {
 
 	constructor (props) {
 		super(props);
-		
 		this.featuredCardsRefs = [];
-		this._navToDetail = this.navToDetail.bind(this);
 		this.state = {data};
+		this._navigate = this.props.navigate;
+		this.navToDetail = this._navToDetail.bind(this);
 	}
 
 	componentDidMount() {
 		const inventoryCardRef = this.featuredCardsRefs[0];
 
 		if (inventoryCardRef) {
-			inventoryCardRef.addEventListener("headerClick", this._navToDetail);
+			inventoryCardRef.addEventListener("click", this.navToDetail);
 		}
 	}
 
-	navToDetail() {
-		this.props.history.push("/detail");
+	_navToDetail() {
+		this._navigate("/detail");
 	}
 
 	render(){
@@ -52,13 +52,16 @@ class Home extends Component {
 					{
 						data.featured.map((dataObj, index) => 
 							<ui5-card
-								ref={ref => this.featuredCardsRefs[index] = ref}
 								key={dataObj.key}
-								heading={dataObj.heading}
-								subheading={dataObj.subtitle}
-								status={dataObj.status}
-								header-interactive
 								class={dataObj.classes}>
+									<ui5-card-header
+										ref={ref => this.featuredCardsRefs[index] = ref}
+										interactive
+										status={dataObj.status}
+										title-text={dataObj.heading}
+										subtitle-text={dataObj.subtitle}
+										slot="header"
+										></ui5-card-header>
 									<ui5-list separators="Inner">
 										{
 											dataObj.items.map(item =>
@@ -76,10 +79,12 @@ class Home extends Component {
 							)
 					}
 
-					<ui5-card
-						heading="Energy Efficiency"
-						subheading="Smart Store Dep B321"
-						class="ui5card ui5card--energy">
+					<ui5-card class="ui5card ui5card--energy">
+							<ui5-card-header
+										title-text="Energy Efficiency"
+										subtitle-text="Smart Store Dep B321"
+										slot="header"
+							></ui5-card-header>
 							<ui5-list separators="Inner">
 								{data.energystats.map(item =>
 									<ui5-li
@@ -101,19 +106,24 @@ class Home extends Component {
 					<section className="section--upcoming">
 						<ui5-title level="H3">Upcoming</ui5-title>
 						<div className="section--upcoming-cards">
-							<ui5-card
-								heading="Work Calendar"
-								subheading="Q2, 2021"
-								class="ui5card">
+							<ui5-card class="ui5card">
+								<ui5-card-header
+									title-text="Work Calendar"
+									subtitle-text="Q2, 2021"
+									slot="header"
+								></ui5-card-header>
 								<ui5-calendar format-pattern="dd/MM/yyyy">
 									<ui5-date value="March 25, 2021"></ui5-date>
 								</ui5-calendar>
 							</ui5-card>
 						
-							<ui5-card
-								heading="Upcoming Activities"
-								subheading="25 March, 2021"
-								class="ui5card">
+							<ui5-card class="ui5card">
+								<ui5-card-header
+									title-text="Upcoming Activities"
+									subtitle-text="25 March, 2021"
+									slot="header"
+								></ui5-card-header>
+
 								<ui5-timeline>
 									{data.activities.map(item =>
 										<ui5-timeline-item
@@ -137,9 +147,12 @@ class Home extends Component {
 							{data.alerts.map(alert => {
 								return <ui5-card
 									key={alert.key} 
-									heading={alert.heading}
-									subheading={alert.subtitle}
 									class="ui5card ui5card-alert">
+											<ui5-card-header
+												title-text={alert.heading}
+												subtitle-text={alert.subtitle}
+												slot="header"
+											></ui5-card-header>
 										<div className="ui5card-alert-content"> 
 											<ui5-icon name={alert.icon} class="ui5icon-size ui5card-alert-icon"></ui5-icon>
 											<ui5-label class="ui5label-size error">{alert.text}</ui5-label>
@@ -148,19 +161,28 @@ class Home extends Component {
 							})}
 						</div>
 
-						<ui5-card class="ui5card" heading="Contract Renewal" subheading="Smart Store Dep B321">
+						<ui5-card class="ui5card">
+							<ui5-card-header
+								title-text="Contract Renewal"
+								subtitle-text="Smart Store Dep B321"
+								slot="header"
+							></ui5-card-header>
+
 							<div className="ui5card--staff-content">
 								<ui5-avatar-group type="Single" avatar-size="M" id="avatar-group-group">
-									{["IM", "JD"].map(img =>
-										<ui5-avatar key={img} initials={img}></ui5-avatar>
+									{["IM", "JD"].map(initials =>
+										<ui5-avatar key={initials} initials={initials}>
+										</ui5-avatar>
 									)}
 
 									{imgs.map((img, idx) =>
-										<ui5-avatar key={idx} image={img}></ui5-avatar>
+										<ui5-avatar key={idx} image={img}>
+											<img src={img} alt="employee" />
+										</ui5-avatar>
 									)}
 
-									{["MI", "LI"].map(img =>
-										<ui5-avatar  key={img} initials="M"></ui5-avatar>
+									{["MI", "LI"].map(initials =>
+										<ui5-avatar  key={initials} initials={initials}></ui5-avatar>
 									)}
 								</ui5-avatar-group>
 							</div>
@@ -170,13 +192,16 @@ class Home extends Component {
 			
 				<ui5-title level="H3">Stores</ui5-title>
 				<section className="section">
+					<ui5-card class="ui5card ui5card--large">
+							<ui5-card-header
+									title-text="Smart Stores"
+									subtitle-text="North America"
+									status="6/6"
+									slot="header"
+							>
+								<ui5-avatar icon="retail-store" slot="avatar"></ui5-avatar>
+							</ui5-card-header>
 
-					<ui5-card
-						avatar="retail-store"
-						heading="Smart Stores"
-						subheading="North America"
-						status="6/6"
-						class="ui5card ui5card--large">
 							<div className="card-content">
 								<ui5-list separators="Inner" mode="SingleSelect" class="card-content-child">
 								{data.storesa.map(store =>

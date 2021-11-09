@@ -4,6 +4,10 @@ html, body, .root, .App {
 	background: var(--sapBackgroundColor, #fafafa);
 }
 
+:not(:defined) {
+	display: none;
+}
+
 ui5-shellbar:not(:defined) {
 	display: none;
 }
@@ -168,6 +172,10 @@ ui5-card:not(:defined) {
 	font-size: 1rem;
 	color: var(--sapTextColor);
 	padding: 0 0.5rem;
+}
+
+.profile-avatar {
+	object-fit: contain;
 }
 
 /* Semantic colors */

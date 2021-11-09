@@ -24,20 +24,20 @@ class AppBar extends Component {
 		this.appBar.current.addEventListener("notifications-click", this.onNotificationsClicked);
 		this.languageSelect.current.addEventListener("selection-change", this.onLangChange.bind(this));
 		this.themeSelect.current.addEventListener("selection-change", this.onThemeChange.bind(this));
-		this.langSettingsItem.current.addEventListener("item-click", this.onLangSettings.bind(this));
-		this.themeSettingItem.current.addEventListener("item-click", this.onThemeSettings.bind(this));
+		this.langSettingsItem.current.addEventListener("click", this.onLangSettings.bind(this));
+		this.themeSettingItem.current.addEventListener("click", this.onThemeSettings.bind(this));
 		this.rtlSwitch.current.addEventListener("change", this.onDirChange.bind(this));
 		this.contentDensitySwitch.current.addEventListener("change", this.onContentDensityChange.bind(this));
 	}
 
 	onProfileClicked(event) {
 		event.preventDefault();
-		window["profile-popover"].openBy(event.detail.targetRef);
+		window["profile-popover"].showAt(event.detail.targetRef);
 	}
 
 	onNotificationsClicked(event) {
 		event.preventDefault();
-		window["notifications-popover"].openBy(event.detail.targetRef);
+		window["notifications-popover"].showAt(event.detail.targetRef);
 	}
 
 	onThemeChange(event) {
@@ -60,12 +60,14 @@ class AppBar extends Component {
 
 	onLangSettings(event) {
 		event.preventDefault();
-		window["lang-settings-popover"].openBy(event.detail.targetRef);
+		debugger;
+		window["lang-settings-popover"].showAt(event.detail.targetRef);
 	}
 
 	onThemeSettings(event) {
 		event.preventDefault();
-		window["theme-settings-popover"].openBy(event.detail.targetRef);
+		debugger;
+		window["theme-settings-popover"].showAt(event.detail.targetRef);
 	}
 
 	onLangChange(event) {
@@ -83,8 +85,10 @@ class AppBar extends Component {
 					notification-count="2"
 					show-product-switch
 					show-co-pilot>
-						<img className="app-bar-logo" src={logo} slot="logo" alt=""/>
-						<ui5-avatar slot="profile" image={profile}></ui5-avatar>
+						<img className="app-bar-logo" src={logo} slot="logo" alt="logo"/>
+						<ui5-avatar slot="profile">
+							<img src={profile} className="profile-avatar"  alt="profile"/>
+						</ui5-avatar>
 
 						<ui5-shellbar-item icon="globe" text="Language" ref={this.langSettingsItem}>
 						</ui5-shellbar-item>
@@ -95,7 +99,7 @@ class AppBar extends Component {
 
 				<ui5-popover id="profile-popover" hide-header placement-type="Bottom" horizontal-align="Right">
 					<div className="profile-header centered">
-						<img src={profile} alt="" className="profile-img"/>
+						<img src={profile} alt="profile" className="profile-img"/>
 						<ui5-title level="3">Darius Cummings</ui5-title>
 						<ui5-label>Store Manager</ui5-label>
 					</div>
@@ -176,7 +180,8 @@ class AppBar extends Component {
 					header-text="Theme"
 				>
 					<ui5-list ref={this.themeSelect} mode="SingleSelect">
-						<ui5-li icon="palette" selected data-theme="sap_fiori_3">Quartz Light</ui5-li>
+						<ui5-li icon="palette" selected data-theme="sap_horizon">Horizon</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_fiori_3">Quartz Light</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">Quartz HCB</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_hcw">Quartz HCW</ui5-li>

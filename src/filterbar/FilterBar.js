@@ -24,7 +24,7 @@ class FilterBar extends Component {
 	}
 
 	openDialog() {
-		this.dialog.current.open();
+		this.dialog.current.show();
 	}
 
 	submitNewProduct() {

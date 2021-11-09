@@ -40,14 +40,14 @@ In this step we will create an empty Detail component and set up a routing and n
 
 
 
-6. Import the `Switch`, `Route`, `Redirect` from `react-router-dom` in `src/App.js`  and import the `Detail` component.
-Then, use the `Switch` to set up the paths and which component to be displayed respectively. After you add the code below, you should get the `Home` component on the `/#/home` path and the `Detail` component on the `/#/detail` path.
+6. Import the `Routes`, `Route`, `Navigate` from `react-router-dom` in `src/App.js`  and import the `Detail` component.
+Then, use the `Routes` to set up the paths and which component to be displayed respectively. After you add the code below, you should get the `Home` component on the `/#/home` path and the `Detail` component on the `/#/detail` path.
 
 
 	```js 
 	// App.js
 	import React, { Component } from "react";
-	import { Switch, Route, Redirect } from "react-router-dom";
+	import { Routes, Route, Navigate } from "react-router-dom";
 	import "./App.css";
 	import profile from "./img/profile.png";
 	import logo from "./img/logo.png";
@@ -77,11 +77,11 @@ Then, use the `Switch` to set up the paths and which component to be displayed r
 					<ui5-avatar slot="profile" image={profile}></ui5-avatar>
 				</ui5-shellbar>
 
-				<Switch>
+				<Routes>
 					<Route path='/home' component={Home}/>
 					<Route path='/detail' component={Detail}/>
-					<Redirect from="/" to="/home" />
-				</Switch>
+					<Navigate from="/" to="/home" />
+				</Routes>
 			</div>
 		);
 	}

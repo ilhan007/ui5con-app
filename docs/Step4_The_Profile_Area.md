@@ -62,11 +62,11 @@ What is an admin UI without a profile area? We will create one for our smart sto
 			<div className="App">
 				<AppBar />
 
-				<Switch>
+				<Routes>
 					<Route path='/home' component={Home}/>
 					<Route path='/detail' component={Detail}/>
 					<Redirect from="/" to="/home" />
-				</Switch>
+				</Routes>
 			</div>
 		);
 	}
@@ -95,7 +95,7 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 		// Open the ui5-popover
 		onProfileClicked(event) {
-			window["profile-popover"].openBy(event.detail.targetRef);
+			window["profile-popover"].showAt(event.detail.targetRef);
 		}
 	```
 
@@ -168,7 +168,7 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 		}
 
 		onProfileClicked(event) {
-			window["profile-popover"].openBy(event.detail.targetRef);
+			window["profile-popover"].showAt(event.detail.targetRef);
 		}
 
 		// Use the setTheme method to switch to HCB theme

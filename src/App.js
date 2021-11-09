@@ -1,12 +1,12 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
 
 // UI5 Web Components
 import "@ui5/webcomponents/dist/Avatar";
 import "@ui5/webcomponents/dist/AvatarGroup";
 import "@ui5/webcomponents/dist/Card";
+import "@ui5/webcomponents/dist/CardHeader";
 import "@ui5/webcomponents/dist/Calendar";
 import "@ui5/webcomponents/dist/Icon";
 import "@ui5/webcomponents/dist/Label";
@@ -25,7 +25,7 @@ import Detail from './detail/Detail';
 import AppBar from './appbar/AppBar';
 
 // Custom Theme CSS Properties
-import customCssProps from "./custom-themes/cocacola/css_variables.css";
+import "./custom-themes/cocacola/css_variables.css";
 
 // Icons
 import "@ui5/webcomponents-icons/dist/palette.js";
@@ -44,33 +44,22 @@ import "@ui5/webcomponents-icons/dist/heating-cooling.js";
 import "@ui5/webcomponents-icons/dist/washing-machine.js";
 import "@ui5/webcomponents-icons/dist/temperature.js";
 
-
-import { registerThemePropertiesLoader } from "@ui5/webcomponents-base/dist/AssetRegistry";
-import { getThemeProperties } from "@ui5/webcomponents-base/dist/asset-registries/Themes.js";
-
-registerThemePropertiesLoader("custom-components", "cocacola", () => customCssProps);
-registerThemePropertiesLoader("custom-components", "sap_fiori_3_dark", () => customCssProps);
-registerThemePropertiesLoader("custom-components", "sap_fiori_3_hcb", () => customCssProps);
-registerThemePropertiesLoader("custom-components", "sap_fiori_3_hcw", () => customCssProps);
-
-registerThemePropertiesLoader("@ui5/webcomponents", "cocacola", () => getThemeProperties("@ui5/webcomponents", "sap_fiori_3"));
-registerThemePropertiesLoader("@ui5/webcomponents-fiori", "cocacola", () => getThemeProperties("@ui5/webcomponents-fiori", "sap_fiori_3"));
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div className="App">
 			<AppBar />
 
-			<Switch>
-				<Route path='/home' component={Home}/>
-				<Route path='/detail' component={Detail}/>
-				<Redirect from="/" to="/home" />
-			</Switch>
+			<Routes>
+				<Route path="/" element={<Home navigate={navigate} />} />
+				<Route path='/home' element={<Home navigate={navigate} />}/>
+				<Route path='/detail' element={<Detail navigate={navigate} />}/>
+			</Routes>
 		</div>
 	);
 }
-
-
-
 
 export default App;

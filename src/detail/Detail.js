@@ -48,7 +48,10 @@ const getBadgeType = type => {
 class Detail extends Component {
 	constructor (props) {
 		super(props);
-		
+
+		this._navigate = this.props.navigate;
+		this.navBack = this._navBack.bind(this);
+
 		this.state = {
 			products: [...products],
 			filteredProducts: [...products],
@@ -56,8 +59,8 @@ class Detail extends Component {
 		};
 	}
 
-	navBack() {
-		this.props.history.push("/home");
+	_navBack() {
+		this._navigate("home");
 	}
 
 	filterPerishableProducts(items) {
@@ -228,7 +231,7 @@ class Detail extends Component {
 										<ui5-table-row key={item.key}>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
-													<img alt="" className="table-image-cell" src={process.env.PUBLIC_URL + item.img} />
+													<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + item.img} />
 												</span>
 											</ui5-table-cell>
 											<ui5-table-cell>
