@@ -55,8 +55,8 @@ const App = () => {
 
 			<Routes>
 				<Route path="/" element={<Home navigate={navigate} />} />
-				<Route path='/home' element={<Home navigate={navigate} />}/>
 				<Route path='/detail' element={<Detail navigate={navigate} />}/>
+				<Route path="/*" element={<Home navigate={navigate} />} />
 			</Routes>
 		</div>
 	);

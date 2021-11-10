@@ -60,7 +60,7 @@ class Detail extends Component {
 	}
 
 	_navBack() {
-		this._navigate("home");
+		this._navigate("/");
 	}
 
 	filterPerishableProducts(items) {
