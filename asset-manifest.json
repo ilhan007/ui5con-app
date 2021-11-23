@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ui5con-app/static/css/main.78ba1263.chunk.css",
-    "main.js": "/ui5con-app/static/js/main.163aacd8.chunk.js",
-    "main.js.map": "/ui5con-app/static/js/main.163aacd8.chunk.js.map",
+    "main.js": "/ui5con-app/static/js/main.05fd84c3.chunk.js",
+    "main.js.map": "/ui5con-app/static/js/main.05fd84c3.chunk.js.map",
     "runtime-main.js": "/ui5con-app/static/js/runtime-main.b57e47dc.js",
     "runtime-main.js.map": "/ui5con-app/static/js/runtime-main.b57e47dc.js.map",
     "static/js/2.04467d80.chunk.js": "/ui5con-app/static/js/2.04467d80.chunk.js",
@@ -513,6 +513,6 @@
     "static/js/runtime-main.b57e47dc.js",
     "static/js/2.04467d80.chunk.js",
     "static/css/main.78ba1263.chunk.css",
-    "static/js/main.163aacd8.chunk.js"
+    "static/js/main.05fd84c3.chunk.js"
   ]
 }
