@@ -164,11 +164,13 @@ class AppBar extends Component {
 					header-text="Language"
 				>
 					<ui5-list ref={this.languageSelect} mode="SingleSelect">
+						<ui5-li icon="globe" data-lang="ar">Arabic</ui5-li>
 						<ui5-li icon="globe" data-lang="bg">Bulgarian</ui5-li>
 						<ui5-li icon="globe" data-lang="zh_CN">Chinese</ui5-li>
 						<ui5-li icon="globe" data-lang="de">German</ui5-li>
 						<ui5-li icon="globe" data-lang="en" selected>English</ui5-li>
 						<ui5-li icon="globe" data-lang="es">Spanish</ui5-li>
+						<ui5-li icon="globe" data-lang="iw">Hebrew</ui5-li>
 					</ui5-list>
 				</ui5-popover>
 
