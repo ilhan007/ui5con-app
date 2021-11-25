@@ -187,7 +187,7 @@ class AppBar extends Component {
 						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">Quartz HCB</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_hcw">Quartz HCW</ui5-li>
-						<ui5-li icon="palette" data-theme="cocacola">Red Fish</ui5-li>
+						<ui5-li icon="palette" data-theme="redfish">Red Fish</ui5-li>
 					</ui5-list>
 				</ui5-popover>
 
