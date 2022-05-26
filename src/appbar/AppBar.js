@@ -182,7 +182,10 @@ class AppBar extends Component {
 					header-text="Theme"
 				>
 					<ui5-list ref={this.themeSelect} mode="SingleSelect">
-						<ui5-li icon="palette" selected data-theme="sap_horizon">Horizon</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_horizon">Morning Horizon</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_horizon_dark">Evening Horizon</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_horizon_hcb">Horizon HCB</ui5-li>
+						<ui5-li icon="palette" data-theme="sap_horizon_hcw">Horizon HCW</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3">Quartz Light</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_dark">Quartz Dark</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">Quartz HCB</ui5-li>
