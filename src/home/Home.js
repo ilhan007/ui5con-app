@@ -106,16 +106,6 @@ class Home extends Component {
 					<section className="section--upcoming">
 						<ui5-title level="H3">Upcoming</ui5-title>
 						<div className="section--upcoming-cards">
-							<ui5-card class="ui5card">
-								<ui5-card-header
-									title-text="Work Calendar"
-									subtitle-text="Q2, 2021"
-									slot="header"
-								></ui5-card-header>
-								<ui5-calendar format-pattern="dd/MM/yyyy">
-									<ui5-date value="March 25, 2021"></ui5-date>
-								</ui5-calendar>
-							</ui5-card>
 						
 							<ui5-card class="ui5card">
 								<ui5-card-header

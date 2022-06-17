@@ -19,7 +19,9 @@ import "@ui5/webcomponents-fiori/dist/ShellBar";
 import "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import "@ui5/webcomponents-fiori/dist/NotificationListItem";
 import "@ui5/webcomponents-fiori/dist/Assets.js";
-		
+
+import "@ui5/webcomponents-base/dist/features/F6Navigation.js";
+
 import Home from "./home/Home";
 import Detail from './detail/Detail';
 import AppBar from './appbar/AppBar';
