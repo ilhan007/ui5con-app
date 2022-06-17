@@ -208,10 +208,6 @@ class Detail extends Component {
 								</ui5-table-column>
 
 								<ui5-table-column slot="columns">
-									<ui5-label class="table-column-header-content middle">Name</ui5-label>
-								</ui5-table-column>
-
-								<ui5-table-column slot="columns">
 									<ui5-label class="table-column-header-content middle">Price</ui5-label>
 								</ui5-table-column>
 
@@ -226,14 +222,13 @@ class Detail extends Component {
 								<ui5-table-column slot="columns">
 									<ui5-label class="table-column-header-content middle">Status</ui5-label>
 								</ui5-table-column>
+
+								<ui5-table-column slot="columns">
+									<ui5-label class="table-column-header-content middle">Illustration</ui5-label>
+								</ui5-table-column>
 								{
 									this.state.filteredProducts.map((item) =>
 										<ui5-table-row key={item.key}>
-											<ui5-table-cell>
-												<span className="table-cell-content middle">
-													<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + item.img} />
-												</span>
-											</ui5-table-cell>
 											<ui5-table-cell>
 												<ui5-label class="table-cell-content middle"><b>{item.name}</b></ui5-label>
 											</ui5-table-cell>
@@ -249,6 +244,11 @@ class Detail extends Component {
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
 													<ui5-badge class="table-cell-content-badge" color-scheme={getBadgeType(item.status)}>{item.status}</ui5-badge>
+												</span>
+											</ui5-table-cell>
+											<ui5-table-cell>
+												<span className="table-cell-content middle">
+													<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + item.img} />
 												</span>
 											</ui5-table-cell>
 										</ui5-table-row>)
