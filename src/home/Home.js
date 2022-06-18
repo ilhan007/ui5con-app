@@ -101,7 +101,7 @@ class Home extends Component {
 					</ui5-card>
 				</section>
 
-				<section className="section section--mid">
+				<section className="section section--mid" data-sap-ui-fastnavgroup="true">
 					{/* Upcoming */}
 					<section className="section--upcoming">
 						<ui5-title level="H3">Upcoming</ui5-title>
