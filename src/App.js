@@ -29,7 +29,7 @@ import Detail from './detail/Detail';
 import AppBar from './appbar/AppBar';
 
 // Custom Theme CSS Properties
-// import "./custom-themes/redfish/css_variables.css";
+import "./custom-themes/redfish/css_variables.css";
 
 // Icons
 import "@ui5/webcomponents-icons/dist/palette.js";
