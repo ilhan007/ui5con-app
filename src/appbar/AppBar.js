@@ -97,6 +97,10 @@ class AppBar extends Component {
 						</ui5-shellbar-item>
 				</ui5-shellbar>
 
+				<ui5-tabcontainer fixed collapsed>
+					<ui5-tab text={this.props.tabName}></ui5-tab>
+				</ui5-tabcontainer>
+
 				<ui5-popover id="profile-popover" hide-header placement-type="Bottom" horizontal-align="Right">
 					<div className="profile-header centered">
 						<img src={profile} alt="profile" className="profile-img"/>
@@ -193,7 +197,6 @@ class AppBar extends Component {
 						<ui5-li icon="palette" data-theme="redfish">Red Fish</ui5-li>
 					</ui5-list>
 				</ui5-popover>
-
 			</div>
 		);
 	}
