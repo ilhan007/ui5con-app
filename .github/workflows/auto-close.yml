@@ -2,7 +2,7 @@ name: Auto-close stale issues
 
 on:
   schedule:
-  - cron: "15 13 * * *"
+  - cron: "35 13 * * *"
 
 jobs:
   stale:
