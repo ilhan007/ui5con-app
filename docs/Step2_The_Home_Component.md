@@ -19,7 +19,7 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	import logo from "./img/logo.png";
 	import "@ui5/webcomponents-fiori/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
-        import "@ui5/webcomponents/dist/CardHeader";
+	import "@ui5/webcomponents/dist/CardHeader";
 	import "@ui5/webcomponents/dist/Title";
 	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
