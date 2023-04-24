@@ -20,7 +20,7 @@ Let`s create this beautiful application bar!
 Note: We are replacing the `ui5-button` from the previous step with the `ui5-shellbar`.
 
 	```js 
-	import "@ui5/webcomponents/dist/ShellBar";
+	import "@ui5/webcomponents-fiori/dist/ShellBar";
 
 	function App() {
 		return (
@@ -41,7 +41,7 @@ Note: We are replacing the `ui5-button` from the previous step with the `ui5-she
 	```js 
 	import profile from "./img/profile.png";
 	import logo from "./img/logo.png";
-	import "@ui5/webcomponents/dist/ShellBar";
+	import "@ui5/webcomponents-fiori/dist/ShellBar";
 
 	function App() {
 		return (
