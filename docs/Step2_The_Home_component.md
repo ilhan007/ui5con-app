@@ -19,6 +19,7 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	import logo from "./img/logo.png";
 	import "@ui5/webcomponents-fiori/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
+	import "@ui5/webcomponents/dist/CardHeader";
 	import "@ui5/webcomponents/dist/Title";
 	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
@@ -71,13 +72,20 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 			{data.featured.map((dataObj, index) => 
 			<ui5-card
 				key={dataObj.key}
-				heading={dataObj.heading}
-				subheading={dataObj.subtitle}
-				status={dataObj.status}
 				class="ui5card">
-					<ui5-list separators="Inner">
+
+                                <ui5-card-header
+                                    ref={ref => this.featuredCardsRefs[index] = ref}
+                                    interactive
+                                    status={dataObj.status}
+                                    title-text={dataObj.heading}
+                                    subtitle-text={dataObj.subtitle}
+                                    slot="header"
+                                ></ui5-card-header>
+
+			        <ui5-list separators="Inner">
 					{dataObj.items.map(item =>
-					<ui5-li
+					   <ui5-li
 						key={item.key}
 						icon={item.icon}
 						description={item.description}
@@ -85,7 +93,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 						info-state={item.infoState}
 						class="ui5list-item">{item.title}</ui5-li>
 					)}
-					</ui5-list>
+				</ui5-list>
 			</ui5-card>
 			)}
 			</section>
