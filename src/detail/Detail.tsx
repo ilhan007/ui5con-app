@@ -1,21 +1,18 @@
-import React, { Component } from "react";
-import FilterBar from "../filterbar/FilterBar.js";
-import Header from "../header/Header.js";
+import React, { Component, DOMAttributes } from "react";
+import FilterBar from "../filterbar/FilterBar";
+import Header from "../header/Header";
 import "./Detail.css";
 import products from "../data/products.json";
 
-import "@ui5/webcomponents/dist/DatePicker";
-import "@ui5/webcomponents/dist/Input";
-import "@ui5/webcomponents/dist/Tab";
-import "@ui5/webcomponents/dist/TabSeparator";
-import "@ui5/webcomponents/dist/TabContainer";
+import "@ui5/webcomponents/dist/DatePicker.js";
+import "@ui5/webcomponents/dist/Input.js";
 import "@ui5/webcomponents/dist/Title.js";
 import "@ui5/webcomponents/dist/Table.js";
 import "@ui5/webcomponents/dist/TableColumn.js";
 import "@ui5/webcomponents/dist/TableRow.js";
 import "@ui5/webcomponents/dist/TableCell.js";
+import "@ui5/webcomponents/dist/Label.js";
 import "@ui5/webcomponents/dist/Badge.js";
-import "@ui5/webcomponents/dist/Dialog.js";
 import "@ui5/webcomponents/dist/Popover.js";
 import "@ui5/webcomponents/dist/Select.js";
 import "@ui5/webcomponents/dist/TextArea.js";
@@ -32,7 +29,20 @@ import "@ui5/webcomponents-icons/dist/excel-attachment.js";
 import "@ui5/webcomponents-icons/dist/e-care.js";
 import "@ui5/webcomponents-icons/dist/retail-store.js";
 
-const getBadgeType = type => {
+import { Product, Filter } from "../types";
+
+type DetailProps = {
+	navigate: (path: string) => void,
+}
+
+type DetailState = {
+	products: Array<Product>,
+	filteredProducts: Array<Product>,
+	filterType: Filter,
+};
+
+
+const getBadgeType = (type: string) => {
 	switch (type) {
 		case "In-Stock":
 			return "8";
@@ -45,16 +55,19 @@ const getBadgeType = type => {
 	}
 }
 
-class Detail extends Component {
-	constructor (props) {
+class Detail extends Component<DetailProps, DetailState> {
+	_navigate: (path: string) => void;
+	navBack: (path?: string) => void;
+
+	constructor (props: DetailProps) {
 		super(props);
 
 		this._navigate = this.props.navigate;
 		this.navBack = this._navBack.bind(this);
 
 		this.state = {
-			products: [...products],
-			filteredProducts: [...products],
+			products: [...products] as unknown as Array<Product>,
+			filteredProducts: [...products] as unknown as Array<Product>,
 			filterType: "all",
 		};
 	}
@@ -63,23 +76,23 @@ class Detail extends Component {
 		this._navigate("/");
 	}
 
-	filterPerishableProducts(items) {
+	filterPerishableProducts(items: Array<Product>) {
 		return items.filter(product => product.perishable);
 	}
 
-	filterNoPerishableProducts(items) {
+	filterNoPerishableProducts(items: Array<Product>) {
 		return items.filter(product => !product.perishable);
 	}
 
-	filterAlertProducts(items) {
+	filterAlertProducts(items: Array<Product>) {
 		return items.filter(product => (product.status === "Deterioating" || product.status === "Re-Stock"));
 	}
 
-	filterVegsProducts(items) {
+	filterVegsProducts(items: Array<Product>) {
 		return items.filter(product => (product.vegs));
 	}
 
-	filterItems(filterType, items) {
+	filterItems(filterType: Filter, items: Array<Product>) {
 		let filteredProducts = [];
 
 		switch (filterType) {
@@ -106,7 +119,7 @@ class Detail extends Component {
 		return filteredProducts;
 	}
 
-	applyFilter(filterType) {
+	applyFilter(filterType: Filter) {
 		const products = this.filterItems(filterType, this.state.products);
 
 		this.setState({
@@ -116,8 +129,8 @@ class Detail extends Component {
 		});
 	}
 
-	createProduct(entry) {
-		const newItems = [...this.state.products, { key: (this.state.products.length + 1), ...entry }];
+	createProduct(entry: Product) {
+		const newItems: Array<Product> = [...this.state.products, { key: (this.state.products.length + 1), ...entry }];
 
 		this.setState({
 			...this.state,
@@ -126,7 +139,7 @@ class Detail extends Component {
 		});
 	}
 
-	filterVisibleItemsByText(text) {
+	filterVisibleItemsByText(text: string) {
 		const filteredByType = this.filterItems(this.state.filterType, this.state.products);
 		const items = filteredByType.filter(item => item.name.toLowerCase().startsWith(text));
 
@@ -136,11 +149,11 @@ class Detail extends Component {
 		});
 	}
 
-	filter(value) {
+	filter(value: string) {
 		this.filterVisibleItemsByText(value);
 	}
 
-	get statusCriteriaMapping() {
+	get statusCriteriaMapping(): {[x: string]: number} {
 		return {
 			"In-Stock": 0,
 			"Re-Stock": 1,
@@ -149,10 +162,10 @@ class Detail extends Component {
 	}
 
 	sortAsc() {
-		const sortedItems = this.state.filteredProducts.sort((a, b) => {
-			if (this.statusCriteriaMapping[a.status] > this.statusCriteriaMapping[b.status]) {
+		const sortedItems = this.state.filteredProducts.sort((a: Product, b: Product) => {
+			if (this.statusCriteriaMapping[a.status!] > this.statusCriteriaMapping[b.status!]) {
 				return 1;
-			} else if (this.statusCriteriaMapping[a.status] < this.statusCriteriaMapping[b.status]) {
+			} else if (this.statusCriteriaMapping[a.status!] < this.statusCriteriaMapping[b.status!]) {
 				return -1;
 			}
 
@@ -166,10 +179,10 @@ class Detail extends Component {
 	}
 
 	sortDesc() {
-		const sortedItems = this.state.filteredProducts.sort((a, b) => {
-			if (this.statusCriteriaMapping[a.status] > this.statusCriteriaMapping[b.status]) {
+		const sortedItems = this.state.filteredProducts.sort((a: Product, b: Product) => {
+			if (this.statusCriteriaMapping[a.status!] > this.statusCriteriaMapping[b.status!]) {
 				return -1;
-			} else if (this.statusCriteriaMapping[a.status] < this.statusCriteriaMapping[b.status]) {
+			} else if (this.statusCriteriaMapping[a.status!] < this.statusCriteriaMapping[b.status!]) {
 				return 1;
 			}
 
@@ -183,8 +196,7 @@ class Detail extends Component {
 	}
 
 	render() {
-		return (
-			<div className="detail-page">
+		return <div className="detail-page">
 				<Header
 					products={this.state.products}
 					nonPerishableCount={this.filterNoPerishableProducts(this.state.products).length}
@@ -227,7 +239,8 @@ class Detail extends Component {
 									<ui5-label class="table-column-header-content middle">Illustration</ui5-label>
 								</ui5-table-column>
 								{
-									this.state.filteredProducts.map((item) =>
+									this.state.filteredProducts.map((item: Product) =>
+										// @ts-ignore
 										<ui5-table-row key={item.key}>
 											<ui5-table-cell>
 												<ui5-label class="table-cell-content middle"><b>{item.name}</b></ui5-label>
@@ -243,7 +256,7 @@ class Detail extends Component {
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
-													<ui5-badge class="table-cell-content-badge" color-scheme={getBadgeType(item.status)}>{item.status}</ui5-badge>
+													<ui5-badge className="table-cell-content-badge" color-scheme={getBadgeType(item.status!)}>{item.status}</ui5-badge>
 												</span>
 											</ui5-table-cell>
 											<ui5-table-cell>
@@ -256,7 +269,6 @@ class Detail extends Component {
 							</ui5-table>
 				</main>
 			</div>
-		)
 	}
 }
 

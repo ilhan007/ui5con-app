@@ -16,8 +16,6 @@ import "@ui5/webcomponents/dist/List";
 import "@ui5/webcomponents/dist/CustomListItem";
 import "@ui5/webcomponents/dist/StandardListItem";
 import "@ui5/webcomponents/dist/Switch";
-import "@ui5/webcomponents/dist/Tab";
-import "@ui5/webcomponents/dist/TabContainer";
 import "@ui5/webcomponents-fiori/dist/Timeline";
 import "@ui5/webcomponents-fiori/dist/ShellBar";
 import "@ui5/webcomponents-fiori/dist/ShellBarItem";

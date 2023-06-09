@@ -1,49 +1,80 @@
 import React, { Component } from "react";
+import Dialog from "@ui5/webcomponents/dist/Dialog";
+import Input from "@ui5/webcomponents/dist/Input";
+import TextArea from "@ui5/webcomponents/dist/TextArea";
+import DatePicker from "@ui5/webcomponents/dist/DatePicker";
+import Select from "@ui5/webcomponents/dist/Select";
+import Option from "@ui5/webcomponents/dist/Option";
+import RadioButton from "@ui5/webcomponents/dist/RadioButton";
 
-class FilterBar extends Component {
-	constructor(props) {
+import { Product } from "../types";
+
+type FilterProps = {
+	filter: (value: string) => void,
+	createProduct: (product: Product) => void,
+	sortDesc: () => void,
+	sortAsc: () => void,
+}
+
+type FilsterState = {
+
+}
+
+class FilterBar extends Component<FilterProps, FilsterState> {
+	dialog: React.RefObject<Dialog>;
+	nameInput: React.RefObject<Input>;
+	priceInput: React.RefObject<Input>;
+	locationInput: React.RefObject<TextArea>;
+	dateInput: React.RefObject<DatePicker>;
+	imageInput: React.RefObject<Input>;
+	statusInput: React.RefObject<Select>;
+	rbPerishable: React.RefObject<RadioButton>;
+	searchInput: React.RefObject<Input>;
+
+	constructor(props: FilterProps) {
 		super(props);
 
-		this.dialog = React.createRef();
-		this.nameInput = React.createRef();
-		this.priceInput = React.createRef();
-		this.locationInput = React.createRef();
-		this.dateInput = React.createRef();
-		this.imageInput = React.createRef();
-		this.statusInput = React.createRef();
-		this.rbPerishable = React.createRef();
-		this.searchInput = React.createRef();
+		this.dialog = React.createRef<Dialog>();
+		this.nameInput = React.createRef<Input>();
+		this.priceInput = React.createRef<Input>();
+		this.locationInput = React.createRef<TextArea>();
+		this.dateInput = React.createRef<DatePicker>();
+		this.imageInput = React.createRef<Input>();
+		this.statusInput = React.createRef<Select>();
+		this.rbPerishable = React.createRef<RadioButton>();
+		this.searchInput = React.createRef<Input>();
 	}
 
 	componentDidMount() {
-		this.searchInput.current.addEventListener('input', event => {
-			const value = event.target.value;
+		this.searchInput.current!.addEventListener('input', event => {
+			const value = (event.target! as Input).value;
 
 			this.props.filter(value);
 		});
 	}
 
 	openDialog() {
-		this.dialog.current.show();
+		this.dialog.current!.show();
 	}
 
 	submitNewProduct() {
-		const newEntry = {
-			name: this.nameInput.current.value,
-			price: this.priceInput.current.value,
-			location: this.locationInput.current.value,
-			img: this.imageInput.current.value,
-			status: [].filter.call(this.statusInput.current.children, el => el.selected)[0].textContent,
-			orderDate: this.dateInput.current.value,
-			perishable: !!this.rbPerishable.current.selected
+		debugger;
+		const newEntry: Product = {
+			name: this.nameInput.current!.value,
+			price: this.priceInput.current!.value,
+			location: this.locationInput.current!.value,
+			img: this.imageInput.current!.value,
+			status: (Array.from(this.statusInput.current!.children as unknown as Array<Option>)).filter((el: Option) => el.selected)[0].textContent,
+			orderDate: this.dateInput.current!.value,
+			perishable: !!this.rbPerishable.current!.checked,
 		}
 
 		this.props.createProduct(newEntry);
-		this.dialog.current.close();
+		this.dialog.current!.close();
 	}
 
 	closeDialog() {
-		this.dialog.current.close();
+		this.dialog.current!.close();
 	}
 
 	render() {
@@ -76,7 +107,7 @@ class FilterBar extends Component {
 
 						<div className="dialog-section">
 							<ui5-label>Product location:</ui5-label>
-							<ui5-textarea ref={this.locationInput} show-exceeded-text maxlength="10"></ui5-textarea>
+							<ui5-textarea ref={this.locationInput} show-exceeded-text maxlength={10}></ui5-textarea>
 						</div>
 
 						<div className="dialog-section">
@@ -99,8 +130,8 @@ class FilterBar extends Component {
 							</ui5-select>
 						</div>
 						<div className="dialog-section horizontal-flex">
-							<ui5-radiobutton selected name="perishable" text="Perishable" ref={this.rbPerishable}></ui5-radiobutton>
-							<ui5-radiobutton name="perishable" text="Non-Perishable"></ui5-radiobutton>
+							<ui5-radio-button checked name="perishable" text="Perishable" ref={this.rbPerishable}></ui5-radio-button>
+							<ui5-radio-button name="perishable" text="Non-Perishable"></ui5-radio-button>
 						</div>
 					</div>
 

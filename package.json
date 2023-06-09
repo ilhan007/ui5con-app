@@ -1,19 +1,23 @@
 {
   "name": "ui5con-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "http://ilhan007.github.io/ui5con-app",
   "dependencies": {
-    "@ui5/webcomponents": "1.4.0",
-    "@ui5/webcomponents-base": "1.4.0",
-    "@ui5/webcomponents-fiori": "1.4.0",
-    "@ui5/webcomponents-icons": "1.4.0",
-    "@ui5/webcomponents-theming": "1.4.0",
-    "@ui5/webcomponents-tools": "1.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6.0.1",
-    "react-scripts": "4.0.3"
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.9",
+    "@types/react-dom": "^18.2.4",
+    "@ui5/webcomponents": "^1.14.1",
+    "@ui5/webcomponents-base": "^1.14.1",
+    "@ui5/webcomponents-fiori": "^1.14.1",
+    "@ui5/webcomponents-icons": "^1.14.1",
+    "@ui5/webcomponents-theming": "^1.14.1",
+    "@ui5/webcomponents-tools": "^1.14.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.12.1",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,9 +26,6 @@
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -39,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^2.0.1"
   }
 }

@@ -1,19 +1,39 @@
 import React, { Component } from "react";
+import "@ui5/webcomponents/dist/Button";
+import "@ui5/webcomponents/dist/Title";
+import "@ui5/webcomponents/dist/Tab";
+import "@ui5/webcomponents/dist/TabSeparator";
+import TabContainer, { TabContainerTabSelectEventDetail } from "@ui5/webcomponents/dist/TabContainer";
 
-// Custom UI5 Web Components
-// import "custom-library/dist/ObjectHeader.js";
+import { Product, Filter } from "../types";
 
-class Header extends Component {
+type HeaderProps = {
+	products: Array<Product>;
+	tabPress: (filterType: Filter) => void,
+	navBack:  (path?: string) => void,
+	perishableCount: number,
+	nonPerishableCount: number,
+	alertCount: number,
+	vegsCount: number,
+}
 
-	constructor(props) {
+type HeaderState = {}
+
+
+class Header extends Component<HeaderProps, HeaderState> {
+	tabContainer: React.RefObject<TabContainer>;
+
+	props!: HeaderProps;
+	
+	constructor(props: HeaderProps) {
 		super(props);
 
-		this.tabContainer = React.createRef();
+		this.tabContainer = React.createRef<TabContainer>();
 	}
 
 	componentDidMount() {
-		this.tabContainer.current.addEventListener("tab-select", event => {
-			const filterType = event.detail.tab.getAttribute("data-filter-type");
+		(this.tabContainer.current as HTMLElement).addEventListener("tab-select", event => {
+			const filterType: Filter | null = (event as CustomEvent<TabContainerTabSelectEventDetail>).detail.tab.getAttribute("data-filter-type") as Filter;
 
 			this.props.tabPress(filterType);
 		});
@@ -25,7 +45,7 @@ class Header extends Component {
 
 	render() {
 		return (
-			<header className="detail-page-header">
+		<header className="detail-page-header">
 				<div className="detail-page-header-bar">
 					<div className="detail-page-header-bar-start">
 						<ui5-button
@@ -39,28 +59,6 @@ class Header extends Component {
 					
 					<ui5-button design="Transparent" icon="action" class="action-button"></ui5-button>
 				</div>
-
-				{/* <my-object-header>
-					<ui5-avatar slot="image" initials="I" icon="retail-store"></ui5-avatar>
-					<ui5-title level="H2" slot="heading">Smart Store </ui5-title>
-					<ui5-title level="H5" slot="heading">Dep #B321</ui5-title>
-					<ui5-title level="H5" slot="status">Daily Income: 765 USD </ui5-title>
-					<ui5-badge color-scheme="7" slot="statusDescription">OPEN</ui5-badge>
-					<ui5-badge slot="tags">Milk</ui5-badge>
-					<ui5-badge color-scheme="7" slot="tags">Vegs</ui5-badge>
-					<ui5-badge color-scheme="9" slot="tags">Meat</ui5-badge>
-					
-
-					<div>
-						<ui5-title level="H4">Store Description</ui5-title>
-						<br></br>
-						<ui5-title level="H6">ID: <ui5-label>HT-100333320o9i3</ui5-label></ui5-title>
-						<ui5-title level="H6">Domain: <ui5-label>General purpose products</ui5-label></ui5-title>
-						<br></br>
-						<ui5-title level="H6">Distributor: <ui5-label>Very Best Screens</ui5-label></ui5-title>
-						<ui5-title level="H6">Location:<ui5-label> Chicago, USA, North America</ui5-label></ui5-title>
-					</div>
-				</my-object-header> */}
 
 				<ui5-tabcontainer fixed collapsed class="detail-page-header-menu" ref={this.tabContainer} show-overflow>
 					<ui5-tab

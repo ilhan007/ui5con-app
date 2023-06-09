@@ -1,16 +1,31 @@
 import React, { Component } from "react";
-import managerImg1 from "../img/woman_avatar_1.png";
-import managerImg2 from "../img/woman_avatar_2.png";
-import managerImg3 from "../img/woman_avatar_3.png";
-import managerImg4 from "../img/woman_avatar_4.png";
-import managerImg5 from "../img/man_avatar_1.png";
-import managerImg6 from "../img/man_avatar_2.png";
-import managerImg7 from "../img/man_avatar_4.png";
-import managerImg8 from "../img/man_avatar_5.png";
-import managerImg9 from "../img/profile.png";
-import data from "./data.json";
 
-// import "custom-library/dist/MyNewComponent.js";
+import data from "./data.json";
+//@ts-ignore
+import managerImg1 from "../img/woman_avatar_1.png";
+//@ts-ignore
+import managerImg2 from "../img/woman_avatar_2.png";
+//@ts-ignore
+import managerImg3 from "../img/woman_avatar_3.png";
+//@ts-ignore
+import managerImg4 from "../img/woman_avatar_4.png";
+//@ts-ignore
+import managerImg5 from "../img/man_avatar_1.png";
+//@ts-ignore
+import managerImg6 from "../img/man_avatar_2.png";
+//@ts-ignore
+import managerImg7 from "../img/man_avatar_4.png";
+//@ts-ignore
+import managerImg8 from "../img/man_avatar_5.png";
+//@ts-ignore
+import managerImg9 from "../img/profile.png";
+
+import Card from "@ui5/webcomponents/dist/Card";
+import "@ui5/webcomponents/dist/CardHeader";
+import "@ui5/webcomponents/dist/Avatar.js";
+import "@ui5/webcomponents/dist/AvatarGroup.js";
+import "@ui5/webcomponents-fiori/dist/Timeline";
+import "@ui5/webcomponents-fiori/dist/TimelineItem";
 
 const imgs = [
 	managerImg1, managerImg2, managerImg3,
@@ -18,12 +33,87 @@ const imgs = [
 	managerImg7,  managerImg8, managerImg9
 ];
 
-class Home extends Component {
+type HomeProps = {
+	navigate: (path: string) => void;
+}
 
-	constructor (props) {
+type HomeState = {
+	data: Data,
+}
+
+type Data = {
+	featured: Array<CardData>,
+	activities: Array<CardActivityData>,
+	energystats:  Array<CardEnergyStatsData>
+	storesa: Array<CardStoreData>,
+	storesb: Array<CardStoreData>,
+	actions: Array<CardActionsData>,
+	alerts: Array<CardAlertsData>,
+}
+
+type CardData = {
+	key: string | number,
+	heading: string,
+	subtitle: string,
+	status: string,
+	classes: string,
+	items: Array<{key: string | number, title: string, description: string, icon: string, info?: string, infoState?: string}>
+}
+
+type CardActivityData = {
+	key: string | number,
+	title: string,
+	subtitle: string,
+	location: string,
+	icon: string,
+}
+
+type CardEnergyStatsData = {
+	key: string | number,
+	title: string,
+	description: string,
+	icon: string,
+	info: string,
+	infoState: string
+}
+
+type CardStoreData = {
+	key: string | number,
+	title: string,
+	description: string,
+	selected?: boolean,
+}
+
+type CardActionsData = {
+	key: string | number,
+	type: string,
+	title: string,
+	subtitle:string,
+	status: string,
+	columns: Array<{key: string | number, name: string}>
+	rows: Array<{key: string | number, cells: Array<{ key: string | number, text: string, error?: string }>}>
+}
+
+type CardAlertsData = {
+	key: string | number,
+	heading: string,
+	subtitle: string,
+	icon: string,
+	text: string,
+}
+
+class Home extends Component<HomeProps, HomeState> {
+
+	_navigate: (path: string) => void;
+	navToDetail: () => void;
+	featuredCardsRefs: Array<Card>;
+
+	constructor (props: HomeProps) {
 		super(props);
 		this.featuredCardsRefs = [];
-		this.state = {data};
+		this.state = { 
+			data,
+		};
 		this._navigate = this.props.navigate;
 		this.navToDetail = this._navToDetail.bind(this);
 	}
@@ -55,6 +145,7 @@ class Home extends Component {
 								key={dataObj.key}
 								class={dataObj.classes}>
 									<ui5-card-header
+										// @ts-ignore
 										ref={ref => this.featuredCardsRefs[index] = ref}
 										interactive
 										status={dataObj.status}
@@ -69,8 +160,8 @@ class Home extends Component {
 													key={item.key}
 													icon={item.icon}
 													description={item.description}
-													info={item.info}
-													info-state={item.infoState}
+													additional-text={item.info}
+													additional-text-state={item.infoState}
 													class="ui5list-item">{item.title}</ui5-li>
 											)
 										}
@@ -91,8 +182,8 @@ class Home extends Component {
 										key={item.key}
 										icon={item.icon}
 										description={item.description}
-										info={item.info}
-										info-state={item.infoState}
+										additional-text={item.info}
+										additional-text-state={item.infoState}
 										class="ui5list-item">
 											{item.title}
 										</ui5-li>
@@ -159,7 +250,7 @@ class Home extends Component {
 							></ui5-card-header>
 
 							<div className="ui5card--staff-content">
-								<ui5-avatar-group type="Single" avatar-size="M" id="avatar-group-group">
+								<ui5-avatar-group type="Individual" avatar-size="M" id="avatar-group-group">
 									{["IM", "JD"].map(initials =>
 										<ui5-avatar key={initials} initials={initials}>
 										</ui5-avatar>
@@ -195,12 +286,12 @@ class Home extends Component {
 							<div className="card-content">
 								<ui5-list separators="Inner" mode="SingleSelect" class="card-content-child">
 								{data.storesa.map(store =>
-									<ui5-li key={store.key} image={imgs[store.key]} description={store.description} selected={store.selected}>{store.title}</ui5-li>
+									<ui5-li key={store.key} image={imgs[store.key as number]} description={store.description} selected={store.selected}>{store.title}</ui5-li>
 								)}
 								</ui5-list>
 								<ui5-list separators="Inner" class="card-content-child">
 								{data.storesb.map(store =>
-									<ui5-li key={store.key} image={imgs[store.key]} description={store.description}>{store.title}</ui5-li>
+									<ui5-li key={store.key} image={imgs[store.key as number]} description={store.description}>{store.title}</ui5-li>
 								)}
 								</ui5-list>
 							</div>

@@ -1,79 +1,103 @@
 import React, { Component } from "react";
+// @ts-ignore
 import profile from "../img/profile.png";
+// @ts-ignore
 import logo from "../img/logo.png";
+
+import Select from "@ui5/webcomponents/dist/Select";
+import List, { ListSelectionChangeEventDetail } from "@ui5/webcomponents/dist/List";
+import ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
+import type { ShellBarProfileClickEventDetail, ShellBarNotificationsClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBar";
+import ShellBarItem, { ShellBarItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBarItem";
+import Switch from "@ui5/webcomponents/dist/Switch";
+import Popover from "@ui5/webcomponents/dist/Popover";
 
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
 import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
 
-class AppBar extends Component {	
+type AppBarProps = {
+	tabName: string,
+}
+class AppBar extends Component<AppBarProps> {	
 
-	constructor (props) {
+	appBar: React.RefObject<ShellBar>;
+	themeSelect: React.RefObject<List>;
+	themeSettingItem: React.RefObject<ShellBarItem>;
+	languageSelect: React.RefObject<List>;
+	langSettingsItem: React.RefObject<ShellBarItem>;
+	rtlSwitch: React.RefObject<Switch>;
+	contentDensitySwitch: React.RefObject<Switch>;
+
+	constructor (props: AppBarProps) {
 		super(props);
-		this.appBar = React.createRef();
-		this.themeSelect = React.createRef();
-		this.themeSettingItem = React.createRef();
-		this.languageSelect = React.createRef();
-		this.langSettingsItem = React.createRef();
-		this.rtlSwitch = React.createRef();
-		this.contentDensitySwitch = React.createRef();
+		this.appBar = React.createRef<ShellBar>();
+		this.themeSelect = React.createRef<List>();
+		this.themeSettingItem = React.createRef<ShellBarItem>();
+		this.languageSelect = React.createRef<List>();
+		this.langSettingsItem = React.createRef<ShellBarItem>();
+		this.rtlSwitch = React.createRef<Switch>();
+		this.contentDensitySwitch = React.createRef<Switch>();
 	}
 
 	componentDidMount() {
-		this.appBar.current.addEventListener("profile-click", this.onProfileClicked);
-		this.appBar.current.addEventListener("notifications-click", this.onNotificationsClicked);
-		this.languageSelect.current.addEventListener("selection-change", this.onLangChange.bind(this));
-		this.themeSelect.current.addEventListener("selection-change", this.onThemeChange.bind(this));
-		this.langSettingsItem.current.addEventListener("click", this.onLangSettings.bind(this));
-		this.themeSettingItem.current.addEventListener("click", this.onThemeSettings.bind(this));
-		this.rtlSwitch.current.addEventListener("change", this.onDirChange.bind(this));
-		this.contentDensitySwitch.current.addEventListener("change", this.onContentDensityChange.bind(this));
+		this.appBar.current!.addEventListener("profile-click", this.onProfileClicked as EventListener);
+		this.appBar.current!.addEventListener("notifications-click", this.onNotificationsClicked as EventListener);
+		this.languageSelect.current!.addEventListener("selection-change", this.onLangChange.bind(this) as EventListener);
+		this.themeSelect.current!.addEventListener("selection-change", this.onThemeChange.bind(this) as EventListener);
+		this.langSettingsItem.current!.addEventListener("click", this.onLangSettings.bind(this) as EventListener);
+		this.themeSettingItem.current!.addEventListener("click", this.onThemeSettings.bind(this) as EventListener);
+		this.rtlSwitch.current!.addEventListener("change", this.onDirChange.bind(this) as EventListener);
+		this.contentDensitySwitch.current!.addEventListener("change", this.onContentDensityChange.bind(this) as EventListener);
 	}
 
-	onProfileClicked(event) {
+	onProfileClicked(event: CustomEvent<ShellBarProfileClickEventDetail>) {
 		event.preventDefault();
 		window["profile-popover"].showAt(event.detail.targetRef);
 	}
 
-	onNotificationsClicked(event) {
+	onNotificationsClicked(event: CustomEvent<ShellBarNotificationsClickEventDetail>) {
 		event.preventDefault();
 		window["notifications-popover"].showAt(event.detail.targetRef);
 	}
 
-	onThemeChange(event) {
-		const selectedTheme = event.detail.selectedItems[0].getAttribute("data-theme");
-		setTheme(selectedTheme);
-	}
+	
 
-	onDirChange(event) {
-		document.body.dir = event.target.checked ? "rtl" : "ltr";
+	onDirChange(event: CustomEvent) {
+		document.body.dir = (event.target as Switch).checked ? "rtl" : "ltr";
 		applyDirection();
 	}
 
-	onContentDensityChange(event) {
-		if (event.target.checked) {
+	onContentDensityChange(event: CustomEvent) {
+		if ((event.target as Switch).checked) {
 			document.body.classList.add("ui5-content-density-compact");
 		} else {
 			document.body.classList.remove("ui5-content-density-compact");
 		}
 	}
 
-	onLangSettings(event) {
+	onLangSettings(event: CustomEvent<ShellBarItemClickEventDetail>) {
 		event.preventDefault();
-		debugger;
 		window["lang-settings-popover"].showAt(event.detail.targetRef);
 	}
 
-	onThemeSettings(event) {
+	onLangChange(event: CustomEvent<ListSelectionChangeEventDetail>) {
+		const selectedLang = event.detail.selectedItems[0].getAttribute("data-lang");
+		setLanguage(selectedLang!);
+		window["lang-settings-popover"].close();
+	}
+	
+	onThemeSettings(event: CustomEvent<ShellBarItemClickEventDetail>) {
 		event.preventDefault();
-		debugger;
 		window["theme-settings-popover"].showAt(event.detail.targetRef);
 	}
 
-	onLangChange(event) {
-		const selectedLang = event.detail.selectedItems[0].getAttribute("data-lang");
-		setLanguage(selectedLang);
+	onThemeChange(event: CustomEvent<ListSelectionChangeEventDetail>) {
+		const selectedTheme = event.detail.selectedItems[0].getAttribute("data-theme");
+		setTheme(selectedTheme!);
+		window["theme-settings-popover"].close();
 	}
+
 
 	render() {
 		return (
@@ -104,7 +128,7 @@ class AppBar extends Component {
 				<ui5-popover id="profile-popover" hide-header placement-type="Bottom" horizontal-align="Right">
 					<div className="profile-header centered">
 						<img src={profile} alt="profile" className="profile-img"/>
-						<ui5-title level="3">Darius Cummings</ui5-title>
+						<ui5-title level="H3">Darius Cummings</ui5-title>
 						<ui5-label>Store Manager</ui5-label>
 					</div>
 					<div className="profile-content">
@@ -139,8 +163,8 @@ class AppBar extends Component {
 					<ui5-list id="notificationListTop" header-text="Actions Required">
 						<ui5-li-notification
 							show-close
-							wrap
-							heading="Temperature Drop"
+							wrapping-type="Wrap"
+							title-text="Temperature Drop"
 							priority="Medium"
 						>
 							Fridge #487990
@@ -148,9 +172,9 @@ class AppBar extends Component {
 						</ui5-li-notification>
 
 						<ui5-li-notification
-							heading="Maintenance Overdue"
+							title-text="Maintenance Overdue"
 							priority="Medium"
-							wrap
+							wrapping-type="Wrap"
 							show-close
 						>
 							Fridge #603432
