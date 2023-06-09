@@ -1,35 +1,16 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
-// UI5 Web Components
 import "@ui5/webcomponents-base/dist/features/F6Navigation.js";
-
-import "@ui5/webcomponents/dist/Avatar";
-import "@ui5/webcomponents/dist/AvatarGroup";
-import "@ui5/webcomponents/dist/Card";
-import "@ui5/webcomponents/dist/CardHeader";
-import "@ui5/webcomponents/dist/Calendar";
-import "@ui5/webcomponents/dist/Icon";
-import "@ui5/webcomponents/dist/Label";
-import "@ui5/webcomponents/dist/List";
-import "@ui5/webcomponents/dist/CustomListItem";
-import "@ui5/webcomponents/dist/StandardListItem";
-import "@ui5/webcomponents/dist/Switch";
-import "@ui5/webcomponents-fiori/dist/Timeline";
-import "@ui5/webcomponents-fiori/dist/ShellBar";
-import "@ui5/webcomponents-fiori/dist/ShellBarItem";
-import "@ui5/webcomponents-fiori/dist/NotificationListItem";
 import "@ui5/webcomponents-fiori/dist/Assets.js";
-
-import Home from "./home/Home";
-import Detail from './detail/Detail';
-import AppBar from './appbar/AppBar';
 
 // Custom Theme CSS Properties
 import "./custom-themes/redfish/css_variables.css";
 
-// Icons
+import "@ui5/webcomponents-fiori/dist/ShellBar";
+import "@ui5/webcomponents-fiori/dist/ShellBarItem";
+
+// UI5 Web Components Icons
 import "@ui5/webcomponents-icons/dist/palette.js";
 import "@ui5/webcomponents-icons/dist/settings.js";
 import "@ui5/webcomponents-icons/dist/sys-help.js";
@@ -46,13 +27,18 @@ import "@ui5/webcomponents-icons/dist/heating-cooling.js";
 import "@ui5/webcomponents-icons/dist/washing-machine.js";
 import "@ui5/webcomponents-icons/dist/temperature.js";
 
+// React Components
+import Home from "./home/Home";
+import Detail from './detail/Detail';
+import AppBar from './appbar/AppBar';
+
 import { useNavigate, useLocation } from "react-router-dom";
 
 const App = () => {
 	const navigate = useNavigate();
 	const location = useLocation().pathname;
 	const tabName = location === "/detail" ?  "My Inventory" : "My Home";
-	console.log(tabName)
+
 	return (
 		<div className="App">
 			<AppBar tabName={tabName}/>

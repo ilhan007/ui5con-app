@@ -20,10 +20,13 @@ import managerImg8 from "../img/man_avatar_5.png";
 //@ts-ignore
 import managerImg9 from "../img/profile.png";
 
-import Card from "@ui5/webcomponents/dist/Card";
+import "@ui5/webcomponents/dist/Title";
+import "@ui5/webcomponents/dist/Card";
+import type Card from "@ui5/webcomponents/dist/Card";
 import "@ui5/webcomponents/dist/CardHeader";
 import "@ui5/webcomponents/dist/Avatar.js";
 import "@ui5/webcomponents/dist/AvatarGroup.js";
+import "@ui5/webcomponents/dist/List.js";
 import "@ui5/webcomponents-fiori/dist/Timeline";
 import "@ui5/webcomponents-fiori/dist/TimelineItem";
 
@@ -257,7 +260,7 @@ class Home extends Component<HomeProps, HomeState> {
 									)}
 
 									{imgs.map((img, idx) =>
-										<ui5-avatar key={idx} image={img}>
+										<ui5-avatar key={idx}>
 											<img src={img} alt="employee" />
 										</ui5-avatar>
 									)}

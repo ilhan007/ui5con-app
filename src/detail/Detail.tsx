@@ -1,22 +1,22 @@
-import React, { Component, DOMAttributes } from "react";
-import FilterBar from "../filterbar/FilterBar";
-import Header from "../header/Header";
-import "./Detail.css";
+import { Component } from "react";
+
 import products from "../data/products.json";
 
-import "@ui5/webcomponents/dist/DatePicker.js";
-import "@ui5/webcomponents/dist/Input.js";
-import "@ui5/webcomponents/dist/Title.js";
+// React Components
+import FilterBar from "../filterbar/FilterBar";
+import Header from "../header/Header";
+
+import "./Detail.css";
+
+// UI5 Web Components
 import "@ui5/webcomponents/dist/Table.js";
 import "@ui5/webcomponents/dist/TableColumn.js";
 import "@ui5/webcomponents/dist/TableRow.js";
 import "@ui5/webcomponents/dist/TableCell.js";
 import "@ui5/webcomponents/dist/Label.js";
 import "@ui5/webcomponents/dist/Badge.js";
-import "@ui5/webcomponents/dist/Popover.js";
-import "@ui5/webcomponents/dist/Select.js";
-import "@ui5/webcomponents/dist/TextArea.js";
 
+// UI5 Web Components Icons
 import "@ui5/webcomponents-icons/dist/alert.js";
 import "@ui5/webcomponents-icons/dist/nutrition-activity.js";
 import "@ui5/webcomponents-icons/dist/accept.js";

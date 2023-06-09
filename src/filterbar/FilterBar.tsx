@@ -1,10 +1,25 @@
 import React, { Component } from "react";
+
+// UI5 Web Components
+import "@ui5/webcomponents/dist/Button";
+import "@ui5/webcomponents/dist/Label";
 import Dialog from "@ui5/webcomponents/dist/Dialog";
-import Input from "@ui5/webcomponents/dist/Input";
-import TextArea from "@ui5/webcomponents/dist/TextArea";
-import DatePicker from "@ui5/webcomponents/dist/DatePicker";
-import Select from "@ui5/webcomponents/dist/Select";
-import Option from "@ui5/webcomponents/dist/Option";
+import "@ui5/webcomponents/dist/Input";
+import type Input from "@ui5/webcomponents/dist/Input";
+
+import "@ui5/webcomponents/dist/TextArea";
+import type TextArea from "@ui5/webcomponents/dist/TextArea";
+
+import "@ui5/webcomponents/dist/DatePicker";
+import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
+
+import "@ui5/webcomponents/dist/Select";
+import type Select from "@ui5/webcomponents/dist/Select";
+
+
+import "@ui5/webcomponents/dist/Option";
+import type Option from "@ui5/webcomponents/dist/Option";
+
 import RadioButton from "@ui5/webcomponents/dist/RadioButton";
 
 import { Product } from "../types";
@@ -16,9 +31,7 @@ type FilterProps = {
 	sortAsc: () => void,
 }
 
-type FilsterState = {
-
-}
+type FilsterState = {}
 
 class FilterBar extends Component<FilterProps, FilsterState> {
 	dialog: React.RefObject<Dialog>;

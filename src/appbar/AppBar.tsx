@@ -4,17 +4,22 @@ import profile from "../img/profile.png";
 // @ts-ignore
 import logo from "../img/logo.png";
 
-import Select from "@ui5/webcomponents/dist/Select";
-import List, { ListSelectionChangeEventDetail } from "@ui5/webcomponents/dist/List";
-import ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
-import type { ShellBarProfileClickEventDetail, ShellBarNotificationsClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBar";
-import ShellBarItem, { ShellBarItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBarItem";
-import Switch from "@ui5/webcomponents/dist/Switch";
-import Popover from "@ui5/webcomponents/dist/Popover";
-
+// UI5 Web Components Base
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
 import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
+
+// UI5 Web Components
+import List from "@ui5/webcomponents/dist/List";
+import type { ListSelectionChangeEventDetail } from "@ui5/webcomponents/dist/List";
+import Switch from "@ui5/webcomponents/dist/Switch";
+import "@ui5/webcomponents/dist/Popover";
+
+import ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
+import type { ShellBarProfileClickEventDetail, ShellBarNotificationsClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBar";
+import ShellBarItem from "@ui5/webcomponents-fiori/dist/ShellBarItem";
+import type { ShellBarItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBarItem";
+import "@ui5/webcomponents-fiori/dist/NotificationListItem";
 
 type AppBarProps = {
 	tabName: string,
