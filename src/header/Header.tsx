@@ -60,7 +60,7 @@ class Header extends Component<HeaderProps, HeaderState> {
 					<ui5-button design="Transparent" icon="action" class="action-button"></ui5-button>
 				</div>
 
-				<ui5-tabcontainer fixed collapsed class="detail-page-header-menu" ref={this.tabContainer} show-overflow>
+				<ui5-tabcontainer fixed collapsed class="detail-page-header-menu" ref={this.tabContainer}>
 					<ui5-tab
 						// icon="product"
 						data-filter-type="all" 

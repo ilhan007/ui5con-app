@@ -7,10 +7,36 @@ import "@ui5/webcomponents-fiori/dist/Assets.js";
 // Custom Theme CSS Properties
 import "./custom-themes/redfish/css_variables.css";
 
+// UI5 Web Components
+import "@ui5/webcomponents/dist/Table.js";
+import "@ui5/webcomponents/dist/TableColumn.js";
+import "@ui5/webcomponents/dist/TableRow.js";
+import "@ui5/webcomponents/dist/TableCell.js";
+import "@ui5/webcomponents/dist/Label.js";
+import "@ui5/webcomponents/dist/Badge.js";
+import "@ui5/webcomponents/dist/Button.js";
+import "@ui5/webcomponents/dist/ToggleButton.js";
+import "@ui5/webcomponents/dist/Title";
+import "@ui5/webcomponents/dist/Tab";
+import "@ui5/webcomponents/dist/TabSeparator";
+import "@ui5/webcomponents/dist/Popover";
+import "@ui5/webcomponents-fiori/dist/NotificationListItem";
 import "@ui5/webcomponents-fiori/dist/ShellBar";
 import "@ui5/webcomponents-fiori/dist/ShellBarItem";
 
 // UI5 Web Components Icons
+import "@ui5/webcomponents-icons/dist/alert.js";
+import "@ui5/webcomponents-icons/dist/nutrition-activity.js";
+import "@ui5/webcomponents-icons/dist/accept.js";
+import "@ui5/webcomponents-icons/dist/decline.js";
+import "@ui5/webcomponents-icons/dist/nav-back.js";
+import "@ui5/webcomponents-icons/dist/globe.js";
+import "@ui5/webcomponents-icons/dist/sort-descending.js";
+import "@ui5/webcomponents-icons/dist/sort-ascending.js";
+import "@ui5/webcomponents-icons/dist/excel-attachment.js";
+import "@ui5/webcomponents-icons/dist/e-care.js";
+import "@ui5/webcomponents-icons/dist/retail-store.js";
+import "@ui5/webcomponents-icons/dist/edit.js";
 import "@ui5/webcomponents-icons/dist/palette.js";
 import "@ui5/webcomponents-icons/dist/settings.js";
 import "@ui5/webcomponents-icons/dist/sys-help.js";

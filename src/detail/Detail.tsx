@@ -1,35 +1,12 @@
-import { Component } from "react";
-
-import products from "../data/products.json";
-
-// React Components
-import FilterBar from "../filterbar/FilterBar";
-import Header from "../header/Header";
+import React, { Component } from "react";
 
 import "./Detail.css";
-
-// UI5 Web Components
-import "@ui5/webcomponents/dist/Table.js";
-import "@ui5/webcomponents/dist/TableColumn.js";
-import "@ui5/webcomponents/dist/TableRow.js";
-import "@ui5/webcomponents/dist/TableCell.js";
-import "@ui5/webcomponents/dist/Label.js";
-import "@ui5/webcomponents/dist/Badge.js";
-
-// UI5 Web Components Icons
-import "@ui5/webcomponents-icons/dist/alert.js";
-import "@ui5/webcomponents-icons/dist/nutrition-activity.js";
-import "@ui5/webcomponents-icons/dist/accept.js";
-import "@ui5/webcomponents-icons/dist/decline.js";
-import "@ui5/webcomponents-icons/dist/nav-back.js";
-import "@ui5/webcomponents-icons/dist/globe.js";
-import "@ui5/webcomponents-icons/dist/sort-descending.js";
-import "@ui5/webcomponents-icons/dist/sort-ascending.js";
-import "@ui5/webcomponents-icons/dist/excel-attachment.js";
-import "@ui5/webcomponents-icons/dist/e-care.js";
-import "@ui5/webcomponents-icons/dist/retail-store.js";
-
 import { Product, Filter } from "../types";
+import products from "../data/products.json";
+import FilterBar from "../filterbar/FilterBar";
+import Header from "../header/Header";
+import TagComponent from "./TagComponent";
+
 
 type DetailProps = {
 	navigate: (path: string) => void,
@@ -39,8 +16,8 @@ type DetailState = {
 	products: Array<Product>,
 	filteredProducts: Array<Product>,
 	filterType: Filter,
+	readonly: boolean | undefined,
 };
-
 
 const getBadgeType = (type: string) => {
 	switch (type) {
@@ -69,6 +46,7 @@ class Detail extends Component<DetailProps, DetailState> {
 			products: [...products] as unknown as Array<Product>,
 			filteredProducts: [...products] as unknown as Array<Product>,
 			filterType: "all",
+			readonly: true,
 		};
 	}
 
@@ -195,6 +173,24 @@ class Detail extends Component<DetailProps, DetailState> {
 		});
 	}
 
+	toggleEdit() {
+		this.setState({
+			...this.state,
+			readonly: !this.state.readonly ? true : undefined,
+		});
+	}
+	
+	tokenDelete(product: Product, tag: string) {
+		const products = this.state.products;
+		const productsToUpdate = products.find(product => product.tags.includes(tag))!;
+		delete productsToUpdate.tags[productsToUpdate.tags.indexOf(tag)];
+
+		this.setState({
+			...this.state,
+			products,
+		});
+	}
+
 	render() {
 		return <div className="detail-page">
 				<Header
@@ -212,6 +208,8 @@ class Detail extends Component<DetailProps, DetailState> {
 								filter={this.filter.bind(this)}
 								sortAsc={this.sortAsc.bind(this)}
 								sortDesc={this.sortDesc.bind(this)}
+								toggleEdit={this.toggleEdit.bind(this)}
+								readonly={this.state.readonly}
 							/>
 
 							<ui5-table class="table" no-data-text="No Items available for search criteria" show-no-data>
@@ -236,11 +234,14 @@ class Detail extends Component<DetailProps, DetailState> {
 								</ui5-table-column>
 
 								<ui5-table-column slot="columns">
+									<ui5-label class="table-column-header-content middle">Tags</ui5-label>
+								</ui5-table-column>
+
+								<ui5-table-column slot="columns">
 									<ui5-label class="table-column-header-content middle">Illustration</ui5-label>
 								</ui5-table-column>
 								{
 									this.state.filteredProducts.map((item: Product) =>
-										// @ts-ignore
 										<ui5-table-row key={item.key}>
 											<ui5-table-cell>
 												<ui5-label class="table-cell-content middle"><b>{item.name}</b></ui5-label>
@@ -258,6 +259,12 @@ class Detail extends Component<DetailProps, DetailState> {
 												<span className="table-cell-content middle">
 													<ui5-badge className="table-cell-content-badge" color-scheme={getBadgeType(item.status!)}>{item.status}</ui5-badge>
 												</span>
+											</ui5-table-cell>
+
+											<ui5-table-cell class="table-status-cell-content">
+											{
+												item.tags.map((tag: string, idx: number) => <TagComponent  item={item} key={idx} readonly={this.state.readonly} text={tag} tokenDelete={this.tokenDelete.bind(this)}/>
+											)}
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">

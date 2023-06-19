@@ -29,6 +29,8 @@ type FilterProps = {
 	createProduct: (product: Product) => void,
 	sortDesc: () => void,
 	sortAsc: () => void,
+	toggleEdit: () => void,
+	readonly: boolean | undefined,
 }
 
 type FilsterState = {}
@@ -71,13 +73,13 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 	}
 
 	submitNewProduct() {
-		debugger;
 		const newEntry: Product = {
 			name: this.nameInput.current!.value,
 			price: this.priceInput.current!.value,
 			location: this.locationInput.current!.value,
 			img: this.imageInput.current!.value,
-			status: (Array.from(this.statusInput.current!.children as unknown as Array<Option>)).filter((el: Option) => el.selected)[0].textContent,
+			status: (Array.from(this.statusInput.current!.children as unknown as Array<Option>)).filter((el: Option) => el.selected)[0].textContent!,
+			tags: [],
 			orderDate: this.dateInput.current!.value,
 			perishable: !!this.rbPerishable.current!.checked,
 		}
@@ -100,6 +102,7 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 						<ui5-icon slot="icon" name="search"></ui5-icon>
 					</ui5-input>
 					<ui5-button onClick={this.openDialog.bind(this)} design="Emphasized" title="Create Product">Create</ui5-button>
+					<ui5-toggle-button onClick={this.props.toggleEdit.bind(this)} pressed={this.props.readonly} icon="edit" design="Emphasized">Edit</ui5-toggle-button>
 					<ui5-button onClick={this.props.sortDesc.bind(this)} icon="sort-descending" design="Transparent" title="Sort By Status"></ui5-button>
 					<ui5-button onClick={this.props.sortAsc.bind(this)} icon="sort-ascending" design="Transparent" title="Sort By Status"></ui5-button>
 					<ui5-button icon="excel-attachment" design="Transparent"></ui5-button>

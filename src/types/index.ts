@@ -2,7 +2,8 @@ type Product = {
 	key?: number,
 	perishable: boolean;
 	vegs?: boolean;
-	status: string | null;
+	status: string;
+	tags: Array<string>;
 	name: string;
 	price: string,
 	location: string,
@@ -41,6 +42,7 @@ import type Tab from "@ui5/webcomponents/dist/Tab";
 import type TabContainer from "@ui5/webcomponents/dist/TabContainer";
 import type TabSeparator from "@ui5/webcomponents/dist/TabSeparator";
 import type Button from "@ui5/webcomponents/dist/Button";
+import type ToggleButton from "@ui5/webcomponents/dist/ToggleButton";
 import type Popover from "@ui5/webcomponents/dist/Popover";
 import type Title from "@ui5/webcomponents/dist/Title";
 import type List from "@ui5/webcomponents/dist/List";
@@ -53,15 +55,19 @@ import type Icon from "@ui5/webcomponents/dist/Icon";
 import type Timeline from "@ui5/webcomponents-fiori/dist/Timeline";
 import type TimelineItem from "@ui5/webcomponents-fiori/dist/TimelineItem";
 
+import type Token from "@ui5con/components/dist/Token.js";
+
 declare global {
 	namespace JSX {
 	  interface IntrinsicElements {
+		['my-token']: CustomElement<Token>;
 		['ui5-card']: CustomElement<Card>;
 		['ui5-card-header']: CustomElement<CardHeader>;
 		['ui5-tab']: CustomElement<Tab>;
 		['ui5-tabcontainer']: CustomElement<TabContainer>;
 		['ui5-tab-separator']: CustomElement<TabSeparator>;
 		['ui5-button']: CustomElement<Button>;
+		['ui5-toggle-button']: CustomElement<ToggleButton>;
 		['ui5-title']: CustomElement<Title>;
 		['ui5-table']: CustomElement<Table>;
 		['ui5-table-row']: CustomElement<TableRow>;
