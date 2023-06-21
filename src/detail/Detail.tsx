@@ -5,7 +5,7 @@ import { Product, Filter } from "../types";
 import products from "../data/products.json";
 import FilterBar from "../filterbar/FilterBar";
 import Header from "../header/Header";
-import TagComponent from "./TagComponent";
+import TokenReactComponent from "./TokenReactComponent";
 
 
 type DetailProps = {
@@ -38,7 +38,6 @@ class Detail extends Component<DetailProps, DetailState> {
 
 	constructor (props: DetailProps) {
 		super(props);
-
 		this._navigate = this.props.navigate;
 		this.navBack = this._navBack.bind(this);
 
@@ -180,14 +179,11 @@ class Detail extends Component<DetailProps, DetailState> {
 		});
 	}
 	
-	tokenDelete(product: Product, tag: string) {
-		const products = this.state.products;
-		const productsToUpdate = products.find(product => product.tags.includes(tag))!;
-		delete productsToUpdate.tags[productsToUpdate.tags.indexOf(tag)];
+	deleteTag(product: Product, tag: string) {
+		product.tags.splice(product.tags.indexOf(tag), 1);
 
 		this.setState({
 			...this.state,
-			products,
 		});
 	}
 
@@ -241,34 +237,35 @@ class Detail extends Component<DetailProps, DetailState> {
 									<ui5-label class="table-column-header-content middle">Illustration</ui5-label>
 								</ui5-table-column>
 								{
-									this.state.filteredProducts.map((item: Product) =>
-										<ui5-table-row key={item.key}>
+									this.state.filteredProducts.map((product: Product) =>
+										<ui5-table-row key={product.key}>
 											<ui5-table-cell>
-												<ui5-label class="table-cell-content middle"><b>{item.name}</b></ui5-label>
+												<ui5-label class="table-cell-content middle"><b>{product.name}</b></ui5-label>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">{item.price}</span>
+												<span className="table-cell-content middle">{product.price}</span>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">{item.location}</span>
+												<span className="table-cell-content middle">{product.location}</span>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">{item.orderDate}</span>
+												<span className="table-cell-content middle">{product.orderDate}</span>
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
-													<ui5-badge className="table-cell-content-badge" color-scheme={getBadgeType(item.status!)}>{item.status}</ui5-badge>
+													<ui5-badge className="table-cell-content-badge" color-scheme={getBadgeType(product.status!)}>{product.status}</ui5-badge>
 												</span>
 											</ui5-table-cell>
 
 											<ui5-table-cell class="table-status-cell-content">
-											{
-												item.tags.map((tag: string, idx: number) => <TagComponent  item={item} key={idx} readonly={this.state.readonly} text={tag} tokenDelete={this.tokenDelete.bind(this)}/>
-											)}
+												{
+												product.tags.map((tag: string, idx: number) => 
+													<TokenReactComponent product={product} key={idx} readonly={this.state.readonly} text={tag} deleteTag={this.deleteTag.bind(this)}/>
+												)}
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
-													<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + item.img} />
+													<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + product.img} />
 												</span>
 											</ui5-table-cell>
 										</ui5-table-row>)

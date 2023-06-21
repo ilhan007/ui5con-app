@@ -5,7 +5,7 @@
 	"location": "27 Each, Aisle 3, Section 5",
 	"img": "/img/broccolli.png",
 	"status": "Deterioating",
-	"tags": ["Green", "Vegan", "Deterioating", "Healthy", "Diet"],
+	"tags": ["Green", "Vegan", "Healthy", "Diet"],
 	"orderDate": "10/7/2019",
 	"perishable": true,
 	"vegs": true

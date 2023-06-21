@@ -1,0 +1,39 @@
+import React, { Component } from "react";
+
+import { Product } from "../types";
+
+// import "@ui5con/components/dist/Token.js";
+// import Token from "@ui5con/components/dist/Token.js";
+
+type TokenReactComponentProps = {
+	product: Product,
+	deleteTag: (item: Product, tag: string) => void,
+	readonly: boolean | undefined
+	text: string
+}
+
+class TokenReactComponent extends Component<TokenReactComponentProps> {	
+	// tokenRef: React.RefObject<Token>;
+
+	constructor (props: TokenReactComponentProps) {
+		super(props);
+
+		// this.tokenRef = React.createRef<Token>();
+	}
+
+	// componentDidMount() {
+	// 	this.tokenRef.current!.addEventListener("delete", () => {
+	// 		this.props.deleteTag(this.props.product, this.props.text);
+	// 	});
+	// }
+
+	render() {
+		return (
+			<span>{this.props.text}</span>
+			// <my-token readonly={this.props.readonly}>{this.props.text}</my-token>
+			// <my-token ref={this.tokenRef} readonly={this.props.readonly} data-product={this.props.product}>{this.props.text}</my-token>
+		);
+	}
+}
+
+export default TokenReactComponent;

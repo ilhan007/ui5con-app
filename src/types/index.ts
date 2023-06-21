@@ -56,11 +56,13 @@ import type Timeline from "@ui5/webcomponents-fiori/dist/Timeline";
 import type TimelineItem from "@ui5/webcomponents-fiori/dist/TimelineItem";
 
 // import type Token from "@ui5con/components/dist/Token.js";
+// import type Tokenizer from "@ui5con/components/dist/Tokenizer.js";
 
 declare global {
 	namespace JSX {
 	  interface IntrinsicElements {
-		['my-token']: CustomElement<{}>;
+		// ['my-token']: CustomElement<Token>;
+		// ['my-tokenizer']: CustomElement<Tokenizer>;
 		['ui5-card']: CustomElement<Card>;
 		['ui5-card-header']: CustomElement<CardHeader>;
 		['ui5-tab']: CustomElement<Tab>;
