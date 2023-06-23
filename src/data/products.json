@@ -5,7 +5,7 @@
 	"location": "27 Each, Aisle 3, Section 5",
 	"img": "/img/broccolli.png",
 	"status": "Deterioating",
-	"tags": ["Green", "Vegan", "Healthy", "Diet"],
+	"tags": ["Green", "Vegan", "Healthy", "Diet", "Fibers", "Superfood"],
 	"orderDate": "10/7/2019",
 	"perishable": true,
 	"vegs": true
@@ -17,7 +17,7 @@
 	"location": "35 Each, Aisle 17, Section 5",
 	"img": "/img/tortillachips.png",
 	"status": "In-Stock",
-	"tags": ["Fats", "Carbs", "Salt"],
+	"tags": ["Fats", "Carbs", "Salt", "Crispy", "Snack"],
 	"orderDate": "10/7/2019",
 	"perishable": false
 },
@@ -28,7 +28,7 @@
 	"location": "3 Each, Aisle 23, Section 21",
 	"img": "/img/soap.png",
 	"status": ["Re-Stock"],
-	"tags": ["Hygiene", "Aroma", "Lavender", "Handmade"],
+	"tags": ["Hygiene", "Aroma", "Lavender", "Handmade", "Gentle"],
 	"orderDate": "10/7/2019",
 	"perishable": false
 },
@@ -39,7 +39,7 @@
 	"location": "27 Each, Aisle 12, Section 3",
 	"img": "/img/milk.png",
 	"status": "In-Stock",
-	"tags": ["Low Fat", "Lactose", "Calcium"],
+	"tags": ["Dairy", "Low Fat", "Lactose", "Calcium", "Light"],
 	"orderDate": "10/7/2019",
 	"perishable": true
 },
@@ -50,7 +50,7 @@
 	"location": "4 Each, Aisle 3, Section 4",
 	"img": "/img/lettuce.png",
 	"status": "Re-Stock",
-	"tags": ["Green", "Vegan", "Salad"],
+	"tags": ["Healthy", "Green", "Vegan", "Salad", "Fresh"],
 	"orderDate": "10/7/2019",
 	"perishable": true,
 	"vegs": true
@@ -62,7 +62,7 @@
 	"location": "27 Each, Aisle 7, Section 17",
 	"img": "/img/chicken.png",
 	"status": "In-Stock",
-	"tags": ["Protein", "Low Fat", "Low Carbs"],
+	"tags": ["Protein", "Low Fat", "Low Carbs", "Roast", "Meat"],
 	"orderDate": "10/7/2019",
 	"perishable": true
 },
@@ -73,7 +73,7 @@
 	"location": "19 Each, Aisle 27, Section 9",
 	"img": "/img/storagebin.png",
 	"status": "In-Stock",
-	"tags": ["Plastic", "Home"],
+	"tags": ["Plastic", "Home", "Container", "Clutter-free"],
 	"orderDate": "10/7/2019",
 	"perishable": false
 },
