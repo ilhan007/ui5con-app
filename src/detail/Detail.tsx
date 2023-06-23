@@ -6,7 +6,7 @@ import products from "../data/products.json";
 import FilterBar from "../filterbar/FilterBar";
 import Header from "../header/Header";
 import TokenReactComponent from "./TokenReactComponent";
-
+// import "@ui5con/components/dist/Tokenizer";
 
 type DetailProps = {
 	navigate: (path: string) => void,
@@ -253,15 +253,17 @@ class Detail extends Component<DetailProps, DetailState> {
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
-													<ui5-badge className="table-cell-content-badge" color-scheme={getBadgeType(product.status!)}>{product.status}</ui5-badge>
+													<ui5-badge class="table-cell-content-badge" color-scheme={getBadgeType(product.status!)}>{product.status}</ui5-badge>
 												</span>
 											</ui5-table-cell>
 
 											<ui5-table-cell class="table-status-cell-content">
+												{/* <my-tokenizer> */}
 												{
 												product.tags.map((tag: string, idx: number) => 
 													<TokenReactComponent product={product} key={idx} readonly={this.state.readonly} text={tag} deleteTag={this.deleteTag.bind(this)}/>
 												)}
+												{/* </my-tokenizer> */}
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">

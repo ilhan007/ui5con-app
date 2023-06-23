@@ -21,11 +21,11 @@ class TokenReactComponent extends Component<TokenReactComponentProps> {
 		// this.tokenRef = React.createRef<Token>();
 	}
 
-	// componentDidMount() {
-	// 	this.tokenRef.current!.addEventListener("delete", () => {
-	// 		this.props.deleteTag(this.props.product, this.props.text);
-	// 	});
-	// }
+	componentDidMount() {
+		// this.tokenRef.current!.addEventListener("delete", () => {
+		// 	this.props.deleteTag(this.props.product, this.props.text);
+		// });
+	}
 
 	render() {
 		return (
