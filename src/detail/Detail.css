@@ -104,6 +104,10 @@
 	margin-inline-end: 0.5rem;
 }
 
+.table-status-cell-content {
+	width: 250px;
+}
+
 .table-image-cell {
 	height: 2.75rem;
 	width: 2.75rem;
