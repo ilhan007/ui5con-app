@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ui5con-app/static/css/main.5d733460.css",
+    "main.css": "/ui5con-app/static/css/main.83ad5ef6.css",
     "main.js": "/ui5con-app/static/js/main.5faf5eeb.js",
     "static/js/5694.abee7757.chunk.js": "/ui5con-app/static/js/5694.abee7757.chunk.js",
     "static/js/2909.66adf2c4.chunk.js": "/ui5con-app/static/js/2909.66adf2c4.chunk.js",
@@ -267,11 +267,11 @@
     "static/media/man_avatar_5.png": "/ui5con-app/static/media/man_avatar_5.6b82c4863291a2121b99.png",
     "static/media/logo.png": "/ui5con-app/static/media/logo.b47f7a215184b3053ece.png",
     "index.html": "/ui5con-app/index.html",
-    "main.5d733460.css.map": "/ui5con-app/static/css/main.5d733460.css.map",
+    "main.83ad5ef6.css.map": "/ui5con-app/static/css/main.83ad5ef6.css.map",
     "main.5faf5eeb.js.map": "/ui5con-app/static/js/main.5faf5eeb.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d733460.css",
+    "static/css/main.83ad5ef6.css",
     "static/js/main.5faf5eeb.js"
   ]
 }
