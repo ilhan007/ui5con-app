@@ -1,5 +1,5 @@
 type Product = {
-	key?: number,
+	key: number,
 	perishable: boolean;
 	vegs?: boolean;
 	status: string;

@@ -6,8 +6,8 @@ import { Product } from "../types";
 // import Token from "@ui5con/components/dist/Token.js";
 
 type TokenReactComponentProps = {
-	product: Product,
-	deleteTag: (item: Product, tag: string) => void,
+	productKey: number,
+	deleteTag: (key: number, tag: string) => void,
 	readonly: boolean | undefined
 	text: string
 }
@@ -21,17 +21,17 @@ class TokenReactComponent extends Component<TokenReactComponentProps> {
 		// this.tokenRef = React.createRef<Token>();
 	}
 
-	componentDidMount() {
-		// this.tokenRef.current!.addEventListener("delete", () => {
-		// 	this.props.deleteTag(this.props.product, this.props.text);
-		// });
-	}
+	// componentDidMount() {
+	// 	this.tokenRef.current!.addEventListener("delete", () => {
+	// 		this.props.deleteTag(this.props.productKey, this.props.text);
+	// 	});
+	// }
 
 	render() {
 		return (
 			<span>{this.props.text}</span>
 			// <my-token readonly={this.props.readonly}>{this.props.text}</my-token>
-			// <my-token ref={this.tokenRef} readonly={this.props.readonly} data-product={this.props.product}>{this.props.text}</my-token>
+			// <my-token ref={this.tokenRef} readonly={this.props.readonly}>{this.props.text}</my-token>
 		);
 	}
 }

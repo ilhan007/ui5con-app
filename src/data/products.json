@@ -73,7 +73,7 @@
 	"location": "19 Each, Aisle 27, Section 9",
 	"img": "/img/storagebin.png",
 	"status": "In-Stock",
-	"tags": ["Plastic", "Home", "Container", "Clutter-free"],
+	"tags": ["Plastic", "Home", "Container", "Clutter-free", "Recycle"],
 	"orderDate": "10/7/2019",
 	"perishable": false
 },
@@ -84,7 +84,7 @@
 	"location": "10 Each, Aisle 14, Section 36",
 	"img": "/img/kettle.png",
 	"status": "In-Stock",
-	"tags": ["Electric", "Home", "Tea", "Hot Water"],
+	"tags": ["Electric", "Home", "Tea", "Hot Water", "Coffee"],
 	"orderDate": "10/7/2019",
 	"perishable": false
 }]

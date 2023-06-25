@@ -101,10 +101,11 @@
 
 .table-status-cell-content > * {
 	margin-inline-end: 0.5rem;
+	white-space: nowrap;
 }
 
-.table-status-cell-content {
-	width: 250px;
+.table-status-cell-content > my-tokenizer {
+	border: none;
 }
 
 .table-image-cell {

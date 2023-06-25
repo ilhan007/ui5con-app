@@ -73,6 +73,7 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 	}
 
 	submitNewProduct() {
+		// @ts-ignore
 		const newEntry: Product = {
 			name: this.nameInput.current!.value,
 			price: this.priceInput.current!.value,

@@ -107,6 +107,7 @@ class Detail extends Component<DetailProps, DetailState> {
 	}
 
 	createProduct(entry: Product) {
+		// @ts-ignore
 		const newItems: Array<Product> = [...this.state.products, { key: (this.state.products.length + 1), ...entry }];
 
 		this.setState({
@@ -179,7 +180,8 @@ class Detail extends Component<DetailProps, DetailState> {
 		});
 	}
 	
-	deleteTag(product: Product, tag: string) {
+	deleteTag(productKey: number, tag: string) {
+		const product = this.state.products.find(product => product.key === productKey)!;
 		product.tags.splice(product.tags.indexOf(tag), 1);
 
 		this.setState({
@@ -261,7 +263,7 @@ class Detail extends Component<DetailProps, DetailState> {
 												{/* <my-tokenizer> */}
 												{
 												product.tags.map((tag: string, idx: number) => 
-													<TokenReactComponent product={product} key={idx} readonly={this.state.readonly} text={tag} deleteTag={this.deleteTag.bind(this)}/>
+													<TokenReactComponent key={idx} productKey={product.key} readonly={this.state.readonly} text={tag} deleteTag={this.deleteTag.bind(this)}/>
 												)}
 												{/* </my-tokenizer> */}
 											</ui5-table-cell>
