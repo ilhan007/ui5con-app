@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import { Product } from "../types";
-
 // import "@ui5con/components/dist/Token.js";
 // import Token from "@ui5con/components/dist/Token.js";
 
@@ -30,8 +28,6 @@ class TokenReactComponent extends Component<TokenReactComponentProps> {
 	render() {
 		return (
 			<span>{this.props.text}</span>
-			// <my-token readonly={this.props.readonly}>{this.props.text}</my-token>
-			// <my-token ref={this.tokenRef} readonly={this.props.readonly}>{this.props.text}</my-token>
 		);
 	}
 }

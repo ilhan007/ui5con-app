@@ -260,12 +260,10 @@ class Detail extends Component<DetailProps, DetailState> {
 											</ui5-table-cell>
 
 											<ui5-table-cell class="table-status-cell-content">
-												{/* <my-tokenizer> */}
 												{
 												product.tags.map((tag: string, idx: number) => 
 													<TokenReactComponent key={idx} productKey={product.key} readonly={this.state.readonly} text={tag} deleteTag={this.deleteTag.bind(this)}/>
 												)}
-												{/* </my-tokenizer> */}
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">

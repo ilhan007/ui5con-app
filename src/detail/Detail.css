@@ -99,6 +99,11 @@
 	height: 1.5rem;
 }
 
+.table-status-cell-content {
+	max-width: 350px;
+	width: 350px;
+}
+
 .table-status-cell-content > * {
 	margin-inline-end: 0.5rem;
 	white-space: nowrap;
