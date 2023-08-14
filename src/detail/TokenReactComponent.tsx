@@ -28,6 +28,7 @@ class TokenReactComponent extends Component<TokenReactComponentProps> {
 	render() {
 		return (
 			<span>{this.props.text}</span>
+			// <my-token ref={this.tokenRef} readonly={this.props.readonly}>{this.props.text}</my-token>
 		);
 	}
 }
