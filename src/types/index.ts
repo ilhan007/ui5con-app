@@ -31,12 +31,12 @@ import type CardHeader from "@ui5/webcomponents/dist/CardHeader";
 import type Avatar from "@ui5/webcomponents/dist/Avatar.js";
 import type AvatarGroup from "@ui5/webcomponents/dist/AvatarGroup.js";
 import type Switch from "@ui5/webcomponents/dist/Switch.js";
-import type Table from "@ui5/webcomponents/dist/Table.js";
-import type TableColumn from "@ui5/webcomponents/dist/TableColumn.js";
-import type TableRow from "@ui5/webcomponents/dist/TableRow.js";
-import type TableCell from "@ui5/webcomponents/dist/TableCell.js";
+import type Table from "@ui5/webcomponents-compat/dist/Table.js";
+import type TableColumn from "@ui5/webcomponents-compat/dist/TableColumn.js";
+import type TableRow from "@ui5/webcomponents-compat/dist/TableRow.js";
+import type TableCell from "@ui5/webcomponents-compat/dist/TableCell.js";
 import type Label from "@ui5/webcomponents/dist/Label.js";
-import type Badge from "@ui5/webcomponents/dist/Badge.js";
+import type Tag from "@ui5/webcomponents/dist/Tag.js";
 
 import type Tab from "@ui5/webcomponents/dist/Tab";
 import type TabContainer from "@ui5/webcomponents/dist/TabContainer";
@@ -76,7 +76,7 @@ declare global {
 		['ui5-table-cell']: CustomElement<TableCell>;
 		['ui5-table-column']: CustomElement<TableColumn>;
 		['ui5-label']: CustomElement<Label>;
-		['ui5-badge']: CustomElement<Badge>;
+		['ui5-tag']: CustomElement<Tag>;
 		['ui5-dialog']: CustomElement<Dialog>;
 		['ui5-list']: CustomElement<List>;
 		['ui5-li']: CustomElement<StandardListItem>;

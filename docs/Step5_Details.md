@@ -124,7 +124,7 @@ import "@ui5/webcomponents/dist/Table";
 import "@ui5/webcomponents/dist/TableColumn";
 import "@ui5/webcomponents/dist/TableRow";
 import "@ui5/webcomponents/dist/TableCell";
-import "@ui5/webcomponents/dist/Badge";
+import "@ui5/webcomponents/dist/Tag";
 import "@ui5/webcomponents/dist/Dialog";
 import "@ui5/webcomponents/dist/Popover";
 import "@ui5/webcomponents/dist/Select";
@@ -225,7 +225,7 @@ render() {
 								</ui5-table-cell>
 								<ui5-table-cell>
 									<span className="table-cell-content">
-										<ui5-badge color-scheme="0">{item.status}</ui5-badge>
+										<ui5-tag color-scheme="0">{item.status}</ui5-tag>
 									</span>
 								</ui5-table-cell>
 							</ui5-table-row>)
@@ -258,12 +258,12 @@ We now can see the table displayed in our page. We need to add some styling for 
 }
 ```
 
-Last thing we should do for this page is to style a bit the badge of the status column. We can define a method `getBadgeType` which returns a value to be set to the `color-scheme` property of the badge.
+Last thing we should do for this page is to style a bit the tag of the status column. We can define a method `getTagType` which returns a value to be set to the `color-scheme` property of the tag.
 
 Here is an example of the implementation (place it above the class definition):
 
 ```js
-const getBadgeType = type => {
+const getTagType = type => {
 	switch (type) {
 		case "In-Stock":
 			return "8";
@@ -277,12 +277,12 @@ const getBadgeType = type => {
 }
 ```
 
-and call this method when binding the `color-scheme` of the badge in the last cell of the row:
+and call this method when binding the `color-scheme` of the tag in the last cell of the row:
 
 ```html
-<ui5-badge color-scheme={getBadgeType(item.status)}>
+<ui5-tag color-scheme={getTagType(item.status)}>
 	{item.status}
-</ui5-badge>
+</ui5-tag>
 ```
 
 \* Note: `process.env.PUBLIC_URL` returns an URL to a resource in the `/public` folder

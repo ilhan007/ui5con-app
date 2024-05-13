@@ -151,7 +151,7 @@ class Home extends Component<HomeProps, HomeState> {
 										// @ts-ignore
 										ref={ref => this.featuredCardsRefs[index] = ref}
 										interactive
-										status={dataObj.status}
+										additional-text={dataObj.status}
 										title-text={dataObj.heading}
 										subtitle-text={dataObj.subtitle}
 										slot="header"
@@ -280,14 +280,14 @@ class Home extends Component<HomeProps, HomeState> {
 							<ui5-card-header
 									title-text="Smart Stores"
 									subtitle-text="North America"
-									status="6/6"
+									additional-text="6/6"
 									slot="header"
 							>
 								<ui5-avatar icon="retail-store" slot="avatar"></ui5-avatar>
 							</ui5-card-header>
 
 							<div className="card-content">
-								<ui5-list separators="Inner" mode="SingleSelect" class="card-content-child">
+								<ui5-list separators="Inner" selection-mode="Single" class="card-content-child">
 								{data.storesa.map(store =>
 									<ui5-li key={store.key} image={imgs[store.key as number]} description={store.description} selected={store.selected}>{store.title}</ui5-li>
 								)}

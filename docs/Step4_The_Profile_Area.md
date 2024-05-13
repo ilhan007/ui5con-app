@@ -116,8 +116,8 @@ What is an admin UI without a profile area? We will create one for our smart sto
 					<ui5-popover
 					id="profile-popover"
 					hide-header
-					placement-type="Bottom"
-					horizontal-align="Right">
+					placement="Bottom"
+					horizontal-align="End">
 						<div className="profile-header centered">
 							<img src={profile} alt="" className="profile-img"/>
 							<ui5-title level="3">Darius Cummings</ui5-title>
@@ -197,8 +197,8 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 					<ui5-popover
 					id="profile-popover"
 					hide-header
-					placement-type="Bottom"
-					horizontal-align="Right">
+					placement="Bottom"
+					horizontal-align="End">
 						<div className="profile-header centered">
 							<img src={profile} alt="" className="profile-img"/>
 							<ui5-title level="3">Darius Cummings</ui5-title>

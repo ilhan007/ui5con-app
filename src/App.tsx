@@ -8,12 +8,12 @@ import "@ui5/webcomponents-fiori/dist/Assets.js";
 import "./custom-themes/redfish/css_variables.css";
 
 // UI5 Web Components
-import "@ui5/webcomponents/dist/Table.js";
-import "@ui5/webcomponents/dist/TableColumn.js";
-import "@ui5/webcomponents/dist/TableRow.js";
-import "@ui5/webcomponents/dist/TableCell.js";
+import "@ui5/webcomponents-compat/dist/Table.js";
+import "@ui5/webcomponents-compat/dist/TableColumn.js";
+import "@ui5/webcomponents-compat/dist/TableRow.js";
+import "@ui5/webcomponents-compat/dist/TableCell.js";
 import "@ui5/webcomponents/dist/Label.js";
-import "@ui5/webcomponents/dist/Badge.js";
+import "@ui5/webcomponents/dist/Tag.js";
 import "@ui5/webcomponents/dist/Button.js";
 import "@ui5/webcomponents/dist/ToggleButton.js";
 import "@ui5/webcomponents/dist/Title";

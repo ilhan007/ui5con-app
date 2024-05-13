@@ -10,9 +10,10 @@ import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
 
 // UI5 Web Components
-import List from "@ui5/webcomponents/dist/List";
+import type List from "@ui5/webcomponents/dist/List";
 import type { ListSelectionChangeEventDetail } from "@ui5/webcomponents/dist/List";
-import Switch from "@ui5/webcomponents/dist/Switch";
+import type Switch from "@ui5/webcomponents/dist/Switch";
+import "@ui5/webcomponents/dist/Switch";
 import "@ui5/webcomponents/dist/Popover";
 
 import ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
@@ -126,11 +127,11 @@ class AppBar extends Component<AppBarProps> {
 						</ui5-shellbar-item>
 				</ui5-shellbar>
 
-				<ui5-tabcontainer fixed collapsed>
+				<ui5-tabcontainer collapsed>
 					<ui5-tab text={this.props.tabName}></ui5-tab>
 				</ui5-tabcontainer>
 
-				<ui5-popover id="profile-popover" hide-header placement-type="Bottom" horizontal-align="Right">
+				<ui5-popover id="profile-popover" hide-header placement="Bottom" horizontal-align="End">
 					<div className="profile-header centered">
 						<img src={profile} alt="profile" className="profile-img"/>
 						<ui5-title level="H3">Darius Cummings</ui5-title>
@@ -162,8 +163,8 @@ class AppBar extends Component<AppBarProps> {
 				<ui5-popover
 					id="notifications-popover"
 					class="app-bar-notifications-popover"
-					placement-type="Bottom"
-					horizontal-align="Right"
+					placement="Bottom"
+					horizontal-align="End"
 				>
 					<ui5-list id="notificationListTop" header-text="Actions Required">
 						<ui5-li-notification
@@ -192,11 +193,11 @@ class AppBar extends Component<AppBarProps> {
 				<ui5-popover
 					id="lang-settings-popover"
 					class="app-bar-lang-popover"
-					placement-type="Bottom"
-					horizontal-align="Right"
+					placement="Bottom"
+					horizontal-align="End"
 					header-text="Language"
 				>
-					<ui5-list ref={this.languageSelect} mode="SingleSelect">
+					<ui5-list ref={this.languageSelect} selection-mode="Single">
 						<ui5-li icon="globe" data-lang="ar">Arabic</ui5-li>
 						<ui5-li icon="globe" data-lang="bg">Bulgarian</ui5-li>
 						<ui5-li icon="globe" data-lang="zh_CN">Chinese</ui5-li>
@@ -210,11 +211,11 @@ class AppBar extends Component<AppBarProps> {
 				<ui5-popover
 					id="theme-settings-popover"
 					class="app-bar-lang-popover"
-					placement-type="Bottom"
-					horizontal-align="Right"
+					placement="Bottom"
+					horizontal-align="End"
 					header-text="Theme"
 				>
-					<ui5-list ref={this.themeSelect} mode="SingleSelect">
+					<ui5-list ref={this.themeSelect} selection-mode="Single">
 						<ui5-li icon="palette" data-theme="sap_horizon">Morning Horizon</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_horizon_dark">Evening Horizon</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_horizon_hcb">Horizon HCB</ui5-li>

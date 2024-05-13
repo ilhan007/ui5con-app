@@ -19,7 +19,7 @@ type DetailState = {
 	readonly: boolean | undefined,
 };
 
-const getBadgeType = (type: string) => {
+const getTagType = (type: string) => {
 	switch (type) {
 		case "In-Stock":
 			return "8";
@@ -255,7 +255,7 @@ class Detail extends Component<DetailProps, DetailState> {
 											</ui5-table-cell>
 											<ui5-table-cell>
 												<span className="table-cell-content middle">
-													<ui5-badge class="table-cell-content-badge" color-scheme={getBadgeType(product.status!)}>{product.status}</ui5-badge>
+													<ui5-tag class="table-cell-content-tag" design="Set3" color-scheme={getTagType(product.status!)}>{product.status}</ui5-tag>
 												</span>
 											</ui5-table-cell>
 

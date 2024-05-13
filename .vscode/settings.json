@@ -1,0 +1,7 @@
+{
+	"html.customData": [
+		"./node_modules/@ui5/webcomponents/dist/vscode.html-custom-data.json",
+		"./node_modules/@ui5/webcomponents-fiori/dist/vscode.html-custom-data.json",
+		"./node_modules/@ui5/webcomponents-compat/dist/vscode.html-custom-data.json",
+	]
+ }
