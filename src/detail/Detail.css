@@ -151,9 +151,8 @@
 .dialog-content {
 	display: flex;
 	flex-direction: column;
-	width: 320px;
-	align-items: center;
-	padding: 1rem 1rem 1.5rem 1rem;
+	width: 460px;
+	padding: 0 0 1.5rem 0;
 }
 
 .horizontal-flex {

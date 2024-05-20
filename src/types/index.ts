@@ -19,6 +19,9 @@ type CustomElement<T> = Partial<T & CustomElementAttrs<T> & { children: any }>;
 type CustomElementAttrs<T> = DOMAttributes<T> & { key: string | number, ref: React.RefObject<T>, class: string }
 
 import type Dialog from "@ui5/webcomponents/dist/Dialog";
+import type Form from "@ui5/webcomponents/dist/Form";
+import type FormGroup from "@ui5/webcomponents/dist/FormGroup";
+import type FormItem from "@ui5/webcomponents/dist/FormItem";
 import type Input from "@ui5/webcomponents/dist/Input";
 import type TextArea from "@ui5/webcomponents/dist/TextArea";
 import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
@@ -69,6 +72,9 @@ declare global {
 		['ui5-tabcontainer']: CustomElement<TabContainer>;
 		['ui5-tab-separator']: CustomElement<TabSeparator>;
 		['ui5-button']: CustomElement<Button>;
+		['ui5-form']: CustomElement<Form>;
+		['ui5-form-group']: CustomElement<FormGroup>;
+		['ui5-form-item']: CustomElement<FormItem>;
 		['ui5-toggle-button']: CustomElement<ToggleButton>;
 		['ui5-title']: CustomElement<Title>;
 		['ui5-table']: CustomElement<Table>;

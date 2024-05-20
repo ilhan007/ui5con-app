@@ -59,12 +59,16 @@ class AppBar extends Component<AppBarProps> {
 
 	onProfileClicked(event: CustomEvent<ShellBarProfileClickEventDetail>) {
 		event.preventDefault();
-		window["profile-popover"].showAt(event.detail.targetRef);
+		const profilePopover = window["profile-popover"];
+		profilePopover.opener = event.detail.targetRef;
+		profilePopover.open = true;
 	}
 
 	onNotificationsClicked(event: CustomEvent<ShellBarNotificationsClickEventDetail>) {
 		event.preventDefault();
-		window["notifications-popover"].showAt(event.detail.targetRef);
+		const notificationsPopover = window["notifications-popover"];
+		notificationsPopover.opener = event.detail.targetRef;
+		notificationsPopover.open = true;
 	}
 
 	
@@ -84,24 +88,28 @@ class AppBar extends Component<AppBarProps> {
 
 	onLangSettings(event: CustomEvent<ShellBarItemClickEventDetail>) {
 		event.preventDefault();
-		window["lang-settings-popover"].showAt(event.detail.targetRef);
+		const langPopover = window["lang-settings-popover"];
+		langPopover.opener = event.detail.targetRef;
+		langPopover.open = true;
 	}
 
 	onLangChange(event: CustomEvent<ListSelectionChangeEventDetail>) {
 		const selectedLang = event.detail.selectedItems[0].getAttribute("data-lang");
 		setLanguage(selectedLang!);
-		window["lang-settings-popover"].close();
+		window["lang-settings-popover"].open = false;
 	}
 	
 	onThemeSettings(event: CustomEvent<ShellBarItemClickEventDetail>) {
 		event.preventDefault();
-		window["theme-settings-popover"].showAt(event.detail.targetRef);
+		const themePopover = window["theme-settings-popover"];
+		themePopover.opener = event.detail.targetRef;
+		themePopover.open = true;
 	}
 
 	onThemeChange(event: CustomEvent<ListSelectionChangeEventDetail>) {
 		const selectedTheme = event.detail.selectedItems[0].getAttribute("data-theme");
 		setTheme(selectedTheme!);
-		window["theme-settings-popover"].close();
+		window["theme-settings-popover"].open = false;
 	}
 
 
@@ -171,7 +179,7 @@ class AppBar extends Component<AppBarProps> {
 							show-close
 							wrapping-type="Wrap"
 							title-text="Temperature Drop"
-							priority="Medium"
+							importance="Important"
 						>
 							Fridge #487990
 							<ui5-avatar background-color="Accent4" initials="TD" slot="avatar"></ui5-avatar>
@@ -179,7 +187,6 @@ class AppBar extends Component<AppBarProps> {
 
 						<ui5-li-notification
 							title-text="Maintenance Overdue"
-							priority="Medium"
 							wrapping-type="Wrap"
 							show-close
 						>

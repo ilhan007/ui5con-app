@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, MouseEventHandler } from "react";
 
 // UI5 Web Components
 import "@ui5/webcomponents/dist/Button";
@@ -69,7 +69,7 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 	}
 
 	openDialog() {
-		this.dialog.current!.show();
+		this.dialog.current!.open = true;
 	}
 
 	submitNewProduct() {
@@ -85,12 +85,19 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 			perishable: !!this.rbPerishable.current!.checked,
 		}
 
-		this.props.createProduct(newEntry);
-		this.dialog.current!.close();
+
+		const validInput = newEntry.name && newEntry.price;
+
+		if (validInput) {
+			this.props.createProduct(newEntry);
+			this.dialog.current!.open = false;
+		} else {
+			// TODO: form validation check
+		}		
 	}
 
 	closeDialog() {
-		this.dialog.current!.close();
+		this.dialog.current!.open = false;
 	}
 
 	render() {
@@ -110,7 +117,7 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 				</div>
 
 				<ui5-dialog header-text="New product" ref={this.dialog}>
-					<div className="dialog-content">
+					{/* <div className="dialog-content">
 
 						<div className="dialog-section">
 							<ui5-label>Product name:</ui5-label>
@@ -150,7 +157,53 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 							<ui5-radio-button checked name="perishable" text="Perishable" ref={this.rbPerishable}></ui5-radio-button>
 							<ui5-radio-button name="perishable" text="Non-Perishable"></ui5-radio-button>
 						</div>
-					</div>
+					</div> */}
+
+					<form method="get" className="dialog-content">
+						<ui5-form header-text="Product" layout="S2 M2 L2 XL2" label-span="S12 M12 L4 XL4">
+							<ui5-form-item column-span="2">
+								<ui5-label slot="labelContent" required  for="inpName">Product name:</ui5-label>
+								<ui5-input id="inpName" ref={this.nameInput} required></ui5-input>
+							</ui5-form-item>
+
+							<ui5-form-item column-span="2">
+								<ui5-label slot="labelContent" for="inpLocation">Product location:</ui5-label>
+								<ui5-textarea id="inpLocation" ref={this.locationInput} show-exceeded-text maxlength={10}></ui5-textarea>
+							</ui5-form-item>
+
+							<ui5-form-item>
+								<ui5-label slot="labelContent" required for="inpProce">Product price:</ui5-label>
+								<ui5-input id="inpProce" ref={this.priceInput} required></ui5-input>
+							</ui5-form-item>
+
+
+							<ui5-form-item>
+								<ui5-label slot="labelContent" for="inpOrder">Order date:</ui5-label>
+								<ui5-date-picker id="inpOrder" ref={this.dateInput} format-pattern="dd/MM/yyyy"></ui5-date-picker>
+							</ui5-form-item>
+
+							<ui5-form-item>
+								<ui5-label slot="labelContent" for="imgUrl">Image URL:</ui5-label>
+								<ui5-input id="imgUrl" ref={this.imageInput} type="URL" placeholder="https://..."></ui5-input>
+							</ui5-form-item>
+
+							<ui5-form-item >
+								<ui5-label slot="labelContent" for="selStatus">Status:</ui5-label>
+
+								<ui5-select id="selStatus" ref={this.statusInput}>
+									<ui5-option>In-Stock</ui5-option>
+									<ui5-option>Re-Stock</ui5-option>
+									<ui5-option>Deterioating</ui5-option>
+								</ui5-select>
+							</ui5-form-item>
+
+							<ui5-form-item column-span="2">
+								<ui5-radio-button checked name="perishable" text="Perishable" ref={this.rbPerishable}></ui5-radio-button>
+								<ui5-radio-button name="perishable" text="Non-Perishable"></ui5-radio-button>
+							</ui5-form-item>
+						</ui5-form>
+					</form>
+					
 
 					<div slot="footer" className="dialog-footer">
 						<ui5-button design="Emphasized" onClick={this.submitNewProduct.bind(this)}>OK</ui5-button>

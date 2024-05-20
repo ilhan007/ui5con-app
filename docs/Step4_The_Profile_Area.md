@@ -95,7 +95,9 @@ What is an admin UI without a profile area? We will create one for our smart sto
 
 		// Open the ui5-popover
 		onProfileClicked(event) {
-			window["profile-popover"].showAt(event.detail.targetRef);
+			const profilePopover = window["profile-popover"];
+			profilePopover.opener = event.detail.targetRef;
+			profilePopover.open = true;
 		}
 	```
 
