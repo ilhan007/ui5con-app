@@ -17,6 +17,7 @@ import "@ui5/webcomponents/dist/FormItem.js";
 
 import "@ui5/webcomponents-compat/dist/TableCell.js";
 import "@ui5/webcomponents/dist/Label.js";
+import "@ui5/webcomponents/dist/Text.js";
 import "@ui5/webcomponents/dist/Tag.js";
 import "@ui5/webcomponents/dist/Button.js";
 import "@ui5/webcomponents/dist/ToggleButton.js";
@@ -35,6 +36,7 @@ import "@ui5/webcomponents-icons/dist/accept.js";
 import "@ui5/webcomponents-icons/dist/decline.js";
 import "@ui5/webcomponents-icons/dist/nav-back.js";
 import "@ui5/webcomponents-icons/dist/globe.js";
+import "@ui5/webcomponents-icons/dist/date-time.js";
 import "@ui5/webcomponents-icons/dist/sort-descending.js";
 import "@ui5/webcomponents-icons/dist/sort-ascending.js";
 import "@ui5/webcomponents-icons/dist/excel-attachment.js";

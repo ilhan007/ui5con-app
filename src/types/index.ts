@@ -19,12 +19,15 @@ type CustomElement<T> = Partial<T & CustomElementAttrs<T> & { children: any }>;
 type CustomElementAttrs<T> = DOMAttributes<T> & { key: string | number, ref: React.RefObject<T>, class: string }
 
 import type Dialog from "@ui5/webcomponents/dist/Dialog";
+import type Bar from "@ui5/webcomponents/dist/Bar";
 import type Form from "@ui5/webcomponents/dist/Form";
 import type FormGroup from "@ui5/webcomponents/dist/FormGroup";
 import type FormItem from "@ui5/webcomponents/dist/FormItem";
 import type Input from "@ui5/webcomponents/dist/Input";
+import type Text from "@ui5/webcomponents/dist/Text";
 import type TextArea from "@ui5/webcomponents/dist/TextArea";
 import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
+import type DateTimePicker from "@ui5/webcomponents/dist/DateTimePicker";
 import type Select from "@ui5/webcomponents/dist/Select";
 import type Option from "@ui5/webcomponents/dist/Option";
 import type RadioButton from "@ui5/webcomponents/dist/RadioButton";
@@ -66,6 +69,7 @@ declare global {
 	  interface IntrinsicElements {
 		// ['my-token']: CustomElement<Token>;
 		// ['my-tokenizer']: CustomElement<Tokenizer>;
+		['ui5-bar']: CustomElement<Bar>;
 		['ui5-card']: CustomElement<Card>;
 		['ui5-card-header']: CustomElement<CardHeader>;
 		['ui5-tab']: CustomElement<Tab>;
@@ -98,10 +102,12 @@ declare global {
 		['ui5-shellbar-item']: CustomElement<ShellBarItem>;
 		['ui5-input']: CustomElement<Input>;
 		['ui5-icon']: CustomElement<Icon>;
+		['ui5-text']: CustomElement<Text>;
 		['ui5-textarea']: CustomElement<TextArea>;
 		['ui5-timeline']: CustomElement<Timeline>;
 		['ui5-timeline-item']: CustomElement<TimelineItem>;
 		['ui5-date-picker']: CustomElement<DatePicker>;
+		['ui5-datetime-picker']: CustomElement<DateTimePicker>;
 	  }
 	}
 
@@ -110,6 +116,7 @@ declare global {
 		"notifications-popover": Popover,
 		"lang-settings-popover": Popover,
 		"theme-settings-popover": Popover,
+		"timezone-settings-popover": Popover,
 	}
 }
 

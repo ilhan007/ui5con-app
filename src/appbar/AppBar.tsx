@@ -7,6 +7,7 @@ import logo from "../img/logo.png";
 // UI5 Web Components Base
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
 import { setLanguage } from "@ui5/webcomponents-base/dist/config/Language.js";
+import { setTimezone } from "@ui5/webcomponents-base/dist/config/Timezone.js";
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
 
 // UI5 Web Components
@@ -21,17 +22,29 @@ import type { ShellBarProfileClickEventDetail, ShellBarNotificationsClickEventDe
 import ShellBarItem from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import type { ShellBarItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import "@ui5/webcomponents-fiori/dist/NotificationListItem";
+import Popover from "@ui5/webcomponents/dist/Popover";
+
+setTimezone("Europe/London");
 
 type AppBarProps = {
 	tabName: string,
 }
-class AppBar extends Component<AppBarProps> {	
+
+type AppBarState = {
+	tzPopoverOpen?: boolean,
+	tzPopoverOpener?: HTMLElement,
+}
+
+class AppBar extends Component<AppBarProps, AppBarState> {	
 
 	appBar: React.RefObject<ShellBar>;
 	themeSelect: React.RefObject<List>;
+	timezoneSelect: React.RefObject<List>;
+	timezonePopover: React.RefObject<Popover>;
 	themeSettingItem: React.RefObject<ShellBarItem>;
 	languageSelect: React.RefObject<List>;
 	langSettingsItem: React.RefObject<ShellBarItem>;
+	tzSettingItem: React.RefObject<ShellBarItem>;
 	rtlSwitch: React.RefObject<Switch>;
 	contentDensitySwitch: React.RefObject<Switch>;
 
@@ -41,18 +54,29 @@ class AppBar extends Component<AppBarProps> {
 		this.themeSelect = React.createRef<List>();
 		this.themeSettingItem = React.createRef<ShellBarItem>();
 		this.languageSelect = React.createRef<List>();
+		this.timezoneSelect = React.createRef<List>();
+		this.timezonePopover = React.createRef<Popover>();
 		this.langSettingsItem = React.createRef<ShellBarItem>();
+		this.tzSettingItem = React.createRef<ShellBarItem>();
 		this.rtlSwitch = React.createRef<Switch>();
 		this.contentDensitySwitch = React.createRef<Switch>();
+
+		this.state = {
+			tzPopoverOpen: undefined,
+			tzPopoverOpener: undefined,
+		};
 	}
 
 	componentDidMount() {
 		this.appBar.current!.addEventListener("profile-click", this.onProfileClicked as EventListener);
 		this.appBar.current!.addEventListener("notifications-click", this.onNotificationsClicked as EventListener);
 		this.languageSelect.current!.addEventListener("selection-change", this.onLangChange.bind(this) as EventListener);
+		this.timezoneSelect.current!.addEventListener("selection-change", this.onTimezoneChange.bind(this) as EventListener);
+		this.timezonePopover.current!.addEventListener("close", this.onTimezonePopoverClose.bind(this) as EventListener);
 		this.themeSelect.current!.addEventListener("selection-change", this.onThemeChange.bind(this) as EventListener);
 		this.langSettingsItem.current!.addEventListener("click", this.onLangSettings.bind(this) as EventListener);
 		this.themeSettingItem.current!.addEventListener("click", this.onThemeSettings.bind(this) as EventListener);
+		this.tzSettingItem.current!.addEventListener("click", this.onTimezoneSettings.bind(this) as EventListener);
 		this.rtlSwitch.current!.addEventListener("change", this.onDirChange.bind(this) as EventListener);
 		this.contentDensitySwitch.current!.addEventListener("change", this.onContentDensityChange.bind(this) as EventListener);
 	}
@@ -112,6 +136,33 @@ class AppBar extends Component<AppBarProps> {
 		window["theme-settings-popover"].open = false;
 	}
 
+	onTimezoneChange(event: CustomEvent<ListSelectionChangeEventDetail>) {
+		const newTimezone = event.detail.selectedItems[0].getAttribute("data-timezone")!;
+		setTimezone(newTimezone);
+
+		this.setState({
+			...this.state,
+			tzPopoverOpen: undefined,
+		});
+	}
+
+	onTimezonePopoverClose(event: CustomEvent) {
+		this.setState({
+			...this.state,
+			tzPopoverOpen: undefined,
+		});
+	}
+
+	onTimezoneSettings(event: CustomEvent<ShellBarItemClickEventDetail>) {
+		event.preventDefault();
+		window["timezone-settings-popover"].opener = event.detail.targetRef;
+
+		this.setState({
+			...this.state,
+			tzPopoverOpen: true,
+			// tzPopoverOpener: event.detail.targetRef,
+		});
+	}
 
 	render() {
 		return (
@@ -127,6 +178,9 @@ class AppBar extends Component<AppBarProps> {
 						<ui5-avatar slot="profile">
 							<img src={profile} className="profile-avatar"  alt="profile"/>
 						</ui5-avatar>
+
+						<ui5-shellbar-item id="tzSettingItemId" icon="date-time" text="Timezone" ref={this.tzSettingItem}>
+						</ui5-shellbar-item>
 
 						<ui5-shellbar-item icon="globe" text="Language" ref={this.langSettingsItem}>
 						</ui5-shellbar-item>
@@ -203,6 +257,8 @@ class AppBar extends Component<AppBarProps> {
 					placement="Bottom"
 					horizontal-align="End"
 					header-text="Language"
+					// opener={}
+					// open={this.langSettingPopoverOpen}
 				>
 					<ui5-list ref={this.languageSelect} selection-mode="Single">
 						<ui5-li icon="globe" data-lang="ar">Arabic</ui5-li>
@@ -216,14 +272,38 @@ class AppBar extends Component<AppBarProps> {
 				</ui5-popover>
 
 				<ui5-popover
+					id="timezone-settings-popover"
+					class="app-bar-timezone-popover"
+					placement="Bottom"
+					horizontal-align="End"
+					header-text="Timezone"
+					// opener={this.state.tzPopoverOpener}
+					open={this.state.tzPopoverOpen}
+					ref={this.timezonePopover}
+				>
+					<ui5-list ref={this.timezoneSelect} selection-mode="Single">
+						<ui5-li icon="globe" data-timezone="Pacific/Honolulu">Pacific/Honolulu</ui5-li>
+						<ui5-li icon="globe" data-timezone="America/Los_Angeles">America/Los_Angeles</ui5-li>
+						<ui5-li icon="globe" data-timezone="America/New_York">America/New_York</ui5-li>
+						<ui5-li icon="globe" selected data-timezone="Europe/London">Europe/London</ui5-li>
+						<ui5-li icon="globe" data-timezone="Europe/Sofia">Europe/Sofia</ui5-li>
+						<ui5-li icon="globe" data-timezone="Asia/Dubai">Asia/Dubai</ui5-li>
+						<ui5-li icon="globe" data-timezone="Asia/Tokyo">Asia/Tokyo</ui5-li>
+						<ui5-li icon="globe" data-timezone="Australia/Sydney">Australia/Sydney</ui5-li>
+					</ui5-list>
+				</ui5-popover>
+
+				<ui5-popover
 					id="theme-settings-popover"
 					class="app-bar-lang-popover"
 					placement="Bottom"
 					horizontal-align="End"
 					header-text="Theme"
+					// opener={}
+					// open={this.themeSettingPopoverOpen}
 				>
 					<ui5-list ref={this.themeSelect} selection-mode="Single">
-						<ui5-li icon="palette" data-theme="sap_horizon">Morning Horizon</ui5-li>
+						<ui5-li icon="palette" selected data-theme="sap_horizon">Morning Horizon</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_horizon_dark">Evening Horizon</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_horizon_hcb">Horizon HCB</ui5-li>
 						<ui5-li icon="palette" data-theme="sap_horizon_hcw">Horizon HCW</ui5-li>

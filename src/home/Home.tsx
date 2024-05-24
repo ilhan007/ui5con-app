@@ -20,15 +20,15 @@ import managerImg8 from "../img/man_avatar_5.png";
 //@ts-ignore
 import managerImg9 from "../img/profile.png";
 
-import "@ui5/webcomponents/dist/Title";
-import "@ui5/webcomponents/dist/Card";
-import type Card from "@ui5/webcomponents/dist/Card";
-import "@ui5/webcomponents/dist/CardHeader";
-import "@ui5/webcomponents/dist/Avatar.js";
-import "@ui5/webcomponents/dist/AvatarGroup.js";
-import "@ui5/webcomponents/dist/List.js";
-import "@ui5/webcomponents-fiori/dist/Timeline";
-import "@ui5/webcomponents-fiori/dist/TimelineItem";
+import "@ui5/webcomponents/Title.js";
+import "@ui5/webcomponents/Card.js";
+import type Card from "@ui5/webcomponents/dist/Card.js";
+import "@ui5/webcomponents/CardHeader.js";
+import "@ui5/webcomponents/Avatar.js";
+import "@ui5/webcomponents/AvatarGroup.js";
+import "@ui5/webcomponents/List.js";
+import "@ui5/webcomponents-fiori/Timeline.js";
+import "@ui5/webcomponents-fiori/TimelineItem.js";
 
 const imgs = [
 	managerImg1, managerImg2, managerImg3,

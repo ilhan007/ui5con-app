@@ -68,6 +68,7 @@
 	padding-bottom: 0.25rem;
 	max-width: 100%;
 	flex-wrap: wrap;
+	align-items: center;
 }
 
 .details-page-filter-bar-actions > *:not(:last-child) {
@@ -83,34 +84,11 @@
 	margin-top: 0.5rem;
 }
 
-.table-column-header-content,
-.table-cell-content {
+.table-column-header-content {
 	display: flex;
 	width: 100%;
 	height: 100%;
 	align-items: center;
-}
-
-.table-cell-content {
-	padding: 0.5rem;
-}
-
-.table-cell-content-tag {
-	height: 1.5rem;
-}
-
-.table-status-cell-content {
-	max-width: 350px;
-	width: 350px;
-}
-
-.table-status-cell-content > * {
-	margin-inline-end: 0.5rem;
-	white-space: nowrap;
-}
-
-.table-status-cell-content > my-tokenizer {
-	border: none;
 }
 
 .table-image-cell {
@@ -151,7 +129,7 @@
 .dialog-content {
 	display: flex;
 	flex-direction: column;
-	width: 460px;
+	width: 550px;
 	padding: 0 0 1.5rem 0;
 }
 

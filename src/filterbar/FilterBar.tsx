@@ -1,21 +1,20 @@
 import React, { Component, MouseEventHandler } from "react";
 
 // UI5 Web Components
-import "@ui5/webcomponents/dist/Button";
-import "@ui5/webcomponents/dist/Label";
-import Dialog from "@ui5/webcomponents/dist/Dialog";
-import "@ui5/webcomponents/dist/Input";
+import "@ui5/webcomponents/Button";
+import "@ui5/webcomponents/Bar";
+import "@ui5/webcomponents/Label";
+import type Dialog from "@ui5/webcomponents/dist/Dialog";
+import "@ui5/webcomponents/Input";
 import type Input from "@ui5/webcomponents/dist/Input";
-
-import "@ui5/webcomponents/dist/TextArea";
+import "@ui5/webcomponents/TextArea";
 import type TextArea from "@ui5/webcomponents/dist/TextArea";
-
-import "@ui5/webcomponents/dist/DatePicker";
-import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
-
-import "@ui5/webcomponents/dist/Select";
+import "@ui5/webcomponents/DateTimePicker";
+import type DateTimePicker from "@ui5/webcomponents/dist/DateTimePicker";
+// import "@ui5/webcomponents/DatePicker";
+// import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
+import "@ui5/webcomponents/Select";
 import type Select from "@ui5/webcomponents/dist/Select";
-
 
 import "@ui5/webcomponents/dist/Option";
 import type Option from "@ui5/webcomponents/dist/Option";
@@ -40,7 +39,8 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 	nameInput: React.RefObject<Input>;
 	priceInput: React.RefObject<Input>;
 	locationInput: React.RefObject<TextArea>;
-	dateInput: React.RefObject<DatePicker>;
+	dateInput: React.RefObject<DateTimePicker>;
+	htmlForm: React.RefObject<HTMLFormElement>;
 	imageInput: React.RefObject<Input>;
 	statusInput: React.RefObject<Select>;
 	rbPerishable: React.RefObject<RadioButton>;
@@ -49,11 +49,12 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 	constructor(props: FilterProps) {
 		super(props);
 
+		this.htmlForm = React.createRef<HTMLFormElement>();
 		this.dialog = React.createRef<Dialog>();
 		this.nameInput = React.createRef<Input>();
 		this.priceInput = React.createRef<Input>();
 		this.locationInput = React.createRef<TextArea>();
-		this.dateInput = React.createRef<DatePicker>();
+		this.dateInput = React.createRef<DateTimePicker>();
 		this.imageInput = React.createRef<Input>();
 		this.statusInput = React.createRef<Select>();
 		this.rbPerishable = React.createRef<RadioButton>();
@@ -86,14 +87,13 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 		}
 
 
-		const validInput = newEntry.name && newEntry.price;
+		// const validInput = newEntry.name && newEntry.price;
 
+		const validInput: boolean = this.htmlForm.current!.reportValidity();
 		if (validInput) {
 			this.props.createProduct(newEntry);
 			this.dialog.current!.open = false;
-		} else {
-			// TODO: form validation check
-		}		
+		}	
 	}
 
 	closeDialog() {
@@ -117,69 +117,28 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 				</div>
 
 				<ui5-dialog header-text="New product" ref={this.dialog}>
-					{/* <div className="dialog-content">
 
-						<div className="dialog-section">
-							<ui5-label>Product name:</ui5-label>
-							<ui5-input ref={this.nameInput}></ui5-input>
-						</div>
-
-						<div className="dialog-section">
-							<ui5-label>Product price:</ui5-label>
-							<ui5-input ref={this.priceInput}></ui5-input>
-						</div>
-
-						<div className="dialog-section">
-							<ui5-label>Product location:</ui5-label>
-							<ui5-textarea ref={this.locationInput} show-exceeded-text maxlength={10}></ui5-textarea>
-						</div>
-
-						<div className="dialog-section">
-							<ui5-label>Order date:</ui5-label>
-							<ui5-date-picker ref={this.dateInput} format-pattern="dd/MM/yyyy"></ui5-date-picker>
-						</div>
-
-						<div className="dialog-section">
-							<ui5-label>Image URL:</ui5-label>
-							<ui5-input ref={this.imageInput} type="URL" placeholder="https://..."></ui5-input>
-						</div>
-
-						<div className="dialog-section">
-							<ui5-label>Status:</ui5-label>
-
-							<ui5-select ref={this.statusInput}>
-								<ui5-option>In-Stock</ui5-option>
-								<ui5-option>Re-Stock</ui5-option>
-								<ui5-option>Deterioating</ui5-option>
-							</ui5-select>
-						</div>
-						<div className="dialog-section horizontal-flex">
-							<ui5-radio-button checked name="perishable" text="Perishable" ref={this.rbPerishable}></ui5-radio-button>
-							<ui5-radio-button name="perishable" text="Non-Perishable"></ui5-radio-button>
-						</div>
-					</div> */}
-
-					<form method="get" className="dialog-content">
-						<ui5-form header-text="Product" layout="S2 M2 L2 XL2" label-span="S12 M12 L4 XL4">
+					<form ref={this.htmlForm} method="get" className="dialog-content">
+						<ui5-form layout="S2 M2 L2 XL2" label-span="S12 M12 L4 XL4">
 							<ui5-form-item column-span="2">
-								<ui5-label slot="labelContent" required  for="inpName">Product name:</ui5-label>
+								<ui5-label slot="labelContent" required for="inpName">Name:</ui5-label>
 								<ui5-input id="inpName" ref={this.nameInput} required></ui5-input>
 							</ui5-form-item>
 
 							<ui5-form-item column-span="2">
-								<ui5-label slot="labelContent" for="inpLocation">Product location:</ui5-label>
+								<ui5-label slot="labelContent" for="inpLocation">Location:</ui5-label>
 								<ui5-textarea id="inpLocation" ref={this.locationInput} show-exceeded-text maxlength={10}></ui5-textarea>
 							</ui5-form-item>
 
 							<ui5-form-item>
-								<ui5-label slot="labelContent" required for="inpProce">Product price:</ui5-label>
-								<ui5-input id="inpProce" ref={this.priceInput} required></ui5-input>
+								<ui5-label slot="labelContent" required for="inpPrice">Price:</ui5-label>
+								<ui5-input id="inpPrice" ref={this.priceInput} required></ui5-input>
 							</ui5-form-item>
 
 
 							<ui5-form-item>
 								<ui5-label slot="labelContent" for="inpOrder">Order date:</ui5-label>
-								<ui5-date-picker id="inpOrder" ref={this.dateInput} format-pattern="dd/MM/yyyy"></ui5-date-picker>
+								<ui5-datetime-picker id="inpOrder" ref={this.dateInput} format-pattern="dd/MM/yyyy, HH:mm:ss"></ui5-datetime-picker>
 							</ui5-form-item>
 
 							<ui5-form-item>
@@ -206,7 +165,7 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 					
 
 					<div slot="footer" className="dialog-footer">
-						<ui5-button design="Emphasized" onClick={this.submitNewProduct.bind(this)}>OK</ui5-button>
+						<ui5-button design="Emphasized" onClick={this.submitNewProduct.bind(this)} type="Submit">OK</ui5-button>
 						<ui5-button onClick={this.closeDialog.bind(this)}>Cancel</ui5-button>
 					</div>
 				</ui5-dialog>

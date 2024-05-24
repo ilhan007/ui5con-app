@@ -31,7 +31,7 @@ Note: Don't forget to add the following `import "@ui5/webcomponents/dist/Option"
 
 		<div className="dialog-section">
 			<ui5-label>Order date:</ui5-label>
-			<ui5-date-picker ref={this.dateInput}></ui5-date-picker>
+			<ui5-date-time-picker ref={this.dateInput}></ui5-date-time-picker>
 		</div>
 
 		<div className="dialog-section">

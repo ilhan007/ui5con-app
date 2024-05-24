@@ -242,21 +242,19 @@ class Detail extends Component<DetailProps, DetailState> {
 									this.state.filteredProducts.map((product: Product) =>
 										<ui5-table-row key={product.key}>
 											<ui5-table-cell>
-												<ui5-label class="table-cell-content middle"><b>{product.name}</b></ui5-label>
+												<ui5-label><b>{product.name}</b></ui5-label>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">{product.price}</span>
+												<ui5-text>{product.price}</ui5-text>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">{product.location}</span>
+												<ui5-text>{product.location}</ui5-text>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">{product.orderDate}</span>
+												<ui5-text>{product.orderDate}</ui5-text>
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">
-													<ui5-tag class="table-cell-content-tag" design="Set3" color-scheme={getTagType(product.status!)}>{product.status}</ui5-tag>
-												</span>
+													<ui5-tag design="Set3" color-scheme={getTagType(product.status!)}>{product.status}</ui5-tag>
 											</ui5-table-cell>
 
 											<ui5-table-cell class="table-status-cell-content">
@@ -266,9 +264,7 @@ class Detail extends Component<DetailProps, DetailState> {
 												)}
 											</ui5-table-cell>
 											<ui5-table-cell>
-												<span className="table-cell-content middle">
 													<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + product.img} />
-												</span>
 											</ui5-table-cell>
 										</ui5-table-row>)
 								}
