@@ -14,15 +14,17 @@ import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.j
 import type List from "@ui5/webcomponents/dist/List";
 import type { ListSelectionChangeEventDetail } from "@ui5/webcomponents/dist/List";
 import type Switch from "@ui5/webcomponents/dist/Switch";
-import "@ui5/webcomponents/dist/Switch";
-import "@ui5/webcomponents/dist/Popover";
-
-import ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
+import "@ui5/webcomponents/Switch";
+import "@ui5/webcomponents/Popover";
+import type Popover from "@ui5/webcomponents/dist/Popover";
+import "@ui5/webcomponents-fiori/ShellBar";
+import type ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
+import "@ui5/webcomponents-fiori/ShellBarItem";
+import type ShellBarItem from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import type { ShellBarProfileClickEventDetail, ShellBarNotificationsClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBar";
-import ShellBarItem from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import type { ShellBarItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBarItem";
-import "@ui5/webcomponents-fiori/dist/NotificationListItem";
-import Popover from "@ui5/webcomponents/dist/Popover";
+import "@ui5/webcomponents-fiori/NotificationListItem";
+
 
 setTimezone("Europe/London");
 

@@ -11,8 +11,6 @@ import "@ui5/webcomponents/TextArea";
 import type TextArea from "@ui5/webcomponents/dist/TextArea";
 import "@ui5/webcomponents/DateTimePicker";
 import type DateTimePicker from "@ui5/webcomponents/dist/DateTimePicker";
-// import "@ui5/webcomponents/DatePicker";
-// import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
 import "@ui5/webcomponents/Select";
 import type Select from "@ui5/webcomponents/dist/Select";
 
@@ -85,9 +83,6 @@ class FilterBar extends Component<FilterProps, FilsterState> {
 			orderDate: this.dateInput.current!.value,
 			perishable: !!this.rbPerishable.current!.checked,
 		}
-
-
-		// const validInput = newEntry.name && newEntry.price;
 
 		const validInput: boolean = this.htmlForm.current!.reportValidity();
 		if (validInput) {

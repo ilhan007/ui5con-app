@@ -1,63 +1,71 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import "@ui5/webcomponents-base/dist/features/F6Navigation.js";
-import "@ui5/webcomponents-fiori/dist/Assets.js";
+import "@ui5/webcomponents-base/features/F6Navigation.js";
+import "@ui5/webcomponents-fiori/Assets.js";
 
 // Custom Theme CSS Properties
 import "./custom-themes/redfish/css_variables.css";
 
 // UI5 Web Components
-import "@ui5/webcomponents-compat/dist/Table.js";
-import "@ui5/webcomponents-compat/dist/TableColumn.js";
-import "@ui5/webcomponents-compat/dist/TableRow.js";
+import "@ui5/webcomponents-compat/Table.js";
+import "@ui5/webcomponents-compat/TableColumn.js";
+import "@ui5/webcomponents-compat/TableRow.js";
+import "@ui5/webcomponents-compat/TableCell.js";
 
-import "@ui5/webcomponents/dist/Form.js";
-import "@ui5/webcomponents/dist/FormItem.js";
+import "@ui5/webcomponents/Form.js";
+import "@ui5/webcomponents/FormItem.js";
 
-import "@ui5/webcomponents-compat/dist/TableCell.js";
-import "@ui5/webcomponents/dist/Label.js";
-import "@ui5/webcomponents/dist/Text.js";
-import "@ui5/webcomponents/dist/Tag.js";
-import "@ui5/webcomponents/dist/Button.js";
-import "@ui5/webcomponents/dist/ToggleButton.js";
-import "@ui5/webcomponents/dist/Title";
-import "@ui5/webcomponents/dist/Tab";
-import "@ui5/webcomponents/dist/TabSeparator";
-import "@ui5/webcomponents/dist/Popover";
-import "@ui5/webcomponents-fiori/dist/NotificationListItem";
-import "@ui5/webcomponents-fiori/dist/ShellBar";
-import "@ui5/webcomponents-fiori/dist/ShellBarItem";
+import "@ui5/webcomponents/Label.js";
+import "@ui5/webcomponents/Text.js";
+import "@ui5/webcomponents/Tag.js";
+import "@ui5/webcomponents/Button.js";
+import "@ui5/webcomponents/ToggleButton.js";
+import "@ui5/webcomponents/Title";
+import "@ui5/webcomponents/Tab";
+import "@ui5/webcomponents/Toolbar";
+import "@ui5/webcomponents/ToolbarButton";
+import "@ui5/webcomponents/TabSeparator";
+import "@ui5/webcomponents/Popover";
+import "@ui5/webcomponents-fiori/NotificationListItem";
+import "@ui5/webcomponents-fiori/DynamicPage";
+import "@ui5/webcomponents-fiori/DynamicPageTitle";
+import "@ui5/webcomponents-fiori/DynamicPageHeader";
+import "@ui5/webcomponents-fiori/ShellBar";
+import "@ui5/webcomponents-fiori/ShellBarItem";
 
 // UI5 Web Components Icons
-import "@ui5/webcomponents-icons/dist/alert.js";
-import "@ui5/webcomponents-icons/dist/nutrition-activity.js";
-import "@ui5/webcomponents-icons/dist/accept.js";
-import "@ui5/webcomponents-icons/dist/decline.js";
-import "@ui5/webcomponents-icons/dist/nav-back.js";
-import "@ui5/webcomponents-icons/dist/globe.js";
-import "@ui5/webcomponents-icons/dist/date-time.js";
-import "@ui5/webcomponents-icons/dist/sort-descending.js";
-import "@ui5/webcomponents-icons/dist/sort-ascending.js";
-import "@ui5/webcomponents-icons/dist/excel-attachment.js";
-import "@ui5/webcomponents-icons/dist/e-care.js";
-import "@ui5/webcomponents-icons/dist/retail-store.js";
-import "@ui5/webcomponents-icons/dist/edit.js";
-import "@ui5/webcomponents-icons/dist/palette.js";
-import "@ui5/webcomponents-icons/dist/settings.js";
-import "@ui5/webcomponents-icons/dist/sys-help.js";
-import "@ui5/webcomponents-icons/dist/log.js";
-import "@ui5/webcomponents-icons/dist/action.js";
-import "@ui5/webcomponents-icons/dist/product.js";
-import "@ui5/webcomponents-icons/dist/web-cam.js";
-import "@ui5/webcomponents-icons/dist/hide.js";
-import "@ui5/webcomponents-icons/dist/calendar.js";
-import "@ui5/webcomponents-icons/dist/phone.js";
-import "@ui5/webcomponents-icons/dist/fridge.js";
-import "@ui5/webcomponents-icons/dist/lightbulb.js";
-import "@ui5/webcomponents-icons/dist/heating-cooling.js";
-import "@ui5/webcomponents-icons/dist/washing-machine.js";
-import "@ui5/webcomponents-icons/dist/temperature.js";
+import "@ui5/webcomponents-icons/alert.js";
+import "@ui5/webcomponents-icons/laptop.js";
+import "@ui5/webcomponents-icons/share-2.js";
+import "@ui5/webcomponents-icons/action-settings.js";
+import "@ui5/webcomponents-icons/nutrition-activity.js";
+import "@ui5/webcomponents-icons/accept.js";
+import "@ui5/webcomponents-icons/decline.js";
+import "@ui5/webcomponents-icons/nav-back.js";
+import "@ui5/webcomponents-icons/globe.js";
+import "@ui5/webcomponents-icons/date-time.js";
+import "@ui5/webcomponents-icons/sort-descending.js";
+import "@ui5/webcomponents-icons/sort-ascending.js";
+import "@ui5/webcomponents-icons/excel-attachment.js";
+import "@ui5/webcomponents-icons/e-care.js";
+import "@ui5/webcomponents-icons/retail-store.js";
+import "@ui5/webcomponents-icons/edit.js";
+import "@ui5/webcomponents-icons/palette.js";
+import "@ui5/webcomponents-icons/settings.js";
+import "@ui5/webcomponents-icons/sys-help.js";
+import "@ui5/webcomponents-icons/log.js";
+import "@ui5/webcomponents-icons/action.js";
+import "@ui5/webcomponents-icons/product.js";
+import "@ui5/webcomponents-icons/web-cam.js";
+import "@ui5/webcomponents-icons/hide.js";
+import "@ui5/webcomponents-icons/calendar.js";
+import "@ui5/webcomponents-icons/phone.js";
+import "@ui5/webcomponents-icons/fridge.js";
+import "@ui5/webcomponents-icons/lightbulb.js";
+import "@ui5/webcomponents-icons/heating-cooling.js";
+import "@ui5/webcomponents-icons/washing-machine.js";
+import "@ui5/webcomponents-icons/temperature.js";
 
 // React Components
 import Home from "./home/Home";

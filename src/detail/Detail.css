@@ -1,10 +1,6 @@
 
 /* Detail Page */
 
-.detail-page-content {
-	padding: 3rem;
-}
-
 /* Detail Header */
 
 .detail-page-header-bar {
@@ -45,7 +41,11 @@
 }
 
 .detail-page-header-menu {
-	border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9);
+	/* border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9); */
+}
+
+.detail-page-header-content {
+
 }
 
 /* Detail Page Filter Bar */
@@ -58,7 +58,25 @@
 }
 
 .detail-page-header-menu {
-	border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9);
+	box-shadow: none;
+	/* border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9); */
+}
+
+.detail-page-header-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-page-header-content [ui5-avatar],
+.detail-page-header-content .detail-page-header-content-cell {
+    margin-right: 2rem;
+    margin-bottom: 1rem; 
+}
+
+.detail-page-header-content-cell {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
 }
 
 .details-page-filter-bar-actions {

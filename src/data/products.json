@@ -6,7 +6,7 @@
 	"img": "/img/broccolli.png",
 	"status": "Deterioating",
 	"tags": ["Green", "Vegan", "Healthy", "Diet", "Fibers", "Superfood"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": true,
 	"vegs": true
 },
@@ -18,7 +18,7 @@
 	"img": "/img/tortillachips.png",
 	"status": "In-Stock",
 	"tags": ["Fats", "Carbs", "Salt", "Crispy", "Snack"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": false
 },
 {
@@ -29,7 +29,7 @@
 	"img": "/img/soap.png",
 	"status": ["Re-Stock"],
 	"tags": ["Hygiene", "Aroma", "Lavender", "Handmade", "Gentle"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": false
 },
 {
@@ -40,7 +40,7 @@
 	"img": "/img/milk.png",
 	"status": "In-Stock",
 	"tags": ["Dairy", "Low Fat", "Lactose", "Calcium", "Light"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": true
 },
 {
@@ -51,7 +51,7 @@
 	"img": "/img/lettuce.png",
 	"status": "Re-Stock",
 	"tags": ["Healthy", "Green", "Vegan", "Salad", "Fresh"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": true,
 	"vegs": true
 },
@@ -63,7 +63,7 @@
 	"img": "/img/chicken.png",
 	"status": "In-Stock",
 	"tags": ["Protein", "Low Fat", "Low Carbs", "Roast", "Meat"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": true
 },
 {
@@ -74,7 +74,7 @@
 	"img": "/img/storagebin.png",
 	"status": "In-Stock",
 	"tags": ["Plastic", "Home", "Container", "Clutter-free", "Recycle"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": false
 },
 {
@@ -85,6 +85,39 @@
 	"img": "/img/kettle.png",
 	"status": "In-Stock",
 	"tags": ["Electric", "Home", "Tea", "Hot Water", "Coffee"],
-	"orderDate": "10/7/2019",
+	"orderDate": "10/4/2024",
 	"perishable": false
+},
+{
+	"key": 9,
+	"name": "Chicken Breast",
+	"price": "7.99 USD / kg",
+	"location": "19 Each, Aisle 27, Section 9",
+	"img": "",
+	"status": "Re-Stock",
+	"tags": ["Meat", "Protein", "Low Fat"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 10,
+	"name": "Almond Milk",
+	"price": "2.99 USD",
+	"location": "10 Each, Aisle 14, Section 36",
+	"img": "",
+	"status": "Re-Stock",
+	"tags": ["Dairy Alternative", "Plant-Based", "Plant-Based", "Lactose-Free"],
+	"orderDate": "10/9/2021",
+	"perishable": true
+},
+{
+	"key": 11,
+	"name": "Olive Oil",
+	"price": "15.99 USD",
+	"location": "10 Each, Aisle 14, Section 36",
+	"img": "",
+	"status": "Re-Stock",
+	"tags": ["Cooking Oil", "Mediterranean", "Mediterranean"],
+	"orderDate": "10/4/2024",
+	"perishable": true
 }]

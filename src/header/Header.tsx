@@ -21,85 +21,69 @@ type HeaderState = {}
 
 
 class Header extends Component<HeaderProps, HeaderState> {
-	tabContainer: React.RefObject<TabContainer>;
-
-	props!: HeaderProps;
-	
-	constructor(props: HeaderProps) {
-		super(props);
-
-		this.tabContainer = React.createRef<TabContainer>();
-	}
-
-	componentDidMount() {
-		(this.tabContainer.current as HTMLElement).addEventListener("tab-select", event => {
-			const filterType: Filter | null = (event as CustomEvent<TabContainerTabSelectEventDetail>).detail.tab.getAttribute("data-filter-type") as Filter;
-
-			this.props.tabPress(filterType);
-		});
-	}
 
 	navBack() {
 		this.props.navBack();
 	}
 
-	render() {
-		return (
-		<header className="detail-page-header">
-				<div className="detail-page-header-bar">
-					<div className="detail-page-header-bar-start">
-						<ui5-button
-							design="Transparent"
-							icon="nav-back"
-							class="action-button"
-							onClick={this.navBack.bind(this)}
-						></ui5-button>
-						<ui5-title class="detail-page-header-title">Inventory</ui5-title>
-					</div>
-					
-					<ui5-button design="Transparent" icon="action" class="action-button"></ui5-button>
-				</div>
+	// render() {
+	// 	return (
+		
+		// <header className="detail-page-header">
+		// 		<div className="detail-page-header-bar">
+		// 			<div className="detail-page-header-bar-start">
+		// 				<ui5-button
+		// 					design="Transparent"
+		// 					icon="nav-back"
+		// 					class="action-button"
+		// 					onClick={this.navBack.bind(this)}
+		// 				></ui5-button>
+		// 				<ui5-title class="detail-page-header-title">Inventory</ui5-title>
+		// 			</div>
 
-				<ui5-tabcontainer collapsed class="detail-page-header-menu" ref={this.tabContainer}>
-					<ui5-tab
-						// icon="product"
-						data-filter-type="all" 
-						text="All Products"
-						additional-text={this.props.products.length} selected>
-					</ui5-tab>
-					<ui5-tab-separator></ui5-tab-separator>
-					<ui5-tab
-						icon="washing-machine"
-						data-filter-type="noPerishable"
-						text="Non-Perishable"
-						additional-text={this.props.nonPerishableCount}>
-					</ui5-tab>
-					<ui5-tab
-						icon="e-care"
-						data-filter-type="perishable"
-						text="Perishable"
-						additional-text={this.props.perishableCount}
-						semantic-color="Positive">
-					</ui5-tab>
-					<ui5-tab
-						icon="nutrition-activity"
-						data-filter-type="vegs"
-						text="Vegs" 
-						additional-text={this.props.vegsCount}
-						semantic-color="Positive">
-					</ui5-tab>
-					<ui5-tab
-						icon="alert"
-						data-filter-type="alerts"
-						text="Alerts" 
-						additional-text={this.props.alertCount}
-						semantic-color="Critical">
-					</ui5-tab>
+		// 			<ui5-button design="Transparent" icon="action" class="action-button"></ui5-button>
+		// 		</div>
+
+		// 		<ui5-tabcontainer collapsed class="detail-page-header-menu" ref={this.tabContainer}>
+		// 			<ui5-tab
+		// 				// icon="product"
+		// 				data-filter-type="all" 
+		// 				text="All Products"
+		// 				additional-text={this.props.products.length} selected>
+		// 			</ui5-tab>
+		// 			<ui5-tab-separator></ui5-tab-separator>
+		// 			<ui5-tab
+		// 				icon="washing-machine"
+		// 				data-filter-type="noPerishable"
+		// 				text="Non-Perishable"
+		// 				additional-text={this.props.nonPerishableCount}>
+		// 			</ui5-tab>
+		// 			<ui5-tab
+		// 				icon="e-care"
+		// 				data-filter-type="perishable"
+		// 				text="Perishable"
+		// 				additional-text={this.props.perishableCount}
+		// 				semantic-color="Positive">
+		// 			</ui5-tab>
+		// 			<ui5-tab
+		// 				icon="nutrition-activity"
+		// 				data-filter-type="vegs"
+		// 				text="Vegs" 
+		// 				additional-text={this.props.vegsCount}
+		// 				semantic-color="Positive">
+		// 			</ui5-tab>
+		// 			<ui5-tab
+		// 				icon="alert"
+		// 				data-filter-type="alerts"
+		// 				text="Alerts" 
+		// 				additional-text={this.props.alertCount}
+		// 				semantic-color="Critical">
+		// 			</ui5-tab>
 					
-				</ui5-tabcontainer>
-			</header>
-		)
-	}
+		// 		</ui5-tabcontainer>
+		// 	</header>
+		// )
+	// }
 }
 
 export default Header;

@@ -2,6 +2,7 @@ html, body, .root, .App {
 	padding: 0;
 	margin: 0;
 	background: var(--sapBackgroundColor, #fafafa);
+	height: 100%;
 }
 
 :not(:defined) {

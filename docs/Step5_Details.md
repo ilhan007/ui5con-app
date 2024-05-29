@@ -240,9 +240,6 @@ render() {
 We now can see the table displayed in our page. We need to add some styling for the layout of the page to `Detail.css`. An example of styling would be the following:
 
 ```css
-.detail-page-content {
-	padding: 3rem;
-}
 
 .table-column-header-content,
 .table-cell-content {

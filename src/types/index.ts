@@ -55,11 +55,16 @@ import type List from "@ui5/webcomponents/dist/List";
 import type StandardListItem from "@ui5/webcomponents/dist/StandardListItem";
 import type NotificationListItem from "@ui5/webcomponents-fiori/dist/NotificationListItem";
 import type ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
+import type DynamicPage from "@ui5/webcomponents-fiori/dist/DynamicPage";
+import type DynamicPageTitle from "@ui5/webcomponents-fiori/dist/DynamicPageTitle";
+import type DynamicPageHeader from "@ui5/webcomponents-fiori/dist/DynamicPageHeader";
 import type ShellBarItem from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import type Icon from "@ui5/webcomponents/dist/Icon";
 
 import type Timeline from "@ui5/webcomponents-fiori/dist/Timeline";
 import type TimelineItem from "@ui5/webcomponents-fiori/dist/TimelineItem";
+import type Toolbar from "@ui5/webcomponents/dist/Toolbar";
+import type ToolbarButton from "@ui5/webcomponents/dist/ToolbarButton";
 
 // import type Token from "@ui5con/components/dist/Token.js";
 // import type Tokenizer from "@ui5con/components/dist/Tokenizer.js";
@@ -99,12 +104,18 @@ declare global {
 		['ui5-switch']: CustomElement<Switch>;
 		['ui5-select']: CustomElement<Select>;
 		['ui5-shellbar']: CustomElement<ShellBar>;
+		['ui5-dynamic-page']: CustomElement<DynamicPage>;
+		['ui5-dynamic-page-title']: CustomElement<DynamicPageTitle>;
+		['ui5-dynamic-page-header']: CustomElement<DynamicPageHeader>;
+		['ui5-shellbar']: CustomElement<ShellBar>;
 		['ui5-shellbar-item']: CustomElement<ShellBarItem>;
 		['ui5-input']: CustomElement<Input>;
 		['ui5-icon']: CustomElement<Icon>;
 		['ui5-text']: CustomElement<Text>;
 		['ui5-textarea']: CustomElement<TextArea>;
 		['ui5-timeline']: CustomElement<Timeline>;
+		['ui5-toolbar']: CustomElement<Toolbar>;
+		['ui5-toolbar-button']: CustomElement<ToolbarButton>;
 		['ui5-timeline-item']: CustomElement<TimelineItem>;
 		['ui5-date-picker']: CustomElement<DatePicker>;
 		['ui5-datetime-picker']: CustomElement<DateTimePicker>;
