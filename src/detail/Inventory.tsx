@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Detail.css";
+import "./Inventory.css";
 
 import { Product, Filter } from "../types";
 import products from "../data/products.json";
@@ -51,7 +51,7 @@ const getTagType = (type: string) => {
 	}
 }
 
-class Detail extends Component<DetailProps, DetailState> {
+class Inventory extends Component<DetailProps, DetailState> {
 	_navigate: (path: string) => void;
 
 	tabContainer: React.RefObject<TabContainer>;
@@ -518,4 +518,4 @@ class Detail extends Component<DetailProps, DetailState> {
 	}
 }
 
-export default Detail;
+export default Inventory;

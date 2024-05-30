@@ -60,6 +60,7 @@ type CardData = {
 	subtitle: string,
 	status: string,
 	classes: string,
+	headerClasses?: string,
 	items: Array<{key: string | number, title: string, description: string, icon: string, info?: string, infoState?: string}>
 }
 
@@ -155,6 +156,7 @@ class Home extends Component<HomeProps, HomeState> {
 										title-text={dataObj.heading}
 										subtitle-text={dataObj.subtitle}
 										slot="header"
+										class={dataObj.headerClasses}
 										></ui5-card-header>
 									<ui5-list separators="Inner">
 										{
@@ -178,6 +180,7 @@ class Home extends Component<HomeProps, HomeState> {
 										title-text="Energy Efficiency"
 										subtitle-text="Smart Store Dep B321"
 										slot="header"
+										class="ui5card-header-featured ui5card-header-featured--energy"
 							></ui5-card-header>
 							<ui5-list separators="Inner">
 								{data.energystats.map(item =>
@@ -195,6 +198,58 @@ class Home extends Component<HomeProps, HomeState> {
 					</ui5-card>
 				</section>
 
+
+					
+				<ui5-title level="H3">TO DOs</ui5-title>
+				<section className="section">					
+
+
+					<ui5-card class="ui5card">
+						<div className="section--todo-content">
+							<ui5-title level="H5" class="section--todo-title">Release Invoice ID - 347812</ui5-title>
+							<div className="section--todo-tag-wrapper">
+								<ui5-tag design="Set2" color-scheme="1" class="section--todo-tag">Overdue</ui5-tag>
+								<ui5-text>10 000 euros, due 04.06.2024</ui5-text>
+							</div>
+							
+							<div className="section--todo-actions">
+								<ui5-button design="Positive">Approve</ui5-button>
+								<ui5-button design="Negative">Reject</ui5-button>
+							</div>
+						</div>
+					</ui5-card>
+
+					<ui5-card class="ui5card">
+						<div className="section--todo-content">
+							<ui5-title level="H5" class="section--todo-title">Review Purchase of New Refrigarator</ui5-title>
+
+							<div className="section--todo-tag-wrapper">
+								<ui5-tag design="Set2" color-scheme="2" class="section--todo-tag">High</ui5-tag>
+								<ui5-text>French Door, Side-by-Side, Top Freezer</ui5-text>
+							</div>
+							<div className="section--todo-actions">
+								<ui5-button design="Positive">Approve</ui5-button>
+								<ui5-button design="Negative">Reject</ui5-button>
+							</div>
+						</div>
+					</ui5-card>
+
+					<ui5-card class="ui5card">	
+						<div className="section--todo-content">
+						<ui5-title level="H5" class="section--todo-title">Review Order 32434-234324-4425</ui5-title>
+
+							<div className="section--todo-tag-wrapper">
+								<ui5-tag design="Set2" color-scheme="3" class="section--todo-tag">Medium</ui5-tag>
+								<ui5-text>Diary: milk, cheese and yogurt</ui5-text>
+							</div>
+							<div className="section--todo-actions">
+								<ui5-button design="Positive">Approve</ui5-button>
+								<ui5-button design="Negative">Reject</ui5-button>
+							</div>
+						</div>
+					</ui5-card>
+				</section>
+
 				<section className="section section--mid" data-sap-ui-fastnavgroup="true">
 					{/* Upcoming */}
 					<section className="section--upcoming">
@@ -206,6 +261,7 @@ class Home extends Component<HomeProps, HomeState> {
 									title-text="Upcoming Activities"
 									subtitle-text="25 March, 2021"
 									slot="header"
+									class="ui5card-header-activies"
 								></ui5-card-header>
 
 								<ui5-timeline>
@@ -236,7 +292,11 @@ class Home extends Component<HomeProps, HomeState> {
 												title-text={alert.heading}
 												subtitle-text={alert.subtitle}
 												slot="header"
-											></ui5-card-header>
+												class="ui5card-header-action-required"
+											>
+
+												<ui5-avatar slot="avatar" initials="FR" color-scheme="Accent2"></ui5-avatar>
+											</ui5-card-header>
 										<div className="ui5card-alert-content"> 
 											<ui5-icon name={alert.icon} class="ui5icon-size ui5card-alert-icon"></ui5-icon>
 											<ui5-label class="ui5label-size error">{alert.text}</ui5-label>

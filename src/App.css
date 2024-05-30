@@ -79,6 +79,42 @@ ui5-card:not(:defined) {
 	flex-wrap: wrap;
 }
 
+.section--todo-content {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.section--todo-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	align-items: center;
+}
+
+.section--todo-title {
+	margin-bottom: 0.5rem;
+}
+
+.section--todo-tag-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.section--todo-tag-wrapper  > * {
+	margin-inline-end: 0.5rem;
+}
+
+.section--todo-tag {
+    width: fit-content;
+}
+
+.section--todo-actions [ui5-button] {
+	margin-inline-end: 0.25rem;
+}
+
 .ui5card--staff-content {
 	padding: 2rem;
 }
@@ -119,6 +155,45 @@ ui5-card:not(:defined) {
 	color: var(--sapInformativeTextColor);
 }
 
+
+/* Featured */
+.ui5card-header-featured::part(root) {
+	background-color: var(--sapIndicationColor_5_Background);
+}
+.ui5card-header-featured.ui5card-header-featured--security::part(root) {
+	background-color: var(--sapIndicationColor_8_Background);
+}
+.ui5card-header-featured.ui5card-header-featured--energy::part(root) {
+	background-color: var(--sapIndicationColor_7_Background);
+}
+
+.ui5card-header-featured::part(title) {
+	font-size: var(--sapFontHeader3Size);
+	color: var(--sapShell_Category_1_TextColor);
+}
+.ui5card-header-featured::part(subtitle) {
+	color: var(--sapShell_Category_1_TextColor);
+}
+
+
+
+/* Activities*/
+
+
+
+.ui5card-header-activies::part(root) {
+	background-color: var(--sapIndicationColor_5_Background);
+}
+.ui5card-header-activies::part(title) {
+	color: var(--sapShell_Category_1_TextColor);
+}
+.ui5card-header-activies::part(subtitle) {
+	color: var(--sapShell_Category_1_TextColor);
+}
+
+
+
+
 /* Action alerts */
 .ui5card-alert {
 	min-width: 12rem;
@@ -134,6 +209,16 @@ ui5-card:not(:defined) {
 
 .ui5card-alert-icon {
 	margin: 0 0.5rem;
+}
+
+.ui5card-header-action-required::part(root) {
+	background-color: var(--sapIndicationColor_2_Background);
+}
+.ui5card-header-action-required::part(title) {
+	color: var(--sapShell_Category_1_TextColor);
+}
+.ui5card-header-action-required::part(subtitle) {
+	color: var(--sapShell_Category_1_TextColor);
 }
 
 .center-align {

@@ -6,6 +6,7 @@
 			"subtitle": "Smart Store Dep B321",
 			"status": "3/8",
 			"classes": "ui5card",
+			"headerClasses": "ui5card-header-featured",
 			"items": [
 				{
 					"key": "1",
@@ -33,6 +34,7 @@
 			"status": "3/3",
 			"subtitle": "Cameras",
 			"classes": "ui5card ui5card--security",
+			"headerClasses": "ui5card-header-featured ui5card-header-featured--security",
 			"items": [
 				{
 					"key": "4",

@@ -70,7 +70,8 @@ import "@ui5/webcomponents-icons/temperature.js";
 
 // React Components
 import Home from "./home/Home";
-import Detail from './detail/Detail';
+import Inventory from './detail/Inventory';
+import Address from './address/Address';
 import AppBar from './appbar/AppBar';
 
 import { useNavigate, useLocation } from "react-router-dom";
@@ -78,7 +79,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const App = () => {
 	const navigate = useNavigate();
 	const location = useLocation().pathname;
-	const tabName = location === "/detail" ?  "My Inventory" : "My Home";
+	const tabName = location === "/inventory" ?  "Inventory" : "My Home";
 
 	return (
 		<div className="App">
@@ -86,7 +87,8 @@ const App = () => {
 
 			<Routes>
 				<Route path="/" element={<Home navigate={navigate}/>} />
-				<Route path='/detail' element={<Detail navigate={navigate}/>}/>
+				<Route path='/inventory' element={<Inventory navigate={navigate}/>}/>
+				<Route path="/address" element={<Address />} />
 				<Route path="/*" element={<Home navigate={navigate} />} />
 			</Routes>
 		</div>
