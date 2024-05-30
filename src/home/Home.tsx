@@ -294,8 +294,6 @@ class Home extends Component<HomeProps, HomeState> {
 												slot="header"
 												class="ui5card-header-action-required"
 											>
-
-												<ui5-avatar slot="avatar" initials="FR" color-scheme="Accent2"></ui5-avatar>
 											</ui5-card-header>
 										<div className="ui5card-alert-content"> 
 											<ui5-icon name={alert.icon} class="ui5icon-size ui5card-alert-icon"></ui5-icon>

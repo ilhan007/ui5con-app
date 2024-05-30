@@ -24,6 +24,8 @@ import type Form from "@ui5/webcomponents/dist/Form";
 import type FormGroup from "@ui5/webcomponents/dist/FormGroup";
 import type FormItem from "@ui5/webcomponents/dist/FormItem";
 import type Input from "@ui5/webcomponents/dist/Input";
+import type StepInput from "@ui5/webcomponents/dist/StepInput";
+import type RatingIndicator from "@ui5/webcomponents/dist/RatingIndicator";
 import type Text from "@ui5/webcomponents/dist/Text";
 import type TextArea from "@ui5/webcomponents/dist/TextArea";
 import type DatePicker from "@ui5/webcomponents/dist/DatePicker";
@@ -42,6 +44,7 @@ import type TableColumn from "@ui5/webcomponents-compat/dist/TableColumn.js";
 import type TableRow from "@ui5/webcomponents-compat/dist/TableRow.js";
 import type TableCell from "@ui5/webcomponents-compat/dist/TableCell.js";
 import type Label from "@ui5/webcomponents/dist/Label.js";
+import type Link from "@ui5/webcomponents/dist/Link.js";
 import type Tag from "@ui5/webcomponents/dist/Tag.js";
 
 import type Tab from "@ui5/webcomponents/dist/Tab";
@@ -100,6 +103,7 @@ declare global {
 		['ui5-list']: CustomElement<List>;
 		['ui5-li']: CustomElement<StandardListItem>;
 		['ui5-li-notification']: CustomElement<NotificationListItem>;
+		['ui5-link']: CustomElement<Link>;
 		['ui5-popover']: CustomElement<Popover>;
 		['ui5-avatar']: CustomElement<Avatar>;
 		['ui5-avatar-group']: CustomElement<AvatarGroup>;
@@ -114,10 +118,12 @@ declare global {
 		['ui5-shellbar']: CustomElement<ShellBar>;
 		['ui5-shellbar-item']: CustomElement<ShellBarItem>;
 		['ui5-input']: CustomElement<Input>;
+		['ui5-step-input']: CustomElement<StepInput>;
 		['ui5-icon']: CustomElement<Icon>;
 		['ui5-text']: CustomElement<Text>;
 		['ui5-textarea']: CustomElement<TextArea>;
 		['ui5-timeline']: CustomElement<Timeline>;
+		['ui5-rating-indicator']: CustomElement<RatingIndicator>;
 		['ui5-toolbar']: CustomElement<Toolbar>;
 		['ui5-toolbar-button']: CustomElement<ToolbarButton>;
 		['ui5-timeline-item']: CustomElement<TimelineItem>;

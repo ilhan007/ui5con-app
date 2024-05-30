@@ -212,7 +212,7 @@ ui5-card:not(:defined) {
 }
 
 .ui5card-header-action-required::part(root) {
-	background-color: var(--sapIndicationColor_2_Background);
+	background-color: var(--sapIndicationColor_3_Background);
 }
 .ui5card-header-action-required::part(title) {
 	color: var(--sapShell_Category_1_TextColor);

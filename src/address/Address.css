@@ -1,0 +1,11 @@
+.app-address {
+	height: 100%;
+	padding: 3rem 3rem;
+}
+
+[ui5-bar],
+[ui5-bar]::part(bar) {
+	background: transparent;
+	box-shadow: none;
+	border: none;
+}

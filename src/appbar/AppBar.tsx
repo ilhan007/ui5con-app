@@ -204,7 +204,7 @@ class AppBar extends Component<AppBarProps, AppBarState> {
 				<ui5-tabcontainer collapsed ref={this.tabContainerRef}>
 					<ui5-tab text="My Home" data-navigate="" selected={this.props.tabName === "My Home" ? true : undefined}></ui5-tab>
 					<ui5-tab text="Inventory" data-navigate="inventory" selected={this.props.tabName === "Inventory" ? true : undefined}></ui5-tab>
-					<ui5-tab text="Logistic Details" data-navigate="address" selected={this.props.tabName === "Logistic Details" ? true : undefined}></ui5-tab>
+					<ui5-tab text="Contact" data-navigate="address" selected={this.props.tabName === "Contact" ? true : undefined}></ui5-tab>
 				</ui5-tabcontainer>
 
 				<ui5-popover id="profile-popover" hide-header placement="Bottom" horizontal-align="End">

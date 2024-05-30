@@ -14,12 +14,16 @@ import "@ui5/webcomponents-compat/TableRow.js";
 import "@ui5/webcomponents-compat/TableCell.js";
 
 import "@ui5/webcomponents/Form.js";
+import "@ui5/webcomponents/FormGroup.js";
 import "@ui5/webcomponents/FormItem.js";
 
 import "@ui5/webcomponents/Label.js";
+import "@ui5/webcomponents/Link.js";
 import "@ui5/webcomponents/Text.js";
+import "@ui5/webcomponents/StepInput.js";
 import "@ui5/webcomponents/Tag.js";
 import "@ui5/webcomponents/Button.js";
+import "@ui5/webcomponents/RatingIndicator.js";
 import "@ui5/webcomponents/ToggleButton.js";
 import "@ui5/webcomponents/Title";
 import "@ui5/webcomponents/Tab";
@@ -76,10 +80,17 @@ import AppBar from './appbar/AppBar';
 
 import { useNavigate, useLocation } from "react-router-dom";
 
+const LocationToTabNameMap = {
+	"/inventory": "Inventory",
+	"/address": "Contact",
+};
+
+const DEFAULT_TAB_NAME = "My Home";
+
 const App = () => {
 	const navigate = useNavigate();
 	const location = useLocation().pathname;
-	const tabName = location === "/inventory" ?  "Inventory" : "My Home";
+	const tabName = LocationToTabNameMap[location as keyof typeof LocationToTabNameMap] || DEFAULT_TAB_NAME;
 
 	return (
 		<div className="App">
