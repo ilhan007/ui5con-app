@@ -69,11 +69,15 @@ import type ToolbarButton from "@ui5/webcomponents/dist/ToolbarButton";
 // import type Token from "@ui5con/components/dist/Token.js";
 // import type Tokenizer from "@ui5con/components/dist/Tokenizer.js";
 
+import type Token from"@ui5/webcomponents/dist/Token";
+import type Tokenizer from"@ui5/webcomponents/dist/Tokenizer";
 declare global {
 	namespace JSX {
 	  interface IntrinsicElements {
 		// ['my-token']: CustomElement<Token>;
 		// ['my-tokenizer']: CustomElement<Tokenizer>;
+		['ui5-token']: CustomElement<Token>;
+		['ui5-tokenizer']: CustomElement<Tokenizer>;
 		['ui5-bar']: CustomElement<Bar>;
 		['ui5-card']: CustomElement<Card>;
 		['ui5-card-header']: CustomElement<CardHeader>;

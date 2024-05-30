@@ -1,14 +1,32 @@
 import React, { Component } from "react";
-
 import "./Detail.css";
+
 import { Product, Filter } from "../types";
 import products from "../data/products.json";
-import FilterBar from "../filterbar/FilterBar";
-import TokenReactComponent from "./TokenReactComponent";
+import TableFilterBar from "../table/TableFilterBar";
+import TokenizerReactComponent from "./TokenizerReactComponent";
 // import "@ui5con/components/dist/Tokenizer";
-import TabContainer, { TabContainerTabSelectEventDetail } from "@ui5/webcomponents/dist/TabContainer";
 
+import MovePlacement from "@ui5/webcomponents-base/dist/types/MovePlacement";
+import "@ui5/webcomponents/Input";
+import "@ui5/webcomponents/TextArea";
+import "@ui5/webcomponents/DateTimePicker";
+import "@ui5/webcomponents/Select";
+import "@ui5/webcomponents/dist/Option";
+import "@ui5/webcomponents/Token";
+import "@ui5/webcomponents/Tokenizer";
+import TabContainer, { TabContainerTabSelectEventDetail, TabContainerMoveEventDetail } from "@ui5/webcomponents/dist/TabContainer";
+import type Dialog from "@ui5/webcomponents/dist/Dialog";
+import type DateTimePicker from "@ui5/webcomponents/dist/DateTimePicker";
+import type Input from "@ui5/webcomponents/dist/Input";
+import type Select from "@ui5/webcomponents/dist/Select";
+import type Option from "@ui5/webcomponents/dist/Option";
+import type TextArea from "@ui5/webcomponents/dist/TextArea";
+import type Token from "@ui5/webcomponents/dist/Token";
+import type Tokenizer from "@ui5/webcomponents/dist/Tokenizer";
+import type { TokenizerTokenDeleteEventDetail } from "@ui5/webcomponents/dist/Tokenizer";
 
+import RadioButton from "@ui5/webcomponents/dist/RadioButton";
 type DetailProps = {
 	navigate: (path: string) => void,
 }
@@ -35,15 +53,35 @@ const getTagType = (type: string) => {
 
 class Detail extends Component<DetailProps, DetailState> {
 	_navigate: (path: string) => void;
-	navBack: (path?: string) => void;
-	tabContainer	: React.RefObject<TabContainer>;
+
+	tabContainer: React.RefObject<TabContainer>;
+	dialog: React.RefObject<Dialog>;
+	nameInput: React.RefObject<Input>;
+	priceInput: React.RefObject<Input>;
+	locationInput: React.RefObject<TextArea>;
+	dateInput: React.RefObject<DateTimePicker>;
+	htmlForm: React.RefObject<HTMLFormElement>;
+	imageInput: React.RefObject<Input>;
+	statusInput: React.RefObject<Select>;
+	rbPerishable: React.RefObject<RadioButton>;
+	searchInput: React.RefObject<Input>;
 
 	constructor (props: DetailProps) {
 		super(props);
 		this._navigate = this.props.navigate;
-		this.navBack = this._navBack.bind(this);
 
 		this.tabContainer = React.createRef<TabContainer>();
+		this.dialog = React.createRef<Dialog>();
+		this.htmlForm = React.createRef<HTMLFormElement>();
+		this.dialog = React.createRef<Dialog>();
+		this.nameInput = React.createRef<Input>();
+		this.priceInput = React.createRef<Input>();
+		this.locationInput = React.createRef<TextArea>();
+		this.dateInput = React.createRef<DateTimePicker>();
+		this.imageInput = React.createRef<Input>();
+		this.statusInput = React.createRef<Select>();
+		this.rbPerishable = React.createRef<RadioButton>();
+		this.searchInput = React.createRef<Input>();
 
 		this.state = {
 			products: [...products] as unknown as Array<Product>,
@@ -54,10 +92,43 @@ class Detail extends Component<DetailProps, DetailState> {
 	}
 
 	componentDidMount() {
-		(this.tabContainer.current as HTMLElement).addEventListener("tab-select", event => {
+
+		const currTabContainer = (this.tabContainer.current as HTMLElement);
+
+		currTabContainer.addEventListener("tab-select", event => {
 			const filterType: Filter | null = (event as CustomEvent<TabContainerTabSelectEventDetail>).detail.tab.getAttribute("data-filter-type") as Filter;
 
 			this.applyFilter(filterType);
+		});
+
+		currTabContainer.addEventListener("move-over", (event) => {
+			const { source } = (event as CustomEvent<TabContainerMoveEventDetail>).detail;
+		
+			if (currTabContainer.contains(source.element)) {
+				event.preventDefault();
+			}
+		});
+		
+		currTabContainer.addEventListener("move", (event) => {
+			const { source, destination } = (event as CustomEvent<TabContainerMoveEventDetail>).detail;
+			const currentParent = destination.element.parentElement!;
+		
+			if (destination.placement === MovePlacement.Before) {
+				currentParent.insertBefore(source.element, destination.element);
+			} else if (destination.placement === MovePlacement.After) {
+				const nextElement = Array.from(currentParent.children).at(Array.from(currentParent.children).indexOf(destination.element) + 1)!;
+				currentParent.insertBefore(source.element, nextElement);
+			} else if (destination.placement === MovePlacement.On) {
+				destination.element.prepend(source.element);
+			}
+		
+			const newParent = source.element.parentElement!;
+		
+			if (newParent.hasAttribute("ui5-tab")) {
+				source.element.slot = "items";
+			} else {
+				source.element.slot = "";
+			}
 		});
 	}
 
@@ -201,25 +272,56 @@ class Detail extends Component<DetailProps, DetailState> {
 		});
 	}
 
-	render() {
-		return <ui5-dynamic-page id="page">
-					<ui5-dynamic-page-title slot="titleArea">
-						{/* <div slot="breadcrumbs">Special Running Shoe</div> */}
-						<ui5-title slot="heading">Special Running Shoe</ui5-title>
+	openDialog() {
+		this.dialog.current!.open = true;
+	}
+	closeDialog() {
+		this.dialog.current!.open = false;
+	}
 
-						<div slot="snappedHeading" className="snapped-title-heading">
+	submitNewProduct() {
+		// @ts-ignore
+		const newEntry: Product = {
+			name: this.nameInput.current!.value,
+			price: this.priceInput.current!.value,
+			location: this.locationInput.current!.value,
+			img: this.imageInput.current!.value,
+			status: (Array.from(this.statusInput.current!.children as unknown as Array<Option>)).filter((el: Option) => el.selected)[0].textContent!,
+			tags: [],
+			orderDate: this.dateInput.current!.value,
+			perishable: !!this.rbPerishable.current!.checked,
+		}
+
+
+		const validInput: boolean = this.htmlForm.current!.reportValidity();
+		if (validInput) {
+			this.createProduct(newEntry);
+			this.dialog.current!.open = false;
+		}	
+	}
+
+	
+
+
+	render() {
+		return <ui5-dynamic-page id="page" class="detail-page">
+					{/* Title */}
+					<ui5-dynamic-page-title slot="titleArea">
+						<ui5-title slot="heading">Running Shoe</ui5-title>
+
+						<div slot="snappedHeading" className="detail-page-snapped-title-heading">
 							<ui5-avatar icon="laptop" color-scheme="Accent5" size="S"></ui5-avatar>
-							<ui5-title wrapping-type="None">Special Running Shoe</ui5-title>
+							<ui5-title wrapping-type="None">Running Shoe</ui5-title>
 						</div>
 
-						<ui5-text slot="content" className="text">PO-48865</ui5-text>
-						<ui5-text slot="snappedContent" className="text">PO-48865</ui5-text>
-
+						<ui5-text slot="subheading">PO-48865</ui5-text>
+						<ui5-text slot="snappedSubheading">PO-48865</ui5-text>
+						
 						<ui5-tag design="Set2" color-scheme="3">Special offer</ui5-tag>
 
 						<ui5-toolbar id="actionsToolbar" slot="actionsBar">
-							<ui5-toolbar-button design="Emphasized" text="Create"></ui5-toolbar-button>
-							<ui5-toolbar-button design="Transparent" text="Edit"></ui5-toolbar-button>
+							<ui5-toolbar-button design="Emphasized" text="Create" onClick={this.openDialog.bind(this)}></ui5-toolbar-button>
+							<ui5-toolbar-button design="Transparent" text="Edit" onClick={this.toggleEdit.bind(this)}></ui5-toolbar-button>
 							<ui5-toolbar-button design="Transparent" text="Delete"></ui5-toolbar-button>
 						</ui5-toolbar>
 
@@ -229,28 +331,30 @@ class Detail extends Component<DetailProps, DetailState> {
 						</ui5-toolbar>
 					</ui5-dynamic-page-title>
 
+					{/* Header */}
 					<ui5-dynamic-page-header slot="headerArea">
-					<div className="detail-page-header-content">
-						<ui5-avatar id="avatar" icon="laptop" color-scheme="Accent5" size="L"></ui5-avatar>
-						<div className="detail-page-header-content-cell">
-							<ui5-label>Availability</ui5-label>
-							<ui5-tag>In Stock</ui5-tag>
+						<div className="detail-page-header-content">
+							<ui5-avatar id="avatar" icon="laptop" color-scheme="Accent5" size="L"></ui5-avatar>
+							<div className="detail-page-header-content-cell">
+								<ui5-label>Availability</ui5-label>
+								<ui5-tag>In Stock</ui5-tag>
+							</div>
+							<div className="detail-page-header-content-cell">
+								<ui5-label>Price</ui5-label>
+								<ui5-tag>379.99 USD</ui5-tag>
+							</div>
+							<div className="detail-page-header-content-cell">
+								<ui5-label>Product Description</ui5-label>
+								<ui5-text>Super-lightweight cushioning propels you forward from landing to toe-off and has a fast, snappy feel.</ui5-text>
+							</div>
 						</div>
-						<div className="detail-page-header-content-cell">
-							<ui5-label>Price</ui5-label>
-							<ui5-tag>379.99 USD</ui5-tag>
-						</div>
-						<div className="detail-page-header-content-cell">
-							<ui5-label>Product Description</ui5-label>
-							<ui5-text>Super-lightweight cushioning propels you forward from landing to toe-off and has a fast, snappy feel.</ui5-text>
-						</div>
-					</div>
-					
 					</ui5-dynamic-page-header>
 
+					{/* Navigation */}
 					<ui5-tabcontainer collapsed class="detail-page-header-menu" ref={this.tabContainer}>
-						<ui5-tab movable
-							// icon="product"
+						<ui5-tab
+							movable
+							icon="product"
 							data-filter-type="all" 
 							text="All Products"
 							additional-text={this.state.products.length} selected>
@@ -280,6 +384,7 @@ class Detail extends Component<DetailProps, DetailState> {
 							semantic-color="Positive">
 						</ui5-tab>
 						<ui5-tab
+							movable
 							icon="alert"
 							data-filter-type="alerts"
 							text="Alerts" 
@@ -289,14 +394,13 @@ class Detail extends Component<DetailProps, DetailState> {
 					
 					</ui5-tabcontainer>
 
+					{/* Content */}
 					<main className="detail-page-content">
-								<FilterBar
-									createProduct={this.createProduct.bind(this)}
+								<TableFilterBar
 									filter={this.filter.bind(this)}
 									sortAsc={this.sortAsc.bind(this)}
 									sortDesc={this.sortDesc.bind(this)}
 									toggleEdit={this.toggleEdit.bind(this)}
-									readonly={this.state.readonly}
 								/>
 
 								<ui5-table class="table" no-data-text="No Items available for search criteria" show-no-data>
@@ -347,10 +451,7 @@ class Detail extends Component<DetailProps, DetailState> {
 												</ui5-table-cell>
 
 												<ui5-table-cell class="table-status-cell-content">
-													{
-													product.tags.map((tag: string, idx: number) => 
-														<TokenReactComponent key={idx} productKey={product.key} readonly={this.state.readonly} text={tag} deleteTag={this.deleteTag.bind(this)}/>
-													)}
+														<TokenizerReactComponent readonly={this.state.readonly} tags={product.tags} productKey={product.key} deleteTag={this.deleteTag.bind(this)}/>
 												</ui5-table-cell>
 												<ui5-table-cell>
 														<img alt="product" className="table-image-cell" src={process.env.PUBLIC_URL + product.img} />
@@ -359,6 +460,60 @@ class Detail extends Component<DetailProps, DetailState> {
 									}
 								</ui5-table>
 					</main>
+
+					{/* Create Dialog */}
+					<ui5-dialog header-text="New product" ref={this.dialog}>
+
+						<form ref={this.htmlForm} method="get" className="dialog-content">
+							<ui5-form layout="S2 M2 L2 XL2" label-span="S12 M12 L4 XL4">
+								<ui5-form-item column-span="2">
+									<ui5-label slot="labelContent" required for="inpName">Name:</ui5-label>
+									<ui5-input id="inpName" ref={this.nameInput} required></ui5-input>
+								</ui5-form-item>
+
+								<ui5-form-item column-span="2">
+									<ui5-label slot="labelContent" for="inpLocation">Location:</ui5-label>
+									<ui5-textarea id="inpLocation" ref={this.locationInput} show-exceeded-text maxlength={10}></ui5-textarea>
+								</ui5-form-item>
+
+								<ui5-form-item>
+									<ui5-label slot="labelContent" required for="inpPrice">Price:</ui5-label>
+									<ui5-input id="inpPrice" ref={this.priceInput} required></ui5-input>
+								</ui5-form-item>
+
+
+								<ui5-form-item>
+									<ui5-label slot="labelContent" for="inpOrder">Order date:</ui5-label>
+									<ui5-datetime-picker id="inpOrder" ref={this.dateInput} format-pattern="dd/MM/yyyy, HH:mm:ss"></ui5-datetime-picker>
+								</ui5-form-item>
+
+								<ui5-form-item>
+									<ui5-label slot="labelContent" for="imgUrl">Image URL:</ui5-label>
+									<ui5-input id="imgUrl" ref={this.imageInput} type="URL" placeholder="https://..."></ui5-input>
+								</ui5-form-item>
+
+								<ui5-form-item >
+									<ui5-label slot="labelContent" for="selStatus">Status:</ui5-label>
+
+									<ui5-select id="selStatus" ref={this.statusInput}>
+										<ui5-option>In-Stock</ui5-option>
+										<ui5-option>Re-Stock</ui5-option>
+										<ui5-option>Deterioating</ui5-option>
+									</ui5-select>
+								</ui5-form-item>
+
+								<ui5-form-item column-span="2">
+									<ui5-radio-button checked name="perishable" text="Perishable" ref={this.rbPerishable}></ui5-radio-button>
+									<ui5-radio-button name="perishable" text="Non-Perishable"></ui5-radio-button>
+								</ui5-form-item>
+							</ui5-form>
+						</form>
+
+						<div slot="footer" className="dialog-footer">
+							<ui5-button design="Emphasized" onClick={this.submitNewProduct.bind(this)} type="Submit">OK</ui5-button>
+							<ui5-button onClick={this.closeDialog.bind(this)}>Cancel</ui5-button>
+						</div>
+					</ui5-dialog>
 			</ui5-dynamic-page>
 	}
 }

@@ -214,9 +214,9 @@ class Home extends Component<HomeProps, HomeState> {
 											key={item.key}
 											icon={item.icon}
 											title-text={item.title}
-											subtitle-text={item.subtitle}
-											class="ui5list-item">
-												<div>{item.location}</div>
+											// subtitle-text={item.subtitle}
+											class="ui5list-item ui5timeline-item">
+												<ui5-text>{item.location}</ui5-text>
 										</ui5-timeline-item>
 									)}
 								</ui5-timeline>

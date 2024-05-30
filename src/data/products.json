@@ -27,7 +27,7 @@
 	"price": "5.49 USD",
 	"location": "3 Each, Aisle 23, Section 21",
 	"img": "/img/soap.png",
-	"status": ["Re-Stock"],
+	"status": "Deterioating",
 	"tags": ["Hygiene", "Aroma", "Lavender", "Handmade", "Gentle"],
 	"orderDate": "10/4/2024",
 	"perishable": false
@@ -61,7 +61,7 @@
 	"price": "3.99 /LB",
 	"location": "27 Each, Aisle 7, Section 17",
 	"img": "/img/chicken.png",
-	"status": "In-Stock",
+	"status": "Deterioating",
 	"tags": ["Protein", "Low Fat", "Low Carbs", "Roast", "Meat"],
 	"orderDate": "10/4/2024",
 	"perishable": true
@@ -118,6 +118,157 @@
 	"img": "",
 	"status": "Re-Stock",
 	"tags": ["Cooking Oil", "Mediterranean", "Mediterranean"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 12,
+	"name": "Orange Juice",
+	"price": "3.49 USD",
+	"location": "25 Each, Aisle 4, Section 10",
+	"img": "/img/orange_juice.png",
+	"status": "In-Stock",
+	"tags": ["Beverage", "Citrus", "Breakfast"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 13,
+	"name": "Brown Rice",
+	"price": "2.99 USD",
+	"location": "15 Each, Aisle 5, Section 12",
+	"img": "/img/brown_rice.png",
+	"status": "In-Stock",
+	"tags": ["Grain", "Healthy", "Staple"],
+	"orderDate": "10/4/2024",
+	"perishable": false
+},
+{
+	"key": 14,
+	"name": "Greek Yogurt",
+	"price": "4.99 USD",
+	"location": "18 Each, Aisle 6, Section 15",
+	"img": "/img/greek_yogurt.png",
+	"status": "In-Stock",
+	"tags": ["Dairy", "Protein", "Snack"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 15,
+	"name": "Granola",
+	"price": "5.49 USD",
+	"location": "30 Each, Aisle 7, Section 18",
+	"img": "/img/granola.png",
+	"status": "In-Stock",
+	"tags": ["Cereal", "Breakfast", "Snack"],
+	"orderDate": "10/4/2024",
+	"perishable": false
+},
+{
+	"key": 16,
+	"name": "Avocado",
+	"price": "1.29 USD",
+	"location": "28 Each, Aisle 2, Section 6",
+	"img": "/img/avocado.png",
+	"status": "In-Stock",
+	"tags": ["Fruit", "Healthy", "Snack"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 17,
+	"name": "Salmon Fillet",
+	"price": "8.99 USD",
+	"location": "15 Each, Aisle 3, Section 9",
+	"img": "/img/salmon_fillet.png",
+	"status": "In-Stock",
+	"tags": ["Seafood", "Protein", "Healthy"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},{
+	"key": 18,
+	"name": "Quinoa",
+	"price": "4.49 USD",
+	"location": "20 Each, Aisle 5, Section 13",
+	"img": "/img/quinoa.png",
+	"status": "In-Stock",
+	"tags": ["Grain", "Healthy", "Vegan"],
+	"orderDate": "10/4/2024",
+	"perishable": false
+},
+{
+	"key": 19,
+	"name": "Blueberries",
+	"price": "3.99 USD",
+	"location": "25 Each, Aisle 1, Section 4",
+	"img": "/img/blueberries.png",
+	"status": "Deterioating",
+	"tags": ["Fruit", "Healthy", "Snack"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 20,
+	"name": "Whole Wheat Bread",
+	"price": "2.49 USD",
+	"location": "30 Each, Aisle 8, Section 20",
+	"img": "/img/whole_wheat_bread.png",
+	"status": "Deterioating",
+	"tags": ["Bakery", "Healthy", "Staple"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 21,
+	"name": "Spinach",
+	"price": "2.99 USD",
+	"location": "20 Each, Aisle 2, Section 7",
+	"img": "/img/spinach.png",
+	"status": "Re-Stock",
+	"tags": ["Vegetable", "Healthy", "Green"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 22,
+	"name": "Eggs",
+	"price": "2.99 USD",
+	"location": "35 Each, Aisle 6, Section 14",
+	"img": "/img/eggs.png",
+	"status": "In-Stock",
+	"tags": ["Dairy", "Protein", "Breakfast"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},{
+	"key": 23,
+	"name": "Peanut Butter",
+	"price": "4.99 USD",
+	"location": "25 Each, Aisle 7, Section 19",
+	"img": "/img/peanut_butter.png",
+	"status": "In-Stock",
+	"tags": ["Spread", "Snack", "Protein"],
+	"orderDate": "10/4/2024",
+	"perishable": false
+},
+{
+	"key": 24,
+	"name": "Carrots",
+	"price": "1.49 USD",
+	"location": "28 Each, Aisle 2, Section 6",
+	"img": "/img/carrots.png",
+	"status": "In-Stock",
+	"tags": ["Vegetable", "Healthy", "Snack"],
+	"orderDate": "10/4/2024",
+	"perishable": true
+},
+{
+	"key": 25,
+	"name": "Honey",
+	"price": "5.99 USD",
+	"location": "18 Each, Aisle 7, Section 21",
+	"status": "Re-Stock",
+	"tags": ["Sweet", "Healthy"],
 	"orderDate": "10/4/2024",
 	"perishable": true
 }]

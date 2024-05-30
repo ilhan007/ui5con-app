@@ -81,7 +81,7 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<AppBar tabName={tabName}/>
+			<AppBar navigate={navigate} tabName={tabName}/>
 
 			<Routes>
 				<Route path="/" element={<Home navigate={navigate}/>} />

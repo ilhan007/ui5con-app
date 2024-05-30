@@ -24,12 +24,14 @@ import type ShellBarItem from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import type { ShellBarProfileClickEventDetail, ShellBarNotificationsClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBar";
 import type { ShellBarItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import "@ui5/webcomponents-fiori/NotificationListItem";
+import TabContainer, { TabContainerTabSelectEventDetail } from "@ui5/webcomponents/dist/TabContainer";
 
 
 setTimezone("Europe/London");
 
 type AppBarProps = {
 	tabName: string,
+	navigate: (path: string) => void,
 }
 
 type AppBarState = {
@@ -49,6 +51,7 @@ class AppBar extends Component<AppBarProps, AppBarState> {
 	tzSettingItem: React.RefObject<ShellBarItem>;
 	rtlSwitch: React.RefObject<Switch>;
 	contentDensitySwitch: React.RefObject<Switch>;
+	tabContainerRef: React.RefObject<TabContainer>;
 
 	constructor (props: AppBarProps) {
 		super(props);
@@ -62,6 +65,7 @@ class AppBar extends Component<AppBarProps, AppBarState> {
 		this.tzSettingItem = React.createRef<ShellBarItem>();
 		this.rtlSwitch = React.createRef<Switch>();
 		this.contentDensitySwitch = React.createRef<Switch>();
+		this.tabContainerRef = React.createRef<TabContainer>();
 
 		this.state = {
 			tzPopoverOpen: undefined,
@@ -81,6 +85,11 @@ class AppBar extends Component<AppBarProps, AppBarState> {
 		this.tzSettingItem.current!.addEventListener("click", this.onTimezoneSettings.bind(this) as EventListener);
 		this.rtlSwitch.current!.addEventListener("change", this.onDirChange.bind(this) as EventListener);
 		this.contentDensitySwitch.current!.addEventListener("change", this.onContentDensityChange.bind(this) as EventListener);
+
+		this.tabContainerRef.current!.addEventListener("tab-select", (event) => {
+			const { tab } = (event as CustomEvent<TabContainerTabSelectEventDetail>).detail;
+			this.props.navigate(`/${tab.getAttribute("data-navigate")}`);
+		});
 	}
 
 	onProfileClicked(event: CustomEvent<ShellBarProfileClickEventDetail>) {
@@ -191,8 +200,9 @@ class AppBar extends Component<AppBarProps, AppBarState> {
 						</ui5-shellbar-item>
 				</ui5-shellbar>
 
-				<ui5-tabcontainer collapsed>
-					<ui5-tab text={this.props.tabName}></ui5-tab>
+				<ui5-tabcontainer collapsed ref={this.tabContainerRef}>
+					<ui5-tab text="My Home" data-navigate="" selected={this.props.tabName === "My Home" ? true : undefined}></ui5-tab>
+					<ui5-tab text="My Inventory" data-navigate="detail" selected={this.props.tabName === "My Inventory" ? true : undefined}></ui5-tab>
 				</ui5-tabcontainer>
 
 				<ui5-popover id="profile-popover" hide-header placement="Bottom" horizontal-align="End">

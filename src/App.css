@@ -107,6 +107,10 @@ ui5-card:not(:defined) {
 	width: 1.75rem;
 }
 
+.ui5timeline-item {
+	margin: 1.3875rem
+}
+
 .ui5card--security {
 	--sapContent_NonInteractiveIconColor: #1a9898;
 }
