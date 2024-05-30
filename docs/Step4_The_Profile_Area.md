@@ -194,6 +194,7 @@ We will use the `ui5-switch` component to switch between Fiori 3 and High Contra
 					>
 						<img className="app-bar-logo" src={logo} slot="logo"/>
 						<ui5-avatar slot="profile" image={profile}></ui5-avatar>
+						<ui5-input slot="searchField"></ui5-input>
 					</ui5-shellbar>
 
 					<ui5-popover

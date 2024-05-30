@@ -186,6 +186,7 @@ class AppBar extends Component<AppBarProps, AppBarState> {
 					show-product-switch
 					show-co-pilot>
 						<img className="app-bar-logo" src={logo} slot="logo" alt="logo"/>
+						<ui5-input slot="searchField"></ui5-input>
 						<ui5-avatar slot="profile">
 							<img src={profile} className="profile-avatar"  alt="profile"/>
 						</ui5-avatar>

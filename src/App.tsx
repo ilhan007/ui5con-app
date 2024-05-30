@@ -36,6 +36,7 @@ import "@ui5/webcomponents-fiori/ShellBarItem";
 
 // UI5 Web Components Icons
 import "@ui5/webcomponents-icons/alert.js";
+import "@ui5/webcomponents-icons/retail-store.js";
 import "@ui5/webcomponents-icons/laptop.js";
 import "@ui5/webcomponents-icons/share-2.js";
 import "@ui5/webcomponents-icons/action-settings.js";

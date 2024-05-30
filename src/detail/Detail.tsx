@@ -307,17 +307,17 @@ class Detail extends Component<DetailProps, DetailState> {
 		return <ui5-dynamic-page id="page" class="detail-page">
 					{/* Title */}
 					<ui5-dynamic-page-title slot="titleArea">
-						<ui5-title slot="heading">Running Shoe</ui5-title>
+						<ui5-title slot="heading">Inventory</ui5-title>
 
 						<div slot="snappedHeading" className="detail-page-snapped-title-heading">
-							<ui5-avatar icon="laptop" color-scheme="Accent5" size="S"></ui5-avatar>
-							<ui5-title wrapping-type="None">Running Shoe</ui5-title>
+							<ui5-avatar icon="retail-store" color-scheme="Accent5" size="S"></ui5-avatar>
+							<ui5-title wrapping-type="None">Inventory</ui5-title>
 						</div>
 
-						<ui5-text slot="subheading">PO-48865</ui5-text>
-						<ui5-text slot="snappedSubheading">PO-48865</ui5-text>
+						<ui5-text slot="subheading">Smart Store Dep B321</ui5-text>
+						<ui5-text slot="snappedSubheading">Smart Store Dep B321</ui5-text>
 						
-						<ui5-tag design="Set2" color-scheme="3">Special offer</ui5-tag>
+						<ui5-tag design="Set2" color-scheme="3">Store-48865</ui5-tag>
 
 						<ui5-toolbar id="actionsToolbar" slot="actionsBar">
 							<ui5-toolbar-button design="Emphasized" text="Create" onClick={this.openDialog.bind(this)}></ui5-toolbar-button>
@@ -334,18 +334,18 @@ class Detail extends Component<DetailProps, DetailState> {
 					{/* Header */}
 					<ui5-dynamic-page-header slot="headerArea">
 						<div className="detail-page-header-content">
-							<ui5-avatar id="avatar" icon="laptop" color-scheme="Accent5" size="L"></ui5-avatar>
+							<ui5-avatar id="avatar" icon="retail-store" color-scheme="Accent5" size="L"></ui5-avatar>
 							<div className="detail-page-header-content-cell">
 								<ui5-label>Availability</ui5-label>
-								<ui5-tag>In Stock</ui5-tag>
+								<ui5-tag design="Set2" color-scheme="3">Good</ui5-tag>
 							</div>
 							<div className="detail-page-header-content-cell">
-								<ui5-label>Price</ui5-label>
-								<ui5-tag>379.99 USD</ui5-tag>
+								<ui5-label>Alerts</ui5-label>
+								<ui5-tag design="Set2" color-scheme="1">11 products</ui5-tag>
 							</div>
 							<div className="detail-page-header-content-cell">
-								<ui5-label>Product Description</ui5-label>
-								<ui5-text>Super-lightweight cushioning propels you forward from landing to toe-off and has a fast, snappy feel.</ui5-text>
+								<ui5-label>Summary</ui5-label>
+								<ui5-text>The store has good availability, but some products are deterioating and need attention.</ui5-text>
 							</div>
 						</div>
 					</ui5-dynamic-page-header>
