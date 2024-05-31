@@ -42,7 +42,7 @@ class DisplayForm extends Component<DisplayFormProps, DisplayFormState> {
 	render() {
 		return <ui5-form layout="S1 M3 L4 XL4" label-span="S12 M12 L12 XL4" item-spacing={this.props.editable ? "Standard" : "Large"}>
 			<ui5-bar design="Subheader" slot="header">
-				<ui5-title level="H4" slot="startContent">Store Data</ui5-title>
+				<ui5-title level="H4" slot="startContent">Store Dep B321</ui5-title>
 				<ui5-toggle-button slot="endContent" icon="edit" onClick={this.props.edit} pressed={this.props.editable ? true : undefined}>Edit</ui5-toggle-button>
 			</ui5-bar>
 			<ui5-form-group header-text="Manager">

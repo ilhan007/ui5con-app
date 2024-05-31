@@ -20,6 +20,7 @@ type EditFormProps = {
 	editFormData: () => void,
 	saveFormData: FormDataSetter,
 	editable: boolean,
+	data: FormData,
 }
 
 type EditFormState= {
@@ -61,42 +62,46 @@ class EditForm extends Component<EditFormProps, EditFormState> {
 		this.props.editFormData();
 	}
 
+	cancel() {
+		this.props.editFormData();
+	}
+
 
 	render() {
 		return <ui5-form layout="S1 M3 L4 XL4" label-span="S12 M12 L12 XL4" item-spacing={this.props.editable ? "Standard" : "Large"}>
 			<ui5-bar design="Subheader" slot="header">
-				<ui5-title level="H4" slot="startContent">Store Data</ui5-title>
-				<ui5-toggle-button slot="endContent" icon="edit" onClick={this.edit.bind(this)} pressed={this.props.editable ? true : undefined}>Edit</ui5-toggle-button>
+				<ui5-title level="H4" slot="startContent">Store Dep B321</ui5-title>
 				<ui5-button slot="endContent" onClick={this.save.bind(this)} hidden={this.props.editable ? undefined : true} design="Emphasized">Save</ui5-button>
+				<ui5-button slot="endContent" onClick={this.cancel.bind(this)}>Cancel</ui5-button>
 			</ui5-bar>
 			<ui5-form-group header-text="Manager">
 				<ui5-form-item>
 					<ui5-label slot="labelContent">Name:</ui5-label>
-					<ui5-input ref={this.inpName} value="Smart Store Dep B321" ></ui5-input>
+					<ui5-input ref={this.inpName} value={this.props.data.name}></ui5-input>
 				</ui5-form-item>
 				
 				<ui5-form-item>
 					<ui5-label slot="labelContent">ZIP Code/City:</ui5-label>
-					<ui5-input ref={this.inpCity} value="411 Maintown"  ></ui5-input>
+					<ui5-input ref={this.inpCity} value={this.props.data.city}></ui5-input>
 				</ui5-form-item>
-				
+
 				<ui5-form-item>
 					<ui5-label slot="labelContent">Street:</ui5-label>
-					<ui5-input ref={this.inpStreet} value="Main St 1618"  ></ui5-input>
+					<ui5-input ref={this.inpStreet} value={this.props.data.street}></ui5-input>
 				</ui5-form-item>
 
 				<ui5-form-item>
 					<ui5-label slot="labelContent">Country:</ui5-label>
 					<ui5-select ref={this.selCountry}>
-						<ui5-option>Italy</ui5-option>
-						<ui5-option selected>Germany</ui5-option>
-						<ui5-option>France</ui5-option>
+						<ui5-option selected={this.props.data.country === "Italy" ? true : undefined}>Italy</ui5-option>
+						<ui5-option selected={this.props.data.country === "Germany" ? true : undefined}>Germany</ui5-option>
+						<ui5-option selected={this.props.data.country === "France" ? true : undefined}>France</ui5-option>
 					</ui5-select>
 				</ui5-form-item>
 
 				<ui5-form-item>
 					<ui5-label slot="labelContent">WebSite:</ui5-label>
-					<ui5-input ref={this.inpWebsite} value="sap.com"  ></ui5-input>
+					<ui5-input ref={this.inpWebsite} value={this.props.data.website}></ui5-input>
 				</ui5-form-item>
 			</ui5-form-group>
 

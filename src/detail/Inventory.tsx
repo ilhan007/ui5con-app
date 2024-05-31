@@ -514,7 +514,7 @@ class Inventory extends Component<DetailProps, DetailState> {
 							<ui5-button onClick={this.closeDialog.bind(this)}>Cancel</ui5-button>
 						</div>
 					</ui5-dialog>
-			</ui5-dynamic-page>
+				</ui5-dynamic-page>
 	}
 }
 

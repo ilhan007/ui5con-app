@@ -50,14 +50,6 @@
 	padding: 0 1rem;
 }
 
-.detail-page-header-menu {
-	/* border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9); */
-}
-
-.detail-page-header-content {
-
-}
-
 /* Detail Page Filter Bar */
 
 .details-page-filter-bar {
@@ -69,7 +61,6 @@
 
 .detail-page-header-menu {
 	box-shadow: none;
-	/* border: 1px solid var(--sapList_TableGroupHeader_BorderColor, #d9d9d9); */
 }
 
 .detail-page-snapped-title-heading {
