@@ -13,7 +13,7 @@ What is an admin UI without a profile area? We will create one for our smart sto
 	// AppBar.js
 	import React, { Component } from "react";
 	import profile from "../img/profile.png"; // moved from App.js
-	import logo from "../img/logo.png"; // moved from App.js
+	import logo from "../img/logo.svg"; // moved from App.js
 
 	class AppBar extends Component {	
 

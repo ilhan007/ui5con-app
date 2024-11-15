@@ -23,6 +23,12 @@ ui5-card:not(:defined) {
 	z-index: 2;
 }
 
+.app-bar-logo {
+	max-height: 1.75rem;
+	min-width: 1.75rem;
+	min-height: 1.75rem;
+}
+
 .app-bar-lang-popover {
 	width: 250px;
 }

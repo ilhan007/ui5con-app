@@ -16,7 +16,7 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	```js 
 	// App.js
 	import profile from "./img/profile.png";
-	import logo from "./img/logo.png";
+	import logo from "./img/logo.svg";
 	import "@ui5/webcomponents-fiori/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
 	import "@ui5/webcomponents/dist/CardHeader";

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // @ts-ignore
 import profile from "../img/profile.png";
 // @ts-ignore
-import logo from "../img/logo.png";
+import logo from "../img/logo.svg";
 
 // UI5 Web Components Base
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";

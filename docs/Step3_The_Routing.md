@@ -50,7 +50,7 @@ Then, use the `Routes` to set up the paths and which component to be displayed r
 	import { Routes, Route, Navigate } from "react-router-dom";
 	import "./App.css";
 	import profile from "./img/profile.png";
-	import logo from "./img/logo.png";
+	import logo from "./img/logo.svg";
 
 	import "@ui5/webcomponents-fiori/dist/ShellBar";
 	import "@ui5/webcomponents/dist/Card";
