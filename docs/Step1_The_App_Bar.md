@@ -58,4 +58,4 @@ Note: We are replacing the `ui5-button` from the previous step with the `ui5-she
 	}
 	```
 
-### [Step #2 - The Home Component](./Step2_The_Home_Component.md)
+### [Step #2 - The Home Component](./Step2_The_Home.md)

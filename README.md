@@ -52,7 +52,7 @@ The Smart Store app enables a store manager to control his/her multiple stores. 
 ## Build the Smart Store app
 
 ### [Step #1 - The App Bar](./docs/Step1_The_App_Bar.md)
-### [Step #2 - The Home Component](./docs/Step2_The_Home_Component.md)
+### [Step #2 - The Home Component](./docs/Step2_The_Home.md)
 ### [Step #3 - The Routing](./docs/Step3_The_Routing.md)
 ### [Step #4 - The Profile Area](./docs/Step4_The_Profile_Area.md)
 ### [Step #5 - Detail Page](./docs/Step5_Details.md)
