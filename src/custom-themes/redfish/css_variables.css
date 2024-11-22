@@ -390,8 +390,10 @@
   --sapInfobar_NonInteractive_Background: #e6e6e6;
   --sapInfobar_TextColor: #fff;
   --sapObjectHeader_Background: #fff;
+  --sapObjectHeader_Title_FontSize: 1.5rem;
   --sapObjectHeader_BorderColor: #d9d9d9;
-  --sapObjectHeader_Hover_Background: #333;
+  --sapObjectHeader_Hover_Background: #d9d9d9;
+  --sapObjectHeader_Title_FontFamily: "72Black", "72Blackfull", "72", "72full", Arial, Helvetica, sans-serif;
   --sapBlockLayer_Background: #000;
   --sapTile_Background: #f42015;
   --sapTile_Hover_Background: #333;

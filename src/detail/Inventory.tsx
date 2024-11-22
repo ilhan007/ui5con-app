@@ -9,6 +9,7 @@ import TokenizerReactComponent from "./TokenizerReactComponent";
 
 import MovePlacement from "@ui5/webcomponents-base/dist/types/MovePlacement";
 import "@ui5/webcomponents/Input";
+import "@ui5/webcomponents/Title";
 import "@ui5/webcomponents/TextArea";
 import "@ui5/webcomponents/DateTimePicker";
 import "@ui5/webcomponents/Select";
@@ -447,7 +448,7 @@ class Inventory extends Component<DetailProps, DetailState> {
 													<ui5-text>{product.orderDate}</ui5-text>
 												</ui5-table-cell>
 												<ui5-table-cell>
-														<ui5-tag design="Set3" color-scheme={getTagType(product.status!)}>{product.status}</ui5-tag>
+														<ui5-tag design="Set2" color-scheme={getTagType(product.status!)}>{product.status}</ui5-tag>
 												</ui5-table-cell>
 
 												<ui5-table-cell class="table-status-cell-content">

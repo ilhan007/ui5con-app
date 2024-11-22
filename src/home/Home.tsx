@@ -131,7 +131,7 @@ class Home extends Component<HomeProps, HomeState> {
 	}
 
 	_navToDetail() {
-		this._navigate("/detail");
+		this._navigate("/inventory");
 	}
 
 	render(){
@@ -311,20 +311,20 @@ class Home extends Component<HomeProps, HomeState> {
 							></ui5-card-header>
 
 							<div className="ui5card--staff-content">
-								<ui5-avatar-group type="Individual" avatar-size="M" id="avatar-group-group">
+								<ui5-avatar-group type="Individual" id="avatar-group-group">
 									{["IM", "JD"].map(initials =>
-										<ui5-avatar key={initials} initials={initials}>
+										<ui5-avatar key={initials} size="M" initials={initials}>
 										</ui5-avatar>
 									)}
 
 									{imgs.map((img, idx) =>
-										<ui5-avatar key={idx}>
+										<ui5-avatar key={idx} size="M">
 											<img src={img} alt="employee" />
 										</ui5-avatar>
 									)}
 
 									{["MI", "LI"].map(initials =>
-										<ui5-avatar  key={initials} initials={initials}></ui5-avatar>
+										<ui5-avatar  key={initials} size="M" initials={initials}></ui5-avatar>
 									)}
 								</ui5-avatar-group>
 							</div>

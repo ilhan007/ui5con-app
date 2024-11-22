@@ -26,7 +26,7 @@ class TokenizerReactComponent extends Component<TokenReactComponentProps> {
 	componentDidMount() {
 		this.tokenizerRef.current!.addEventListener("token-delete", (event) => {
 			const deletedToken = (event as CustomEvent<TokenizerTokenDeleteEventDetail>).detail.tokens[0];
-			this.props.deleteTag(parseInt(deletedToken.getAttribute("data-product-key")!), deletedToken.text);
+			this.props.deleteTag(parseInt(deletedToken.getAttribute("data-product-key")!), deletedToken.text!);
 		});
 	}
 
