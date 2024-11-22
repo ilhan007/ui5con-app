@@ -44,7 +44,7 @@ const getTagType = (type: string) => {
 		case "In-Stock":
 			return "8";
 		case "Deterioating":
-			return "2";
+			return "3";
 		case "Re-Stock":
 			return "1";
 		default:
