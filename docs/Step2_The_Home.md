@@ -24,7 +24,7 @@ from [Sources of Smart Store](https://github.com/ilhan007/ui5con-app/blob/master
 	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
 	import "@ui5/webcomponents/dist/CustomListItem";
-	import "@ui5/webcomponents/dist/StandardListItem";
+	import "@ui5/webcomponents/dist/ListItemStandard";
 	```
 
 5. Let's start with the "Featured" section.
@@ -59,7 +59,7 @@ Create the `Home` component in `src/home/Home.js`. Note that we import the `data
 	export default Home;
 	```
 
-6. Now, let's add the `ui5-card`. We will also use `ui5-list` (List) and `ui5-li` (StandardListItem) for the `ui5-card` content. 
+6. Now, let's add the `ui5-card`. We will also use `ui5-list` (List) and `ui5-li` (ListItemStandard) for the `ui5-card` content. 
 You can get familiar with the API of those components - [Card API](https://sap.github.io/ui5-webcomponents/playground/components/Card/) and [List API](https://sap.github.io/ui5-webcomponents/playground/components/List/). What is going below?
 We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "status") and the JSX syntax to map the data and the cards will render nicely.
 
@@ -112,7 +112,7 @@ We are just using the API of the UI5 WebComponents ("heading", "subtitle" and "s
 	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
 	import "@ui5/webcomponents/dist/CustomListItem";
-	import "@ui5/webcomponents/dist/StandardListItem";
+	import "@ui5/webcomponents/dist/ListItemStandard";
 	import Home from "./home/Home";
 
 	function App() {

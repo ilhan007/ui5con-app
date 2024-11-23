@@ -51,7 +51,7 @@ What is an admin UI without a profile area? We will create one for our smart sto
 	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
 	import "@ui5/webcomponents/dist/CustomListItem";
-	import "@ui5/webcomponents/dist/StandardListItem";
+	import "@ui5/webcomponents/dist/ListItemStandard";
 	
 
 	import Home from "./home/Home";

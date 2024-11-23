@@ -58,7 +58,7 @@ Then, use the `Routes` to set up the paths and which component to be displayed r
 	import "@ui5/webcomponents/dist/Label";
 	import "@ui5/webcomponents/dist/List";
 	import "@ui5/webcomponents/dist/CustomListItem";
-	import "@ui5/webcomponents/dist/StandardListItem";
+	import "@ui5/webcomponents/dist/ListItemStandard";
 
 	import Home from "./home/Home";
 	import Detail from './detail/Detail';

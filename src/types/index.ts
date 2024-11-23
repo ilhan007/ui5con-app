@@ -55,7 +55,7 @@ import type ToggleButton from "@ui5/webcomponents/dist/ToggleButton";
 import type Popover from "@ui5/webcomponents/dist/Popover";
 import type Title from "@ui5/webcomponents/dist/Title";
 import type List from "@ui5/webcomponents/dist/List";
-import type StandardListItem from "@ui5/webcomponents/dist/StandardListItem";
+import type ListItemStandard from "@ui5/webcomponents/dist/ListItemStandard";
 import type NotificationListItem from "@ui5/webcomponents-fiori/dist/NotificationListItem";
 import type ShellBar from "@ui5/webcomponents-fiori/dist/ShellBar";
 import type DynamicPage from "@ui5/webcomponents-fiori/dist/DynamicPage";
@@ -101,7 +101,7 @@ declare global {
 		['ui5-tag']: CustomElement<Tag>;
 		['ui5-dialog']: CustomElement<Dialog>;
 		['ui5-list']: CustomElement<List>;
-		['ui5-li']: CustomElement<StandardListItem>;
+		['ui5-li']: CustomElement<ListItemStandard>;
 		['ui5-li-notification']: CustomElement<NotificationListItem>;
 		['ui5-link']: CustomElement<Link>;
 		['ui5-popover']: CustomElement<Popover>;

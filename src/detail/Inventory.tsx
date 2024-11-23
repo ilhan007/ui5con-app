@@ -320,13 +320,13 @@ class Inventory extends Component<DetailProps, DetailState> {
 						
 						<ui5-tag design="Set2" color-scheme="3">Store-48865</ui5-tag>
 
-						<ui5-toolbar id="actionsToolbar" slot="actionsBar">
+						<ui5-toolbar id="actionsToolbar" slot="actionsBar" design="Transparent">
 							<ui5-toolbar-button design="Emphasized" text="Create" onClick={this.openDialog.bind(this)}></ui5-toolbar-button>
 							<ui5-toolbar-button design="Transparent" text="Edit" onClick={this.toggleEdit.bind(this)}></ui5-toolbar-button>
 							<ui5-toolbar-button design="Transparent" text="Delete"></ui5-toolbar-button>
 						</ui5-toolbar>
 
-						<ui5-toolbar slot="navigationBar">
+						<ui5-toolbar slot="navigationBar" design="Transparent">
 							<ui5-toolbar-button design="Transparent" icon="share-2"></ui5-toolbar-button>
 							<ui5-toolbar-button design="Transparent" icon="action-settings"></ui5-toolbar-button>
 						</ui5-toolbar>
